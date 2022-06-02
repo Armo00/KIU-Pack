@@ -1,6 +1,6 @@
 English:
 
-1. This module is self-made by myself. (Some of the texture, all of the waterfall templates, FX resources and realplume templates are from Kerwis Chinese Aerospace Pack. (authors: Velctor, Bingo, Akino), and refer to some CFG files. The Waterfall effect of YF-100 is from Stock Waterfall Effects.(Author: AtomicTech)This mod follows the CC BY-NC-SA 4.0 license. ) This module is free of charge and may not be used for commercial purposes by any organization or individual.
+1. This module is self-made by myself. (Some of the texture, all of the FX resources and realplume templates are from Kerwis Chinese Aerospace Pack. (authors: Velctor, Bingo, Akino), and refer to some CFG files. The Waterfall effect of YF-100 is from Stock Waterfall Effects.(Author: AtomicTech)This mod follows the CC BY-NC-SA 4.0 license. ) This module is free of charge and may not be used for commercial purposes by any organization or individual.
 
 2. It is highly recommended to install "KerbalJointReinforcement", otherwise the rockets will shake badly, and this mod relies on ICSP.
 
@@ -79,7 +79,7 @@ English:
 
 中文：
 
-1. 此插件为本人自制插件。（申明：部分纹理，所有的waterfall模板，FX资源和real plume模板来自Kerwis中国航空航天包 (作者:Velctor, Bingo, Akino)，并参考了部分cfg文件。此mod遵循CC BY-NC-SA 4.0协议。）本插件为免费插件，任何组织或个人不得用于商业用途。
+1. 此插件为本人自制插件。（申明：部分纹理，所有的FX资源和real plume模板来自Kerwis中国航空航天包 (作者:Velctor, Bingo, Akino)，并参考了部分cfg文件。此mod遵循CC BY-NC-SA 4.0协议。）本插件为免费插件，任何组织或个人不得用于商业用途。
 
 2. 强烈建议安装“KerbalJointReinforcement”插件，否则火箭会晃得厉害。注意：此mod依赖于ICSP！！！
 
