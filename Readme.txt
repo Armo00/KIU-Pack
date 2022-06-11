@@ -1,5 +1,7 @@
 English:
 
+
+
 1. This mod follows CC BY-NC-SA 4.0 license. (Some of the texture, waterfall templates, FX resources and realplume templates are from Kerwis Chinese Aerospace Pack. (authors: Velctor, Bingo, Akino). And some other waterfall templates are from Stock Waterfall Effects (Author: AtomicTech) and SWE (SRB Waterfall Effects, Author: Adiri). These mods follow the CC BY-NC-SA 4.0 or CC BY-NC-SA license. ) This module is free of charge and may not be used for commercial purposes by any organization or individual.
 
 2. It is highly recommended to install "KerbalJointReinforcement", otherwise the rockets will shake badly. Also, this mod relies on ICSP.
