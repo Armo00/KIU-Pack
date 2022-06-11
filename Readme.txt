@@ -20,7 +20,7 @@ English:
 			
 			a. Install manually:
 
-				(1) Delete the older "NTCP" folder (ignore this step if there is not an older version is installed)
+				(1) Delete the older "NTCP" or "NCAP" folder (ignore this step if there is not an older version is installed)
 
 				(2) Drag the "NCAP" folder from the new compressed package to the "GameData" folder in the game directory to complete the installation.
 
@@ -61,7 +61,7 @@ English:
 			
 			A. 手动安装:
 
-				1. 删除旧"NTCP"文件夹（没有安装旧版请忽略此步骤）。
+				1. 删除旧"NTCP" 或 "NCAP" 文件夹（没有安装旧版请忽略此步骤）。
 				
 				2. 从新的压缩包拖动"NCAP"文件夹至游戏目录的"GameData"文件夹，即可完成安装。
 			
