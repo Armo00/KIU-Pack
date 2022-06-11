@@ -26,9 +26,7 @@ English:
 
 			b. Use Ckan to installs:  
 
-				(1) Open Ckan and search for "NTCP", find "NTCP(NT Chineserockets Pack)" and install it.
-
-				(2) If you cannot find "NTCP" on Ckan, please search "NCAP" and find: "NCAP(NT Chinese Aerospace Pack)", then install.
+				(1) Open Ckan and search for "NCAP" and find: "NCAP(NT Chinese Aerospace Pack)", then install it.
 
 		3. The CZ-2F in this mod depends on the Shenzhou Spacecraft from ICSP. Without it, the fairings of CZ-2F cannot be installed!
 	
@@ -68,10 +66,8 @@ English:
 				2. 从新的压缩包拖动"NCAP"文件夹至游戏目录的"GameData"文件夹，即可完成安装。
 			
 			B. Ckan安装：
-			
-				1.打开Ckan并搜索"NTCP"，找到"NTCP(NT Chineserockets Pack)"并安装即可。
 
-				2.如果在Ckan没有搜到"NTCP"，则需要搜索"NCAP"，找到"NCAP(NT Chinese Aerospace Pack)"并安装即可。
+				1.搜索"NCAP"，找到"NCAP(NT Chinese Aerospace Pack)"并安装即可。
 
 		3. 长征2F运载火箭需要ICSP包的神舟飞船支持，否则整流罩无法安装！
 
