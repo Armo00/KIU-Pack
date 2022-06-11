@@ -10,7 +10,7 @@ English:
 
 		1. This mod follows CC BY-NC-SA 4.0 license. Some of the texture, Waterfall templates, FX resources, and Realplume templates are from Kerwis Chinese Aerospace Pack. (authors: Velctor, Bingo, Akino). And some other waterfall templates are from Stock Waterfall Effects by AtomicTech and SRB Waterfall Effects by Adiri. These mods follow the CC BY-NC-SA 4.0 or CC BY-NC-SA license. No individual nor organization shall use any of the content of this mod for commercial purposes.
 
-		2. This mod is in no way intended to leak or spread classified information about the Chinese Space Program. The content in this mod is based upon public information and a little bit on our Imagination. It may not reflect reality accurately, so take what you will. 
+		2. This mod is in no way intended to leak or spread classified information about the Chinese Space Program. The content in this mod is based upon public information and a little bit imagination. It may not reflect reality accurately, so take it what you will. 
 
 	Tips:
 
