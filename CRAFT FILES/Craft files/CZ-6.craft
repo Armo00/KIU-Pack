@@ -1,5 +1,5 @@
 ship = CZ-6
-version = 1.12.3
+version = 1.9.0
 description = 
 type = VAB
 size = 2.89517021,16.8313065,2.88162947
@@ -320,27 +320,6 @@ PART
 		}
 		ACTIONS
 		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleDataTransmitter
-		isEnabled = True
-		xmitIncomplete = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			StartTransmissionAction
-			{
-				actionGroup = None
-				active = False
-			}
 		}
 		UPGRADESAPPLIED
 		{
