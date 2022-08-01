@@ -76,7 +76,4 @@ English:
 		贴图: Old_Copper, Launcelot
 		配置文件撰写: Old_Copper, Armor
 	
-	感谢您的使用，玩的开心。
-	堵上我程序员的尊严du
-	test、
-	啦啦啦啦啦啦Armor
+	感谢你的使用，玩的开心
