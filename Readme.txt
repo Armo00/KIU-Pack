@@ -79,3 +79,4 @@ English:
 	感谢您的使用，玩的开心。
 	test 
 	from Launcelot
+	and this is Armor
