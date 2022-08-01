@@ -77,6 +77,3 @@ English:
 		配置文件撰写: Old_Copper, Armor
 	
 	感谢您的使用，玩的开心。
-	test 
-	from Launcelot
-	and this is Armor
