@@ -43,7 +43,7 @@ English:
 
 	简介：
 
-		NT中国航天包(NCAP)是一个为坎巴拉太空计划创作的游戏插件，其目的在于为游戏添加中国的火箭和航天器。
+		NT中国航天包(NCAP)是一个专为坎巴拉太空计划创作的游戏插件，其目的在为游戏添加更多的中国的火箭和航天器。
 
 	用户协议：
 
@@ -55,7 +55,7 @@ English:
 
 	提示：
 
-		1. 强烈建议安装“KerbalJointReinforcement”插件，否则火箭会晃得厉害。
+		1. 建议安装“KerbalJointReinforcement”插件，否则火箭会晃得厉害。
 
 		2. 安装方法：
 			
@@ -76,4 +76,4 @@ English:
 		贴图: Old_Copper, Launcelot
 		配置文件撰写: Old_Copper, Armor
 	
-	感谢您的使用，玩的开心。
+	感谢你的使用，祝你玩的开心
