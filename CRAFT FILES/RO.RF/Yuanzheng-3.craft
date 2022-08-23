@@ -1,10 +1,10 @@
-ship = Yuanzheng-3
-version = 1.9.0
+ship = YuanZheng-3
+version = 1.9.1
 description = 
 type = VAB
 size = 2.99315119,3.0304985,2.99315166
 steamPublishedFileId = 0
-persistentId = 2301192757
+persistentId = 2015756341
 rot = 0,0,0,0
 missionFlag = Squad/Flags/China
 vesselType = Debris
@@ -14,9 +14,9 @@ OverrideAxisControl = 0,0,0,0
 OverrideGroupNames = ,,,
 PART
 {
-	part = Yuanzheng.3_4293624424
+	part = Yuanzheng.3_4293865282
 	partName = Part
-	persistentId = 3882800185
+	persistentId = 2191326088
 	pos = 0,15,0
 	attPos = 0,0,0
 	attPos0 = 0,15,0
@@ -27,27 +27,27 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 0
+	istg = 1
 	resPri = 0
 	dstg = 0
 	sidx = 0
-	sqor = 0
+	sqor = 1
 	sepI = -1
 	attm = 0
 	sameVesselCollision = False
-	modCost = 2832.15723
-	modMass = 0.00764180021
+	modCost = 7
+	modMass = 0.00260000001
 	modSize = 0,0,0
-	link = Yuanzheng.3.loadBracket_4293909520
-	link = YZ3Engine_4293910264
+	link = YZ3Engine_4293863956
+	link = Yuanzheng.3.loadBracket_4293863132
 	attN = top,Null_0_0|0.934243679|0_0|1|0_0|0.934243679|0_0|1|0
-	attN = bottom,YZ3Engine_4293910264_0|-0.314311385|0_0|-1|0_0|-0.314311385|0_0|-1|0
+	attN = bottom,YZ3Engine_4293863956_0|-0.314311385|0_0|-1|0_0|-0.314311385|0_0|-1|0
 	attN = bottom2,Null_0_0|-0.314311385|0_0|-1|0_0|-0.314311385|0_0|-1|0
 	attN = 1,Null_0_0.982668698|0.598230124|0_0|1|0_0.982668698|0.598230124|0_0|1|0
 	attN = 2,Null_0_-0.982668698|0.598230124|0_0|1|0_-0.982668698|0.598230124|0_0|1|0
 	attN = 3,Null_0_0|0.598230124|-0.982668698_0|1|0_0|0.598230124|-0.982668698_0|1|0
 	attN = 4,Null_0_0|0.598230124|0.982668698_0|1|0_0|0.598230124|0.982668698_0|1|0
-	attN = 5,Yuanzheng.3.loadBracket_4293909520_0|0.598230124|0_0|1|0_0|0.598230124|0_0|1|0
+	attN = 5,Yuanzheng.3.loadBracket_4293863132_0|0.598230124|0_0|1|0_0|0.598230124|0_0|1|0
 	EVENTS
 	{
 	}
@@ -200,7 +200,7 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 10613.914702226788
+		OriginalCost = 5007
 		stagingEnabled = True
 		EVENTS
 		{
@@ -952,41 +952,11 @@ PART
 	}
 	MODULE
 	{
-		name = TrajectoriesVesselSettings
-		isEnabled = True
-		Initialized = False
-		EntryAngle = 3.1415926535897931
-		EntryHorizon = False
-		HighAngle = 3.1415926535897931
-		HighHorizon = False
-		LowAngle = 3.1415926535897931
-		LowHorizon = False
-		GroundAngle = 3.1415926535897931
-		GroundHorizon = False
-		RetrogradeEntry = True
-		TargetBody = 
-		TargetPosition_x = 0
-		TargetPosition_y = 0
-		TargetPosition_z = 0
-		ManualTargetTxt = 
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleRealAntenna
 		isEnabled = True
 		_enabled = True
 		TxPower = 30
-		TechLevel = 10
+		TechLevel = 0
 		AMWTemp = 0
 		antennaDiameter = 0
 		referenceGain = 1.5
@@ -1043,7 +1013,7 @@ PART
 		isEnabled = True
 		type = ServiceModule
 		utilization = 86
-		mass = 0.507641792
+		mass = 0.502600014
 		_numberOfAddedMLILayers = 0
 		stagingEnabled = True
 		volume = 2850
@@ -1052,34 +1022,6 @@ PART
 		}
 		ACTIONS
 		{
-		}
-		TANK
-		{
-			name = NTO
-			note = (pressurized)
-			utilization = 1
-			mass = 8.09999983E-05
-			cost = 0
-			loss_rate = 0
-			temperature = 300
-			fillable = True
-			techRequired = 
-			amount = 1420.3349635004997
-			maxAmount = 1420.3349635004997
-		}
-		TANK
-		{
-			name = MMH
-			note = (pressurized)
-			utilization = 1
-			mass = 8.09999983E-05
-			cost = 0
-			loss_rate = 0
-			temperature = 300
-			fillable = True
-			techRequired = 
-			amount = 1414.6650364995003
-			maxAmount = 1414.6650364995003
 		}
 		TANK
 		{
@@ -1164,258 +1106,12 @@ PART
 		isVisible = True
 		flowMode = Both
 	}
-	RESOURCE
-	{
-		name = MMH
-		amount = 1414.6650364995003
-		maxAmount = 1414.6650364995003
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-	RESOURCE
-	{
-		name = NTO
-		amount = 1420.3349635004997
-		maxAmount = 1420.3349635004997
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
 }
 PART
 {
-	part = Yuanzheng.3.loadBracket_4293909520
+	part = YZ3Engine_4293863956
 	partName = Part
-	persistentId = 1196289669
-	pos = 0,16.0135365,0
-	attPos = 0,0,0
-	attPos0 = 0,1.01353645,0
-	rot = 0,0,0,1
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = 1
-	sqor = 0
-	sepI = 0
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	attN = top,Null_0_0|0.580403984|0_0|1|0_0|0.580403984|0_0|1|0
-	attN = bottom,Yuanzheng.3_4293624424_0|-0.415306002|0_0|-1|0_0|-0.415306002|0_0|-1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDecouple
-		isEnabled = True
-		ejectionForcePercent = 100
-		isDecoupled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			DecoupleAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 5000
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		active = True
-		available = True
-		currentScale = 2.95000005
-		defaultScale = 2.95000005
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 5000
-		OriginalCrewCapacity = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleToggleCrossfeed
-		isEnabled = True
-		crossfeedStatus = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-			EnableAction
-			{
-				actionGroup = None
-			}
-			DisableAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (0, 16.0135365, 0)
-		originalRotation = (0, 0, 0, 1)
-		correctlyInitialised = False
-		moduleVersion = 4
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.6, 0.0)
-		originalAttachNodePos = (0.0, -0.4, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleTripLogger
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		Log
-		{
-			flight = 0
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = YZ3Engine_4293910264
-	partName = Part
-	persistentId = 1749407215
+	persistentId = 2695750897
 	pos = 0,14.2742672,0
 	attPos = 0,0,0
 	attPos0 = 0,-0.725732803,0
@@ -1426,18 +1122,18 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 0
+	istg = 1
 	resPri = 0
 	dstg = 0
-	sidx = 2
-	sqor = 0
+	sidx = 1
+	sqor = 1
 	sepI = -1
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	attN = top,Yuanzheng.3_4293624424_0|0.411421388|0_0|1|0_0|0.411421388|0_0|1|0
+	attN = top,Yuanzheng.3_4293865282_0|0.411421388|0_0|1|0_0|0.411421388|0_0|1|0
 	attN = bottom,Null_0_0|-0.369652927|0_0|-1|0_0|-0.369652927|0_0|-1|0
 	EVENTS
 	{
@@ -1735,6 +1431,211 @@ PART
 		name = ModuleWaterfallFX
 		isEnabled = True
 		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = Yuanzheng.3.loadBracket_4293863132
+	partName = Part
+	persistentId = 2286095941
+	pos = 0,16.0135365,0
+	attPos = 0,0,0
+	attPos0 = 0,1.01353645,0
+	rot = 0,0,0,1
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 0
+	resPri = 0
+	dstg = 0
+	sidx = 0
+	sqor = 0
+	sepI = 0
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	attN = top,Null_0_0|0.580403984|0_0|1|0_0|0.580403984|0_0|1|0
+	attN = bottom,Yuanzheng.3_4293865282_0|-0.415306002|0_0|-1|0_0|-0.415306002|0_0|-1|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleDecouple
+		isEnabled = True
+		ejectionForcePercent = 100
+		isDecoupled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DecoupleAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = Refunding
+		isEnabled = True
+		active = True
+		OriginalCost = 5000
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 2.95000005
+		defaultScale = 2.95000005
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 5000
+		OriginalCrewCapacity = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = GeometryPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARAeroPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleToggleCrossfeed
+		isEnabled = True
+		crossfeedStatus = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+			}
+			EnableAction
+			{
+				actionGroup = None
+			}
+			DisableAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = AttachedOnEditor
+		isEnabled = True
+		active = True
+		originalPos = (0, 16.0135365, 0)
+		originalRotation = (0, 0, 0, 1)
+		correctlyInitialised = False
+		moduleVersion = 4
+		stagingEnabled = True
+		originalAttachNodePos = (0.0, 0.6, 0.0)
+		originalAttachNodePos = (0.0, -0.4, 0.0)
 		EVENTS
 		{
 		}
