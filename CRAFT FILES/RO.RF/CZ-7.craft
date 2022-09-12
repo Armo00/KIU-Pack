@@ -1,5 +1,5 @@
 ship = CZ-7
-version = 1.9.0
+version = 1.9.1
 description = 
 type = VAB
 size = 8.02231789,52.2440033,8.02231884
@@ -946,15 +946,6 @@ PART
 		}
 		UPGRADESAPPLIED
 		{
-			upgrade = commsTL1
-			upgrade = commsTL2
-			upgrade = commsTL3
-			upgrade = commsTL4
-			upgrade = commsTL5
-			upgrade = commsTL6
-			upgrade = commsTL7
-			upgrade = commsTL8
-			upgrade = commsTL9
 		}
 	}
 	MODULE
@@ -1044,7 +1035,7 @@ PART
 {
 	part = CZ-7.Fairing_4293708864
 	partName = Part
-	persistentId = 3404145981
+	persistentId = 1495120192
 	pos = 2.59452027E-05,41.9638748,-1.32002779E-05
 	attPos = 0,0,0
 	attPos0 = 0,0,0
@@ -1848,7 +1839,7 @@ PART
 {
 	part = CZ-7.Stage.2_4293873082
 	partName = Part
-	persistentId = 3580795663
+	persistentId = 709629758
 	pos = 2.59452027E-05,35.7188721,-1.32002779E-05
 	attPos = 0,0,0
 	attPos0 = 0,-6.24500275,0
@@ -1871,16 +1862,16 @@ PART
 	modMass = 0
 	modSize = 0,0,0
 	link = YF115_4293611890
-	link = YF115_4293698572
-	link = YF115_4293698404
-	link = YF115_4293698236
+	link = YF115_4293609054
+	link = YF115_4293608506
+	link = YF115_4293607532
 	link = CZ-7.Interstage1-2_4294043292
 	attN = top,Null_0_0|5.87249994|0_0|1|0_0|5.87249994|0_0|1|0
 	attN = bottom,CZ-7.Interstage1-2_4294043292_0|-5.87249994|0_0|-1|0_0|-5.87249994|0_0|-1|0
-	attN = 1,YF115_4293698236_-0.592199981|-5.56796408|-0.592199981_0|-1|0_-0.592199981|-5.56796408|-0.592199981_0|-1|0
+	attN = 1,YF115_4293609054_-0.592199981|-5.56796408|-0.592199981_0|-1|0_-0.592199981|-5.56796408|-0.592199981_0|-1|0
 	attN = 2,YF115_4293611890_-0.592199981|-5.56796408|0.592199981_0|-1|0_-0.592199981|-5.56796408|0.592199981_0|-1|0
-	attN = 3,YF115_4293698404_0.592199981|-5.56796408|-0.592199981_0|-1|0_0.592199981|-5.56796408|-0.592199981_0|-1|0
-	attN = 4,YF115_4293698572_0.592199981|-5.56796408|0.592199981_0|-1|0_0.592199981|-5.56796408|0.592199981_0|-1|0
+	attN = 3,YF115_4293608506_0.592199981|-5.56796408|-0.592199981_0|-1|0_0.592199981|-5.56796408|-0.592199981_0|-1|0
+	attN = 4,YF115_4293607532_0.592199981|-5.56796408|0.592199981_0|-1|0_0.592199981|-5.56796408|0.592199981_0|-1|0
 	EVENTS
 	{
 	}
@@ -2087,7 +2078,7 @@ PART
 {
 	part = YF115_4293611890
 	partName = Part
-	persistentId = 2432492154
+	persistentId = 1917735936
 	pos = -0.592174053,29.1309071,0.592186809
 	attPos = 0,0,0
 	attPos0 = -0.592199981,-6.58796501,0.592199981
@@ -2109,9 +2100,6 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = YF115_4293698572
-	sym = YF115_4293698404
-	sym = YF115_4293698236
 	attN = top,Null_0_0|1.59474003|0_0|1|0_0|1.59474003|0_0|1|0
 	attN = 2,CZ-7.Stage.2_4293873082_0|1.01999998|0_0|1|0_0|1.01999998|0_0|1|0
 	attN = bottom,Null_0_0|-1.30948997|0_0|-1|0_0|-1.30948997|0_0|-1|0
@@ -2453,15 +2441,15 @@ PART
 }
 PART
 {
-	part = YF115_4293698572
+	part = YF115_4293609054
 	partName = Part
-	persistentId = 1846202502
-	pos = 0.592225909,29.1309071,0.592186809
+	persistentId = 1604503810
+	pos = -0.592174053,29.1309071,-0.592213154
 	attPos = 0,0,0
-	attPos0 = 0.592199981,-6.58796501,0.592199981
-	rot = 0,-0.923879683,0,-0.382683218
-	attRot = 0,-0.382683605,0,-0.923879325
-	attRot0 = 0,-0.923879683,0,-0.382683218
+	attPos0 = -0.592199981,-6.58796501,-0.592199981
+	rot = 0,0.382683277,0,-0.923879623
+	attRot = 0,0.382683277,0,-0.923879623
+	attRot0 = 0,0.382683277,0,-0.923879623
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
@@ -2469,7 +2457,7 @@ PART
 	istg = 2
 	resPri = 0
 	dstg = 1
-	sidx = 0
+	sidx = 1
 	sqor = 2
 	sepI = 0
 	attm = 0
@@ -2477,9 +2465,6 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = YF115_4293698404
-	sym = YF115_4293698236
-	sym = YF115_4293611890
 	attN = top,Null_0_0|1.59474003|0_0|1|0_0|1.59474003|0_0|1|0
 	attN = 2,CZ-7.Stage.2_4293873082_0|1.01999998|0_0|1|0_0|1.01999998|0_0|1|0
 	attN = bottom,Null_0_0|-1.30948997|0_0|-1|0_0|-1.30948997|0_0|-1|0
@@ -2563,7 +2548,7 @@ PART
 		{
 			OnAction
 			{
-				actionGroup = Custom01
+				actionGroup = None
 			}
 			ShutdownAction
 			{
@@ -2621,7 +2606,7 @@ PART
 	{
 		name = ModuleGimbal
 		isEnabled = True
-		gimbalLock = True
+		gimbalLock = False
 		gimbalLimiter = 100
 		currentShowToggles = False
 		enableYaw = True
@@ -2746,8 +2731,8 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (0.592225909, 29.1309071, 0.592186809)
-		originalRotation = (0, -0.923879683, 0, -0.382683218)
+		originalPos = (-0.592174053, 29.1309071, -0.592213154)
+		originalRotation = (0, 0.382683277, 0, -0.923879623)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
@@ -2813,15 +2798,15 @@ PART
 }
 PART
 {
-	part = YF115_4293698404
+	part = YF115_4293608506
 	partName = Part
-	persistentId = 2465023129
+	persistentId = 3641883188
 	pos = 0.592225909,29.1309071,-0.592213154
 	attPos = 0,0,0
 	attPos0 = 0.592199981,-6.58796501,-0.592199981
-	rot = 0,-0.923879445,0,0.382683694
-	attRot = 0,-0.382683605,0,-0.923879325
-	attRot0 = 0,-0.923879445,0,0.382683694
+	rot = 0,-0.923879504,0,0.382683456
+	attRot = 0,-0.923879445,0,0.382683426
+	attRot0 = 0,-0.923879504,0,0.382683456
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
@@ -2829,7 +2814,7 @@ PART
 	istg = 2
 	resPri = 0
 	dstg = 1
-	sidx = 0
+	sidx = 2
 	sqor = 2
 	sepI = 0
 	attm = 0
@@ -2837,9 +2822,6 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = YF115_4293698236
-	sym = YF115_4293611890
-	sym = YF115_4293698572
 	attN = top,Null_0_0|1.59474003|0_0|1|0_0|1.59474003|0_0|1|0
 	attN = 2,CZ-7.Stage.2_4293873082_0|1.01999998|0_0|1|0_0|1.01999998|0_0|1|0
 	attN = bottom,Null_0_0|-1.30948997|0_0|-1|0_0|-1.30948997|0_0|-1|0
@@ -2923,11 +2905,11 @@ PART
 		{
 			OnAction
 			{
-				actionGroup = Custom01
+				actionGroup = None
 			}
 			ShutdownAction
 			{
-				actionGroup = None
+				actionGroup = Custom01
 			}
 			ActivateAction
 			{
@@ -3107,7 +3089,7 @@ PART
 		isEnabled = True
 		active = True
 		originalPos = (0.592225909, 29.1309071, -0.592213154)
-		originalRotation = (0, -0.923879445, 0, 0.382683694)
+		originalRotation = (0, -0.923879504, 0, 0.382683456)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
@@ -3173,15 +3155,15 @@ PART
 }
 PART
 {
-	part = YF115_4293698236
+	part = YF115_4293607532
 	partName = Part
-	persistentId = 4113780356
-	pos = -0.592174053,29.1309071,-0.592213154
+	persistentId = 3594488007
+	pos = 0.592225909,29.1309071,0.592186809
 	attPos = 0,0,0
-	attPos0 = -0.592199981,-6.58796501,-0.592199981
-	rot = 0,-0.382683218,0,0.923879683
-	attRot = 0,-0.382683605,0,-0.923879325
-	attRot0 = 0,-0.382683218,0,0.923879683
+	attPos0 = 0.592199981,-6.58796501,0.592199981
+	rot = 0,0.923879623,0,0.382683277
+	attRot = 0,0.923879564,0,0.382683247
+	attRot0 = 0,0.923879623,0,0.382683277
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
@@ -3189,7 +3171,7 @@ PART
 	istg = 2
 	resPri = 0
 	dstg = 1
-	sidx = 0
+	sidx = 3
 	sqor = 2
 	sepI = 0
 	attm = 0
@@ -3197,9 +3179,6 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = YF115_4293611890
-	sym = YF115_4293698572
-	sym = YF115_4293698404
 	attN = top,Null_0_0|1.59474003|0_0|1|0_0|1.59474003|0_0|1|0
 	attN = 2,CZ-7.Stage.2_4293873082_0|1.01999998|0_0|1|0_0|1.01999998|0_0|1|0
 	attN = bottom,Null_0_0|-1.30948997|0_0|-1|0_0|-1.30948997|0_0|-1|0
@@ -3283,7 +3262,7 @@ PART
 		{
 			OnAction
 			{
-				actionGroup = Custom01
+				actionGroup = None
 			}
 			ShutdownAction
 			{
@@ -3341,7 +3320,7 @@ PART
 	{
 		name = ModuleGimbal
 		isEnabled = True
-		gimbalLock = True
+		gimbalLock = False
 		gimbalLimiter = 100
 		currentShowToggles = False
 		enableYaw = True
@@ -3466,8 +3445,8 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-0.592174053, 29.1309071, -0.592213154)
-		originalRotation = (0, -0.382683218, 0, 0.923879683)
+		originalPos = (0.592225909, 29.1309071, 0.592186809)
+		originalRotation = (0, 0.923879623, 0, 0.382683277)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
@@ -3535,7 +3514,7 @@ PART
 {
 	part = CZ-7.Interstage1-2_4294043292
 	partName = Part
-	persistentId = 3788602017
+	persistentId = 499372270
 	pos = 2.59452027E-05,28.0293732,-1.32002779E-05
 	attPos = 0,0,0
 	attPos0 = 0,-7.6894989,0
@@ -3549,7 +3528,7 @@ PART
 	istg = 2
 	resPri = 0
 	dstg = 2
-	sidx = 1
+	sidx = 4
 	sqor = 2
 	sepI = 2
 	attm = 0
@@ -3741,7 +3720,7 @@ PART
 {
 	part = CZ-7.Stage.1_4294038878
 	partName = Part
-	persistentId = 743019763
+	persistentId = 719698969
 	pos = 2.59452027E-05,15.3993721,-1.32002779E-05
 	attPos = 0,0,0
 	attPos0 = 0,-12.6300011,0
@@ -4079,7 +4058,7 @@ PART
 {
 	part = 100YF_4293987698
 	partName = Part
-	persistentId = 1397931168
+	persistentId = 3447615808
 	pos = -0.779974043,3.08606339,-1.32002779E-05
 	attPos = 0,0,0
 	attPos0 = -0.779999971,-12.3133087,0
@@ -4418,7 +4397,7 @@ PART
 {
 	part = 100YF_4294038000
 	partName = Part
-	persistentId = 2640901625
+	persistentId = 1356516422
 	pos = 0.780025899,3.08606339,-1.32002779E-05
 	attPos = 0,0,0
 	attPos0 = 0.779999971,-12.3133087,0
@@ -4765,7 +4744,7 @@ PART
 {
 	part = CZ7.Engine.Shell.1st_4294035080
 	partName = Part
-	persistentId = 456569439
+	persistentId = 3313611336
 	pos = 2.59452027E-05,3.24937057,-1.32002779E-05
 	attPos = 0,0,0
 	attPos0 = 0,-12.1500015,0
@@ -4923,7 +4902,7 @@ PART
 {
 	part = launchClamp1_4293980332
 	partName = Part
-	persistentId = 3018198747
+	persistentId = 1909395150
 	pos = -2.46815372,1.95716476,-1.30810686E-05
 	attPos = 0,0,0
 	attPos0 = -2.46817994,-1.29220581,1.95210987E-07
@@ -5098,7 +5077,7 @@ PART
 {
 	part = launchClamp1_4293973268
 	partName = Part
-	persistentId = 2810512954
+	persistentId = 1544701547
 	pos = 2.59452027E-05,1.95716476,2.46816635
 	attPos = 0,0,0
 	attPos0 = 4.80958988E-08,-1.29220581,2.4681797
@@ -5273,7 +5252,7 @@ PART
 {
 	part = launchClamp1_4293973142
 	partName = Part
-	persistentId = 958106594
+	persistentId = 1818292425
 	pos = 2.46820593,1.95716476,-1.35579057E-05
 	attPos = 0,0,0
 	attPos0 = 2.46817994,-1.29220581,-4.10986104E-07
@@ -5448,7 +5427,7 @@ PART
 {
 	part = launchClamp1_4293973016
 	partName = Part
-	persistentId = 1404447153
+	persistentId = 2251739412
 	pos = 2.55875748E-05,1.95716476,-2.46819282
 	attPos = 0,0,0
 	attPos0 = -3.42326075E-07,-1.29220581,-2.4681797
@@ -5623,7 +5602,7 @@ PART
 {
 	part = radialDecoupler2_4294012434
 	partName = Part
-	persistentId = 3998072943
+	persistentId = 2896202340
 	pos = -1.09466863,15.9667053,1.09468114
 	attPos = 0,0,0
 	attPos0 = -1.09469461,0.567333221,1.09469438
@@ -5829,7 +5808,7 @@ PART
 {
 	part = CZ-7.booster_4294029602
 	partName = Part
-	persistentId = 514100972
+	persistentId = 2195259354
 	pos = -2.18051052,15.5568771,2.18052435
 	attPos = 0.281457067,-0.408406019,-6.6654593E-10
 	attPos0 = -1.81706989,-0.0014230503,2.39085125E-07
@@ -6127,7 +6106,7 @@ PART
 {
 	part = 100YF_4294009842
 	partName = Part
-	persistentId = 2910506022
+	persistentId = 210641096
 	pos = -2.07464981,3.2533493,2.07466292
 	attPos = 0.1497159,0.00978088379,2.52402153E-08
 	attPos0 = 3.36866606E-08,-12.3133087,7.75894377E-14
@@ -6469,7 +6448,7 @@ PART
 {
 	part = CZ7.Engine.Shell_4294028060
 	partName = Part
-	persistentId = 234435326
+	persistentId = 3752496436
 	pos = -2.18051505,3.40687561,2.18052745
 	attPos = 0,0,0
 	attPos0 = -6.06728463E-08,-12.1500015,5.92200984E-14
@@ -6629,11 +6608,11 @@ PART
 {
 	part = CZ7.8.Wing_4294028460
 	partName = Part
-	persistentId = 3214218501
+	persistentId = 885524335
 	pos = -2.95754218,2.71326065,2.95755553
 	attPos = 0,0,0
 	attPos0 = -1.09888339,-0.693618834,6.54986039E-08
-	rot = -7.74810047E-08,0.382683605,-1.87055079E-07,0.923879445
+	rot = -7.74809763E-08,0.382683605,-1.87055079E-07,0.923879445
 	attRot = 0,0,0,1
 	attRot0 = 1.27054942E-21,8.42937027E-08,4.62804159E-08,1
 	mir = 1,1,1
@@ -6766,7 +6745,7 @@ PART
 		isEnabled = True
 		active = True
 		originalPos = (-2.95754218, 2.71326065, 2.95755553)
-		originalRotation = (-7.74809905E-08, 0.382683605, -1.87055079E-07, 0.923879445)
+		originalRotation = (-7.74809621E-08, 0.382683605, -1.87055079E-07, 0.923879445)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
@@ -6785,7 +6764,7 @@ PART
 {
 	part = launchClamp1_4293972578
 	partName = Part
-	persistentId = 205419778
+	persistentId = 529951493
 	pos = -3.53835225,1.12932587,0.822690666
 	attPos = 0,0,0
 	attPos0 = -2.10812104E-07,-2.27754784,-1.9202708
@@ -6960,7 +6939,7 @@ PART
 {
 	part = launchClamp1_4293968374
 	partName = Part
-	persistentId = 1334346962
+	persistentId = 1838482516
 	pos = -0.832124889,1.12075043,3.52891827
 	attPos = 0,0,0
 	attPos0 = -2.11605936E-07,-2.28612328,1.90691173
@@ -7135,7 +7114,7 @@ PART
 {
 	part = 2.25m.NoseCone_4294028834
 	partName = Part
-	persistentId = 1420186097
+	persistentId = 2404072698
 	pos = -2.18050718,26.9591408,2.1805203
 	attPos = 0,0,0
 	attPos0 = -5.31071009E-08,11.4022636,-6.71313997E-14
@@ -7292,7 +7271,7 @@ PART
 {
 	part = radialDecoupler2_4293723214
 	partName = Part
-	persistentId = 1671599980
+	persistentId = 788782928
 	pos = 1.09472024,15.9667053,1.09468138
 	attPos = 0,0,0
 	attPos0 = 1.09469426,0.567333221,1.09469461
@@ -7498,7 +7477,7 @@ PART
 {
 	part = CZ-7.booster_4293723144
 	partName = Part
-	persistentId = 3657224286
+	persistentId = 2748903938
 	pos = 2.18056321,15.5568771,2.18052363
 	attPos = 0.281456828,-0.408406019,-6.6654593E-10
 	attPos0 = -1.81706989,-0.0014230503,2.39085125E-07
@@ -7788,7 +7767,7 @@ PART
 {
 	part = 100YF_4293723072
 	partName = Part
-	persistentId = 1455066363
+	persistentId = 244423352
 	pos = 2.07470155,3.2533493,2.07466245
 	attPos = 0.1497159,0.00978088379,2.52402153E-08
 	attPos0 = 3.36866606E-08,-12.3133087,7.75894377E-14
@@ -8130,7 +8109,7 @@ PART
 {
 	part = CZ7.Engine.Shell_4293722700
 	partName = Part
-	persistentId = 3042734720
+	persistentId = 2664055670
 	pos = 2.18056703,3.40687561,2.18052745
 	attPos = 0,0,0
 	attPos0 = -6.06728463E-08,-12.1500015,5.92200984E-14
@@ -8290,7 +8269,7 @@ PART
 {
 	part = CZ7.8.Wing_4293722616
 	partName = Part
-	persistentId = 1031587148
+	persistentId = 2271711751
 	pos = 2.95759583,2.71326065,2.95755553
 	attPos = 0,0,0
 	attPos0 = -1.09888339,-0.693618834,6.54986039E-08
@@ -8446,7 +8425,7 @@ PART
 {
 	part = launchClamp1_4293722554
 	partName = Part
-	persistentId = 2064455995
+	persistentId = 3476910133
 	pos = 0.822732866,1.12932587,3.53836513
 	attPos = 0,0,0
 	attPos0 = -2.10812104E-07,-2.27754784,-1.9202708
@@ -8621,7 +8600,7 @@ PART
 {
 	part = launchClamp1_4293722428
 	partName = Part
-	persistentId = 406113870
+	persistentId = 2378604235
 	pos = 3.52895808,1.12075043,0.832137525
 	attPos = 0,0,0
 	attPos0 = -2.11605936E-07,-2.28612328,1.90691173
@@ -8796,7 +8775,7 @@ PART
 {
 	part = 2.25m.NoseCone_4293722302
 	partName = Part
-	persistentId = 1650947091
+	persistentId = 1532776485
 	pos = 2.1805594,26.9591408,2.18052006
 	attPos = 0,0,0
 	attPos0 = -5.31071009E-08,11.4022636,-6.71313997E-14
@@ -8953,7 +8932,7 @@ PART
 {
 	part = radialDecoupler2_4293722244
 	partName = Part
-	persistentId = 1711891702
+	persistentId = 4071523864
 	pos = 1.09472048,15.9667053,-1.09470773
 	attPos = 0,0,0
 	attPos0 = 1.0946945,0.567333221,-1.0946945
@@ -9159,7 +9138,7 @@ PART
 {
 	part = CZ-7.booster_4293722174
 	partName = Part
-	persistentId = 51705157
+	persistentId = 2954760351
 	pos = 2.18056273,15.5568771,-2.18055081
 	attPos = 0.281456828,-0.408406019,-2.39085125E-07
 	attPos0 = -1.81706989,-0.0014230503,2.39085125E-07
@@ -9449,7 +9428,7 @@ PART
 {
 	part = 100YF_4293722102
 	partName = Part
-	persistentId = 1445707643
+	persistentId = 4053840742
 	pos = 2.07470226,3.2533493,-2.07468939
 	attPos = 0.1497159,0.00978088379,2.52402153E-08
 	attPos0 = 3.36866606E-08,-12.3133087,7.75894377E-14
@@ -9791,7 +9770,7 @@ PART
 {
 	part = CZ7.Engine.Shell_4293721730
 	partName = Part
-	persistentId = 3203536568
+	persistentId = 2445117485
 	pos = 2.1805675,3.40687561,-2.18055487
 	attPos = 0,0,0
 	attPos0 = -6.06728463E-08,-12.1500015,5.92200984E-14
@@ -9951,7 +9930,7 @@ PART
 {
 	part = CZ7.8.Wing_4293721646
 	partName = Part
-	persistentId = 91286950
+	persistentId = 2217281895
 	pos = 2.95759559,2.71326065,-2.95758319
 	attPos = 0,0,0
 	attPos0 = -1.09888339,-0.693618834,6.54986039E-08
@@ -10107,7 +10086,7 @@ PART
 {
 	part = launchClamp1_4293721584
 	partName = Part
-	persistentId = 3177037753
+	persistentId = 3052955031
 	pos = 3.53840518,1.12932587,-0.822717607
 	attPos = 0,0,0
 	attPos0 = -2.10812104E-07,-2.27754784,-1.9202708
@@ -10282,7 +10261,7 @@ PART
 {
 	part = launchClamp1_4293721458
 	partName = Part
-	persistentId = 577000023
+	persistentId = 108160987
 	pos = 0.832177579,1.12075043,-3.52894521
 	attPos = 0,0,0
 	attPos0 = -2.11605936E-07,-2.28612328,1.90691173
@@ -10457,7 +10436,7 @@ PART
 {
 	part = 2.25m.NoseCone_4293721332
 	partName = Part
-	persistentId = 2364094002
+	persistentId = 3800545746
 	pos = 2.1805594,26.9591408,-2.180547
 	attPos = 0,0,0
 	attPos0 = -5.31071009E-08,11.4022636,-6.71313997E-14
@@ -10614,7 +10593,7 @@ PART
 {
 	part = radialDecoupler2_4293721274
 	partName = Part
-	persistentId = 4004167764
+	persistentId = 3532110198
 	pos = -1.09466839,15.9667053,-1.09470773
 	attPos = 0,0,0
 	attPos0 = -1.09469438,0.567333221,-1.0946945
@@ -10820,7 +10799,7 @@ PART
 {
 	part = CZ-7.booster_4293721204
 	partName = Part
-	persistentId = 3560189138
+	persistentId = 2394472024
 	pos = -2.180511,15.5568771,-2.18054938
 	attPos = 0.281457067,-0.408406019,5.89380988E-08
 	attPos0 = -1.81706989,-0.0014230503,2.39085125E-07
@@ -11110,7 +11089,7 @@ PART
 {
 	part = 100YF_4293721132
 	partName = Part
-	persistentId = 3457802301
+	persistentId = 3326271279
 	pos = -2.07464933,3.2533493,-2.0746882
 	attPos = 0.1497159,0.00978088379,2.52402153E-08
 	attPos0 = 3.36866606E-08,-12.3133087,7.75894377E-14
@@ -11452,7 +11431,7 @@ PART
 {
 	part = CZ7.Engine.Shell_4293720760
 	partName = Part
-	persistentId = 118263881
+	persistentId = 634646146
 	pos = -2.18051457,3.40687561,-2.18055367
 	attPos = 0,0,0
 	attPos0 = -6.06728463E-08,-12.1500015,5.92200984E-14
@@ -11612,7 +11591,7 @@ PART
 {
 	part = CZ7.8.Wing_4293720676
 	partName = Part
-	persistentId = 2728581999
+	persistentId = 354131587
 	pos = -2.95754266,2.71326065,-2.95758128
 	attPos = 0,0,0
 	attPos0 = -1.09888339,-0.693618834,6.54986039E-08
@@ -11768,7 +11747,7 @@ PART
 {
 	part = launchClamp1_4293720614
 	partName = Part
-	persistentId = 734954053
+	persistentId = 685757552
 	pos = -0.822680056,1.12932587,-3.53839087
 	attPos = 0,0,0
 	attPos0 = -2.10812104E-07,-2.27754784,-1.9202708
@@ -11943,7 +11922,7 @@ PART
 {
 	part = launchClamp1_4293720488
 	partName = Part
-	persistentId = 813777936
+	persistentId = 2174429839
 	pos = -3.52890587,1.12075043,-0.832163632
 	attPos = 0,0,0
 	attPos0 = -2.11605936E-07,-2.28612328,1.90691173
@@ -12118,7 +12097,7 @@ PART
 {
 	part = 2.25m.NoseCone_4293720362
 	partName = Part
-	persistentId = 2699747580
+	persistentId = 2417409685
 	pos = -2.18050742,26.9591408,-2.18054628
 	attPos = 0,0,0
 	attPos0 = -5.31071009E-08,11.4022636,-6.71313997E-14
