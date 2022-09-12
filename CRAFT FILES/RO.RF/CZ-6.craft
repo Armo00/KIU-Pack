@@ -1,5 +1,5 @@
 ship = CZ-6
-version = 1.9.0
+version = 1.9.1
 description = 
 type = VAB
 size = 4.82528305,28.0521736,4.8027153
@@ -16,7 +16,7 @@ PART
 {
 	part = Adpter-CZ6_4291961158
 	partName = Part
-	persistentId = 211580013
+	persistentId = 2813867103
 	pos = -1.92309358E-06,22.37817,-1.93072219E-06
 	attPos = 0,0,0
 	attPos0 = -1.92309358E-06,22.37817,-1.93072219E-06
@@ -228,7 +228,7 @@ PART
 {
 	part = CZ-6.Fairing.2.6m_4291895156
 	partName = Part
-	persistentId = 3873542426
+	persistentId = 3292404561
 	pos = -1.92309358E-06,22.3297691,-1.93072219E-06
 	attPos = 0,0,0
 	attPos0 = 0,-0.0483999252,0
@@ -494,7 +494,7 @@ PART
 {
 	part = CZ-6.Fairing.2.6m_4291893584
 	partName = Part
-	persistentId = 2201872332
+	persistentId = 2066506757
 	pos = -1.92309358E-06,22.3297691,-1.93072219E-06
 	attPos = 0,0,0
 	attPos0 = 0,-0.0483999252,0
@@ -752,7 +752,7 @@ PART
 {
 	part = CZ-6.stage3_4293584136
 	partName = Part
-	persistentId = 2386373110
+	persistentId = 3816790669
 	pos = -1.92309358E-06,21.8279839,-1.93072219E-06
 	attPos = 0,0,0
 	attPos0 = 0,-0.550186157,0
@@ -818,6 +818,41 @@ PART
 				actionGroup = None
 			}
 			HibernateToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleReactionWheel
+		isEnabled = True
+		actuatorModeCycle = 0
+		authorityLimiter = 100
+		stateString = 运行中
+		stagingEnabled = True
+		WheelState = Active
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			CycleAction
+			{
+				actionGroup = None
+			}
+			Activate
+			{
+				actionGroup = None
+			}
+			Deactivate
+			{
+				actionGroup = None
+			}
+			Toggle
 			{
 				actionGroup = None
 			}
@@ -1670,15 +1705,6 @@ PART
 		}
 		UPGRADESAPPLIED
 		{
-			upgrade = commsTL1
-			upgrade = commsTL2
-			upgrade = commsTL3
-			upgrade = commsTL4
-			upgrade = commsTL5
-			upgrade = commsTL6
-			upgrade = commsTL7
-			upgrade = commsTL8
-			upgrade = commsTL9
 		}
 	}
 	MODULE
@@ -1863,7 +1889,7 @@ PART
 {
 	part = YF50E_4291880392
 	partName = Part
-	persistentId = 3565077453
+	persistentId = 2477106651
 	pos = -1.92309358E-06,21.6999569,-1.93072219E-06
 	attPos = 0,0,0
 	attPos0 = 0,-0.128026977,0
@@ -2109,8 +2135,6 @@ PART
 	{
 		name = ModuleEngineConfigs
 		isEnabled = True
-		activePatchName = 
-		dynamicPatchApplied = False
 		configuration = YF-50E
 		configurationDisplay = YF-50E
 		techLevel = -1
@@ -2229,7 +2253,7 @@ PART
 {
 	part = CZ-6.Interstage2-3_4291878322
 	partName = Part
-	persistentId = 1895157241
+	persistentId = 712738486
 	pos = -1.92309358E-06,21.4279842,-1.93072219E-06
 	attPos = 0,0,0
 	attPos0 = 0,-0.399999678,0
@@ -2435,7 +2459,7 @@ PART
 {
 	part = CZ-6.stage2_4291888864
 	partName = Part
-	persistentId = 4111981410
+	persistentId = 3207702541
 	pos = -1.92309358E-06,18.8279839,-1.93072219E-06
 	attPos = 0,0,0
 	attPos0 = 0,-2.60000038,0
@@ -2665,7 +2689,7 @@ PART
 {
 	part = YF115_4291779166
 	partName = Part
-	persistentId = 1105384037
+	persistentId = 2505905053
 	pos = -1.92309358E-06,14.7332439,-1.93072219E-06
 	attPos = 0,0,0
 	attPos0 = 0,-4.09473991,0
@@ -2982,8 +3006,6 @@ PART
 	{
 		name = ModuleEngineConfigs
 		isEnabled = True
-		activePatchName = 
-		dynamicPatchApplied = False
 		configuration = YF-115
 		configurationDisplay = YF-115
 		techLevel = -1
@@ -3031,7 +3053,7 @@ PART
 {
 	part = CZ-6.Interstage_4291777380
 	partName = Part
-	persistentId = 1497973062
+	persistentId = 824342303
 	pos = -1.92309358E-06,14.6859837,-1.93072219E-06
 	attPos = 0,0,0
 	attPos0 = 0,-4.1420002,0
@@ -3240,7 +3262,7 @@ PART
 {
 	part = CZ-6.stage1_4293569882
 	partName = Part
-	persistentId = 3996416009
+	persistentId = 590256422
 	pos = -1.92309358E-06,7.76598167,-1.93072219E-06
 	attPos = 0,0,0
 	attPos0 = 0,-6.92000008,0
@@ -3556,7 +3578,7 @@ PART
 {
 	part = 100YF_4291785760
 	partName = Part
-	persistentId = 4130441246
+	persistentId = 1141788998
 	pos = -1.92309358E-06,1.90267181,-1.93072219E-06
 	attPos = 0,0,0
 	attPos0 = 0,-5.86331081,0
@@ -3856,8 +3878,6 @@ PART
 	{
 		name = ModuleEngineConfigs
 		isEnabled = True
-		activePatchName = 
-		dynamicPatchApplied = False
 		configuration = YF-100
 		configurationDisplay = YF-100
 		techLevel = -1
@@ -3905,7 +3925,7 @@ PART
 {
 	part = CZ-6.Engine.Shell_4291781074
 	partName = Part
-	persistentId = 254266148
+	persistentId = 1968311968
 	pos = -1.92309358E-06,1.57298279,-1.93072219E-06
 	attPos = 0,0,0
 	attPos0 = 0,-6.19299984,0

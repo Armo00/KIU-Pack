@@ -8,7 +8,7 @@ English:
 
 		Before you get started, there are a few items you need to acknowledge and agree upon. The installation of this mod means you agree with the following items:
 
-		1. This mod follows CC BY-NC-SA 4.0 license. Some of the texture, Waterfall templates, FX resources, and Realplume templates are from Kerwis Chinese Aerospace Pack. (authors: Velctor, Bingo, Akino). And some other waterfall templates are from Stock Waterfall Effects by AtomicTech and SRB Waterfall Effects by Adiri. These mods follow the CC BY-NC-SA 4.0 or CC BY-NC-SA license. No individual nor organization shall use any of the content of this mod for commercial purposes.
+		1. This mod follows CC BY-NC-SA 4.0 license. Some of the texture, Waterfall templates, FX resources, and Realplume templates are from Kerwis Chinese Aerospace Pack. (authors: Velctor, Bingo, Akino). And some other waterfall templates are from Stock Waterfall Effects by AtomicTech and SRB Waterfall Effects by Adiri. The interiors of Tianhe core module are from ICSP (Icecovery's Chinese Spacecraft Pack) (author: IcecoveryStudio, Armor)These mods follow the CC BY-NC-SA 4.0 or CC BY-NC-SA license. No individual nor organization shall use any of the content of this mod for commercial purposes.
 
 		2. This mod is in no way intended to leak or spread classified information about the Chinese Space Program. The content in this mod is based upon public information and a little bit imagination. It may not reflect reality accurately, so take it what you will. 
 
@@ -28,7 +28,11 @@ English:
 
 				(1) Open Ckan and search for "NCAP" and find: "NCAP(NT Chinese Aerospace Pack)", then install it.
 
+			Installation Notes: Because some players want to use the real size spacecrafts in the Non-RSS environment, we have adopted the following method: 1. If you want to play the smaller size spacecrafts in the Non-RSS environment, please delete the "RealScalePatch" file in the NCAP\Compatibility\RealFuels path, otherwise the spacecraft will crowd together when opening the craft files. 2. If you want to use the real size spacecrafts in the original version, please do not delete this file. In addition, in this situation, Non-RSS craft file is not suitable. 3. RO or RSS players do not have to do anything.
+
 		3. The CZ-2F in this mod depends on the Shenzhou Spacecraft from ICSP. Without it, the fairings of CZ-2F cannot be installed!
+
+		4. Tianhe core module interiors depends on ICSP (Icecovery's Chinese Spacecraft Pack), please download or update ICSP to the latest version before use! ! !
 	
 	Authors：
 		Models：Old_Copper, Launcelot, Armor
@@ -43,19 +47,19 @@ English:
 
 	简介：
 
-		NT中国航天包(NCAP)是一个专为坎巴拉太空计划创作的游戏插件，其目的在为游戏添加更多的中国的火箭和航天器。
+		NT中国航天包(NCAP)是一个为坎巴拉太空计划创作的游戏插件，其目的在于为游戏添加中国的火箭和航天器。
 
 	用户协议：
 
 		在开始使用本插件之前，您需要了解并认可一些内容。继续安装本插件意味着您认可以下内容：
 
-		1. 本插件遵循CC BY-NC-SA 4.0协议。插件中的部分纹理，部分的waterfall模板，FX资源和real plume模板来自Kerwis中国航空航天包 (作者:Velctor, Bingo, Akino)。还有一部分waterfall文件来自Stock Waterfall Effects (作者: AtomicTech)以及SWE (SRB Waterfall Effects, 作者: Adiri）这些mod遵循CC BY-NC-SA 4.0或CC BY-NC-SA协议。本插件为免费插件，任何组织或个人不得将本插件的任何内容用于商业用途。
+		1. 本插件遵循CC BY-NC-SA 4.0协议。插件中的部分纹理，部分的waterfall模板，FX资源和real plume模板来自Kerwis中国航空航天包 (作者:Velctor, Bingo, Akino)。还有一部分waterfall文件来自Stock Waterfall Effects (作者: AtomicTech)以及SWE (SRB Waterfall Effects, 作者: Adiri）。核心舱内饰来自ICSP（Icecovery's Chinese Spacecraft Pack）（作者：IcecoveryStudio、Armor）这些mod遵循CC BY-NC-SA 4.0或CC BY-NC-SA协议。本插件为免费插件，任何组织或个人不得将本插件的任何内容用于商业用途。
 
 		2. 本插件绝没有任何泄露或传播中国航天计划之机密信息的意图。本插件的内容完全基于公开信息以及一些想象力，并不能完全准确的还原现实。
 
 	提示：
 
-		1. 建议安装“KerbalJointReinforcement”插件，否则火箭会晃得厉害。
+		1. 强烈建议安装“KerbalJointReinforcement”插件，否则火箭会晃得厉害。
 
 		2. 安装方法：
 			
@@ -69,11 +73,15 @@ English:
 
 				1.搜索"NCAP"，找到"NCAP(NT Chinese Aerospace Pack)"并安装即可。
 
+			安装注意事项：因为有些玩家想在原版环境下玩真实大小，我们采取了这样的办法：1.如果想要在原版玩原版大小，那么请把NCAP\Compatibility\RealFuels路径里的“RealScalePatch”文件删除，否则打开原版craft文件时航天器会挤在一起。2.如果想在原版玩真实大小，那么请不要删除此文件，另外，原版玩真实大小，原版的craft文件也不适配。3.RO玩家不需要任何操作。
+
 		3. 长征2F运载火箭需要ICSP包的神舟飞船支持，否则整流罩无法安装！
+
+		4. 天和核心舱内饰依赖于ICSP（Icecovery's Chinese Spacecraft Pack），使用前请下载最新版本的ICSP或将ICSP更新至最新版本！！！
 
 	作者：
 		建模：Old_Copper, Launcelot, Armor
 		贴图: Old_Copper, Launcelot
 		配置文件撰写: Old_Copper, Armor
 	
-	感谢你的使用，祝你玩的开心
+	感谢您的使用，玩的开心。
