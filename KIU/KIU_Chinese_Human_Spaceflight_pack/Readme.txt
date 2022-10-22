@@ -1,16 +1,22 @@
 ================================
-=Icecovery's Chinese Spacecraft Pack==
+=KIU Chinese Human Spaceflight Pack==
 ================================
-===========Version V1.4.3===========
-============20220712============
+===========Version V0.9.0===========
+============20221022============
 ================================
 
-Author:Icecovery
-Co-Author: Armor00
+Author:Armor00, Icecovery, Launcelot, Old_Copper
 
 License:CC BY-SA-4.0
 
-Changelog:
+KCHS Changelog:
+-0.9.0
+-Warning, this is a save-breaking update, all old craft will cease to exist, proceed with caution.
+-Start Merge with part of NCAP to form the new KCHS package
+-Lots of cfg tweak
+-Remove Tianhe from ICSP, add Chinese Space Station from NCAP
+
+ICSP Changelog:
 
 -1.4.3
 -Bug fix
