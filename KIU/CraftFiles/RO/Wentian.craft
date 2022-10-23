@@ -1,10 +1,10 @@
-ship = Mengtian
+ship = Wentian
 version = 1.9.1
 description = 
 type = VAB
-size = 3.65816545,11.1948204,3.65806675
+size = 6.25661564,18.5264854,6.25929451
 steamPublishedFileId = 0
-persistentId = 3723555043
+persistentId = 3741760468
 rot = 0,0,0,0
 missionFlag = Squad/Flags/China
 vesselType = Debris
@@ -14,12 +14,12 @@ OverrideAxisControl = 0,0,0,0
 OverrideGroupNames = ,,,
 PART
 {
-	part = KCHS.ExperimentModule.Mengtian.DZD_4293565184
+	part = KCHS.LaboratoryCabinModule.Wentian.DZD_4291395598
 	partName = Part
-	persistentId = 1174365430
-	pos = -1.6326851E-06,19.2927246,1.13645492E-05
+	persistentId = 1201798181
+	pos = 1.01066598E-05,19.7005272,-2.90383759E-05
 	attPos = 0,0,0
-	attPos0 = -1.6326851E-06,19.2927246,1.13645492E-05
+	attPos0 = 1.01066598E-05,19.7005272,-2.90383759E-05
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -27,22 +27,22 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = -1
+	istg = 0
 	resPri = 0
 	dstg = 0
-	sidx = -1
-	sqor = -1
+	sidx = 0
+	sqor = 0
 	sepI = -1
 	attm = 0
 	sameVesselCollision = False
-	modCost = 0
+	modCost = 2449.12402
 	modMass = 0
 	modSize = 0,0,0
-	link = KCHS.ExperimentModule.MENGTIAN.XZD_4293560842
-	link = KCHS.ExperimentModule.DockingPort_4293547432
-	attN = top,KCHS.ExperimentModule.DockingPort_4293547432_0|2.78691602|0_0|0.600000024|0_0|2.78691602|0_0|0.600000024|0
-	attN = bottom,KCHS.ExperimentModule.MENGTIAN.XZD_4293560842_0|-2.39562607|0_0|-0.600000024|0_0|-2.39562607|0_0|-0.600000024|0
-	attN = 1,Null_0_0|2.46002412|0_0|0.600000024|0_0|2.46002412|0_0|0.600000024|0
+	link = KCHS.LaboratoryCabinModule.WENTIAN.XZD_4291385044
+	link = KCHS.LaboratoryCabinModule.DockingPort_4291360592
+	attN = top,KCHS.LaboratoryCabinModule.DockingPort_4291360592_0|4.64485979|0_0|1|0_0|4.64485979|0_0|1|0
+	attN = bottom,KCHS.LaboratoryCabinModule.WENTIAN.XZD_4291385044_0|-3.99271011|0_0|-1|0_0|-3.99271011|0_0|-1|0
+	attN = 1,Null_0_0|4.10003996|0_0|1|0_0|4.10003996|0_0|1|0
 	EVENTS
 	{
 	}
@@ -323,7 +323,7 @@ PART
 	{
 		name = ModuleRCSFX
 		isEnabled = True
-		rcsEnabled = True
+		rcsEnabled = False
 		thrustPercentage = 100
 		currentShowToggles = False
 		enableYaw = True
@@ -334,7 +334,7 @@ PART
 		enableZ = True
 		useThrottle = False
 		fullThrust = False
-		stagingEnabled = False
+		stagingEnabled = True
 		EVENTS
 		{
 		}
@@ -355,7 +355,7 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 25000
+		OriginalCost = 29898.247978181582
 		stagingEnabled = True
 		EVENTS
 		{
@@ -389,11 +389,56 @@ PART
 		isEnabled = True
 		active = True
 		available = True
-		currentScale = 2.51999998
-		defaultScale = 2.51999998
+		currentScale = 4.19999981
+		defaultScale = 4.19999981
 		defaultTransformScale = (0, 0, 0)
 		DryCost = 25000
 		OriginalCrewCapacity = 3
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = GeometryPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARAeroPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARPartModule
+		isEnabled = True
 		stagingEnabled = True
 		EVENTS
 		{
@@ -517,12 +562,12 @@ PART
 			MechJebModuleRoverWindow
 			{
 				unlockParts = 
-				unlockTechs = fieldScience
+				unlockTechs = start
 			}
 			MechJebModuleAttitudeAdjustment
 			{
 				unlockParts = 
-				unlockTechs = advFlightControl
+				unlockTechs = start
 			}
 			MechJebModuleAscentNavBall
 			{
@@ -537,7 +582,7 @@ PART
 			MechJebModuleRCSBalancerWindow
 			{
 				unlockParts = 
-				unlockTechs = advFlightControl
+				unlockTechs = start
 			}
 			MechJebModuleRoverController
 			{
@@ -565,7 +610,7 @@ PART
 			{
 				runwayIndex = 0
 				unlockParts = 
-				unlockTechs = unmannedTech
+				unlockTechs = start
 			}
 			MechJebModuleAscentPVG
 			{
@@ -712,7 +757,7 @@ PART
 			MechJebModuleDockingGuidance
 			{
 				unlockParts = 
-				unlockTechs = advUnmanned
+				unlockTechs = start
 			}
 			MechJebModuleSettings
 			{
@@ -739,7 +784,7 @@ PART
 				forcePitch = True
 				forceYaw = True
 				unlockParts = 
-				unlockTechs = flightControl
+				unlockTechs = start
 				srfHdg
 				{
 					_val = 90
@@ -798,12 +843,12 @@ PART
 			{
 				autostageSavedState = False
 				unlockParts = 
-				unlockTechs = advFlightControl
+				unlockTechs = start
 			}
 			MechJebModuleWarpHelper
 			{
 				unlockParts = 
-				unlockTechs = advFlightControl
+				unlockTechs = start
 				phaseAngle
 				{
 					_val = 0
@@ -813,7 +858,7 @@ PART
 			MechJebModuleCustomWindowEditor
 			{
 				unlockParts = 
-				unlockTechs = flightControl
+				unlockTechs = start
 			}
 			MechJebModuleAscentAutopilot
 			{
@@ -823,7 +868,7 @@ PART
 			MechJebModuleRendezvousAutopilotWindow
 			{
 				unlockParts = 
-				unlockTechs = advUnmanned
+				unlockTechs = start
 			}
 			MechJebModuleNodeExecutor
 			{
@@ -833,7 +878,7 @@ PART
 			MechJebModuleNodeEditor
 			{
 				unlockParts = 
-				unlockTechs = advFlightControl
+				unlockTechs = start
 			}
 			MechJebModuleLandingAutopilot
 			{
@@ -871,7 +916,7 @@ PART
 			{
 				landingSiteIdx = 0
 				unlockParts = 
-				unlockTechs = unmannedTech
+				unlockTechs = start
 			}
 			MechJebModuleLandingPredictions
 			{
@@ -881,7 +926,7 @@ PART
 			MechJebModuleTranslatron
 			{
 				unlockParts = 
-				unlockTechs = advFlightControl
+				unlockTechs = start
 				trans_spd
 				{
 					_val = 0
@@ -891,7 +936,7 @@ PART
 			MechJebModuleAscentGuidance
 			{
 				unlockParts = 
-				unlockTechs = unmannedTech
+				unlockTechs = start
 			}
 			MechJebModuleRendezvousAutopilot
 			{
@@ -916,7 +961,7 @@ PART
 			MechJebModuleManeuverPlanner
 			{
 				unlockParts = 
-				unlockTechs = advFlightControl
+				unlockTechs = start
 			}
 			MechJebModuleStageStats
 			{
@@ -937,7 +982,7 @@ PART
 			MechJebModuleRendezvousGuidance
 			{
 				unlockParts = 
-				unlockTechs = advUnmanned
+				unlockTechs = start
 			}
 			MechJebModuleAscentClassicMenu
 			{
@@ -1096,92 +1141,99 @@ PART
 	}
 	MODULE
 	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = TrajectoriesVesselSettings
-		isEnabled = True
-		Initialized = False
-		EntryAngle = 3.1415926535897931
-		EntryHorizon = False
-		HighAngle = 3.1415926535897931
-		HighHorizon = False
-		LowAngle = 3.1415926535897931
-		LowHorizon = False
-		GroundAngle = 3.1415926535897931
-		GroundHorizon = False
-		RetrogradeEntry = True
-		TargetBody = 
-		TargetPosition_x = 0
-		TargetPosition_y = 0
-		TargetPosition_z = 0
-		ManualTargetTxt = 
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-1.6326851E-06, 19.2927246, 1.13645492E-05)
+		originalPos = (1.01066598E-05, 19.7005272, -2.90383759E-05)
 		originalRotation = (0, 0, 0, 1)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
-		originalAttachNodePos = (0.0, 2.8, 0.0)
-		originalAttachNodePos = (0.0, -2.4, 0.0)
-		originalAttachNodePos = (0.0, 2.5, 0.0)
+		originalAttachNodePos = (0.0, 4.6, 0.0)
+		originalAttachNodePos = (0.0, -4.0, 0.0)
+		originalAttachNodePos = (0.0, 4.1, 0.0)
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleFuelTanks
+		isEnabled = True
+		type = ServiceModule
+		utilization = 86
+		mass = 12.1150198
+		_numberOfAddedMLILayers = 0
+		stagingEnabled = True
+		volume = 2500
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		TANK
+		{
+			name = NTO
+			note = (pressurized)
+			utilization = 1
+			mass = 8.09999983E-05
+			cost = 0
+			loss_rate = 0
+			temperature = 300
+			fillable = True
+			techRequired = 
+			amount = 1250.4959678649902
+			maxAmount = 1250.4959678649902
+		}
+		TANK
+		{
+			name = MMH
+			note = (pressurized)
+			utilization = 1
+			mass = 8.09999983E-05
+			cost = 0
+			loss_rate = 0
+			temperature = 300
+			fillable = True
+			techRequired = 
+			amount = 1245.5040321350098
+			maxAmount = 1245.5040321350098
+		}
+		TANK
+		{
+			name = ElectricCharge
+			note = (pressurized)
+			utilization = 1000
+			mass = 0.00288999989
+			cost = 0
+			loss_rate = 0
+			temperature = 300
+			fillable = True
+			techRequired = 
+			amount = 4000
+			maxAmount = 4000
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleEngineConfigs
+		isEnabled = True
+		configuration = MMH/NTO
+		configurationDisplay = MMH/NTO
+		techLevel = 1
+		thrustRating = maxThrust
+		modded = False
+		stagingEnabled = True
 		EVENTS
 		{
 		}
@@ -1277,8 +1329,30 @@ PART
 	RESOURCE
 	{
 		name = ElectricCharge
-		amount = 5000
-		maxAmount = 5000
+		amount = 4000
+		maxAmount = 4000
+		flowState = True
+		isTweakable = True
+		hideFlow = False
+		isVisible = True
+		flowMode = Both
+	}
+	RESOURCE
+	{
+		name = MMH
+		amount = 1245.5040321350098
+		maxAmount = 1245.5040321350098
+		flowState = True
+		isTweakable = True
+		hideFlow = False
+		isVisible = True
+		flowMode = Both
+	}
+	RESOURCE
+	{
+		name = NTO
+		amount = 1250.4959678649902
+		maxAmount = 1250.4959678649902
 		flowState = True
 		isTweakable = True
 		hideFlow = False
@@ -1288,12 +1362,12 @@ PART
 }
 PART
 {
-	part = KCHS.ExperimentModule.MENGTIAN.XZD_4293560842
+	part = KCHS.LaboratoryCabinModule.WENTIAN.XZD_4291385044
 	partName = Part
-	persistentId = 940133892
-	pos = -1.6326851E-06,15.8613663,1.13645492E-05
+	persistentId = 3226092206
+	pos = 1.01066598E-05,13.3498068,-2.90383759E-05
 	attPos = 0,0,0
-	attPos0 = 0,-3.43135834,0
+	attPos0 = 0,-6.35072041,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -1301,20 +1375,22 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = -1
+	istg = 0
 	resPri = 0
 	dstg = 0
-	sidx = -1
-	sqor = -1
+	sidx = 1
+	sqor = 0
 	sepI = -1
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCHS.ExperimentModule.FWC_4293559074
-	attN = top,KCHS.ExperimentModule.Mengtian.DZD_4293565184_0|1.03573203|0_0|0.600000024|0_0|1.03573203|0_0|0.600000024|0
-	attN = bottom,KCHS.ExperimentModule.FWC_4293559074_0|-1.44669604|0_0|-0.600000024|0_0|-1.44669604|0_0|-0.600000024|0
+	link = KCHS.LaboratoryCabinModule.XJXB_4291382420
+	link = KCHS.LaboratoryCabinModule.FWC_4291368646
+	attN = top,KCHS.LaboratoryCabinModule.Wentian.DZD_4291395598_0|2.35801005|0_0|1|0_0|2.35801005|0_0|1|0
+	attN = bottom,KCHS.LaboratoryCabinModule.FWC_4291368646_0|-1.61313999|0_0|-1|0_0|-1.61313999|0_0|-1|0
+	attN = XJXBDJK,KCHS.LaboratoryCabinModule.XJXB_4291382420_-1.45145369|0.878107488|0.424800247_-0.965200067|-1.78813934E-07|0.261512727_-1.45145369|0.878107488|0.424800247_-0.965200067|-1.78813934E-07|0.261512727
 	EVENTS
 	{
 	}
@@ -1341,14 +1417,19 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleAnimateGeneric
+		name = ModuleRCSFX
 		isEnabled = True
-		aniState = LOCKED
-		animSwitch = True
-		animTime = 0
-		animSpeed = -103.75
-		deployPercent = 100
-		animationIsDisabled = False
+		rcsEnabled = False
+		thrustPercentage = 100
+		currentShowToggles = False
+		enableYaw = True
+		enablePitch = True
+		enableRoll = True
+		enableX = True
+		enableY = True
+		enableZ = True
+		useThrottle = False
+		fullThrust = False
 		stagingEnabled = True
 		EVENTS
 		{
@@ -1361,46 +1442,21 @@ PART
 				wasActiveBeforePartWasAdjusted = False
 			}
 		}
-		AXISGROUPS
-		{
-			deployPercent
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-			}
-		}
 		UPGRADESAPPLIED
 		{
 		}
 	}
 	MODULE
 	{
-		name = ModuleRCSFX
+		name = ModuleScienceContainer
 		isEnabled = True
-		rcsEnabled = True
-		thrustPercentage = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		enableX = True
-		enableY = True
-		enableZ = True
-		useThrottle = False
-		fullThrust = False
-		stagingEnabled = False
+		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
-			ToggleAction
+			CollectAllAction
 			{
 				actionGroup = None
 				wasActiveBeforePartWasAdjusted = False
@@ -1449,10 +1505,276 @@ PART
 		isEnabled = True
 		active = True
 		available = True
-		currentScale = 2.51999998
-		defaultScale = 2.51999998
+		currentScale = 4.19999981
+		defaultScale = 4.19999981
 		defaultTransformScale = (0, 0, 0)
 		DryCost = 15000
+		OriginalCrewCapacity = 2
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = GeometryPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARAeroPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = AttachedOnEditor
+		isEnabled = True
+		active = True
+		originalPos = (1.01066598E-05, 13.3498068, -2.90383759E-05)
+		originalRotation = (0, 0, 0, 1)
+		correctlyInitialised = False
+		moduleVersion = 4
+		stagingEnabled = True
+		originalAttachNodePos = (0.0, 2.4, 0.0)
+		originalAttachNodePos = (0.0, -1.6, 0.0)
+		originalAttachNodePos = (-1.5, 0.9, 0.4)
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleEngineConfigs
+		isEnabled = True
+		configuration = MMH/NTO
+		configurationDisplay = MMH/NTO
+		techLevel = 1
+		thrustRating = maxThrust
+		modded = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleKISInventory
+		isEnabled = True
+		invName = 
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleKISInventory
+		isEnabled = True
+		invName = 
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = KCHS.LaboratoryCabinModule.XJXB_4291382420
+	partName = Part
+	persistentId = 3794979499
+	pos = -1.53849173,13.3498077,1.05172169
+	attPos = 0,0,0
+	attPos0 = -1.53850186,9.53674316E-07,1.05175078
+	rot = 0,0,0,1
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 0
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	attN = XJXBDJK,KCHS.LaboratoryCabinModule.WENTIAN.XZD_4291385044_0.087048158|0.878107488|-0.626950502_0.965200484|-1.49011612E-07|-0.261511147_0.087048158|0.878107488|-0.626950502_0.965200484|-1.49011612E-07|-0.261511147
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleAnimateGeneric
+		isEnabled = True
+		aniState = LOCKED
+		animSwitch = True
+		animTime = 0
+		animSpeed = 1
+		deployPercent = 100
+		animationIsDisabled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		AXISGROUPS
+		{
+			deployPercent
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
+				axisInverted = None
+				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = Refunding
+		isEnabled = True
+		active = True
+		OriginalCost = 5000
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 4.19999981
+		defaultScale = 4.19999981
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 5000
 		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
@@ -1515,28 +1837,12 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-1.6326851E-06, 15.8613663, 1.13645492E-05)
+		originalPos = (-1.53849173, 13.3498077, 1.05172169)
 		originalRotation = (0, 0, 0, 1)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
-		originalAttachNodePos = (0.0, 1.0, 0.0)
-		originalAttachNodePos = (0.0, -1.4, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWaterfallFX
-		isEnabled = True
-		stagingEnabled = True
+		originalAttachNodePos = (0.1, 0.9, -0.6)
 		EVENTS
 		{
 		}
@@ -1550,12 +1856,12 @@ PART
 }
 PART
 {
-	part = KCHS.ExperimentModule.FWC_4293559074
+	part = KCHS.LaboratoryCabinModule.FWC_4291368646
 	partName = Part
-	persistentId = 1468108697
-	pos = -1.6326851E-06,13.4325895,1.13645492E-05
+	persistentId = 984939628
+	pos = 1.01066598E-05,10.0998669,-2.90383759E-05
 	attPos = 0,0,0
-	attPos0 = 0,-2.42877674,0
+	attPos0 = 0,-3.24993992,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -1566,19 +1872,19 @@ PART
 	istg = 0
 	resPri = 0
 	dstg = 0
-	sidx = 0
+	sidx = 2
 	sqor = 0
 	sepI = -1
 	attm = 0
 	sameVesselCollision = False
-	modCost = 0
+	modCost = 2938.75244
 	modMass = 0
 	modSize = 0,0,0
-	link = KCHS.ExperimentModule.SP_4293555690
-	link = KCHS.ExperimentModule.antenna_4293546638
-	attN = top,KCHS.ExperimentModule.MENGTIAN.XZD_4293560842_0|0.982080042|0_0|0.600000024|0_0|0.982080042|0_0|0.600000024|0
-	attN = bottom,KCHS.ExperimentModule.SP_4293555690_0|-1.15387201|0_0|-0.600000024|0_0|-1.15387201|0_0|-0.600000024|0
-	attN = Node1,KCHS.ExperimentModule.antenna_4293546638_0.252479911|0.116364673|-0.597946405_0|-1.50995803E-07|-1_0.252479911|0.116364673|-0.597946405_0|-1.50995803E-07|-1
+	link = KCHS.LaboratoryCabinModule.antenna_4291361920
+	link = KCHS.LaboratoryCabinModule.SP_4293253324
+	attN = top,KCHS.LaboratoryCabinModule.WENTIAN.XZD_4291385044_0|1.63680005|0_0|1|0_0|1.63680005|0_0|1|0
+	attN = bottom,KCHS.LaboratoryCabinModule.SP_4293253324_0|-1.92312002|0_0|-1|0_0|-1.92312002|0_0|-1|0
+	attN = Node1,KCHS.LaboratoryCabinModule.antenna_4291361920_0.420799851|0.193941116|-0.996577263_0|-1.50995803E-07|-1_0.420799851|0.193941116|-0.996577263_0|-1.50995803E-07|-1
 	EVENTS
 	{
 	}
@@ -1605,8 +1911,13 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleEnginesFX
+		name = ModuleEnginesRF
 		isEnabled = True
+		autoCutoff = True
+		ignited = False
+		ignitions = -1
+		partSeed = -1
+		calculatedResiduals = 0.0080000000000000002
 		independentThrottle = False
 		independentThrottlePercentage = 0
 		staged = False
@@ -1669,6 +1980,9 @@ PART
 				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 			}
 		}
+		Ullage
+		{
+		}
 		UPGRADESAPPLIED
 		{
 		}
@@ -1692,7 +2006,7 @@ PART
 	{
 		name = ModuleRCSFX
 		isEnabled = True
-		rcsEnabled = True
+		rcsEnabled = False
 		thrustPercentage = 100
 		currentShowToggles = False
 		enableYaw = True
@@ -1703,7 +2017,7 @@ PART
 		enableZ = True
 		useThrottle = False
 		fullThrust = False
-		stagingEnabled = False
+		stagingEnabled = True
 		EVENTS
 		{
 		}
@@ -1724,7 +2038,7 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 2967.2000312805176
+		OriginalCost = 7877.5049431925163
 		stagingEnabled = True
 		EVENTS
 		{
@@ -1738,15 +2052,9 @@ PART
 	}
 	MODULE
 	{
-		name = TweakScale
+		name = EngineGroupModule
 		isEnabled = True
-		active = True
-		available = True
-		currentScale = 2.51999998
-		defaultScale = 2.51999998
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 1032.79993
-		OriginalCrewCapacity = 0
+		EngineGroupId = 
 		stagingEnabled = True
 		EVENTS
 		{
@@ -1808,14 +2116,14 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-1.6326851E-06, 13.4325895, 1.13645492E-05)
+		originalPos = (1.01066598E-05, 10.0998669, -2.90383759E-05)
 		originalRotation = (0, 0, 0, 1)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
-		originalAttachNodePos = (0.0, 1.0, 0.0)
-		originalAttachNodePos = (0.0, -1.2, 0.0)
-		originalAttachNodePos = (0.3, 0.1, -0.6)
+		originalAttachNodePos = (0.0, 1.6, 0.0)
+		originalAttachNodePos = (0.0, -1.9, 0.0)
+		originalAttachNodePos = (0.4, 0.2, -1.0)
 		EVENTS
 		{
 		}
@@ -1828,8 +2136,75 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleWaterfallFX
+		name = ModuleFuelTanks
 		isEnabled = True
+		type = ServiceModule
+		utilization = 86
+		mass = 0.5
+		_numberOfAddedMLILayers = 0
+		stagingEnabled = True
+		volume = 3000
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		TANK
+		{
+			name = NTO
+			note = (pressurized)
+			utilization = 1
+			mass = 8.09999983E-05
+			cost = 0
+			loss_rate = 0
+			temperature = 300
+			fillable = True
+			techRequired = 
+			amount = 1500.4949614405632
+			maxAmount = 1500.4949614405632
+		}
+		TANK
+		{
+			name = MMH
+			note = (pressurized)
+			utilization = 1
+			mass = 8.09999983E-05
+			cost = 0
+			loss_rate = 0
+			temperature = 300
+			fillable = True
+			techRequired = 
+			amount = 1494.5050385594368
+			maxAmount = 1494.5050385594368
+		}
+		TANK
+		{
+			name = ElectricCharge
+			note = (pressurized)
+			utilization = 1000
+			mass = 0.00288999989
+			cost = 0
+			loss_rate = 0
+			temperature = 300
+			fillable = True
+			techRequired = 
+			amount = 5000
+			maxAmount = 5000
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleEngineConfigs
+		isEnabled = True
+		configuration = MMH/NTO
+		configurationDisplay = MMH/NTO
+		techLevel = 1
+		thrustRating = maxThrust
+		modded = False
 		stagingEnabled = True
 		EVENTS
 		{
@@ -1856,11 +2231,26 @@ PART
 		{
 		}
 	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
 	RESOURCE
 	{
-		name = LiquidFuel
-		amount = 360
-		maxAmount = 360
+		name = ElectricCharge
+		amount = 5000
+		maxAmount = 5000
 		flowState = True
 		isTweakable = True
 		hideFlow = False
@@ -1869,9 +2259,9 @@ PART
 	}
 	RESOURCE
 	{
-		name = Oxidizer
-		amount = 440
-		maxAmount = 440
+		name = MMH
+		amount = 1494.5050385594368
+		maxAmount = 1494.5050385594368
 		flowState = True
 		isTweakable = True
 		hideFlow = False
@@ -1880,9 +2270,9 @@ PART
 	}
 	RESOURCE
 	{
-		name = MonoPropellant
-		amount = 500
-		maxAmount = 500
+		name = NTO
+		amount = 1500.4949614405632
+		maxAmount = 1500.4949614405632
 		flowState = True
 		isTweakable = True
 		hideFlow = False
@@ -1892,15 +2282,15 @@ PART
 }
 PART
 {
-	part = KCHS.ExperimentModule.SP_4293555690
+	part = KCHS.LaboratoryCabinModule.antenna_4291361920
 	partName = Part
-	persistentId = 3252318074
-	pos = -1.6326851E-06,11.5177851,1.13645492E-05
+	persistentId = 1661984089
+	pos = 0.429236054,10.1177511,-1.0357542
 	attPos = 0,0,0
-	attPos0 = 0,-1.91480446,0
-	rot = 0,0,0,1
+	attPos0 = 0.429225951,0.0178842545,-1.03572512
+	rot = -0.0904568061,-0.192848489,2.85959487E-08,0.977050185
 	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
+	attRot0 = -0.0904568061,-0.192848489,2.85959487E-08,0.977050185
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
@@ -1916,7 +2306,7 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	attN = bottom,KCHS.ExperimentModule.FWC_4293559074_0|0.760932028|0_0|0.600000024|0_0|0.760932028|0_0|0.600000024|0
+	attN = TXJD,KCHS.LaboratoryCabinModule.FWC_4291368646_0.0130957635|0.165961429|0.0698907375_0.37684527|-0.176761523|0.909254074_0.0130957635|0.165961429|0.0698907375_0.37684527|-0.176761523|0.909254074
 	EVENTS
 	{
 	}
@@ -1943,70 +2333,38 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleDeployableSolarPanel
+		name = ModuleAnimateGeneric
 		isEnabled = True
-		efficiencyMult = 1
-		launchUT = -1
-		currentRotation = (0.499999851, 0.500000179, 0.500000179, -0.499999851)
-		storedAnimationTime = 0
-		storedAnimationSpeed = 1
-		deployState = RETRACTED
+		aniState = LOCKED
+		animSwitch = True
+		animTime = 0
+		animSpeed = 1
+		deployPercent = 100
+		animationIsDisabled = False
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
-			ExtendPanelsAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ExtendAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			RetractAction
+			ToggleAction
 			{
 				actionGroup = None
 				wasActiveBeforePartWasAdjusted = False
 			}
 		}
-		UPGRADESAPPLIED
+		AXISGROUPS
 		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleDeployableSolarPanel
-		isEnabled = True
-		efficiencyMult = 1
-		launchUT = -1
-		currentRotation = (0, 1, 0, 0)
-		storedAnimationTime = 0
-		storedAnimationSpeed = 1
-		deployState = RETRACTED
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ExtendPanelsAction
+			deployPercent
 			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ExtendAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			RetractAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
+				axisInverted = None
+				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 			}
 		}
 		UPGRADESAPPLIED
@@ -2018,7 +2376,7 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 380
+		OriginalCost = 600
 		stagingEnabled = True
 		EVENTS
 		{
@@ -2036,10 +2394,10 @@ PART
 		isEnabled = True
 		active = True
 		available = True
-		currentScale = 2.51999998
-		defaultScale = 2.51999998
+		currentScale = 4.19999981
+		defaultScale = 4.19999981
 		defaultTransformScale = (0, 0, 0)
-		DryCost = 380
+		DryCost = 600
 		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
@@ -2102,12 +2460,12 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-1.6326851E-06, 11.5177851, 1.13645492E-05)
-		originalRotation = (0, 0, 0, 1)
+		originalPos = (0.429236054, 10.1177511, -1.0357542)
+		originalRotation = (-0.0904568061, -0.192848489, 2.85959487E-08, 0.977050185)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.8, 0.0)
+		originalAttachNodePos = (0.0, 0.2, 0.1)
 		EVENTS
 		{
 		}
@@ -2118,15 +2476,34 @@ PART
 		{
 		}
 	}
+	MODULE
+	{
+		name = ModuleTripLogger
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		Log
+		{
+			flight = 0
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
 }
 PART
 {
-	part = KCHS.ExperimentModule.DockingPort_4293547432
+	part = KCHS.LaboratoryCabinModule.DockingPort_4291360592
 	partName = Part
-	persistentId = 4018921093
-	pos = -1.6326851E-06,22.2891865,1.13645492E-05
+	persistentId = 405164459
+	pos = 1.01066598E-05,24.7130089,-2.90383759E-05
 	attPos = 0,0,0
-	attPos0 = 0,2.99646187,0
+	attPos0 = 0,5.01248169,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -2134,7 +2511,7 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = -1
+	istg = 0
 	resPri = 0
 	dstg = 0
 	sidx = -1
@@ -2145,8 +2522,8 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	attN = bottom,KCHS.ExperimentModule.Mengtian.DZD_4293565184_0|-0.209545106|0_0|-0.569999993|0_0|-0.209545106|0_0|-0.569999993|0
-	attN = top,Null_0_0|0.0815772563|0_0|0.569999993|0_0|0.0815772563|0_0|0.569999993|0
+	attN = bottom,KCHS.LaboratoryCabinModule.Wentian.DZD_4291395598_0|-0.367623001|0_0|-1|0_0|-0.367623001|0_0|-1|0
+	attN = top,Null_0_0|0.143117994|0_0|1|0_0|0.143117994|0_0|1|0
 	EVENTS
 	{
 	}
@@ -2276,8 +2653,8 @@ PART
 		isEnabled = True
 		active = True
 		available = True
-		currentScale = 2.51999998
-		defaultScale = 2.51999998
+		currentScale = 4.19999981
+		defaultScale = 4.19999981
 		defaultTransformScale = (0, 0, 0)
 		DryCost = 280
 		OriginalCrewCapacity = 0
@@ -2342,12 +2719,12 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-1.6326851E-06, 22.2891865, 1.13645492E-05)
+		originalPos = (1.01066598E-05, 24.7130089, -2.90383759E-05)
 		originalRotation = (0, 0, 0, 1)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
-		originalAttachNodePos = (0.0, -0.2, 0.0)
+		originalAttachNodePos = (0.0, -0.4, 0.0)
 		originalAttachNodePos = (0.0, 0.1, 0.0)
 		EVENTS
 		{
@@ -2362,15 +2739,15 @@ PART
 }
 PART
 {
-	part = KCHS.ExperimentModule.antenna_4293546638
+	part = KCHS.LaboratoryCabinModule.SP_4293253324
 	partName = Part
-	persistentId = 1968174116
-	pos = 0.257533938,13.4433203,-0.621423781
+	persistentId = 239593977
+	pos = 1.01066598E-05,6.90852642,-2.90383759E-05
 	attPos = 0,0,0
-	attPos0 = 0.257535577,0.0107307434,-0.621435165
-	rot = -0.0904568061,-0.192848489,2.85959487E-08,0.977050185
+	attPos0 = 0,-3.19134045,0
+	rot = 0,0,0,1
 	attRot = 0,0,0,1
-	attRot0 = -0.0904568061,-0.192848489,2.85959487E-08,0.977050185
+	attRot0 = 0,0,0,1
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
@@ -2386,7 +2763,8 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	attN = TXJD,KCHS.ExperimentModule.FWC_4293559074_0.00785745867|0.0995768607|0.0419344455_0.37684527|-0.176761523|0.909254074_0.00785745867|0.0995768607|0.0419344455_0.37684527|-0.176761523|0.909254074
+	attN = top,KCHS.LaboratoryCabinModule.FWC_4291368646_0|1.26821995|0_0|1|0_0|1.26821995|0_0|1|0
+	attN = bottom,Null_0_0|-0.396019995|0_0|-1|0_0|-0.396019995|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -2413,38 +2791,34 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleAnimateGeneric
+		name = ModuleDeployableSolarPanel
 		isEnabled = True
-		aniState = LOCKED
-		animSwitch = True
-		animTime = 0
-		animSpeed = 1
-		deployPercent = 100
-		animationIsDisabled = False
+		efficiencyMult = 1
+		launchUT = -1
+		currentRotation = (0.499999851, 0.500000179, 0.500000179, -0.499999851)
+		storedAnimationTime = 0
+		storedAnimationSpeed = 1
+		deployState = RETRACTED
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
-			ToggleAction
+			ExtendPanelsAction
 			{
 				actionGroup = None
 				wasActiveBeforePartWasAdjusted = False
 			}
-		}
-		AXISGROUPS
-		{
-			deployPercent
+			ExtendAction
 			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			RetractAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 		}
 		UPGRADESAPPLIED
@@ -2453,16 +2827,31 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleDataTransmitter
+		name = ModuleDeployableSolarPanel
 		isEnabled = True
-		xmitIncomplete = False
+		efficiencyMult = 1
+		launchUT = -1
+		currentRotation = (0, 1, 0, 0)
+		storedAnimationTime = 0
+		storedAnimationSpeed = 1
+		deployState = RETRACTED
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
-			StartTransmissionAction
+			ExtendPanelsAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ExtendAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			RetractAction
 			{
 				actionGroup = None
 				wasActiveBeforePartWasAdjusted = False
@@ -2477,7 +2866,7 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 600
+		OriginalCost = 380
 		stagingEnabled = True
 		EVENTS
 		{
@@ -2495,10 +2884,10 @@ PART
 		isEnabled = True
 		active = True
 		available = True
-		currentScale = 2.51999998
-		defaultScale = 2.51999998
+		currentScale = 4.19999981
+		defaultScale = 4.19999981
 		defaultTransformScale = (0, 0, 0)
-		DryCost = 600
+		DryCost = 380
 		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
@@ -2558,15 +2947,9 @@ PART
 	}
 	MODULE
 	{
-		name = AttachedOnEditor
+		name = ModuleROSolarPanel
 		isEnabled = True
-		active = True
-		originalPos = (0.257533938, 13.4433203, -0.621423781)
-		originalRotation = (-0.0904568061, -0.192848489, 2.85959487E-08, 0.977050185)
-		correctlyInitialised = False
-		moduleVersion = 4
 		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.1, 0.0)
 		EVENTS
 		{
 		}
@@ -2579,18 +2962,21 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleTripLogger
+		name = AttachedOnEditor
 		isEnabled = True
+		active = True
+		originalPos = (1.01066598E-05, 6.90852642, -2.90383759E-05)
+		originalRotation = (0, 0, 0, 1)
+		correctlyInitialised = False
+		moduleVersion = 4
 		stagingEnabled = True
+		originalAttachNodePos = (0.0, 1.3, 0.0)
+		originalAttachNodePos = (0.0, -0.4, 0.0)
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
-		}
-		Log
-		{
-			flight = 0
 		}
 		UPGRADESAPPLIED
 		{
