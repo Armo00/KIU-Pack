@@ -7,7 +7,7 @@
 
 Author:Armor00, Icecovery, Launcelot, Old_Copper
 
-License:CC BY-SA-4.0
+License:CC BY-NC-SA 4.0
 
 KCHS Changelog:
 -0.9.0

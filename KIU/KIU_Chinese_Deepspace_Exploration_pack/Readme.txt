@@ -1,5 +1,5 @@
 ================================
-=KIU Chinese Launch Vehicle Pack==
+=KIU Chinese Deepspace Exploration Pack==
 ================================
 ===========Version V0.9.0===========
 ============20221023============
