@@ -2,9 +2,9 @@ ship = CZ-3B
 version = 1.12.3
 description = 
 type = VAB
-size = 8.05117607,56.3402176,8.05117989
+size = 8.00540638,56.3402176,8.00540733
 steamPublishedFileId = 0
-persistentId = 1065035794
+persistentId = 2012127421
 rot = 0,0,0,0
 missionFlag = Squad/Flags/China
 vesselType = Debris
@@ -14,12 +14,12 @@ OverrideAxisControl = 0,0,0,0
 OverrideGroupNames = ,,,
 PART
 {
-	part = KCLV.CZ3.Adapter_4293361342
+	part = KCLV.CZ3.Adapter_4292690086
 	partName = Part
-	persistentId = 1864853977
-	pos = -4.69827455E-06,51.2389793,-9.24815049E-06
+	persistentId = 2869684146
+	pos = 9.4473362E-06,51.0736122,6.2584877E-07
 	attPos = 0,0,0
-	attPos0 = -4.69827455E-06,51.2389793,-9.24815049E-06
+	attPos0 = 9.4473362E-06,51.0736122,6.2584877E-07
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -38,8 +38,8 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.CZ3.Instrument.Bay.1_4293358570
-	attN = bottom,KCLV.CZ3.Instrument.Bay.1_4293358570_0|-0.243952006|0_0|-1|0_0|-0.243952006|0_0|-1|0
+	link = KCLV.CZ3.Instrument.Bay.1_4292686414
+	attN = bottom,KCLV.CZ3.Instrument.Bay.1_4292686414_0|-0.243952006|0_0|-1|0_0|-0.243952006|0_0|-1|0
 	attN = top,Null_0_0|0.186030999|0_0|1|0_0|0.186030999|0_0|1|0
 	EVENTS
 	{
@@ -92,7 +92,7 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 3000
+		OriginalCost = 500
 		stagingEnabled = True
 		EVENTS
 		{
@@ -207,7 +207,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-4.69827455E-06, 51.2389793, -9.24815049E-06)
+		originalPos = (9.4473362E-06, 51.0736122, 6.2584877E-07)
 		originalRotation = (0, 0, 0, 1)
 		correctlyInitialised = False
 		moduleVersion = 4
@@ -243,26 +243,15 @@ PART
 		{
 		}
 	}
-	RESOURCE
-	{
-		name = ElectricCharge
-		amount = 1000
-		maxAmount = 1000
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
 }
 PART
 {
-	part = KCLV.CZ3.Instrument.Bay.1_4293358570
+	part = KCLV.CZ3.Instrument.Bay.1_4292686414
 	partName = Part
-	persistentId = 1299333257
-	pos = -4.69827455E-06,50.5145302,-9.24815049E-06
+	persistentId = 432067092
+	pos = 9.4473362E-06,50.3491592,6.2584877E-07
 	attPos = 0,0,0
-	attPos0 = 0,-0.724450111,0
+	attPos0 = 0,-0.724452972,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -281,13 +270,13 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.CZ3B.FAIRING.4200_4292321506
-	link = KCLV.CZ3B.FAIRING.4200_4292041608
-	link = KCLV.CZ3.STAGE3_4293326114
-	attN = bottom,KCLV.CZ3.STAGE3_4293326114_0|-0.238815993|0_0|-1|0_0|-0.238815993|0_0|-1|0
-	attN = top,KCLV.CZ3.Adapter_4293361342_0|0.480497986|0_0|1|0_0|0.480497986|0_0|1|0
-	attN = f1,KCLV.CZ3B.FAIRING.4200_4292321506_-1.5|-0.238815993|1.31134158E-07_-1.00000012|0|5.96046448E-08_-1.5|-0.238815993|1.31134158E-07_-1.00000012|0|5.96046448E-08
-	attN = f2,KCLV.CZ3B.FAIRING.4200_4292041608_1.5|-0.238815993|-1.31134158E-07_1.00000012|0|-3.57627869E-07_1.5|-0.238815993|-1.31134158E-07_1.00000012|0|-3.57627869E-07
+	link = KCLV.CZ3.STAGE3_4292682944
+	link = KCLV.CZ3B.FAIRING.4200_4292565394
+	link = KCLV.CZ3B.FAIRING.4200_4292564650
+	attN = bottom,KCLV.CZ3.STAGE3_4292682944_0|-0.238815993|0_0|-1|0_0|-0.238815993|0_0|-1|0
+	attN = top,KCLV.CZ3.Adapter_4292690086_0|0.480497986|0_0|1|0_0|0.480497986|0_0|1|0
+	attN = f1,KCLV.CZ3B.FAIRING.4200_4292565394_-1.5|-0.238815993|1.31134158E-07_-1.00000012|0|5.96046448E-08_-1.5|-0.238815993|1.31134158E-07_-1.00000012|0|5.96046448E-08
+	attN = f2,KCLV.CZ3B.FAIRING.4200_4292564650_1.5|-0.238815993|-1.31134158E-07_1.00000012|0|-3.57627869E-07_1.5|-0.238815993|-1.31134158E-07_1.00000012|0|-3.57627869E-07
 	EVENTS
 	{
 	}
@@ -1235,7 +1224,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-4.69827455E-06, 50.5145302, -9.24815049E-06)
+		originalPos = (9.4473362E-06, 50.3491592, 6.2584877E-07)
 		originalRotation = (0, 0, 0, 1)
 		correctlyInitialised = False
 		moduleVersion = 4
@@ -1291,8 +1280,8 @@ PART
 	RESOURCE
 	{
 		name = ElectricCharge
-		amount = 1000
-		maxAmount = 1000
+		amount = 2000
+		maxAmount = 2000
 		flowState = True
 		isTweakable = True
 		hideFlow = False
@@ -1302,590 +1291,10 @@ PART
 }
 PART
 {
-	part = KCLV.CZ3B.FAIRING.4200_4292321506
+	part = KCLV.CZ3.STAGE3_4292682944
 	partName = Part
-	persistentId = 614517742
-	pos = -4.64916229E-06,53.5431557,-9.11701591E-06
-	attPos = 0,0,0
-	attPos0 = 4.91122591E-08,3.02862549,1.31134584E-07
-	rot = 0,0,0,1
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 2
-	resPri = 0
-	dstg = 2
-	sidx = 0
-	sqor = 2
-	sepI = 2
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = KCLV.CZ3B.FAIRING.4200_4292041608
-	attN = top,KCLV.CZ3.Instrument.Bay.1_4293358570_-1.5|-3.26744008|0_1|0|-2.38418579E-07_-1.5|-3.26744008|0_1|0|-2.38418579E-07
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDecouple
-		isEnabled = True
-		ejectionForcePercent = 100
-		isDecoupled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			DecoupleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleEnginesRF
-		isEnabled = True
-		autoCutoff = True
-		ignited = False
-		ignitions = -1
-		partSeed = -1
-		calculatedResiduals = 0.01
-		independentThrottle = False
-		independentThrottlePercentage = 0
-		staged = False
-		flameout = False
-		EngineIgnited = False
-		engineShutdown = False
-		currentThrottle = 0
-		thrustPercentage = 100
-		manuallyOverridden = False
-		includeinDVCalcs = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			OnAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ShutdownAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ActivateAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ToggleThrottle
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		AXISGROUPS
-		{
-			independentThrottlePercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-			}
-			thrustPercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-			}
-		}
-		Ullage
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModulePartVariants
-		isEnabled = True
-		useVariantMass = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 2500.1423799991608
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleToggleCrossfeed
-		isEnabled = True
-		crossfeedStatus = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			EnableAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			DisableAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (-4.64916229E-06, 53.5431557, -9.11701591E-06)
-		originalRotation = (0, 0, 0, 1)
-		correctlyInitialised = False
-		moduleVersion = 4
-		stagingEnabled = True
-		originalAttachNodePos = (-1.5, -3.3, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	RESOURCE
-	{
-		name = SolidFuel
-		amount = 1
-		maxAmount = 1
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = KCLV.CZ3B.FAIRING.4200_4292041608
-	partName = Part
-	persistentId = 854627929
-	pos = -4.64916229E-06,53.5431557,-9.24815049E-06
-	attPos = 0,0,0
-	attPos0 = 4.91122591E-08,3.02862549,0
-	rot = 0,1,0,-4.37113883E-08
-	attRot = 0,0,0,1
-	attRot0 = 0,1,0,-4.37113883E-08
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 2
-	resPri = 0
-	dstg = 2
-	sidx = 0
-	sqor = 2
-	sepI = 2
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = KCLV.CZ3B.FAIRING.4200_4292321506
-	attN = top,KCLV.CZ3.Instrument.Bay.1_4293358570_-1.5|-3.26744008|0_1|0|-2.38418579E-07_-1.5|-3.26744008|0_1|0|-2.38418579E-07
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDecouple
-		isEnabled = True
-		ejectionForcePercent = 100
-		isDecoupled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			DecoupleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleEnginesRF
-		isEnabled = True
-		autoCutoff = True
-		ignited = False
-		ignitions = -1
-		partSeed = -1
-		calculatedResiduals = 0.01
-		independentThrottle = False
-		independentThrottlePercentage = 0
-		staged = False
-		flameout = False
-		EngineIgnited = False
-		engineShutdown = False
-		currentThrottle = 0
-		thrustPercentage = 100
-		manuallyOverridden = False
-		includeinDVCalcs = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			OnAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ShutdownAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ActivateAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ToggleThrottle
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		AXISGROUPS
-		{
-			independentThrottlePercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-			thrustPercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-		}
-		Ullage
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModulePartVariants
-		isEnabled = True
-		useVariantMass = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 2500.1423799991608
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleToggleCrossfeed
-		isEnabled = True
-		crossfeedStatus = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			EnableAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			DisableAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (-4.64916229E-06, 53.5431557, -9.24815049E-06)
-		originalRotation = (0, 1, 0, -4.37113883E-08)
-		correctlyInitialised = False
-		moduleVersion = 4
-		stagingEnabled = True
-		originalAttachNodePos = (-1.5, -3.3, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	RESOURCE
-	{
-		name = SolidFuel
-		amount = 1
-		maxAmount = 1
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = KCLV.CZ3.STAGE3_4293326114
-	partName = Part
-	persistentId = 3830979113
-	pos = -4.69827455E-06,45.113945,-9.24815049E-06
+	persistentId = 2919385487
+	pos = 9.4473362E-06,44.9485741,6.2584877E-07
 	attPos = 0,0,0
 	attPos0 = 0,-5.40058517,0
 	rot = 0,0,0,1
@@ -1898,7 +1307,7 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 1
-	sidx = 0
+	sidx = 1
 	sqor = 1
 	sepI = 0
 	attm = 0
@@ -1906,13 +1315,13 @@ PART
 	modCost = 2829.46802
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.YF75_4293317654
-	link = KCLV.YF75_4293316574
-	link = KCLV.CZ3.interstage.2-3_4292298820
-	attN = top,KCLV.CZ3.Instrument.Bay.1_4293358570_0|5.16176987|0_0|1|0_0|5.16176987|0_0|1|0
-	attN = bottom,KCLV.CZ3.interstage.2-3_4292298820_0|-3.67322993|0_0|-1|0_0|-3.67322993|0_0|-1|0
-	attN = YQJD1,KCLV.YF75_4293317654_-0.418877929|-4.86202955|0.438179016_-0.0314053595|-0.999048471|0.0302693546_-0.418877929|-4.86202955|0.438179016_-0.0314053595|-0.999048471|0.0302693546
-	attN = YQJD2,KCLV.YF75_4293316574_0.421108425|-4.86202955|-0.440327764_0.0314159393|-0.999048293|-0.0302610397_0.421108425|-4.86202955|-0.440327764_0.0314159393|-0.999048293|-0.0302610397
+	link = KCLV.YF75_4292677396
+	link = KCLV.YF75_4292676182
+	link = KCLV.CZ3.interstage.2-3_4292674846
+	attN = top,KCLV.CZ3.Instrument.Bay.1_4292686414_0|5.16176987|0_0|1|0_0|5.16176987|0_0|1|0
+	attN = bottom,KCLV.CZ3.interstage.2-3_4292674846_0|-3.67322993|0_0|-1|0_0|-3.67322993|0_0|-1|0
+	attN = YQJD1,KCLV.YF75_4292677396_-0.418877929|-4.86202955|0.438179016_-0.0314053595|-0.999048471|0.0302693546_-0.418877929|-4.86202955|0.438179016_-0.0314053595|-0.999048471|0.0302693546
+	attN = YQJD2,KCLV.YF75_4292676182_0.421108425|-4.86202955|-0.440327764_0.0314159393|-0.999048293|-0.0302610397_0.421108425|-4.86202955|-0.440327764_0.0314159393|-0.999048293|-0.0302610397
 	EVENTS
 	{
 	}
@@ -1976,7 +1385,7 @@ PART
 		ignited = False
 		ignitions = 1
 		partSeed = -1
-		calculatedResiduals = 0
+		calculatedResiduals = 0.012
 		independentThrottle = False
 		independentThrottlePercentage = 0
 		staged = False
@@ -2067,7 +1476,29 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 8666.900998826979
+		OriginalCost = 6666.900998826979
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 3
+		defaultScale = 3
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 162.567017
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -2129,7 +1560,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-4.69827455E-06, 45.113945, -9.24815049E-06)
+		originalPos = (9.4473362E-06, 44.9485741, 6.2584877E-07)
 		originalRotation = (0, 0, 0, 1)
 		correctlyInitialised = False
 		moduleVersion = 4
@@ -2287,10 +1718,10 @@ PART
 }
 PART
 {
-	part = KCLV.YF75_4293317654
+	part = KCLV.YF75_4292677396
 	partName = Part
-	persistentId = 187390258
-	pos = -0.450246334,39.2541924,0.468399048
+	persistentId = 3265396387
+	pos = -0.450232178,39.0888214,0.468408912
 	attPos = 0,0,0
 	attPos0 = -0.450241625,-5.85975266,0.468408287
 	rot = -0.0151382461,-9.31544175E-10,-0.0157064144,0.999762058
@@ -2303,7 +1734,7 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 1
-	sidx = 1
+	sidx = 0
 	sqor = 1
 	sepI = 0
 	attm = 0
@@ -2311,9 +1742,9 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = KCLV.YF75_4293316574
+	sym = KCLV.YF75_4292676182
 	attN = bottom,Null_0_0|-0.897634029|0_0|-1|0_0|-0.897634029|0_0|-1|0
-	attN = JD01,KCLV.CZ3.STAGE3_4293326114_0|0.998673797|-1.1920929E-07_0|1|-5.96046448E-08_0|0.998673797|-1.1920929E-07_0|1|-5.96046448E-08
+	attN = JD01,KCLV.CZ3.STAGE3_4292682944_0|0.998673797|-1.1920929E-07_0|1|-5.96046448E-08_0|0.998673797|-1.1920929E-07_0|1|-5.96046448E-08
 	EVENTS
 	{
 	}
@@ -2503,7 +1934,29 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 1000
+		OriginalCost = 2000
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 2.25
+		defaultScale = 2.25
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 1000
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -2581,7 +2034,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-0.450246334, 39.2541924, 0.468399048)
+		originalPos = (-0.450232178, 39.0888214, 0.468408912)
 		originalRotation = (-0.0151382461, -9.31544175E-10, -0.0157064144, 0.999762058)
 		correctlyInitialised = False
 		moduleVersion = 4
@@ -2636,10 +2089,10 @@ PART
 }
 PART
 {
-	part = KCLV.YF75_4293316574
+	part = KCLV.YF75_4292676182
 	partName = Part
-	persistentId = 2758616142
-	pos = 0.452467412,39.2541924,-0.470566273
+	persistentId = 1920158109
+	pos = 0.452481568,39.0888214,-0.470556408
 	attPos = 0,0,0
 	attPos0 = 0.452472121,-5.85975266,-0.470557034
 	rot = -0.0157064144,0.999762058,0.0151382471,-4.27694431E-08
@@ -2652,7 +2105,7 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 1
-	sidx = 1
+	sidx = 0
 	sqor = 1
 	sepI = 0
 	attm = 0
@@ -2660,9 +2113,9 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = KCLV.YF75_4293317654
+	sym = KCLV.YF75_4292677396
 	attN = bottom,Null_0_0|-0.897634029|0_0|-1|0_0|-0.897634029|0_0|-1|0
-	attN = JD01,KCLV.CZ3.STAGE3_4293326114_0|0.998673797|-1.1920929E-07_0|1|-5.96046448E-08_0|0.998673797|-1.1920929E-07_0|1|-5.96046448E-08
+	attN = JD01,KCLV.CZ3.STAGE3_4292682944_0|0.998673797|-1.1920929E-07_0|1|-5.96046448E-08_0|0.998673797|-1.1920929E-07_0|1|-5.96046448E-08
 	EVENTS
 	{
 	}
@@ -2844,7 +2297,29 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 1000
+		OriginalCost = 2000
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 2.25
+		defaultScale = 2.25
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 1000
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -2922,7 +2397,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (0.452467412, 39.2541924, -0.470566273)
+		originalPos = (0.452481568, 39.0888214, -0.470556408)
 		originalRotation = (-0.0157064144, 0.999762058, 0.0151382471, -4.27694431E-08)
 		correctlyInitialised = False
 		moduleVersion = 4
@@ -2977,10 +2452,10 @@ PART
 }
 PART
 {
-	part = KCLV.CZ3.interstage.2-3_4292298820
+	part = KCLV.CZ3.interstage.2-3_4292674846
 	partName = Part
-	persistentId = 1279562324
-	pos = -4.69827455E-06,39.4912949,-9.24815049E-06
+	persistentId = 623253371
+	pos = 9.4473362E-06,39.3259239,6.2584877E-07
 	attPos = 0,0,0
 	attPos0 = 0,-5.62265015,0
 	rot = 0,0,0,1
@@ -3001,9 +2476,9 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.CZ3B.Second.Stage.Tank_4292297032
-	attN = top,KCLV.CZ3.STAGE3_4293326114_0|1.94941998|0_0|1|0_0|1.94941998|0_0|1|0
-	attN = bottom,KCLV.CZ3B.Second.Stage.Tank_4292297032_0|-2.0302999|0_0|-1|0_0|-2.0302999|0_0|-1|0
+	link = KCLV.CZ3B.Second.Stage.Tank_4292671284
+	attN = top,KCLV.CZ3.STAGE3_4292682944_0|1.94941998|0_0|1|0_0|1.94941998|0_0|1|0
+	attN = bottom,KCLV.CZ3B.Second.Stage.Tank_4292671284_0|-2.0302999|0_0|-1|0_0|-2.0302999|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -3089,7 +2564,7 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 1000
+		OriginalCost = 500
 		stagingEnabled = True
 		EVENTS
 		{
@@ -3173,7 +2648,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-4.69827455E-06, 39.4912949, -9.24815049E-06)
+		originalPos = (9.4473362E-06, 39.3259239, 6.2584877E-07)
 		originalRotation = (0, 0, 0, 1)
 		correctlyInitialised = False
 		moduleVersion = 4
@@ -3193,15 +2668,15 @@ PART
 }
 PART
 {
-	part = KCLV.CZ3B.Second.Stage.Tank_4292297032
+	part = KCLV.CZ3B.Second.Stage.Tank_4292671284
 	partName = Part
-	persistentId = 84124296
-	pos = -4.69827455E-06,34.896946,-9.24815049E-06
+	persistentId = 1803852458
+	pos = 9.4473362E-06,34.731575,6.2584877E-07
 	attPos = 0,0,0
-	attPos0 = 0,-4.59434891,0
-	rot = 0,0,0,-1
-	attRot = 0,0,0,-0.999999881
-	attRot0 = 0,0,0,-1
+	attPos0 = 0,-4.59435129,0
+	rot = 0,0,0,1
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
@@ -3217,11 +2692,11 @@ PART
 	modCost = 20732.4277
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.YF22_4292257182
-	link = KCLV.CZ3.interstage.1-2_4292251686
-	attN = top,KCLV.CZ3.interstage.2-3_4292298820_0|2.56404996|0_0|1|0_0|2.56404996|0_0|1|0
-	attN = bottom,KCLV.YF22_4292257182_0|-2.70595002|0_0|-1|0_0|-2.70595002|0_0|-1|0
-	attN = bottom2,KCLV.CZ3.interstage.1-2_4292251686_0|-2.70595002|0_0|-1|0_0|-2.70595002|0_0|-1|0
+	link = KCLV.YF22_4293553794
+	link = KCLV.CZ3.interstage.1-2_4292659228
+	attN = top,KCLV.CZ3.interstage.2-3_4292674846_0|2.56404996|0_0|1|0_0|2.56404996|0_0|1|0
+	attN = bottom,KCLV.YF22_4293553794_0|-2.70595002|0_0|-1|0_0|-2.70595002|0_0|-1|0
+	attN = bottom2,KCLV.CZ3.interstage.1-2_4292659228_0|-2.70595002|0_0|-1|0_0|-2.70595002|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -3267,7 +2742,7 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 46464.856182172894
+		OriginalCost = 42964.856182172894
 		stagingEnabled = True
 		EVENTS
 		{
@@ -3351,8 +2826,8 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-4.69827455E-06, 34.896946, -9.24815049E-06)
-		originalRotation = (0, 0, 0, -1)
+		originalPos = (9.4473362E-06, 34.731575, 6.2584877E-07)
+		originalRotation = (0, 0, 0, 1)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
@@ -3442,15 +2917,639 @@ PART
 }
 PART
 {
-	part = KCLV.YF22_4292257182
+	part = KCLV.CZ3B.FAIRING.4200_4292565394
 	partName = Part
-	persistentId = 2166479347
-	pos = -4.69827455E-06,32.0595245,-9.24815049E-06
+	persistentId = 2074353548
+	pos = 9.41753387E-06,53.3777847,7.56982899E-07
 	attPos = 0,0,0
-	attPos0 = 0,-2.83742142,0
+	attPos0 = -2.98023224E-08,3.02862549,1.31134129E-07
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
-	attRot0 = 0,0,0,-1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 2
+	resPri = 0
+	dstg = 2
+	sidx = 0
+	sqor = 2
+	sepI = 2
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = KCLV.CZ3B.FAIRING.4200_4292564650
+	attN = top,KCLV.CZ3.Instrument.Bay.1_4292686414_-1.5|-3.26744008|0_1|0|-2.38418579E-07_-1.5|-3.26744008|0_1|0|-2.38418579E-07
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleDecouple
+		isEnabled = True
+		ejectionForcePercent = 100
+		isDecoupled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DecoupleAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleEnginesRF
+		isEnabled = True
+		autoCutoff = True
+		ignited = False
+		ignitions = -1
+		partSeed = -1
+		calculatedResiduals = 0.01
+		independentThrottle = False
+		independentThrottlePercentage = 0
+		staged = False
+		flameout = False
+		EngineIgnited = False
+		engineShutdown = False
+		currentThrottle = 0
+		thrustPercentage = 100
+		manuallyOverridden = False
+		includeinDVCalcs = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			OnAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ShutdownAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ActivateAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ToggleThrottle
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		AXISGROUPS
+		{
+			independentThrottlePercentage
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
+				axisInverted = None
+				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+			}
+			thrustPercentage
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
+				axisInverted = None
+				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+			}
+		}
+		Ullage
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModulePartVariants
+		isEnabled = True
+		useVariantMass = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = Refunding
+		isEnabled = True
+		active = True
+		OriginalCost = 1500.1423799991608
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 4.19999981
+		defaultScale = 4.19999981
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 2499.85767
+		OriginalCrewCapacity = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = GeometryPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARAeroPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleToggleCrossfeed
+		isEnabled = True
+		crossfeedStatus = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			EnableAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			DisableAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = AttachedOnEditor
+		isEnabled = True
+		active = True
+		originalPos = (9.41753387E-06, 53.3777847, 7.56982899E-07)
+		originalRotation = (0, 0, 0, 1)
+		correctlyInitialised = False
+		moduleVersion = 4
+		stagingEnabled = True
+		originalAttachNodePos = (-1.5, -3.3, 0.0)
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	RESOURCE
+	{
+		name = SolidFuel
+		amount = 1
+		maxAmount = 1
+		flowState = True
+		isTweakable = True
+		hideFlow = False
+		isVisible = True
+		flowMode = Both
+	}
+}
+PART
+{
+	part = KCLV.CZ3B.FAIRING.4200_4292564650
+	partName = Part
+	persistentId = 4232383847
+	pos = 9.41753387E-06,53.3777847,6.2584877E-07
+	attPos = 0,0,0
+	attPos0 = -2.98023224E-08,3.02862549,0
+	rot = 0,1,0,-4.37113883E-08
+	attRot = 0,0,0,1
+	attRot0 = 0,1,0,-4.37113883E-08
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 2
+	resPri = 0
+	dstg = 2
+	sidx = 0
+	sqor = 2
+	sepI = 2
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = KCLV.CZ3B.FAIRING.4200_4292565394
+	attN = top,KCLV.CZ3.Instrument.Bay.1_4292686414_-1.5|-3.26744008|0_1|0|-2.38418579E-07_-1.5|-3.26744008|0_1|0|-2.38418579E-07
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleDecouple
+		isEnabled = True
+		ejectionForcePercent = 100
+		isDecoupled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DecoupleAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleEnginesRF
+		isEnabled = True
+		autoCutoff = True
+		ignited = False
+		ignitions = -1
+		partSeed = -1
+		calculatedResiduals = 0.01
+		independentThrottle = False
+		independentThrottlePercentage = 0
+		staged = False
+		flameout = False
+		EngineIgnited = False
+		engineShutdown = False
+		currentThrottle = 0
+		thrustPercentage = 100
+		manuallyOverridden = False
+		includeinDVCalcs = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			OnAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ShutdownAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ActivateAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ToggleThrottle
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		AXISGROUPS
+		{
+			independentThrottlePercentage
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
+				axisInverted = None
+			}
+			thrustPercentage
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
+				axisInverted = None
+			}
+		}
+		Ullage
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModulePartVariants
+		isEnabled = True
+		useVariantMass = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = Refunding
+		isEnabled = True
+		active = True
+		OriginalCost = 1500.1423799991608
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 4.19999981
+		defaultScale = 4.19999981
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 2499.85767
+		OriginalCrewCapacity = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = GeometryPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARAeroPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleToggleCrossfeed
+		isEnabled = True
+		crossfeedStatus = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			EnableAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			DisableAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = AttachedOnEditor
+		isEnabled = True
+		active = True
+		originalPos = (9.41753387E-06, 53.3777847, 6.2584877E-07)
+		originalRotation = (0, 1, 0, -4.37113883E-08)
+		correctlyInitialised = False
+		moduleVersion = 4
+		stagingEnabled = True
+		originalAttachNodePos = (-1.5, -3.3, 0.0)
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	RESOURCE
+	{
+		name = SolidFuel
+		amount = 1
+		maxAmount = 1
+		flowState = True
+		isTweakable = True
+		hideFlow = False
+		isVisible = True
+		flowMode = Both
+	}
+}
+PART
+{
+	part = KCLV.YF22_4293553794
+	partName = Part
+	persistentId = 226329370
+	pos = 9.4473362E-06,30.3671989,8.64267349E-07
+	attPos = 0,0,0
+	attPos0 = 0,-4.36437607,2.38418579E-07
+	rot = 0,0,0,1
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
@@ -3458,7 +3557,7 @@ PART
 	istg = 4
 	resPri = 0
 	dstg = 1
-	sidx = 1
+	sidx = 2
 	sqor = 4
 	sepI = 1
 	attm = 0
@@ -3466,15 +3565,16 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.YF23V_4292255934
-	link = KCLV.YF23V_4292254922
-	link = KCLV.YF23V_4292254828
-	link = KCLV.YF23V_4292254734
-	attN = top,KCLV.CZ3B.Second.Stage.Tank_4292297032_0|0.131467998|0_0|1|0_0|0.131467998|0_0|1|0
-	attN = 1,KCLV.YF23V_4292254828_0.759100974|-0.740512013|0_0|-1|0_0.759100974|-0.740512013|0_0|-1|0
-	attN = 2,KCLV.YF23V_4292255934_-0.759100974|-0.740512013|0_0|-1|0_-0.759100974|-0.740512013|0_0|-1|0
-	attN = 3,KCLV.YF23V_4292254922_0|-0.740512013|0.759100974_0|-1|0_0|-0.740512013|0.759100974_0|-1|0
-	attN = 4,KCLV.YF23V_4292254734_0|-0.740512013|-0.759100974_0|-1|0_0|-0.740512013|-0.759100974_0|-1|0
+	link = KCLV.YF23V_4293556532
+	link = KCLV.YF23V_4293551326
+	link = KCLV.YF23V_4293551234
+	link = KCLV.YF23V_4293551142
+	attN = Node1,KCLV.CZ3B.Second.Stage.Tank_4292671284_0|1.65842867|-2.38418579E-07_0|1.00000012|-1.04308128E-07_0|1.65842867|-2.38418579E-07_0|1.00000012|-1.04308128E-07
+	attN = Node2,Null_0_4.65661287E-10|-1.78800023|0.0141422749_0|-1.00000024|-2.38418579E-07_4.65661287E-10|-1.78800023|0.0141422749_0|-1.00000024|-2.38418579E-07
+	attN = V1,KCLV.YF23V_4293551142_0.640920401|0.784244895|-0.640920758_-0.705385447|-0.0697563589|0.705383241_0.640920401|0.784244895|-0.640920758_-0.705385447|-0.0697563589|0.705383241
+	attN = V2,KCLV.YF23V_4293556532_-0.640920699|0.784244776|-0.640920579_0.705384612|-0.0697565973|0.705384016_-0.640920699|0.784244776|-0.640920579_0.705384612|-0.0697565973|0.705384016
+	attN = V3,KCLV.YF23V_4293551326_-0.64092046|0.784244657|0.64092046_0.705385566|-0.0697566271|-0.705383301_-0.64092046|0.784244657|0.64092046_0.705385566|-0.0697566271|-0.705383301
+	attN = V4,KCLV.YF23V_4293551234_0.640920758|0.784244776|0.640920281_-0.705383062|-0.0697564483|-0.705385625_0.640920758|0.784244776|0.640920281_-0.705383062|-0.0697564483|-0.705385625
 	EVENTS
 	{
 	}
@@ -3627,6 +3727,28 @@ PART
 	}
 	MODULE
 	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 3.3499999
+		defaultScale = 3.3499999
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 2497.19873
+		OriginalCrewCapacity = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = EngineGroupModule
 		isEnabled = True
 		EngineGroupId = 
@@ -3691,16 +3813,17 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-4.69827455E-06, 32.0595245, -9.24815049E-06)
+		originalPos = (9.4473362E-06, 30.3671989, 8.64267349E-07)
 		originalRotation = (0, 0, 0, 1)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.1, 0.0)
-		originalAttachNodePos = (0.8, -0.7, 0.0)
-		originalAttachNodePos = (-0.8, -0.7, 0.0)
-		originalAttachNodePos = (0.0, -0.7, 0.8)
-		originalAttachNodePos = (0.0, -0.7, -0.8)
+		originalAttachNodePos = (0.0, 1.7, 0.0)
+		originalAttachNodePos = (0.0, -1.8, 0.0)
+		originalAttachNodePos = (0.6, 0.8, -0.6)
+		originalAttachNodePos = (-0.6, 0.8, -0.6)
+		originalAttachNodePos = (-0.6, 0.8, 0.6)
+		originalAttachNodePos = (0.6, 0.8, 0.6)
 		EVENTS
 		{
 		}
@@ -3760,1371 +3883,1459 @@ PART
 }
 PART
 {
-	part = KCLV.YF23V_4292255934
+	part = KCLV.YF23V_4293556532
 	partName = Part
-	persistentId = 1549300734
-	pos = -0.759105861,30.9711037,-9.24815049E-06
+	persistentId = 1577690281
+	pos = -0.649271011,30.9823742,-0.649279475
 	attPos = 0,0,0
-	attPos0 = -0.759101033,-1.08842087,0
+	attPos0 = -0.649280429,0.615175247,-0.64928031
+	rot = 0.0246777162,2.53474155E-07,-0.0246777125,0.999390841
+	attRot = 0,0,0,1
+	attRot0 = 0.0246777162,2.53474155E-07,-0.0246777125,0.999390841
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 4
+	resPri = 0
+	dstg = 1
+	sidx = 0
+	sqor = 4
+	sepI = 1
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = KCLV.YF23V_4293551326
+	sym = KCLV.YF23V_4293551234
+	sym = KCLV.YF23V_4293551142
+	attN = Node,KCLV.YF22_4293553794_0|0.169482261|0_-0.707106829|0|-0.707106948_0|0.169482261|0_-0.707106829|0|-0.707106948
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleEnginesRF
+		isEnabled = True
+		autoCutoff = True
+		ignited = False
+		ignitions = 1
+		partSeed = -1
+		calculatedResiduals = 0.0040000000000000001
+		independentThrottle = False
+		independentThrottlePercentage = 0
+		staged = False
+		flameout = False
+		EngineIgnited = False
+		engineShutdown = False
+		currentThrottle = 0
+		thrustPercentage = 100
+		manuallyOverridden = False
+		includeinDVCalcs = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			OnAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ShutdownAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ActivateAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ToggleThrottle
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		AXISGROUPS
+		{
+			independentThrottlePercentage
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
+				axisInverted = None
+				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+			}
+			thrustPercentage
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
+				axisInverted = None
+				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+			}
+		}
+		Ullage
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleSurfaceFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleGimbal
+		isEnabled = True
+		gimbalLock = False
+		gimbalLimiter = 100
+		currentShowToggles = False
+		enableYaw = True
+		enablePitch = True
+		enableRoll = True
+		gimbalActive = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			LockAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			FreeAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			TogglePitchAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ToggleYawAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ToggleRollAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = Refunding
+		isEnabled = True
+		active = True
+		OriginalCost = 500.28012399673463
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 3.3499999
+		defaultScale = 3.3499999
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 499.719879
+		OriginalCrewCapacity = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = EngineGroupModule
+		isEnabled = True
+		EngineGroupId = 
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = GeometryPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARAeroPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = AttachedOnEditor
+		isEnabled = True
+		active = True
+		originalPos = (-0.649271011, 30.9823742, -0.649279475)
+		originalRotation = (0.0246777162, 2.53474155E-07, -0.0246777125, 0.999390841)
+		correctlyInitialised = False
+		moduleVersion = 4
+		stagingEnabled = True
+		originalAttachNodePos = (0.0, 0.2, 0.0)
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleEngineConfigs
+		isEnabled = True
+		configuration = YF-23
+		configurationDisplay = YF-23
+		techLevel = -1
+		thrustRating = maxThrust
+		modded = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	RESOURCE
+	{
+		name = TEATEB
+		amount = 0.10000000000000001
+		maxAmount = 0.10000000000000001
+		flowState = True
+		isTweakable = True
+		hideFlow = False
+		isVisible = True
+		flowMode = Both
+	}
+}
+PART
+{
+	part = KCLV.YF23V_4293551326
+	partName = Part
+	persistentId = 1116484069
+	pos = -0.649270773,30.9823742,0.649281144
+	attPos = 0,0,0
+	attPos0 = -0.64928019,0.615175247,0.64928031
+	rot = 2.63417821E-09,0.706676245,-0.0348995626,0.706675887
+	attRot = 0,0,0,1
+	attRot0 = 2.63417821E-09,0.706676245,-0.0348995626,0.706675887
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 4
+	resPri = 0
+	dstg = 1
+	sidx = 0
+	sqor = 4
+	sepI = 1
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = KCLV.YF23V_4293551234
+	sym = KCLV.YF23V_4293551142
+	sym = KCLV.YF23V_4293556532
+	attN = Node,KCLV.YF22_4293553794_0|0.169482261|0_-0.707106829|0|-0.707106948_0|0.169482261|0_-0.707106829|0|-0.707106948
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleEnginesRF
+		isEnabled = True
+		autoCutoff = True
+		ignited = False
+		ignitions = 1
+		partSeed = -1
+		calculatedResiduals = 0.0040000000000000001
+		independentThrottle = False
+		independentThrottlePercentage = 0
+		staged = False
+		flameout = False
+		EngineIgnited = False
+		engineShutdown = False
+		currentThrottle = 0
+		thrustPercentage = 100
+		manuallyOverridden = False
+		includeinDVCalcs = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			OnAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ShutdownAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ActivateAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ToggleThrottle
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		AXISGROUPS
+		{
+			independentThrottlePercentage
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
+				axisInverted = None
+			}
+			thrustPercentage
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
+				axisInverted = None
+			}
+		}
+		Ullage
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleSurfaceFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleGimbal
+		isEnabled = True
+		gimbalLock = False
+		gimbalLimiter = 100
+		currentShowToggles = False
+		enableYaw = True
+		enablePitch = True
+		enableRoll = True
+		gimbalActive = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			LockAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			FreeAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			TogglePitchAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ToggleYawAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ToggleRollAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = Refunding
+		isEnabled = True
+		active = True
+		OriginalCost = 500.28012399673463
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 3.3499999
+		defaultScale = 3.3499999
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 499.719879
+		OriginalCrewCapacity = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = EngineGroupModule
+		isEnabled = True
+		EngineGroupId = 
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = GeometryPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARAeroPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = AttachedOnEditor
+		isEnabled = True
+		active = True
+		originalPos = (-0.649270773, 30.9823742, 0.649281144)
+		originalRotation = (2.63417821E-09, 0.706676245, -0.0348995626, 0.706675887)
+		correctlyInitialised = False
+		moduleVersion = 4
+		stagingEnabled = True
+		originalAttachNodePos = (0.0, 0.2, 0.0)
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleEngineConfigs
+		isEnabled = True
+		configuration = YF-23
+		configurationDisplay = YF-23
+		techLevel = -1
+		thrustRating = maxThrust
+		modded = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	RESOURCE
+	{
+		name = TEATEB
+		amount = 0.10000000000000001
+		maxAmount = 0.10000000000000001
+		flowState = True
+		isTweakable = True
+		hideFlow = False
+		isVisible = True
+		flowMode = Both
+	}
+}
+PART
+{
+	part = KCLV.YF23V_4293551234
+	partName = Part
+	persistentId = 1160488802
+	pos = 0.649289966,30.9823742,0.649280906
+	attPos = 0,0,0
+	attPos0 = 0.649280548,0.615175247,0.649280071
+	rot = -0.0246777143,0.999390841,-0.0246777143,-2.9715892E-07
+	attRot = 0,0,0,1
+	attRot0 = -0.0246777143,0.999390841,-0.0246777143,-2.9715892E-07
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 4
+	resPri = 0
+	dstg = 1
+	sidx = 0
+	sqor = 4
+	sepI = 1
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = KCLV.YF23V_4293551142
+	sym = KCLV.YF23V_4293556532
+	sym = KCLV.YF23V_4293551326
+	attN = Node,KCLV.YF22_4293553794_0|0.169482261|0_-0.707106829|0|-0.707106948_0|0.169482261|0_-0.707106829|0|-0.707106948
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleEnginesRF
+		isEnabled = True
+		autoCutoff = True
+		ignited = False
+		ignitions = 1
+		partSeed = -1
+		calculatedResiduals = 0.0040000000000000001
+		independentThrottle = False
+		independentThrottlePercentage = 0
+		staged = False
+		flameout = False
+		EngineIgnited = False
+		engineShutdown = False
+		currentThrottle = 0
+		thrustPercentage = 100
+		manuallyOverridden = False
+		includeinDVCalcs = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			OnAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ShutdownAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ActivateAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ToggleThrottle
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		AXISGROUPS
+		{
+			independentThrottlePercentage
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
+				axisInverted = None
+			}
+			thrustPercentage
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
+				axisInverted = None
+			}
+		}
+		Ullage
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleSurfaceFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleGimbal
+		isEnabled = True
+		gimbalLock = False
+		gimbalLimiter = 100
+		currentShowToggles = False
+		enableYaw = True
+		enablePitch = True
+		enableRoll = True
+		gimbalActive = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			LockAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			FreeAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			TogglePitchAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ToggleYawAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ToggleRollAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = Refunding
+		isEnabled = True
+		active = True
+		OriginalCost = 500.28012399673463
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 3.3499999
+		defaultScale = 3.3499999
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 499.719879
+		OriginalCrewCapacity = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = EngineGroupModule
+		isEnabled = True
+		EngineGroupId = 
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = GeometryPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARAeroPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = AttachedOnEditor
+		isEnabled = True
+		active = True
+		originalPos = (0.649289966, 30.9823742, 0.649280906)
+		originalRotation = (-0.0246777143, 0.999390841, -0.0246777143, -2.9715892E-07)
+		correctlyInitialised = False
+		moduleVersion = 4
+		stagingEnabled = True
+		originalAttachNodePos = (0.0, 0.2, 0.0)
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleEngineConfigs
+		isEnabled = True
+		configuration = YF-23
+		configurationDisplay = YF-23
+		techLevel = -1
+		thrustRating = maxThrust
+		modded = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	RESOURCE
+	{
+		name = TEATEB
+		amount = 0.10000000000000001
+		maxAmount = 0.10000000000000001
+		flowState = True
+		isTweakable = True
+		hideFlow = False
+		isVisible = True
+		flowMode = Both
+	}
+}
+PART
+{
+	part = KCLV.YF23V_4293551142
+	partName = Part
+	persistentId = 3945557735
+	pos = 0.649289608,30.9823742,-0.649279714
+	attPos = 0,0,0
+	attPos0 = 0.64928019,0.615175247,-0.649280548
+	rot = -0.0348995626,0.706675887,-2.63417821E-09,-0.706676245
+	attRot = 0,0,0,1
+	attRot0 = -0.0348995626,0.706675887,-2.63417821E-09,-0.706676245
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 4
+	resPri = 0
+	dstg = 1
+	sidx = 0
+	sqor = 4
+	sepI = 1
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = KCLV.YF23V_4293556532
+	sym = KCLV.YF23V_4293551326
+	sym = KCLV.YF23V_4293551234
+	attN = Node,KCLV.YF22_4293553794_0|0.169482261|0_-0.707106829|0|-0.707106948_0|0.169482261|0_-0.707106829|0|-0.707106948
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleEnginesRF
+		isEnabled = True
+		autoCutoff = True
+		ignited = False
+		ignitions = 1
+		partSeed = -1
+		calculatedResiduals = 0.0040000000000000001
+		independentThrottle = False
+		independentThrottlePercentage = 0
+		staged = False
+		flameout = False
+		EngineIgnited = False
+		engineShutdown = False
+		currentThrottle = 0
+		thrustPercentage = 100
+		manuallyOverridden = False
+		includeinDVCalcs = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			OnAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ShutdownAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ActivateAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ToggleThrottle
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		AXISGROUPS
+		{
+			independentThrottlePercentage
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
+				axisInverted = None
+			}
+			thrustPercentage
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
+				axisInverted = None
+			}
+		}
+		Ullage
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleSurfaceFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleGimbal
+		isEnabled = True
+		gimbalLock = False
+		gimbalLimiter = 100
+		currentShowToggles = False
+		enableYaw = True
+		enablePitch = True
+		enableRoll = True
+		gimbalActive = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			LockAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			FreeAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			TogglePitchAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ToggleYawAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ToggleRollAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = Refunding
+		isEnabled = True
+		active = True
+		OriginalCost = 500.28012399673463
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 3.3499999
+		defaultScale = 3.3499999
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 499.719879
+		OriginalCrewCapacity = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = EngineGroupModule
+		isEnabled = True
+		EngineGroupId = 
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = GeometryPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARAeroPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = AttachedOnEditor
+		isEnabled = True
+		active = True
+		originalPos = (0.649289608, 30.9823742, -0.649279714)
+		originalRotation = (-0.0348995626, 0.706675887, -2.63417821E-09, -0.706676245)
+		correctlyInitialised = False
+		moduleVersion = 4
+		stagingEnabled = True
+		originalAttachNodePos = (0.0, 0.2, 0.0)
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleEngineConfigs
+		isEnabled = True
+		configuration = YF-23
+		configurationDisplay = YF-23
+		techLevel = -1
+		thrustRating = maxThrust
+		modded = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	RESOURCE
+	{
+		name = TEATEB
+		amount = 0.10000000000000001
+		maxAmount = 0.10000000000000001
+		flowState = True
+		isTweakable = True
+		hideFlow = False
+		isVisible = True
+		flowMode = Both
+	}
+}
+PART
+{
+	part = KCLV.CZ3.interstage.1-2_4292659228
+	partName = Part
+	persistentId = 3466981587
+	pos = 9.4473362E-06,30.2803268,6.2584877E-07
+	attPos = 0,0,0
+	attPos0 = 0,-4.45124817,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 4
-	resPri = 0
-	dstg = 1
-	sidx = 0
-	sqor = 4
-	sepI = 1
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = KCLV.YF23V_4292254922
-	sym = KCLV.YF23V_4292254828
-	sym = KCLV.YF23V_4292254734
-	attN = top,KCLV.YF22_4292257182_0|0.347907513|0_0|1|0_0|0.347907513|0_0|1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleEnginesRF
-		isEnabled = True
-		autoCutoff = True
-		ignited = False
-		ignitions = 1
-		partSeed = -1
-		calculatedResiduals = 0.0040000000000000001
-		independentThrottle = False
-		independentThrottlePercentage = 0
-		staged = False
-		flameout = False
-		EngineIgnited = False
-		engineShutdown = False
-		currentThrottle = 0
-		thrustPercentage = 100
-		manuallyOverridden = False
-		includeinDVCalcs = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			OnAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ShutdownAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ActivateAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ToggleThrottle
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		AXISGROUPS
-		{
-			independentThrottlePercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-			}
-			thrustPercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-			}
-		}
-		Ullage
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleSurfaceFX
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleGimbal
-		isEnabled = True
-		gimbalLock = False
-		gimbalLimiter = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		gimbalActive = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			LockAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			FreeAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			TogglePitchAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ToggleYawAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ToggleRollAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 500.28012399673463
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = EngineGroupModule
-		isEnabled = True
-		EngineGroupId = 
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (-0.759105861, 30.9711037, -9.24815049E-06)
-		originalRotation = (0, 0, 0, 1)
-		correctlyInitialised = False
-		moduleVersion = 4
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.3, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleEngineConfigs
-		isEnabled = True
-		configuration = YF-23
-		configurationDisplay = YF-23
-		techLevel = -1
-		thrustRating = maxThrust
-		modded = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWaterfallFX
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	RESOURCE
-	{
-		name = TEATEB
-		amount = 0.10000000000000001
-		maxAmount = 0.10000000000000001
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = KCLV.YF23V_4292254922
-	partName = Part
-	persistentId = 1596058101
-	pos = -4.69827455E-06,30.9711037,0.759091854
-	attPos = 0,0,0
-	attPos0 = 0,-1.08842087,0.759101033
-	rot = 0,0.707106829,0,0.707106829
-	attRot = 0,0,0,1
-	attRot0 = 0,0.707106829,0,0.707106829
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 4
-	resPri = 0
-	dstg = 1
-	sidx = 0
-	sqor = 4
-	sepI = 1
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = KCLV.YF23V_4292254828
-	sym = KCLV.YF23V_4292254734
-	sym = KCLV.YF23V_4292255934
-	attN = top,KCLV.YF22_4292257182_0|0.347907513|0_0|1|0_0|0.347907513|0_0|1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleEnginesRF
-		isEnabled = True
-		autoCutoff = True
-		ignited = False
-		ignitions = 1
-		partSeed = -1
-		calculatedResiduals = 0.0040000000000000001
-		independentThrottle = False
-		independentThrottlePercentage = 0
-		staged = False
-		flameout = False
-		EngineIgnited = False
-		engineShutdown = False
-		currentThrottle = 0
-		thrustPercentage = 100
-		manuallyOverridden = False
-		includeinDVCalcs = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			OnAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ShutdownAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ActivateAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ToggleThrottle
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		AXISGROUPS
-		{
-			independentThrottlePercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-			thrustPercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-		}
-		Ullage
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleSurfaceFX
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleGimbal
-		isEnabled = True
-		gimbalLock = False
-		gimbalLimiter = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		gimbalActive = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			LockAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			FreeAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			TogglePitchAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ToggleYawAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ToggleRollAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 500.28012399673463
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = EngineGroupModule
-		isEnabled = True
-		EngineGroupId = 
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (-4.69827455E-06, 30.9711037, 0.759091854)
-		originalRotation = (0, 0.707106829, 0, 0.707106829)
-		correctlyInitialised = False
-		moduleVersion = 4
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.3, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleEngineConfigs
-		isEnabled = True
-		configuration = YF-23
-		configurationDisplay = YF-23
-		techLevel = -1
-		thrustRating = maxThrust
-		modded = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWaterfallFX
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	RESOURCE
-	{
-		name = TEATEB
-		amount = 0.10000000000000001
-		maxAmount = 0.10000000000000001
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = KCLV.YF23V_4292254828
-	partName = Part
-	persistentId = 3346080450
-	pos = 0.759096384,30.9711037,-9.24815049E-06
-	attPos = 0,0,0
-	attPos0 = 0.759101033,-1.08842087,0
-	rot = 0,1,0,-4.37113883E-08
-	attRot = 0,0,0,1
-	attRot0 = 0,1,0,-4.37113883E-08
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 4
-	resPri = 0
-	dstg = 1
-	sidx = 0
-	sqor = 4
-	sepI = 1
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = KCLV.YF23V_4292254734
-	sym = KCLV.YF23V_4292255934
-	sym = KCLV.YF23V_4292254922
-	attN = top,KCLV.YF22_4292257182_0|0.347907513|0_0|1|0_0|0.347907513|0_0|1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleEnginesRF
-		isEnabled = True
-		autoCutoff = True
-		ignited = False
-		ignitions = 1
-		partSeed = -1
-		calculatedResiduals = 0.0040000000000000001
-		independentThrottle = False
-		independentThrottlePercentage = 0
-		staged = False
-		flameout = False
-		EngineIgnited = False
-		engineShutdown = False
-		currentThrottle = 0
-		thrustPercentage = 100
-		manuallyOverridden = False
-		includeinDVCalcs = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			OnAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ShutdownAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ActivateAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ToggleThrottle
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		AXISGROUPS
-		{
-			independentThrottlePercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-			thrustPercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-		}
-		Ullage
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleSurfaceFX
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleGimbal
-		isEnabled = True
-		gimbalLock = False
-		gimbalLimiter = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		gimbalActive = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			LockAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			FreeAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			TogglePitchAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ToggleYawAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ToggleRollAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 500.28012399673463
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = EngineGroupModule
-		isEnabled = True
-		EngineGroupId = 
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (0.759096384, 30.9711037, -9.24815049E-06)
-		originalRotation = (0, 1, 0, -4.37113883E-08)
-		correctlyInitialised = False
-		moduleVersion = 4
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.3, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleEngineConfigs
-		isEnabled = True
-		configuration = YF-23
-		configurationDisplay = YF-23
-		techLevel = -1
-		thrustRating = maxThrust
-		modded = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWaterfallFX
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	RESOURCE
-	{
-		name = TEATEB
-		amount = 0.10000000000000001
-		maxAmount = 0.10000000000000001
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = KCLV.YF23V_4292254734
-	partName = Part
-	persistentId = 4003158248
-	pos = -4.69827455E-06,30.9711037,-0.759110332
-	attPos = 0,0,0
-	attPos0 = 0,-1.08842087,-0.759101033
-	rot = 0,0.707106829,0,-0.707106829
-	attRot = 0,0,0,1
-	attRot0 = 0,0.707106829,0,-0.707106829
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 4
-	resPri = 0
-	dstg = 1
-	sidx = 0
-	sqor = 4
-	sepI = 1
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = KCLV.YF23V_4292255934
-	sym = KCLV.YF23V_4292254922
-	sym = KCLV.YF23V_4292254828
-	attN = top,KCLV.YF22_4292257182_0|0.347907513|0_0|1|0_0|0.347907513|0_0|1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleEnginesRF
-		isEnabled = True
-		autoCutoff = True
-		ignited = False
-		ignitions = 1
-		partSeed = -1
-		calculatedResiduals = 0.0040000000000000001
-		independentThrottle = False
-		independentThrottlePercentage = 0
-		staged = False
-		flameout = False
-		EngineIgnited = False
-		engineShutdown = False
-		currentThrottle = 0
-		thrustPercentage = 100
-		manuallyOverridden = False
-		includeinDVCalcs = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			OnAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ShutdownAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ActivateAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ToggleThrottle
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		AXISGROUPS
-		{
-			independentThrottlePercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-			thrustPercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-		}
-		Ullage
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleSurfaceFX
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleGimbal
-		isEnabled = True
-		gimbalLock = False
-		gimbalLimiter = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		gimbalActive = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			LockAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			FreeAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			TogglePitchAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ToggleYawAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ToggleRollAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 500.28012399673463
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = EngineGroupModule
-		isEnabled = True
-		EngineGroupId = 
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (-4.69827455E-06, 30.9711037, -0.759110332)
-		originalRotation = (0, 0.707106829, 0, -0.707106829)
-		correctlyInitialised = False
-		moduleVersion = 4
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.3, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleEngineConfigs
-		isEnabled = True
-		configuration = YF-23
-		configurationDisplay = YF-23
-		techLevel = -1
-		thrustRating = maxThrust
-		modded = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWaterfallFX
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	RESOURCE
-	{
-		name = TEATEB
-		amount = 0.10000000000000001
-		maxAmount = 0.10000000000000001
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = KCLV.CZ3.interstage.1-2_4292251686
-	partName = Part
-	persistentId = 1200297436
-	pos = -4.69827455E-06,30.445694,-9.24815049E-06
-	attPos = 0,0,0
-	attPos0 = 0,-4.45125198,0
-	rot = 0,0,0,1
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,-1
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
@@ -5140,9 +5351,9 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.CZ3B.First.Stage.Tank_4292290552
-	attN = top,KCLV.CZ3B.Second.Stage.Tank_4292297032_0|1.74530005|0_0|1|0_0|1.74530005|0_0|1|0
-	attN = bottom,KCLV.CZ3B.First.Stage.Tank_4292290552_0|-1.72469997|0_0|-1|0_0|-1.72469997|0_0|-1|0
+	link = KCLV.CZ3B.First.Stage.Tank_4292656644
+	attN = top,KCLV.CZ3B.Second.Stage.Tank_4292671284_0|1.74530005|0_0|1|0_0|1.74530005|0_0|1|0
+	attN = bottom,KCLV.CZ3B.First.Stage.Tank_4292656644_0|-1.72469997|0_0|-1|0_0|-1.72469997|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -5228,7 +5439,7 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 1000
+		OriginalCost = 500
 		stagingEnabled = True
 		EVENTS
 		{
@@ -5312,7 +5523,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-4.69827455E-06, 30.445694, -9.24815049E-06)
+		originalPos = (9.4473362E-06, 30.2803268, 6.2584877E-07)
 		originalRotation = (0, 0, 0, 1)
 		correctlyInitialised = False
 		moduleVersion = 4
@@ -5332,10 +5543,10 @@ PART
 }
 PART
 {
-	part = KCLV.CZ3B.First.Stage.Tank_4292290552
+	part = KCLV.CZ3B.First.Stage.Tank_4292656644
 	partName = Part
-	persistentId = 4126010964
-	pos = -4.69827455E-06,17.0478935,-9.24815049E-06
+	persistentId = 1344973891
+	pos = 9.4473362E-06,16.8825264,6.2584877E-07
 	attPos = 0,0,0
 	attPos0 = 0,-13.3978004,0
 	rot = 0,0,0,1
@@ -5356,14 +5567,14 @@ PART
 	modCost = 78145.4922
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.YF-21C_4292289568
-	link = KCLV.CZ3.BOOSTER.TANK_4292281450
-	link = KCLV.CZ3.BOOSTER.TANK_4292263274
-	link = KCLV.CZ3.BOOSTER.TANK_4292261840
-	link = KCLV.CZ3.BOOSTER.TANK_4292260406
-	attN = top,KCLV.CZ3.interstage.1-2_4292251686_0|11.6731005|0_0|1|0_0|11.6731005|0_0|1|0
+	link = KCLV.YF-21C_4292651678
+	link = KCLV.CZ3.BOOSTER.TANK_4292642446
+	link = KCLV.CZ3.BOOSTER.TANK_4292638320
+	link = KCLV.CZ3.BOOSTER.TANK_4292637928
+	link = KCLV.CZ3.BOOSTER.TANK_4292637536
+	attN = top,KCLV.CZ3.interstage.1-2_4292659228_0|11.6731005|0_0|1|0_0|11.6731005|0_0|1|0
 	attN = bottom,Null_0_0|-9.87351036|0_0|1|0_0|-9.87351036|0_0|1|0
-	attN = bottom2,KCLV.YF-21C_4292289568_0|-9.87351036|0_0|-1|0_0|-9.87351036|0_0|-1|0
+	attN = bottom2,KCLV.YF-21C_4292651678_0|-9.87351036|0_0|-1|0_0|-9.87351036|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -5409,7 +5620,7 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 161290.98453304768
+		OriginalCost = 158810.98453304768
 		stagingEnabled = True
 		EVENTS
 		{
@@ -5493,7 +5704,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-4.69827455E-06, 17.0478935, -9.24815049E-06)
+		originalPos = (9.4473362E-06, 16.8825264, 6.2584877E-07)
 		originalRotation = (0, 0, 0, 1)
 		correctlyInitialised = False
 		moduleVersion = 4
@@ -5584,12 +5795,12 @@ PART
 }
 PART
 {
-	part = KCLV.YF-21C_4292289568
+	part = KCLV.YF-21C_4292651678
 	partName = Part
-	persistentId = 1850625066
-	pos = -4.69827455E-06,5.52179337,-9.24815049E-06
+	persistentId = 3448466382
+	pos = 9.4473362E-06,5.35642242,6.2584877E-07
 	attPos = 0,0,0
-	attPos0 = 0,-11.5261002,0
+	attPos0 = 0,-11.526104,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -5597,20 +5808,20 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 7
+	istg = 6
 	resPri = 0
 	dstg = 1
 	sidx = 1
-	sqor = 7
+	sqor = 6
 	sepI = 3
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.CZ3.Launch.Pad_4293384628
-	attN = top,KCLV.CZ3B.First.Stage.Tank_4292290552_0|1.65259004|0_0|1|0_0|1.65259004|0_0|1|0
-	attN = bottom,KCLV.CZ3.Launch.Pad_4293384628_0|-0.942103028|0_0|-1|0_0|-0.942103028|0_0|-1|0
+	link = KCLV.CZ3.Launch.Pad_4292643962
+	attN = top,KCLV.CZ3B.First.Stage.Tank_4292656644_0|1.65259004|0_0|1|0_0|1.65259004|0_0|1|0
+	attN = bottom,KCLV.CZ3.Launch.Pad_4292643962_0|-0.942103028|0_0|-1|0_0|-0.942103028|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -6002,6 +6213,28 @@ PART
 	}
 	MODULE
 	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 3.3499999
+		defaultScale = 3.3499999
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 5997.19873
+		OriginalCrewCapacity = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = EngineGroupModule
 		isEnabled = True
 		EngineGroupId = 
@@ -6066,7 +6299,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-4.69827455E-06, 5.52179337, -9.24815049E-06)
+		originalPos = (9.4473362E-06, 5.35642242, 6.2584877E-07)
 		originalRotation = (0, 0, 0, 1)
 		correctlyInitialised = False
 		moduleVersion = 4
@@ -6132,12 +6365,12 @@ PART
 }
 PART
 {
-	part = KCLV.CZ3.Launch.Pad_4293384628
+	part = KCLV.CZ3.Launch.Pad_4292643962
 	partName = Part
-	persistentId = 2957277733
-	pos = -4.69827455E-06,2.11726761,-9.24815049E-06
+	persistentId = 3102940550
+	pos = 9.4473362E-06,1.95189667,6.2584877E-07
 	attPos = 0,0,0
-	attPos0 = 0,-3.40452576,0
+	attPos0 = 0,-3.40452385,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -6145,18 +6378,18 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 6
+	istg = 5
 	resPri = 0
 	dstg = 1
 	sidx = 0
-	sqor = 6
-	sepI = 6
+	sqor = 5
+	sepI = 5
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	attN = top,KCLV.YF-21C_4292289568_0|2.46241999|0_0|1|0_0|2.46241999|0_0|1|0
+	attN = top,KCLV.YF-21C_4292651678_0|2.46241999|0_0|1|0_0|2.46241999|0_0|1|0
 	EVENTS
 	{
 	}
@@ -6337,7 +6570,29 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 5000.4683599933978
+		OriginalCost = 800.28475999832153
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 14
+		defaultScale = 14
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 4999.71533
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -6386,7 +6641,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-4.69827455E-06, 2.11726761, -9.24815049E-06)
+		originalPos = (9.4473362E-06, 1.95189667, 6.2584877E-07)
 		originalRotation = (0, 0, 0, 1)
 		correctlyInitialised = False
 		moduleVersion = 4
@@ -6413,64 +6668,42 @@ PART
 		isVisible = True
 		flowMode = Both
 	}
-	RESOURCE
-	{
-		name = LiquidFuel
-		amount = 0.90000000000000002
-		maxAmount = 0.90000000000000002
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-	RESOURCE
-	{
-		name = Oxidizer
-		amount = 1.1000000000000001
-		maxAmount = 1.1000000000000001
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
 }
 PART
 {
-	part = KCLV.CZ3.BOOSTER.TANK_4292281450
+	part = KCLV.CZ3.BOOSTER.TANK_4292642446
 	partName = Part
-	persistentId = 919835713
-	pos = -2.23040915,12.8297729,2.23039484
+	persistentId = 920131238
+	pos = -2.21491289,12.6776505,2.2149229
 	attPos = 0,0,0
-	attPos0 = -2.23040438,-4.21812057,2.23040414
-	rot = -2.10734203E-08,0.382683367,-5.08757516E-08,0.923879623
+	attPos0 = -2.21492243,-4.20487404,2.21492219
+	rot = -8.72890027E-09,0.382683396,-2.10734346E-08,0.923879623
 	attRot = 0,0,0,1
-	attRot0 = -2.10734203E-08,0.382683367,-5.08757516E-08,0.923879623
+	attRot0 = -8.72890027E-09,0.382683396,-2.10734346E-08,0.923879623
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 5
+	istg = 4
 	resPri = 0
 	dstg = 1
-	sidx = 0
-	sqor = 5
-	sepI = 5
+	sidx = 1
+	sqor = 4
+	sepI = 4
 	attm = 1
 	sameVesselCollision = False
 	modCost = 17250.1504
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.2.25m.NoseCone_4292275582
-	link = KCLV.YF-20.Series.Engine_4293309438
-	sym = KCLV.CZ3.BOOSTER.TANK_4292263274
-	sym = KCLV.CZ3.BOOSTER.TANK_4292261840
-	sym = KCLV.CZ3.BOOSTER.TANK_4292260406
-	srfN = srfAttach,KCLV.CZ3B.First.Stage.Tank_4292290552,CZ3BSTAGE1CCC,1.48000002|0|0,1|0|0,1.48000002|0|0
-	attN = top,KCLV.2.25m.NoseCone_4292275582_0|5.19496012|0_0|1|0_0|5.19496012|0_0|1|0
+	link = KCLV.YF-20.Series.Engine_4292636804
+	link = KCLV.2.25m.NoseCone_4292630688
+	sym = KCLV.CZ3.BOOSTER.TANK_4292638320
+	sym = KCLV.CZ3.BOOSTER.TANK_4292637928
+	sym = KCLV.CZ3.BOOSTER.TANK_4292637536
+	srfN = srfAttach,KCLV.CZ3B.First.Stage.Tank_4292656644,CZ3BSTAGE1CCC,1.48000002|0|0,1|0|0,1.48000002|0|0
+	attN = top,KCLV.2.25m.NoseCone_4292630688_0|5.19496012|0_0|1|0_0|5.19496012|0_0|1|0
 	attN = bottom,Null_0_0|-5.71311998|0_0|-1|0_0|-5.71311998|0_0|-1|0
-	attN = YQJD,KCLV.YF-20.Series.Engine_4293309438_0.0172560941|-5.6807065|-8.09650264E-11_-1.00000012|0|-1.1920929E-07_0.0172560941|-5.6807065|-8.09650264E-11_-1.00000012|0|-1.1920929E-07
+	attN = YQJD,KCLV.YF-20.Series.Engine_4292636804_0.0172560941|-5.6807065|-8.09650264E-11_-1.00000012|0|-1.1920929E-07_0.0172560941|-5.6807065|-8.09650264E-11_-1.00000012|0|-1.1920929E-07
 	EVENTS
 	{
 	}
@@ -6696,7 +6929,29 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 37516.230955743791
+		OriginalCost = 35516.230955743791
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 2.25
+		defaultScale = 2.25
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 0
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -6758,8 +7013,8 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-2.23040915, 12.8297729, 2.23039484)
-		originalRotation = (-2.10734203E-08, 0.382683367, -5.08757516E-08, 0.923879623)
+		originalPos = (-2.21491289, 12.6776505, 2.2149229)
+		originalRotation = (-8.72890027E-09, 0.382683396, -2.10734346E-08, 0.923879623)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
@@ -6860,196 +7115,36 @@ PART
 }
 PART
 {
-	part = KCLV.2.25m.NoseCone_4292275582
+	part = KCLV.YF-20.Series.Engine_4292636804
 	partName = Part
-	persistentId = 1204930007
-	pos = -2.23040915,18.6769981,2.23039484
+	persistentId = 4216276848
+	pos = -2.21335554,6.09946442,2.21336555
 	attPos = 0,0,0
-	attPos0 = -2.66747065E-07,5.84722328,0
-	rot = -1.23445201E-08,0.382683367,-2.98023171E-08,0.923879623
+	attPos0 = 0.00220272597,-6.57818413,-1.16415322E-10
+	rot = -7.05639138E-08,0.382683337,-9.52530002E-08,0.923879623
 	attRot = 0,0,0,1
-	attRot0 = 0,0,2.28097203E-08,1
+	attRot0 = -2.87408177E-08,-5.96046377E-08,-9.21962098E-08,1
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 5
-	resPri = 0
-	dstg = 1
-	sidx = -1
-	sqor = -1
-	sepI = 5
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = KCLV.2.25m.NoseCone_4292262948
-	sym = KCLV.2.25m.NoseCone_4292261514
-	sym = KCLV.2.25m.NoseCone_4292260080
-	attN = bottom,KCLV.CZ3.BOOSTER.TANK_4292281450_0|-0.652262986|0_0|-1|0_0|-0.652262986|0_0|-1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 320
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		active = True
-		available = True
-		currentScale = 2.25
-		defaultScale = 2.25
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 320
-		OriginalCrewCapacity = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (-2.23040915, 18.6769981, 2.23039484)
-		originalRotation = (-1.23445201E-08, 0.382683367, -2.98023171E-08, 0.923879623)
-		correctlyInitialised = False
-		moduleVersion = 4
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, -0.7, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = KCLV.YF-20.Series.Engine_4293309438
-	partName = Part
-	persistentId = 2900741132
-	pos = -2.22885203,6.25159073,2.22883773
-	attPos = 0,0,0
-	attPos0 = 0.00220281305,-6.57818222,-3.20142135E-10
-	rot = -7.0563928E-08,0.382683307,-1.30168573E-07,0.923879623
-	attRot = 0,0,0,1
-	attRot0 = -1.53792197E-08,-5.96046377E-08,-9.21962027E-08,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 7
+	istg = 6
 	resPri = 0
 	dstg = 1
 	sidx = 0
-	sqor = 7
-	sepI = 5
+	sqor = 6
+	sepI = 4
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.CZ7.8.Wing_4293297124
-	sym = KCLV.YF-20.Series.Engine_4293300570
-	sym = KCLV.YF-20.Series.Engine_4293299634
-	sym = KCLV.YF-20.Series.Engine_4293298698
+	link = CZ2.StructuralWing.TypeA_4292631514
+	sym = KCLV.YF-20.Series.Engine_4292634660
+	sym = KCLV.YF-20.Series.Engine_4292633722
+	sym = KCLV.YF-20.Series.Engine_4292632784
 	attN = top,Null_0_0.0150532983|0.89747411|-8.09650264E-11_0.0697564632|0.997564018|-7.29924068E-08_0.0150532983|0.89747411|-8.09650264E-11_0.0697564632|0.997564018|-7.29924068E-08
-	attN = top2,KCLV.CZ3.BOOSTER.TANK_4292281450_0.0150532983|0.89747411|0_1.00000012|1.84392476E-07|-1.19209304E-07_0.0150532983|0.89747411|0_1.00000012|1.84392476E-07|-1.19209304E-07
+	attN = top2,KCLV.CZ3.BOOSTER.TANK_4292642446_0.0150532983|0.89747411|0_1.00000012|1.84392476E-07|-1.19209304E-07_0.0150532983|0.89747411|0_1.00000012|1.84392476E-07|-1.19209304E-07
 	attN = bottom,Null_0_-0.156879634|-1.56128192|0_-0.0697568506|-0.997564077|-2.65659764E-07_-0.156879634|-1.56128192|0_-0.0697568506|-0.997564077|-2.65659764E-07
 	EVENTS
 	{
@@ -7205,7 +7300,29 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 6002.8012399673462
+		OriginalCost = 1502.8012399673462
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 2.25
+		defaultScale = 2.25
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 5997.19873
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -7283,8 +7400,8 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-2.22885203, 6.25159073, 2.22883773)
-		originalRotation = (-7.0563928E-08, 0.382683307, -1.30168573E-07, 0.923879623)
+		originalPos = (-2.21335554, 6.09946442, 2.21336555)
+		originalRotation = (-7.05639138E-08, 0.382683337, -9.52530002E-08, 0.923879623)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
@@ -7350,34 +7467,34 @@ PART
 }
 PART
 {
-	part = KCLV.CZ7.8.Wing_4293297124
+	part = CZ2.StructuralWing.TypeA_4292631514
 	partName = Part
-	persistentId = 1560879317
-	pos = -3.00735617,6.37782669,3.00734115
+	persistentId = 3923702918
+	pos = -2.97485423,6.25699615,2.97486377
 	attPos = 0,0,0
-	attPos0 = -1.10097063,0.126235753,-2.51981305E-07
-	rot = -1.4208589E-08,0.382683188,5.88539706E-09,0.923879683
+	attPos0 = -1.07692146,0.157531545,-1.45571448E-07
+	rot = -7.78749154E-08,0.382683337,-1.1290328E-07,0.923879623
 	attRot = 0,0,0,1
-	attRot0 = -1.95399235E-14,-1.19209275E-07,1.47263719E-07,1
+	attRot0 = -1.77635684E-14,-7.10542736E-15,-1.91045419E-08,1
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 7
+	istg = 6
 	resPri = 0
 	dstg = 1
 	sidx = -1
 	sqor = -1
-	sepI = 5
+	sepI = 4
 	attm = 1
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = KCLV.CZ7.8.Wing_4293297060
-	sym = KCLV.CZ7.8.Wing_4293296996
-	sym = KCLV.CZ7.8.Wing_4292259258
-	srfN = srfAttach,KCLV.YF-20.Series.Engine_4293309438,YF20SHELLCCC.002,0|0|0,1|0|0,0|0|0
+	sym = CZ2.StructuralWing.TypeA_4292630938
+	sym = CZ2.StructuralWing.TypeA_4292630878
+	sym = CZ2.StructuralWing.TypeA_4292630818
+	srfN = srfAttach,KCLV.YF-20.Series.Engine_4292636804,YF20SHELLCCC.002,-0.0189999994|0|0,1|0|0,-0.0189999994|0|0
 	EVENTS
 	{
 	}
@@ -7404,9 +7521,24 @@ PART
 	}
 	MODULE
 	{
-		name = ModulePartVariants
+		name = ModuleLiftingSurface
 		isEnabled = True
-		useVariantMass = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KerwisShader
+		isEnabled = True
+		CurrentTextureVariant = 
 		stagingEnabled = True
 		EVENTS
 		{
@@ -7423,7 +7555,7 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 600
+		OriginalCost = 500
 		stagingEnabled = True
 		EVENTS
 		{
@@ -7441,10 +7573,10 @@ PART
 		isEnabled = True
 		active = True
 		available = True
-		currentScale = 2.25
-		defaultScale = 2.25
+		currentScale = 1
+		defaultScale = 1
 		defaultTransformScale = (0, 0, 0)
-		DryCost = 600
+		DryCost = 500
 		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
@@ -7507,8 +7639,8 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-3.00735617, 6.37782669, 3.00734115)
-		originalRotation = (-1.4208589E-08, 0.382683188, 5.88539706E-09, 0.923879683)
+		originalPos = (-2.97485423, 6.25699615, 2.97486377)
+		originalRotation = (-7.78749154E-08, 0.382683337, -1.1290328E-07, 0.923879623)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
@@ -7525,39 +7657,199 @@ PART
 }
 PART
 {
-	part = KCLV.CZ3.BOOSTER.TANK_4292263274
+	part = KCLV.2.25m.NoseCone_4292630688
 	partName = Part
-	persistentId = 2568676630
-	pos = 2.23039913,12.8297729,2.23039508
+	persistentId = 1775692426
+	pos = -2.21491265,18.5248718,2.21492267
 	attPos = 0,0,0
-	attPos0 = 2.2304039,-4.21812057,2.23040438
-	rot = -5.08757481E-08,0.923879564,-2.1073431E-08,0.382683545
+	attPos0 = 7.04277312E-08,5.84722328,-1.42108547E-14
+	rot = 0,0,0,1.00000012
 	attRot = 0,0,0,1
-	attRot0 = -5.08757481E-08,0.923879564,-2.1073431E-08,0.382683545
+	attRot0 = 8.72890027E-09,-0.382683396,2.10734346E-08,0.923879623
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 5
+	istg = 4
 	resPri = 0
 	dstg = 1
-	sidx = 0
-	sqor = 5
-	sepI = 5
+	sidx = -1
+	sqor = -1
+	sepI = 4
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = KCLV.2.25m.NoseCone_4292630288
+	sym = KCLV.2.25m.NoseCone_4292630232
+	sym = KCLV.2.25m.NoseCone_4292630176
+	attN = bottom,KCLV.CZ3.BOOSTER.TANK_4292642446_0|-0.652262986|0_0|-1|0_0|-0.652262986|0_0|-1|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = Refunding
+		isEnabled = True
+		active = True
+		OriginalCost = 320
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 2.25
+		defaultScale = 2.25
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 320
+		OriginalCrewCapacity = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = GeometryPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARAeroPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = AttachedOnEditor
+		isEnabled = True
+		active = True
+		originalPos = (-2.21491265, 18.5248718, 2.21492267)
+		originalRotation = (0, 0, 0, 1.00000012)
+		correctlyInitialised = False
+		moduleVersion = 4
+		stagingEnabled = True
+		originalAttachNodePos = (0.0, -0.7, 0.0)
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = KCLV.CZ3.BOOSTER.TANK_4292638320
+	partName = Part
+	persistentId = 1067496408
+	pos = 2.21493149,12.6776505,2.21492314
+	attPos = 0,0,0
+	attPos0 = 2.21492195,-4.20487404,2.21492243
+	rot = -2.10734328E-08,0.923879564,-8.72890382E-09,0.382683516
+	attRot = 0,0,0,1
+	attRot0 = -2.10734328E-08,0.923879564,-8.72890382E-09,0.382683516
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 4
+	resPri = 0
+	dstg = 1
+	sidx = 1
+	sqor = 4
+	sepI = 4
 	attm = 1
 	sameVesselCollision = False
 	modCost = 17250.1504
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.2.25m.NoseCone_4292262948
-	link = KCLV.YF-20.Series.Engine_4293300570
-	sym = KCLV.CZ3.BOOSTER.TANK_4292261840
-	sym = KCLV.CZ3.BOOSTER.TANK_4292260406
-	sym = KCLV.CZ3.BOOSTER.TANK_4292281450
-	srfN = srfAttach,KCLV.CZ3B.First.Stage.Tank_4292290552,CZ3BSTAGE1CCC,1.48000002|0|0,1|0|0,1.48000002|0|0
-	attN = top,KCLV.2.25m.NoseCone_4292262948_0|5.19496012|0_0|1|0_0|5.19496012|0_0|1|0
+	link = KCLV.YF-20.Series.Engine_4292634660
+	link = KCLV.2.25m.NoseCone_4292630288
+	sym = KCLV.CZ3.BOOSTER.TANK_4292637928
+	sym = KCLV.CZ3.BOOSTER.TANK_4292637536
+	sym = KCLV.CZ3.BOOSTER.TANK_4292642446
+	srfN = srfAttach,KCLV.CZ3B.First.Stage.Tank_4292656644,CZ3BSTAGE1CCC,1.48000002|0|0,1|0|0,1.48000002|0|0
+	attN = top,KCLV.2.25m.NoseCone_4292630288_0|5.19496012|0_0|1|0_0|5.19496012|0_0|1|0
 	attN = bottom,Null_0_0|-5.71311998|0_0|-1|0_0|-5.71311998|0_0|-1|0
-	attN = YQJD,KCLV.YF-20.Series.Engine_4293300570_0.0172560941|-5.6807065|-8.09650264E-11_-1.00000012|0|-1.1920929E-07_0.0172560941|-5.6807065|-8.09650264E-11_-1.00000012|0|-1.1920929E-07
+	attN = YQJD,KCLV.YF-20.Series.Engine_4292634660_0.0172560941|-5.6807065|-8.09650264E-11_-1.00000012|0|-1.1920929E-07_0.0172560941|-5.6807065|-8.09650264E-11_-1.00000012|0|-1.1920929E-07
 	EVENTS
 	{
 	}
@@ -7775,7 +8067,29 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 37516.230955743791
+		OriginalCost = 35516.230955743791
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 2.25
+		defaultScale = 2.25
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 0
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -7837,8 +8151,8 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (2.23039913, 12.8297729, 2.23039508)
-		originalRotation = (-5.08757481E-08, 0.923879564, -2.1073431E-08, 0.382683545)
+		originalPos = (2.21493149, 12.6776505, 2.21492314)
+		originalRotation = (-2.10734328E-08, 0.923879564, -8.72890382E-09, 0.382683516)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
@@ -7939,195 +8253,35 @@ PART
 }
 PART
 {
-	part = KCLV.2.25m.NoseCone_4292262948
+	part = KCLV.YF-20.Series.Engine_4292634660
 	partName = Part
-	persistentId = 75019953
-	pos = 2.23039913,18.6769981,2.23039508
+	persistentId = 971087597
+	pos = 2.21337414,6.09947205,2.21336579
 	attPos = 0,0,0
-	attPos0 = -2.66747065E-07,5.84722328,0
-	rot = -2.98023295E-08,0.923879564,-1.23445334E-08,0.382683545
+	attPos0 = 0.00220272643,-6.57818031,0
+	rot = -1.17250273E-07,0.923879564,-1.74578165E-08,0.382683545
 	attRot = 0,0,0,1
-	attRot0 = 0,0,2.28097203E-08,1
+	attRot0 = -2.87408195E-08,-5.96046377E-08,-9.21962169E-08,1
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 5
-	resPri = 0
-	dstg = 1
-	sidx = -1
-	sqor = -1
-	sepI = 5
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = KCLV.2.25m.NoseCone_4292261514
-	sym = KCLV.2.25m.NoseCone_4292260080
-	sym = KCLV.2.25m.NoseCone_4292275582
-	attN = bottom,KCLV.CZ3.BOOSTER.TANK_4292263274_0|-0.652262986|0_0|-1|0_0|-0.652262986|0_0|-1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 320
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		active = True
-		available = True
-		currentScale = 2.25
-		defaultScale = 2.25
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 320
-		OriginalCrewCapacity = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (2.23039913, 18.6769981, 2.23039508)
-		originalRotation = (-2.98023295E-08, 0.923879564, -1.23445334E-08, 0.382683545)
-		correctlyInitialised = False
-		moduleVersion = 4
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, -0.7, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = KCLV.YF-20.Series.Engine_4293300570
-	partName = Part
-	persistentId = 1813557298
-	pos = 2.22884202,6.25159073,2.22883797
-	attPos = 0,0,0
-	attPos0 = 0.00220281351,-6.57818222,0
-	rot = -1.41939296E-07,0.923879564,-4.21468442E-08,0.382683545
-	attRot = 0,0,0,1
-	attRot0 = -1.5379225E-08,-5.96046377E-08,-9.21962169E-08,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 7
+	istg = 6
 	resPri = 0
 	dstg = 1
 	sidx = 0
-	sqor = 7
-	sepI = 5
+	sqor = 6
+	sepI = 4
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.CZ7.8.Wing_4293297060
-	sym = KCLV.YF-20.Series.Engine_4293299634
-	sym = KCLV.YF-20.Series.Engine_4293298698
-	sym = KCLV.YF-20.Series.Engine_4293309438
-	attN = top,KCLV.CZ3.BOOSTER.TANK_4292263274_0.0150532983|0.89747411|-8.09650264E-11_0.0697564632|0.997564018|-7.29924068E-08_0.0150532983|0.89747411|-8.09650264E-11_0.0697564632|0.997564018|-7.29924068E-08
+	link = CZ2.StructuralWing.TypeA_4292630938
+	sym = KCLV.YF-20.Series.Engine_4292633722
+	sym = KCLV.YF-20.Series.Engine_4292632784
+	sym = KCLV.YF-20.Series.Engine_4292636804
+	attN = top,KCLV.CZ3.BOOSTER.TANK_4292638320_0.0150532983|0.89747411|-8.09650264E-11_0.0697564632|0.997564018|-7.29924068E-08_0.0150532983|0.89747411|-8.09650264E-11_0.0697564632|0.997564018|-7.29924068E-08
 	attN = top2,Null_0_0.0150532983|0.89747411|0_1.00000012|1.84392476E-07|-1.19209304E-07_0.0150532983|0.89747411|0_1.00000012|1.84392476E-07|-1.19209304E-07
 	attN = bottom,Null_0_-0.156879634|-1.56128192|0_-0.0697568506|-0.997564077|-2.65659764E-07_-0.156879634|-1.56128192|0_-0.0697568506|-0.997564077|-2.65659764E-07
 	EVENTS
@@ -8276,7 +8430,29 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 6002.8012399673462
+		OriginalCost = 1502.8012399673462
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 2.25
+		defaultScale = 2.25
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 5997.19873
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -8354,8 +8530,8 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (2.22884202, 6.25159073, 2.22883797)
-		originalRotation = (-1.41939296E-07, 0.923879564, -4.21468442E-08, 0.382683545)
+		originalPos = (2.21337414, 6.09947205, 2.21336579)
+		originalRotation = (-1.17250273E-07, 0.923879564, -1.74578165E-08, 0.382683545)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
@@ -8421,34 +8597,34 @@ PART
 }
 PART
 {
-	part = KCLV.CZ7.8.Wing_4293297060
+	part = CZ2.StructuralWing.TypeA_4292630938
 	partName = Part
-	persistentId = 4236570707
-	pos = 3.0073514,6.37782669,3.00734782
+	persistentId = 3234564494
+	pos = 2.97487569,6.25700378,2.97486734
 	attPos = 0,0,0
-	attPos0 = -1.10097122,0.126235753,-1.032898E-07
-	rot = -5.88535443E-09,0.923879504,1.42086183E-08,0.382683724
+	attPos0 = -1.07692194,0.157531545,1.8224954E-08
+	rot = -1.3490056E-07,0.923879564,-2.47688003E-08,0.382683545
 	attRot = 0,0,0,1
-	attRot0 = -2.13162821E-14,-1.1920929E-07,1.47263734E-07,1
+	attRot0 = -1.59872116E-14,-7.10542736E-15,-1.91045348E-08,1
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 7
+	istg = 6
 	resPri = 0
 	dstg = 1
 	sidx = -1
 	sqor = -1
-	sepI = 5
+	sepI = 4
 	attm = 1
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = KCLV.CZ7.8.Wing_4293296996
-	sym = KCLV.CZ7.8.Wing_4292259258
-	sym = KCLV.CZ7.8.Wing_4293297124
-	srfN = srfAttach,KCLV.YF-20.Series.Engine_4293300570,YF20SHELLCCC.002,0|0|0,1|0|0,0|0|0
+	sym = CZ2.StructuralWing.TypeA_4292630878
+	sym = CZ2.StructuralWing.TypeA_4292630818
+	sym = CZ2.StructuralWing.TypeA_4292631514
+	srfN = srfAttach,KCLV.YF-20.Series.Engine_4292634660,YF20SHELLCCC.002,-0.0189999994|0|0,1|0|0,-0.0189999994|0|0
 	EVENTS
 	{
 	}
@@ -8475,9 +8651,24 @@ PART
 	}
 	MODULE
 	{
-		name = ModulePartVariants
+		name = ModuleLiftingSurface
 		isEnabled = True
-		useVariantMass = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KerwisShader
+		isEnabled = True
+		CurrentTextureVariant = 
 		stagingEnabled = True
 		EVENTS
 		{
@@ -8494,7 +8685,7 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 600
+		OriginalCost = 500
 		stagingEnabled = True
 		EVENTS
 		{
@@ -8512,10 +8703,10 @@ PART
 		isEnabled = True
 		active = True
 		available = True
-		currentScale = 2.25
-		defaultScale = 2.25
+		currentScale = 1
+		defaultScale = 1
 		defaultTransformScale = (0, 0, 0)
-		DryCost = 600
+		DryCost = 500
 		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
@@ -8578,8 +8769,8 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (3.0073514, 6.37782669, 3.00734782)
-		originalRotation = (-5.88535443E-09, 0.923879504, 1.42086183E-08, 0.382683724)
+		originalPos = (2.97487545, 6.25700378, 2.97486711)
+		originalRotation = (-1.3490056E-07, 0.923879564, -2.47688003E-08, 0.382683545)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
@@ -8596,39 +8787,199 @@ PART
 }
 PART
 {
-	part = KCLV.CZ3.BOOSTER.TANK_4292261840
+	part = KCLV.2.25m.NoseCone_4292630288
 	partName = Part
-	persistentId = 2898980076
-	pos = 2.23039937,12.8297729,-2.23041368
+	persistentId = 425414607
+	pos = 2.21493125,18.5248756,2.2149229
 	attPos = 0,0,0
-	attPos0 = 2.23040414,-4.21812057,-2.23040438
-	rot = -5.08757516E-08,0.923879623,2.10734221E-08,-0.382683396
+	attPos0 = 7.04278023E-08,5.84722328,0
+	rot = 0,0.707106829,2.66453526E-15,0.707106829
 	attRot = 0,0,0,1
-	attRot0 = -5.08757516E-08,0.923879623,2.10734221E-08,-0.382683396
+	attRot0 = 8.72889938E-09,-0.382683396,2.10734346E-08,0.923879564
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 5
+	istg = 4
 	resPri = 0
 	dstg = 1
-	sidx = 0
-	sqor = 5
-	sepI = 5
+	sidx = -1
+	sqor = -1
+	sepI = 4
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = KCLV.2.25m.NoseCone_4292630232
+	sym = KCLV.2.25m.NoseCone_4292630176
+	sym = KCLV.2.25m.NoseCone_4292630688
+	attN = bottom,KCLV.CZ3.BOOSTER.TANK_4292638320_0|-0.652262986|0_0|-1|0_0|-0.652262986|0_0|-1|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = Refunding
+		isEnabled = True
+		active = True
+		OriginalCost = 320
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 2.25
+		defaultScale = 2.25
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 320
+		OriginalCrewCapacity = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = GeometryPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARAeroPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = AttachedOnEditor
+		isEnabled = True
+		active = True
+		originalPos = (2.21493125, 18.5248756, 2.2149229)
+		originalRotation = (0, 0.707106829, 2.66453526E-15, 0.707106829)
+		correctlyInitialised = False
+		moduleVersion = 4
+		stagingEnabled = True
+		originalAttachNodePos = (0.0, -0.7, 0.0)
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = KCLV.CZ3.BOOSTER.TANK_4292637928
+	partName = Part
+	persistentId = 3631375386
+	pos = 2.21493173,12.6776505,-2.21492171
+	attPos = 0,0,0
+	attPos0 = 2.21492219,-4.20487404,-2.21492243
+	rot = -2.10734346E-08,0.923879623,8.72890116E-09,-0.382683426
+	attRot = 0,0,0,1
+	attRot0 = -2.10734346E-08,0.923879623,8.72890116E-09,-0.382683426
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 4
+	resPri = 0
+	dstg = 1
+	sidx = 1
+	sqor = 4
+	sepI = 4
 	attm = 1
 	sameVesselCollision = False
 	modCost = 17250.1504
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.2.25m.NoseCone_4292261514
-	link = KCLV.YF-20.Series.Engine_4293299634
-	sym = KCLV.CZ3.BOOSTER.TANK_4292260406
-	sym = KCLV.CZ3.BOOSTER.TANK_4292281450
-	sym = KCLV.CZ3.BOOSTER.TANK_4292263274
-	srfN = srfAttach,KCLV.CZ3B.First.Stage.Tank_4292290552,CZ3BSTAGE1CCC,1.48000002|0|0,1|0|0,1.48000002|0|0
-	attN = top,KCLV.2.25m.NoseCone_4292261514_0|5.19496012|0_0|1|0_0|5.19496012|0_0|1|0
+	link = KCLV.YF-20.Series.Engine_4292633722
+	link = KCLV.2.25m.NoseCone_4292630232
+	sym = KCLV.CZ3.BOOSTER.TANK_4292637536
+	sym = KCLV.CZ3.BOOSTER.TANK_4292642446
+	sym = KCLV.CZ3.BOOSTER.TANK_4292638320
+	srfN = srfAttach,KCLV.CZ3B.First.Stage.Tank_4292656644,CZ3BSTAGE1CCC,1.48000002|0|0,1|0|0,1.48000002|0|0
+	attN = top,KCLV.2.25m.NoseCone_4292630232_0|5.19496012|0_0|1|0_0|5.19496012|0_0|1|0
 	attN = bottom,Null_0_0|-5.71311998|0_0|-1|0_0|-5.71311998|0_0|-1|0
-	attN = YQJD,KCLV.YF-20.Series.Engine_4293299634_0.0172560941|-5.6807065|-8.09650264E-11_-1.00000012|0|-1.1920929E-07_0.0172560941|-5.6807065|-8.09650264E-11_-1.00000012|0|-1.1920929E-07
+	attN = YQJD,KCLV.YF-20.Series.Engine_4292633722_0.0172560941|-5.6807065|-8.09650264E-11_-1.00000012|0|-1.1920929E-07_0.0172560941|-5.6807065|-8.09650264E-11_-1.00000012|0|-1.1920929E-07
 	EVENTS
 	{
 	}
@@ -8846,7 +9197,29 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 37516.230955743791
+		OriginalCost = 35516.230955743791
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 2.25
+		defaultScale = 2.25
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 0
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -8908,8 +9281,8 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (2.23039937, 12.8297729, -2.23041368)
-		originalRotation = (-5.08757516E-08, 0.923879623, 2.10734221E-08, -0.382683396)
+		originalPos = (2.21493173, 12.6776505, -2.21492171)
+		originalRotation = (-2.10734346E-08, 0.923879623, 8.72890116E-09, -0.382683426)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
@@ -9010,195 +9383,35 @@ PART
 }
 PART
 {
-	part = KCLV.2.25m.NoseCone_4292261514
+	part = KCLV.YF-20.Series.Engine_4292633722
 	partName = Part
-	persistentId = 1832132050
-	pos = 2.23039937,18.6769981,-2.23041368
+	persistentId = 3031649680
+	pos = 2.21337438,6.09947205,-2.21336436
 	attPos = 0,0,0
-	attPos0 = -2.66747065E-07,5.84722328,0
-	rot = -2.98023153E-08,0.923879623,1.2344521E-08,-0.382683396
+	attPos0 = 0.00220272643,-6.57818031,-2.32830644E-10
+	rot = -9.52530073E-08,0.923879623,7.0563928E-08,-0.382683367
 	attRot = 0,0,0,1
-	attRot0 = 0,0,2.28097203E-08,1
+	attRot0 = -2.87408213E-08,-5.96046377E-08,-9.21962169E-08,1
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 5
-	resPri = 0
-	dstg = 1
-	sidx = -1
-	sqor = -1
-	sepI = 5
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = KCLV.2.25m.NoseCone_4292260080
-	sym = KCLV.2.25m.NoseCone_4292275582
-	sym = KCLV.2.25m.NoseCone_4292262948
-	attN = bottom,KCLV.CZ3.BOOSTER.TANK_4292261840_0|-0.652262986|0_0|-1|0_0|-0.652262986|0_0|-1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 320
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		active = True
-		available = True
-		currentScale = 2.25
-		defaultScale = 2.25
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 320
-		OriginalCrewCapacity = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (2.23039937, 18.6769981, -2.23041368)
-		originalRotation = (-2.98023153E-08, 0.923879623, 1.2344521E-08, -0.382683396)
-		correctlyInitialised = False
-		moduleVersion = 4
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, -0.7, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = KCLV.YF-20.Series.Engine_4293299634
-	partName = Part
-	persistentId = 25097211
-	pos = 2.22884226,6.25159073,-2.22885656
-	attPos = 0,0,0
-	attPos0 = 0.00220281351,-6.57818222,-4.65661287E-10
-	rot = -1.30168601E-07,0.923879623,7.05639422E-08,-0.382683337
-	attRot = 0,0,0,1
-	attRot0 = -1.5379225E-08,-5.96046377E-08,-9.21962169E-08,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 7
+	istg = 6
 	resPri = 0
 	dstg = 1
 	sidx = 0
-	sqor = 7
-	sepI = 5
+	sqor = 6
+	sepI = 4
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.CZ7.8.Wing_4293296996
-	sym = KCLV.YF-20.Series.Engine_4293298698
-	sym = KCLV.YF-20.Series.Engine_4293309438
-	sym = KCLV.YF-20.Series.Engine_4293300570
-	attN = top,KCLV.CZ3.BOOSTER.TANK_4292261840_0.0150532983|0.89747411|-8.09650264E-11_0.0697564632|0.997564018|-7.29924068E-08_0.0150532983|0.89747411|-8.09650264E-11_0.0697564632|0.997564018|-7.29924068E-08
+	link = CZ2.StructuralWing.TypeA_4292630878
+	sym = KCLV.YF-20.Series.Engine_4292632784
+	sym = KCLV.YF-20.Series.Engine_4292636804
+	sym = KCLV.YF-20.Series.Engine_4292634660
+	attN = top,KCLV.CZ3.BOOSTER.TANK_4292637928_0.0150532983|0.89747411|-8.09650264E-11_0.0697564632|0.997564018|-7.29924068E-08_0.0150532983|0.89747411|-8.09650264E-11_0.0697564632|0.997564018|-7.29924068E-08
 	attN = top2,Null_0_0.0150532983|0.89747411|0_1.00000012|1.84392476E-07|-1.19209304E-07_0.0150532983|0.89747411|0_1.00000012|1.84392476E-07|-1.19209304E-07
 	attN = bottom,Null_0_-0.156879634|-1.56128192|0_-0.0697568506|-0.997564077|-2.65659764E-07_-0.156879634|-1.56128192|0_-0.0697568506|-0.997564077|-2.65659764E-07
 	EVENTS
@@ -9347,7 +9560,29 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 6002.8012399673462
+		OriginalCost = 1502.8012399673462
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 2.25
+		defaultScale = 2.25
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 5997.19873
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -9425,8 +9660,8 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (2.22884226, 6.25159073, -2.22885656)
-		originalRotation = (-1.30168601E-07, 0.923879623, 7.05639422E-08, -0.382683337)
+		originalPos = (2.21337438, 6.09947205, -2.21336436)
+		originalRotation = (-9.52530073E-08, 0.923879623, 7.0563928E-08, -0.382683367)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
@@ -9492,34 +9727,34 @@ PART
 }
 PART
 {
-	part = KCLV.CZ7.8.Wing_4293296996
+	part = CZ2.StructuralWing.TypeA_4292630878
 	partName = Part
-	persistentId = 1723642982
-	pos = 3.00735021,6.37782669,-3.0073638
+	persistentId = 1156960535
+	pos = 2.97487664,6.25700378,-2.97486544
 	attPos = 0,0,0
-	attPos0 = -1.1009711,0.126235753,1.63851652E-08
-	rot = 5.88552851E-09,0.923879683,1.42085295E-08,-0.382683218
+	attPos0 = -1.07692194,0.157531545,-2.19960782E-07
+	rot = -1.12903344E-07,0.923879683,7.78749438E-08,-0.382683277
 	attRot = 0,0,0,1
-	attRot0 = -1.06581402E-14,-1.19209275E-07,1.47263719E-07,1
+	attRot0 = -1.06581402E-14,-2.98023188E-08,-1.9104526E-08,1
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 7
+	istg = 6
 	resPri = 0
 	dstg = 1
 	sidx = -1
 	sqor = -1
-	sepI = 5
+	sepI = 4
 	attm = 1
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = KCLV.CZ7.8.Wing_4292259258
-	sym = KCLV.CZ7.8.Wing_4293297124
-	sym = KCLV.CZ7.8.Wing_4293297060
-	srfN = srfAttach,KCLV.YF-20.Series.Engine_4293299634,YF20SHELLCCC.002,0|0|0,1|0|0,0|0|0
+	sym = CZ2.StructuralWing.TypeA_4292630818
+	sym = CZ2.StructuralWing.TypeA_4292631514
+	sym = CZ2.StructuralWing.TypeA_4292630938
+	srfN = srfAttach,KCLV.YF-20.Series.Engine_4292633722,YF20SHELLCCC.002,-0.0189999994|0|0,1|0|0,-0.0189999994|0|0
 	EVENTS
 	{
 	}
@@ -9546,9 +9781,24 @@ PART
 	}
 	MODULE
 	{
-		name = ModulePartVariants
+		name = ModuleLiftingSurface
 		isEnabled = True
-		useVariantMass = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KerwisShader
+		isEnabled = True
+		CurrentTextureVariant = 
 		stagingEnabled = True
 		EVENTS
 		{
@@ -9565,7 +9815,7 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 600
+		OriginalCost = 500
 		stagingEnabled = True
 		EVENTS
 		{
@@ -9583,10 +9833,10 @@ PART
 		isEnabled = True
 		active = True
 		available = True
-		currentScale = 2.25
-		defaultScale = 2.25
+		currentScale = 1
+		defaultScale = 1
 		defaultTransformScale = (0, 0, 0)
-		DryCost = 600
+		DryCost = 500
 		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
@@ -9649,8 +9899,8 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (3.00735021, 6.37782669, -3.0073638)
-		originalRotation = (5.88552851E-09, 0.923879683, 1.42085295E-08, -0.382683218)
+		originalPos = (2.97487617, 6.25700378, -2.97486496)
+		originalRotation = (-1.12903344E-07, 0.923879683, 7.78749438E-08, -0.382683277)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
@@ -9667,39 +9917,199 @@ PART
 }
 PART
 {
-	part = KCLV.CZ3.BOOSTER.TANK_4292260406
+	part = KCLV.2.25m.NoseCone_4292630232
 	partName = Part
-	persistentId = 3841697905
-	pos = -2.23040891,12.8297729,-2.23041344
+	persistentId = 3710095026
+	pos = 2.21493149,18.5248756,-2.21492147
 	attPos = 0,0,0
-	attPos0 = -2.23040414,-4.21812057,-2.23040414
-	rot = -2.1073431E-08,0.382683545,5.08757481E-08,-0.923879564
+	attPos0 = 7.04278023E-08,5.84722328,-5.68434189E-14
+	rot = 0,1.00000012,-8.8817842E-16,-2.98023224E-08
 	attRot = 0,0,0,1
-	attRot0 = -2.1073431E-08,0.382683545,5.08757481E-08,-0.923879564
+	attRot0 = 8.72890027E-09,-0.382683396,2.10734346E-08,0.923879623
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 5
+	istg = 4
 	resPri = 0
 	dstg = 1
-	sidx = 0
-	sqor = 5
-	sepI = 5
+	sidx = -1
+	sqor = -1
+	sepI = 4
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = KCLV.2.25m.NoseCone_4292630176
+	sym = KCLV.2.25m.NoseCone_4292630688
+	sym = KCLV.2.25m.NoseCone_4292630288
+	attN = bottom,KCLV.CZ3.BOOSTER.TANK_4292637928_0|-0.652262986|0_0|-1|0_0|-0.652262986|0_0|-1|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = Refunding
+		isEnabled = True
+		active = True
+		OriginalCost = 320
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 2.25
+		defaultScale = 2.25
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 320
+		OriginalCrewCapacity = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = GeometryPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARAeroPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = AttachedOnEditor
+		isEnabled = True
+		active = True
+		originalPos = (2.21493149, 18.5248756, -2.21492147)
+		originalRotation = (0, 1.00000012, -8.8817842E-16, -2.98023224E-08)
+		correctlyInitialised = False
+		moduleVersion = 4
+		stagingEnabled = True
+		originalAttachNodePos = (0.0, -0.7, 0.0)
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = KCLV.CZ3.BOOSTER.TANK_4292637536
+	partName = Part
+	persistentId = 2140521417
+	pos = -2.21491265,12.6776505,-2.21492147
+	attPos = 0,0,0
+	attPos0 = -2.21492219,-4.20487404,-2.21492219
+	rot = -8.72890382E-09,0.382683516,2.10734328E-08,-0.923879564
+	attRot = 0,0,0,1
+	attRot0 = -8.72890382E-09,0.382683516,2.10734328E-08,-0.923879564
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 4
+	resPri = 0
+	dstg = 1
+	sidx = 1
+	sqor = 4
+	sepI = 4
 	attm = 1
 	sameVesselCollision = False
 	modCost = 17250.1504
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.2.25m.NoseCone_4292260080
-	link = KCLV.YF-20.Series.Engine_4293298698
-	sym = KCLV.CZ3.BOOSTER.TANK_4292281450
-	sym = KCLV.CZ3.BOOSTER.TANK_4292263274
-	sym = KCLV.CZ3.BOOSTER.TANK_4292261840
-	srfN = srfAttach,KCLV.CZ3B.First.Stage.Tank_4292290552,CZ3BSTAGE1CCC,1.48000002|0|0,1|0|0,1.48000002|0|0
-	attN = top,KCLV.2.25m.NoseCone_4292260080_0|5.19496012|0_0|1|0_0|5.19496012|0_0|1|0
+	link = KCLV.YF-20.Series.Engine_4292632784
+	link = KCLV.2.25m.NoseCone_4292630176
+	sym = KCLV.CZ3.BOOSTER.TANK_4292642446
+	sym = KCLV.CZ3.BOOSTER.TANK_4292638320
+	sym = KCLV.CZ3.BOOSTER.TANK_4292637928
+	srfN = srfAttach,KCLV.CZ3B.First.Stage.Tank_4292656644,CZ3BSTAGE1CCC,1.48000002|0|0,1|0|0,1.48000002|0|0
+	attN = top,KCLV.2.25m.NoseCone_4292630176_0|5.19496012|0_0|1|0_0|5.19496012|0_0|1|0
 	attN = bottom,Null_0_0|-5.71311998|0_0|-1|0_0|-5.71311998|0_0|-1|0
-	attN = YQJD,KCLV.YF-20.Series.Engine_4293298698_0.0172560941|-5.6807065|-8.09650264E-11_-1.00000012|0|-1.1920929E-07_0.0172560941|-5.6807065|-8.09650264E-11_-1.00000012|0|-1.1920929E-07
+	attN = YQJD,KCLV.YF-20.Series.Engine_4292632784_0.0172560941|-5.6807065|-8.09650264E-11_-1.00000012|0|-1.1920929E-07_0.0172560941|-5.6807065|-8.09650264E-11_-1.00000012|0|-1.1920929E-07
 	EVENTS
 	{
 	}
@@ -9917,7 +10327,29 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 37516.230955743791
+		OriginalCost = 35516.230955743791
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 2.25
+		defaultScale = 2.25
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 0
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -9979,8 +10411,8 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-2.23040891, 12.8297729, -2.23041344)
-		originalRotation = (-2.1073431E-08, 0.382683545, 5.08757481E-08, -0.923879564)
+		originalPos = (-2.21491265, 12.6776505, -2.21492147)
+		originalRotation = (-8.72890382E-09, 0.382683516, 2.10734328E-08, -0.923879564)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
@@ -10081,195 +10513,35 @@ PART
 }
 PART
 {
-	part = KCLV.2.25m.NoseCone_4292260080
+	part = KCLV.YF-20.Series.Engine_4292632784
 	partName = Part
-	persistentId = 1117587051
-	pos = -2.23040891,18.6769981,-2.23041344
+	persistentId = 2418771201
+	pos = -2.2133553,6.09947205,-2.21336412
 	attPos = 0,0,0
-	attPos0 = -2.66747065E-07,5.84722328,0
-	rot = -1.23445334E-08,0.382683545,2.98023295E-08,-0.923879564
+	attPos0 = 0.00220272597,-6.57818031,-4.94765118E-10
+	rot = -1.74578201E-08,0.382683545,1.17250266E-07,-0.923879564
 	attRot = 0,0,0,1
-	attRot0 = 0,0,2.28097203E-08,1
+	attRot0 = -2.87408177E-08,-5.96046377E-08,-9.21962169E-08,1
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 5
-	resPri = 0
-	dstg = 1
-	sidx = -1
-	sqor = -1
-	sepI = 5
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = KCLV.2.25m.NoseCone_4292275582
-	sym = KCLV.2.25m.NoseCone_4292262948
-	sym = KCLV.2.25m.NoseCone_4292261514
-	attN = bottom,KCLV.CZ3.BOOSTER.TANK_4292260406_0|-0.652262986|0_0|-1|0_0|-0.652262986|0_0|-1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 320
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		active = True
-		available = True
-		currentScale = 2.25
-		defaultScale = 2.25
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 320
-		OriginalCrewCapacity = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (-2.23040891, 18.6769981, -2.23041344)
-		originalRotation = (-1.23445334E-08, 0.382683545, 2.98023295E-08, -0.923879564)
-		correctlyInitialised = False
-		moduleVersion = 4
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, -0.7, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = KCLV.YF-20.Series.Engine_4293298698
-	partName = Part
-	persistentId = 2898964225
-	pos = -2.2288518,6.25159073,-2.22885633
-	attPos = 0,0,0
-	attPos0 = 0.00220281305,-6.57818222,-5.82076609E-10
-	rot = -4.21468584E-08,0.382683545,1.41939324E-07,-0.923879564
-	attRot = 0,0,0,1
-	attRot0 = -1.53792268E-08,-5.96046377E-08,-9.2196224E-08,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 7
+	istg = 6
 	resPri = 0
 	dstg = 1
 	sidx = 0
-	sqor = 7
-	sepI = 5
+	sqor = 6
+	sepI = 4
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.CZ7.8.Wing_4292259258
-	sym = KCLV.YF-20.Series.Engine_4293309438
-	sym = KCLV.YF-20.Series.Engine_4293300570
-	sym = KCLV.YF-20.Series.Engine_4293299634
-	attN = top,KCLV.CZ3.BOOSTER.TANK_4292260406_0.0150532983|0.89747411|-8.09650264E-11_0.0697564632|0.997564018|-7.29924068E-08_0.0150532983|0.89747411|-8.09650264E-11_0.0697564632|0.997564018|-7.29924068E-08
+	link = CZ2.StructuralWing.TypeA_4292630818
+	sym = KCLV.YF-20.Series.Engine_4292636804
+	sym = KCLV.YF-20.Series.Engine_4292634660
+	sym = KCLV.YF-20.Series.Engine_4292633722
+	attN = top,KCLV.CZ3.BOOSTER.TANK_4292637536_0.0150532983|0.89747411|-8.09650264E-11_0.0697564632|0.997564018|-7.29924068E-08_0.0150532983|0.89747411|-8.09650264E-11_0.0697564632|0.997564018|-7.29924068E-08
 	attN = top2,Null_0_0.0150532983|0.89747411|0_1.00000012|1.84392476E-07|-1.19209304E-07_0.0150532983|0.89747411|0_1.00000012|1.84392476E-07|-1.19209304E-07
 	attN = bottom,Null_0_-0.156879634|-1.56128192|0_-0.0697568506|-0.997564077|-2.65659764E-07_-0.156879634|-1.56128192|0_-0.0697568506|-0.997564077|-2.65659764E-07
 	EVENTS
@@ -10418,7 +10690,29 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 6002.8012399673462
+		OriginalCost = 1502.8012399673462
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 2.25
+		defaultScale = 2.25
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 5997.19873
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -10496,8 +10790,8 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-2.2288518, 6.25159073, -2.22885633)
-		originalRotation = (-4.21468584E-08, 0.382683545, 1.41939324E-07, -0.923879564)
+		originalPos = (-2.2133553, 6.09947205, -2.21336412)
+		originalRotation = (-1.74578201E-08, 0.382683545, 1.17250266E-07, -0.923879564)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
@@ -10563,34 +10857,34 @@ PART
 }
 PART
 {
-	part = KCLV.CZ7.8.Wing_4292259258
+	part = CZ2.StructuralWing.TypeA_4292630818
 	partName = Part
-	persistentId = 3818770679
-	pos = -3.00735521,6.37782669,-3.00736046
+	persistentId = 2088940734
+	pos = -2.97485352,6.25700378,-2.97486281
 	attPos = 0,0,0
-	attPos0 = -1.10097063,0.126235753,-7.29054435E-08
-	rot = 1.42086112E-08,0.382683724,5.88535887E-09,-0.923879504
+	attPos0 = -1.07692146,0.157531545,3.36208359E-08
+	rot = -2.47688021E-08,0.382683545,1.34900546E-07,-0.923879564
 	attRot = 0,0,0,1
-	attRot0 = -1.59872116E-14,-1.1920929E-07,1.47263734E-07,1
+	attRot0 = -1.24344979E-14,-7.10542736E-15,-1.91045277E-08,1
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 7
+	istg = 6
 	resPri = 0
 	dstg = 1
 	sidx = -1
 	sqor = -1
-	sepI = 5
+	sepI = 4
 	attm = 1
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = KCLV.CZ7.8.Wing_4293297124
-	sym = KCLV.CZ7.8.Wing_4293297060
-	sym = KCLV.CZ7.8.Wing_4293296996
-	srfN = srfAttach,KCLV.YF-20.Series.Engine_4293298698,YF20SHELLCCC.002,0|0|0,1|0|0,0|0|0
+	sym = CZ2.StructuralWing.TypeA_4292631514
+	sym = CZ2.StructuralWing.TypeA_4292630938
+	sym = CZ2.StructuralWing.TypeA_4292630878
+	srfN = srfAttach,KCLV.YF-20.Series.Engine_4292632784,YF20SHELLCCC.002,-0.0189999994|0|0,1|0|0,-0.0189999994|0|0
 	EVENTS
 	{
 	}
@@ -10617,9 +10911,24 @@ PART
 	}
 	MODULE
 	{
-		name = ModulePartVariants
+		name = ModuleLiftingSurface
 		isEnabled = True
-		useVariantMass = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KerwisShader
+		isEnabled = True
+		CurrentTextureVariant = 
 		stagingEnabled = True
 		EVENTS
 		{
@@ -10636,7 +10945,7 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 600
+		OriginalCost = 500
 		stagingEnabled = True
 		EVENTS
 		{
@@ -10654,10 +10963,10 @@ PART
 		isEnabled = True
 		active = True
 		available = True
-		currentScale = 2.25
-		defaultScale = 2.25
+		currentScale = 1
+		defaultScale = 1
 		defaultTransformScale = (0, 0, 0)
-		DryCost = 600
+		DryCost = 500
 		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
@@ -10720,11 +11029,171 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-3.00735521, 6.37782669, -3.00736046)
-		originalRotation = (1.42086112E-08, 0.382683724, 5.88535887E-09, -0.923879504)
+		originalPos = (-2.97485352, 6.25700378, -2.97486281)
+		originalRotation = (-2.47688021E-08, 0.382683545, 1.34900546E-07, -0.923879564)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = KCLV.2.25m.NoseCone_4292630176
+	partName = Part
+	persistentId = 3937707498
+	pos = -2.21491241,18.5248756,-2.21492124
+	attPos = 0,0,0
+	attPos0 = 7.04277312E-08,5.84722328,-7.10542736E-14
+	rot = 8.8817842E-16,0.707106829,-4.4408921E-16,-0.707106829
+	attRot = 0,0,0,1
+	attRot0 = 8.72889938E-09,-0.382683396,2.10734346E-08,0.923879564
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 4
+	resPri = 0
+	dstg = 1
+	sidx = -1
+	sqor = -1
+	sepI = 4
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = KCLV.2.25m.NoseCone_4292630688
+	sym = KCLV.2.25m.NoseCone_4292630288
+	sym = KCLV.2.25m.NoseCone_4292630232
+	attN = bottom,KCLV.CZ3.BOOSTER.TANK_4292637536_0|-0.652262986|0_0|-1|0_0|-0.652262986|0_0|-1|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = Refunding
+		isEnabled = True
+		active = True
+		OriginalCost = 320
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 2.25
+		defaultScale = 2.25
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 320
+		OriginalCrewCapacity = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = GeometryPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARAeroPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = AttachedOnEditor
+		isEnabled = True
+		active = True
+		originalPos = (-2.21491241, 18.5248756, -2.21492124)
+		originalRotation = (8.8817842E-16, 0.707106829, -4.4408921E-16, -0.707106829)
+		correctlyInitialised = False
+		moduleVersion = 4
+		stagingEnabled = True
+		originalAttachNodePos = (0.0, -0.7, 0.0)
 		EVENTS
 		{
 		}
