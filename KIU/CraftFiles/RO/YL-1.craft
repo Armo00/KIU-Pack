@@ -2,7 +2,7 @@ ship = YL-1
 version = 1.12.3
 description = 
 type = VAB
-size = 8.43664074,29.9269333,8.43664169
+size = 8.43664074,30.1113091,8.43664169
 steamPublishedFileId = 0
 persistentId = 2109835925
 rot = 0,0,0,0
@@ -1136,9 +1136,9 @@ PART
 	modCost = 7191.87402
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.YL-1.Interstage2-3_4293221028
 	link = KCLV.YL-1.Stage3.RCS_4293190450
-	attN = bottom,KCLV.YL-1.Interstage2-3_4293221028_0|-0.868272007|0_0|-1|0_0|-0.868272007|0_0|-1|0
+	link = KCLV.YL-1.Interstage2-3_4293160844
+	attN = bottom,KCLV.YL-1.Interstage2-3_4293160844_0|-0.868272007|0_0|-1|0_0|-0.868272007|0_0|-1|0
 	attN = RCSNode,KCLV.YL-1.Stage3.RCS_4293190450_0|-0.154584646|0_0|0.99999994|-1.1920929E-07_0|-0.154584646|0_0|0.99999994|-1.1920929E-07
 	attN = AdapterNode,KCLV.YL-1.Adapter_4293245176_0|0.528608024|0_0|0.99999994|-1.1920929E-07_0|0.528608024|0_0|0.99999994|-1.1920929E-07
 	EVENTS
@@ -2139,222 +2139,6 @@ PART
 }
 PART
 {
-	part = KCLV.YL-1.Interstage2-3_4293221028
-	partName = Part
-	persistentId = 1883976493
-	pos = 8.24739254E-06,25.1242447,6.556671E-06
-	attPos = 0,0,0
-	attPos0 = 0,-0.889390945,0
-	rot = 0,0,0,1
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 2
-	resPri = 0
-	dstg = 1
-	sidx = 0
-	sqor = 2
-	sepI = 2
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	link = KCLV.YL-1.Stage2_4293221878
-	attN = top,KCLV.YL-1.Stage3_4293241102_0|0.0211190004|0_0|1|0_0|0.0211190004|0_0|1|0
-	attN = bottom,KCLV.YL-1.Stage2_4293221878_0|-0.0203850009|0_0|-1|0_0|-0.0203850009|0_0|-1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDecouple
-		isEnabled = True
-		ejectionForcePercent = 100
-		isDecoupled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			DecoupleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleToggleCrossfeed
-		isEnabled = True
-		crossfeedStatus = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-				active = False
-				wasActiveBeforePartWasAdjusted = False
-			}
-			EnableAction
-			{
-				actionGroup = None
-				active = False
-				wasActiveBeforePartWasAdjusted = False
-			}
-			DisableAction
-			{
-				actionGroup = None
-				active = False
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 500
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		active = True
-		available = True
-		currentScale = 2.6500001
-		defaultScale = 2.6500001
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 500
-		OriginalCrewCapacity = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (8.24739254E-06, 25.1242447, 6.556671E-06)
-		originalRotation = (0, 0, 0, 1)
-		correctlyInitialised = False
-		moduleVersion = 4
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.0, 0.0)
-		originalAttachNodePos = (0.0, 0.0, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
 	part = KCLV.YL-1.Stage3.RCS_4293190450
 	partName = Part
 	persistentId = 2336230641
@@ -2371,8 +2155,8 @@ PART
 	istg = 6
 	resPri = 0
 	dstg = 1
-	sidx = 0
-	sqor = 6
+	sidx = 2
+	sqor = 7
 	sepI = 0
 	attm = 0
 	sameVesselCollision = False
@@ -2638,10 +2422,226 @@ PART
 }
 PART
 {
+	part = KCLV.YL-1.Interstage2-3_4293160844
+	partName = Part
+	persistentId = 2085915797
+	pos = 8.24739254E-06,25.0420418,6.556671E-06
+	attPos = 0,0,0
+	attPos0 = 0,-0.971593857,0
+	rot = 0,0,0,1
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 2
+	resPri = 0
+	dstg = 1
+	sidx = 0
+	sqor = 2
+	sepI = 2
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	link = KCLV.YL-1.Stage2_4293221878
+	attN = top,KCLV.YL-1.Stage3_4293241102_0|0.103321999|0_0|1|0_0|0.103321999|0_0|1|0
+	attN = bottom,KCLV.YL-1.Stage2_4293221878_0|-0.0203850009|0_0|-1|0_0|-0.0203850009|0_0|-1|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleDecouple
+		isEnabled = True
+		ejectionForcePercent = 100
+		isDecoupled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DecoupleAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleToggleCrossfeed
+		isEnabled = True
+		crossfeedStatus = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+				active = False
+				wasActiveBeforePartWasAdjusted = False
+			}
+			EnableAction
+			{
+				actionGroup = None
+				active = False
+				wasActiveBeforePartWasAdjusted = False
+			}
+			DisableAction
+			{
+				actionGroup = None
+				active = False
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = Refunding
+		isEnabled = True
+		active = True
+		OriginalCost = 500
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		active = True
+		available = True
+		currentScale = 2.6500001
+		defaultScale = 2.6500001
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 500
+		OriginalCrewCapacity = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = GeometryPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARAeroPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = AttachedOnEditor
+		isEnabled = True
+		active = True
+		originalPos = (8.24739254E-06, 25.0420418, 6.556671E-06)
+		originalRotation = (0, 0, 0, 1)
+		correctlyInitialised = False
+		moduleVersion = 4
+		stagingEnabled = True
+		originalAttachNodePos = (0.0, 0.1, 0.0)
+		originalAttachNodePos = (0.0, 0.0, 0.0)
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
 	part = KCLV.YL-1.Stage2_4293221878
 	partName = Part
 	persistentId = 1576460959
-	pos = 8.24739254E-06,21.7937088,6.556671E-06
+	pos = 8.24739254E-06,21.7115059,6.556671E-06
 	attPos = 0,0,0
 	attPos0 = 0,-3.33053589,0
 	rot = 0,0,0,1
@@ -2655,16 +2655,16 @@ PART
 	resPri = 0
 	dstg = 1
 	sidx = 0
-	sqor = 4
+	sqor = 5
 	sepI = 2
 	attm = 0
 	sameVesselCollision = False
 	modCost = 25171.5586
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.YL-1.Interstage1-2_4293219840
-	attN = top,KCLV.YL-1.Interstage2-3_4293221028_0|3.31014991|0_0|1|0_0|3.31014991|0_0|1|0
-	attN = bottom,KCLV.YL-1.Interstage1-2_4293219840_0|-3.23676991|0_0|-1|0_0|-3.23676991|0_0|-1|0
+	link = KCLV.YL-1.Interstage1-2_4293155204
+	attN = top,KCLV.YL-1.Interstage2-3_4293160844_0|3.31014991|0_0|1|0_0|3.31014991|0_0|1|0
+	attN = bottom,KCLV.YL-1.Interstage1-2_4293155204_0|-3.23676991|0_0|-1|0_0|-3.23676991|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -2960,7 +2960,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (8.24739254E-06, 21.7937088, 6.556671E-06)
+		originalPos = (8.24739254E-06, 21.7115059, 6.556671E-06)
 		originalRotation = (0, 0, 0, 1)
 		correctlyInitialised = False
 		moduleVersion = 4
@@ -3040,12 +3040,12 @@ PART
 }
 PART
 {
-	part = KCLV.YL-1.Interstage1-2_4293219840
+	part = KCLV.YL-1.Interstage1-2_4293155204
 	partName = Part
-	persistentId = 3741268996
-	pos = 8.24739254E-06,18.5234642,6.556671E-06
+	persistentId = 3617231357
+	pos = 8.24739254E-06,18.3390884,6.556671E-06
 	attPos = 0,0,0
-	attPos0 = 0,-3.2702446,0
+	attPos0 = 0,-3.37241745,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -3057,7 +3057,7 @@ PART
 	resPri = 0
 	dstg = 1
 	sidx = 0
-	sqor = 5
+	sqor = 6
 	sepI = 5
 	attm = 0
 	sameVesselCollision = False
@@ -3065,7 +3065,7 @@ PART
 	modMass = 0
 	modSize = 0,0,0
 	link = KCLV.YL-1.Stage1_4293218832
-	attN = top,KCLV.YL-1.Stage2_4293221878_0|0.0334739983|0_0|1|0_0|0.0334739983|0_0|1|0
+	attN = top,KCLV.YL-1.Stage2_4293221878_0|0.135646999|0_0|1|0_0|0.135646999|0_0|1|0
 	attN = bottom,KCLV.YL-1.Stage1_4293218832_0|-0.0355629995|0_0|-1|0_0|-0.0355629995|0_0|-1|0
 	EVENTS
 	{
@@ -3236,12 +3236,12 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (8.24739254E-06, 18.5234642, 6.556671E-06)
+		originalPos = (8.24739254E-06, 18.3390884, 6.556671E-06)
 		originalRotation = (0, 0, 0, 1)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.0, 0.0)
+		originalAttachNodePos = (0.0, 0.1, 0.0)
 		originalAttachNodePos = (0.0, 0.0, 0.0)
 		EVENTS
 		{
@@ -3259,7 +3259,7 @@ PART
 	part = KCLV.YL-1.Stage1_4293218832
 	partName = Part
 	persistentId = 81444528
-	pos = 8.24739254E-06,11.7928524,6.556671E-06
+	pos = 8.24739254E-06,11.6084766,6.556671E-06
 	attPos = 0,0,0
 	attPos0 = 0,-6.7306118,0
 	rot = 0,0,0,1
@@ -3272,8 +3272,8 @@ PART
 	istg = 6
 	resPri = 0
 	dstg = 1
-	sidx = 2
-	sqor = 6
+	sidx = 1
+	sqor = 7
 	sepI = 5
 	attm = 0
 	sameVesselCollision = False
@@ -3284,7 +3284,7 @@ PART
 	link = KCLV.YL-1.Booster.Separator_4293214388
 	link = KCLV.YL-1.Booster.Separator_4293214204
 	link = KCLV.YL-1.Booster.Separator_4293214020
-	attN = top,KCLV.YL-1.Interstage1-2_4293219840_0|6.69504976|0_0|1|0_0|6.69504976|0_0|1|0
+	attN = top,KCLV.YL-1.Interstage1-2_4293155204_0|6.69504976|0_0|1|0_0|6.69504976|0_0|1|0
 	attN = bottom,Null_0_0|-5.27655983|0_0|-1|0_0|-5.27655983|0_0|-1|0
 	EVENTS
 	{
@@ -3581,7 +3581,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (8.24739254E-06, 11.7928524, 6.556671E-06)
+		originalPos = (8.24739254E-06, 11.6084766, 6.556671E-06)
 		originalRotation = (0, 0, 0, 1)
 		correctlyInitialised = False
 		moduleVersion = 4
@@ -3664,7 +3664,7 @@ PART
 	part = KCLV.YL-1.Booster.Separator_4293217748
 	partName = Part
 	persistentId = 2401734813
-	pos = -2.89331198,11.7940283,6.90060324E-06
+	pos = -2.89331198,11.6096525,6.90060324E-06
 	attPos = 0,0,0
 	attPos0 = -2.89332032,0.00117588043,3.43932243E-07
 	rot = -1.25607405E-15,8.42937027E-08,-2.28097079E-08,1
@@ -3677,8 +3677,8 @@ PART
 	istg = 6
 	resPri = 0
 	dstg = 1
-	sidx = 1
-	sqor = 6
+	sidx = 0
+	sqor = 7
 	sepI = 6
 	attm = 1
 	sameVesselCollision = False
@@ -3935,7 +3935,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-2.89331198, 11.7940283, 6.90060324E-06)
+		originalPos = (-2.89331198, 11.6096525, 6.90060324E-06)
 		originalRotation = (-1.25607405E-15, 8.42937027E-08, -2.28097079E-08, 1)
 		correctlyInitialised = False
 		moduleVersion = 4
@@ -3968,7 +3968,7 @@ PART
 	part = KCLV.YL-1.Booster_4293212876
 	partName = Part
 	persistentId = 383342366
-	pos = -2.89331198,11.0754108,6.77463049E-06
+	pos = -2.89331198,10.8910351,6.77463049E-06
 	attPos = 0,0,0
 	attPos0 = 3.27829284E-08,-0.718617439,-1.25972747E-07
 	rot = 0,0,1.05879131E-22,1
@@ -3982,7 +3982,7 @@ PART
 	resPri = 0
 	dstg = 1
 	sidx = 0
-	sqor = 7
+	sqor = 8
 	sepI = 6
 	attm = 0
 	sameVesselCollision = False
@@ -4305,7 +4305,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-2.89331198, 11.0754108, 6.77463049E-06)
+		originalPos = (-2.89331198, 10.8910351, 6.77463049E-06)
 		originalRotation = (0, 0, 1.05879131E-22, 1)
 		correctlyInitialised = False
 		moduleVersion = 4
@@ -4389,7 +4389,7 @@ PART
 	part = KCLV.YL-1.Booster.NoseCone_4293211118
 	partName = Part
 	persistentId = 3982357837
-	pos = -2.89331198,17.5929604,6.77463049E-06
+	pos = -2.89331198,17.4085846,6.77463049E-06
 	attPos = 0,0,0
 	attPos0 = 0,6.51754951,-5.52112677E-15
 	rot = 0,0,1.05879131E-22,1
@@ -4524,7 +4524,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-2.89331198, 17.5929604, 6.77463049E-06)
+		originalPos = (-2.89331198, 17.4085846, 6.77463049E-06)
 		originalRotation = (0, 0, 1.05879131E-22, 1)
 		correctlyInitialised = False
 		moduleVersion = 4
@@ -4546,7 +4546,7 @@ PART
 	part = KCLV.YL-1.Booster.Separator_4293214388
 	partName = Part
 	persistentId = 2808947779
-	pos = 8.41886958E-06,11.7940283,2.89332676
+	pos = 8.41886958E-06,11.6096525,2.89332676
 	attPos = 0,0,0
 	attPos0 = 1.71477041E-07,0.00117588043,2.89332008
 	rot = -1.61288991E-08,0.707106829,-1.61288973E-08,0.707106709
@@ -4559,8 +4559,8 @@ PART
 	istg = 6
 	resPri = 0
 	dstg = 1
-	sidx = 1
-	sqor = 6
+	sidx = 0
+	sqor = 7
 	sepI = 6
 	attm = 1
 	sameVesselCollision = False
@@ -4809,7 +4809,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (8.41886958E-06, 11.7940283, 2.89332676)
+		originalPos = (8.41886958E-06, 11.6096525, 2.89332676)
 		originalRotation = (-1.61288991E-08, 0.707106829, -1.61288973E-08, 0.707106709)
 		correctlyInitialised = False
 		moduleVersion = 4
@@ -4842,7 +4842,7 @@ PART
 	part = KCLV.YL-1.Booster_4293200382
 	partName = Part
 	persistentId = 2020637441
-	pos = 8.16013744E-06,11.0754108,2.89332652
+	pos = 8.16013744E-06,10.8910351,2.89332652
 	attPos = 0,0,0
 	attPos0 = 2.71201486E-07,-0.718617439,-2.58732115E-07
 	rot = -1.77635684E-15,-0.707106769,-9.61357408E-16,-0.707106769
@@ -4856,7 +4856,7 @@ PART
 	resPri = 0
 	dstg = 1
 	sidx = 1
-	sqor = 7
+	sqor = 8
 	sepI = 6
 	attm = 0
 	sameVesselCollision = False
@@ -5171,8 +5171,8 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (8.16013744E-06, 11.0754108, 2.89332652)
-		originalRotation = (-1.77635684E-15, -0.707106769, 3.3432094E-16, -0.707106769)
+		originalPos = (8.16013744E-06, 10.8910351, 2.89332652)
+		originalRotation = (-1.77635684E-15, -0.707106769, -1.4420359E-15, -0.707106769)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
@@ -5255,7 +5255,7 @@ PART
 	part = KCLV.YL-1.Booster.NoseCone_4293200190
 	partName = Part
 	persistentId = 377683831
-	pos = 8.16013744E-06,17.5929604,2.89332652
+	pos = 8.16013744E-06,17.4085846,2.89332652
 	attPos = 0,0,0
 	attPos0 = 0,6.51754951,-5.52112677E-15
 	rot = -1.77635684E-15,-0.707106769,-9.61357408E-16,-0.707106769
@@ -5390,8 +5390,8 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (8.16013744E-06, 17.5929604, 2.89332652)
-		originalRotation = (-1.77635684E-15, -0.707106769, 3.3432094E-16, -0.707106769)
+		originalPos = (8.16013744E-06, 17.4085846, 2.89332652)
+		originalRotation = (-1.77635684E-15, -0.707106769, -1.4420359E-15, -0.707106769)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
@@ -5412,7 +5412,7 @@ PART
 	part = KCLV.YL-1.Booster.Separator_4293214204
 	partName = Part
 	persistentId = 1477152787
-	pos = 2.89332867,11.7940283,5.95979691E-06
+	pos = 2.89332867,11.6096525,5.95979691E-06
 	attPos = 0,0,0
 	attPos0 = 2.89332032,0.00117588043,-5.96874088E-07
 	rot = -2.28097079E-08,1,2.25311802E-15,-1.28005098E-07
@@ -5425,8 +5425,8 @@ PART
 	istg = 6
 	resPri = 0
 	dstg = 1
-	sidx = 1
-	sqor = 6
+	sidx = 0
+	sqor = 7
 	sepI = 6
 	attm = 1
 	sameVesselCollision = False
@@ -5675,7 +5675,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (2.89332867, 11.7940283, 5.95979691E-06)
+		originalPos = (2.89332867, 11.6096525, 5.95979691E-06)
 		originalRotation = (-2.28097079E-08, 1, 2.25311802E-15, -1.28005098E-07)
 		correctlyInitialised = False
 		moduleVersion = 4
@@ -5708,7 +5708,7 @@ PART
 	part = KCLV.YL-1.Booster_4293210634
 	partName = Part
 	persistentId = 4002920205
-	pos = 2.89332819,11.0754108,6.20160472E-06
+	pos = 2.89332819,10.8910351,6.20160472E-06
 	attPos = 0,0,0
 	attPos0 = 5.09620122E-07,-0.718617439,-2.41807697E-07
 	rot = 0,-1,-2.11758237E-22,0
@@ -5722,7 +5722,7 @@ PART
 	resPri = 0
 	dstg = 1
 	sidx = 2
-	sqor = 7
+	sqor = 8
 	sepI = 6
 	attm = 0
 	sameVesselCollision = False
@@ -6037,7 +6037,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (2.89332819, 11.0754108, 6.20160472E-06)
+		originalPos = (2.89332819, 10.8910351, 6.20160472E-06)
 		originalRotation = (0, -1, -2.11758237E-22, 0)
 		correctlyInitialised = False
 		moduleVersion = 4
@@ -6121,7 +6121,7 @@ PART
 	part = KCLV.YL-1.Booster.NoseCone_4293210448
 	partName = Part
 	persistentId = 3708224742
-	pos = 2.89332819,17.5929604,6.20160472E-06
+	pos = 2.89332819,17.4085846,6.20160472E-06
 	attPos = 0,0,0
 	attPos0 = 0,6.51754951,-5.52112677E-15
 	rot = 0,-1,-2.11758237E-22,0
@@ -6256,7 +6256,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (2.89332819, 17.5929604, 6.20160472E-06)
+		originalPos = (2.89332819, 17.4085846, 6.20160472E-06)
 		originalRotation = (0, -1, -2.11758237E-22, 0)
 		correctlyInitialised = False
 		moduleVersion = 4
@@ -6278,7 +6278,7 @@ PART
 	part = KCLV.YL-1.Booster.Separator_4293214020
 	partName = Part
 	persistentId = 4062510033
-	pos = 7.7310051E-06,11.7940283,-2.89331341
+	pos = 7.7310051E-06,11.6096525,-2.89331341
 	attPos = 0,0,0
 	attPos0 = -5.16387445E-07,0.00117588043,-2.89332008
 	rot = -1.61288973E-08,0.707106709,1.61288991E-08,-0.707106829
@@ -6291,8 +6291,8 @@ PART
 	istg = 6
 	resPri = 0
 	dstg = 1
-	sidx = 1
-	sqor = 6
+	sidx = 0
+	sqor = 7
 	sepI = 6
 	attm = 1
 	sameVesselCollision = False
@@ -6541,7 +6541,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (7.7310051E-06, 11.7940283, -2.89331341)
+		originalPos = (7.7310051E-06, 11.6096525, -2.89331341)
 		originalRotation = (-1.61288973E-08, 0.707106709, 1.61288991E-08, -0.707106829)
 		correctlyInitialised = False
 		moduleVersion = 4
@@ -6574,10 +6574,10 @@ PART
 	part = KCLV.YL-1.Booster_4293201058
 	partName = Part
 	persistentId = 387735189
-	pos = 7.79304173E-06,11.0754108,-2.89331341
+	pos = 7.79304173E-06,10.8910351,-2.89331341
 	attPos = 0,0,0
 	attPos0 = 3.27829177E-08,-0.718617439,-6.20366265E-08
-	rot = -1.77635684E-15,-0.707106769,2.59135627E-15,0.707106769
+	rot = -7.10542736E-15,-0.707106769,7.92042721E-15,0.707106769
 	attRot = 0,-0.707106769,0,0.707106769
 	attRot0 = -1.77635684E-15,8.94069672E-08,-2.28097079E-08,-1
 	mir = 1,1,1
@@ -6588,7 +6588,7 @@ PART
 	resPri = 0
 	dstg = 1
 	sidx = 3
-	sqor = 7
+	sqor = 8
 	sepI = 6
 	attm = 0
 	sameVesselCollision = False
@@ -6903,8 +6903,8 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (7.79304173E-06, 11.0754108, -2.89331341)
-		originalRotation = (-1.77635684E-15, -0.707106769, 2.11067778E-15, 0.707106769)
+		originalPos = (7.79304173E-06, 10.8910351, -2.89331341)
+		originalRotation = (-5.32907052E-15, -0.707106769, 5.66339146E-15, 0.707106769)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
@@ -6987,10 +6987,10 @@ PART
 	part = KCLV.YL-1.Booster.NoseCone_4293200872
 	partName = Part
 	persistentId = 3382398382
-	pos = 7.79304173E-06,17.5929604,-2.89331341
+	pos = 7.79304173E-06,17.4085846,-2.89331341
 	attPos = 0,0,0
 	attPos0 = 0,6.51754951,-5.52112677E-15
-	rot = -1.77635684E-15,-0.707106769,2.59135627E-15,0.707106769
+	rot = -7.10542736E-15,-0.707106769,7.92042721E-15,0.707106769
 	attRot = 0,0,0,1
 	attRot0 = 0,0,1.05879131E-22,1
 	mir = 1,1,1
@@ -7122,8 +7122,8 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (7.79304173E-06, 17.5929604, -2.89331341)
-		originalRotation = (-1.77635684E-15, -0.707106769, 2.11067778E-15, 0.707106769)
+		originalPos = (7.79304173E-06, 17.4085846, -2.89331341)
+		originalRotation = (-5.32907052E-15, -0.707106769, 5.66339146E-15, 0.707106769)
 		correctlyInitialised = False
 		moduleVersion = 4
 		stagingEnabled = True
