@@ -1,10 +1,10 @@
 ship = Tianwen-1
-version = 1.9.1
+version = 1.12.4
 description = 
 type = VAB
-size = 2.96666455,3.9861908,5.20403862
+size = 2.96666431,3.9861908,5.20403957
 steamPublishedFileId = 0
-persistentId = 995945367
+persistentId = 2499903223
 rot = 0,0,0,0
 missionFlag = Squad/Flags/China
 vesselType = Debris
@@ -14,12 +14,12 @@ OverrideAxisControl = 0,0,0,0
 OverrideGroupNames = ,,,
 PART
 {
-	part = KCDE.Tianwen1.Zhurong_4293960492
+	part = KCDE.Tianwen1.Zhurong_4293838494
 	partName = Part
-	persistentId = 2930496367
-	pos = 5.36441803E-07,15.0000029,8.94069672E-07
+	persistentId = 1394356231
+	pos = 7.93486834E-07,15.000001,4.76837158E-07
 	attPos = 0,0,0
-	attPos0 = 5.36441803E-07,15.0000029,8.94069672E-07
+	attPos0 = 7.93486834E-07,15.000001,4.76837158E-07
 	rot = 0.707106829,0,0,0.707106829
 	attRot = 0.707106769,0,0,0.707106769
 	attRot0 = 0,0,0,1
@@ -38,14 +38,12 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCDE.Tianwen1.ZhurongQXB_4293955418
-	link = KCDE.Tianwen1.ZhurongQXB_4293954666
-	link = KCDE.Tianwen1.Lander_4293944504
-	link = KCDE.Tianwen1.ZHurong.Antenna_4293942150
-	attN = Node2,KCDE.Tianwen1.ZhurongQXB_4293954666_0.210000008|0.112940997|-0.0644322038_1|0|0_0.210000008|0.112940997|-0.0644322038_1|0|0
-	attN = Node1,KCDE.Tianwen1.ZhurongQXB_4293955418_-0.210000008|0.112940997|-0.0644322038_-1|0|0_-0.210000008|0.112940997|-0.0644322038_-1|0|0
-	attN = bottom,KCDE.Tianwen1.Lander_4293944504_0|0.0390000008|0.0420000032_0|0|1_0|0.0390000008|0.0420000032_0|0|1
-	attN = Antenna,KCDE.Tianwen1.ZHurong.Antenna_4293942150_-9.51290203E-05|-0.40140003|-0.256199956_0|0|-1_-9.51290203E-05|-0.40140003|-0.256199956_0|0|-1
+	link = KCDE.Tianwen1.ZhurongXB_4293834092
+	link = KCDE.Tianwen1.Lander_4293825418
+	link = KCDE.Tianwen1.ZHurong.Antenna_4293822838
+	attN = top,KCDE.Tianwen1.ZhurongXB_4293834092_0|0.112941004|-0.0644322038_0|0|0.600000024_0|0.112941004|-0.0644322038_0|0|0.600000024
+	attN = bottom,KCDE.Tianwen1.Lander_4293825418_0|0.0390000008|0.0420000032_0|0|1_0|0.0390000008|0.0420000032_0|0|1
+	attN = Antenna,KCDE.Tianwen1.ZHurong.Antenna_4293822838_-9.51290203E-05|-0.40140003|-0.256199956_0|0|-1_-9.51290203E-05|-0.40140003|-0.256199956_0|0|-1
 	EVENTS
 	{
 	}
@@ -69,6 +67,28 @@ PART
 	}
 	PARTDATA
 	{
+	}
+	MODULE
+	{
+		name = ModuleDataTransmitter
+		isEnabled = True
+		xmitIncomplete = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			StartTransmissionAction
+			{
+				actionGroup = None
+				active = False
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
 	}
 	MODULE
 	{
@@ -155,8 +175,10 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleDeployableSolarPanel
+		name = KopernicusSolarPanel
 		isEnabled = True
+		trackingBodyName = 
+		_manualTracking = False
 		efficiencyMult = 1
 		launchUT = -1
 		currentRotation = (0.5, 0.5, 0.5, -0.5)
@@ -373,6 +395,29 @@ PART
 		isEnabled = True
 		active = True
 		OriginalCost = 5000
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		type = stack
+		active = True
+		available = True
+		currentScale = 0.930000007
+		defaultScale = 0.930000007
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 5000
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -1075,93 +1120,25 @@ PART
 	}
 	MODULE
 	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = TrajectoriesVesselSettings
-		isEnabled = True
-		Initialized = False
-		EntryAngle = 3.1415926535897931
-		EntryHorizon = False
-		HighAngle = 3.1415926535897931
-		HighHorizon = False
-		LowAngle = 3.1415926535897931
-		LowHorizon = False
-		GroundAngle = 3.1415926535897931
-		GroundHorizon = False
-		RetrogradeEntry = True
-		TargetBody = 
-		TargetPosition_x = 0
-		TargetPosition_y = 0
-		TargetPosition_z = 0
-		ManualTargetTxt = 
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (5.36441803E-07, 15.0000029, 8.94069672E-07)
+		originalPos = (7.93486834E-07, 15.000001, 4.76837158E-07)
 		originalRotation = (0.707106829, 0, 0, 0.707106829)
-		correctlyInitialised = False
-		moduleVersion = 4
+		moduleVersion = 6
 		stagingEnabled = True
-		originalAttachNodePos = (0.2, 0.1, -0.1)
-		originalAttachNodePos = (-0.2, 0.1, -0.1)
+		originalAttachNodePos = (0.0, 0.1, -0.1)
+		originalAttachNodeSize = 0
+		originalAttachNodeOrientation = (0.0, 0.0, 0.6)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		originalAttachNodePos = (0.0, 0.0, 0.0)
+		originalAttachNodeSize = 0
+		originalAttachNodeOrientation = (0.0, 0.0, 1.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		originalAttachNodePos = (0.0, -0.4, -0.3)
+		originalAttachNodeSize = 0
+		originalAttachNodeOrientation = (0.0, 0.0, -1.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		EVENTS
 		{
 		}
@@ -1205,14 +1182,14 @@ PART
 }
 PART
 {
-	part = KCDE.Tianwen1.ZhurongQXB_4293955418
+	part = KCDE.Tianwen1.ZhurongXB_4293834092
 	partName = Part
-	persistentId = 1740298438
-	pos = -0.245977879,15.0000029,9.53674316E-07
+	persistentId = 710568114
+	pos = 7.93486834E-07,15.0644331,0.112941623
 	attPos = 0,0,0
-	attPos0 = -0.245978415,5.96046519E-08,-7.10542736E-15
+	attPos0 = 0,0.112941034,-0.064432174
 	rot = 0,-0.707106829,0,0.707106829
-	attRot = 0,-0.707106769,0,0.707106769
+	attRot = 0,-0.707106709,0,0.707106709
 	attRot0 = -0.5,-0.5,0.5,0.5
 	mir = 1,1,1
 	symMethod = Radial
@@ -1229,14 +1206,19 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCDE.ZR.SIFU.Realsize_4293953428
-	link = KCDE.Tianwen1.Zhurong.Wheel_4293950600
-	attN = Wheel1,Null_0_0.396547884|0.065633446|-0.0556432232_2.95027917E-07|-0.999999881|5.96046235E-08_0.396547884|0.065633446|-0.0556432232_2.95027917E-07|-0.999999881|5.96046235E-08
-	attN = Wheel2,KCDE.Tianwen1.Zhurong.Wheel_4293950600_0.396547824|0.0656333715|0.0549568199_5.47909053E-07|-0.99999994|-1.19209389E-07_0.396547824|0.0656333715|0.0549568199_5.47909053E-07|-0.99999994|-1.19209389E-07
-	attN = SFLJ1,KCDE.ZR.SIFU.Realsize_4293953428_-0.128659278|0.0323646069|0.00688061677_4.63881378E-09|-3.65311834E-08|1_-0.128659278|0.0323646069|0.00688061677_4.63881378E-09|-3.65311834E-08|1
-	attN = SFLJ2,Null_0_-0.128659248|0.032364592|-0.00756701315_-4.63882088E-09|-1.50995788E-07|-1_-0.128659248|0.032364592|-0.00756701315_-4.63882088E-09|-1.50995788E-07|-1
-	attN = Node2,KCDE.Tianwen1.Zhurong_4293960492_0.112940975|0.0644322038|-0.0359784029_3.19648478E-07|1.50995788E-07|-1_0.112940975|0.0644322038|-0.0359784029_3.19648478E-07|1.50995788E-07|-1
-	attN = Node1,Null_0_0.112941042|0.0644322038|0.0359759405_-3.91731803E-09|-5.13092964E-08|1_0.112941042|0.0644322038|0.0359759405_-3.91731803E-09|-5.13092964E-08|1
+	link = KCDE.Tianwen1.Zhurong.Wheel_4293830890
+	link = KCDE.Tianwen1.Zhurong.Wheel_4293829822
+	link = KCDE.Tianwen1.Zhurong.Wheel_4293829050
+	link = KCDE.Tianwen1.Zhurong.Wheel_4293828284
+	link = KCDE.Tianwen1.Zhurong.Wheel_4293827524
+	link = KCDE.Tianwen1.Zhurong.Wheel_4293826770
+	attN = top,KCDE.Tianwen1.Zhurong_4293838494_0|0|0_0|0.600000024|0_0|0|0_0|0.600000024|0
+	attN = Wheel1,KCDE.Tianwen1.Zhurong.Wheel_4293827524_0.283606827|0.00120144198|-0.310578614_3.89414367E-07|-0.99999994|-1.19209332E-07_0.283606827|0.00120144198|-0.310578614_3.89414367E-07|-0.99999994|-1.19209332E-07
+	attN = Wheel2,KCDE.Tianwen1.Zhurong.Wheel_4293826770_-0.0675747991|0.00120189786|-0.323624402_6.77626439E-21|-1.00000012|-8.34465027E-07_-0.0675747991|0.00120189786|-0.323624402_6.77626439E-21|-1.00000012|-8.34465027E-07
+	attN = Wheel3,KCDE.Tianwen1.Zhurong.Wheel_4293828284_-0.415923417|0.00120189786|-0.323624402_6.27832947E-07|-0.99999994|-1.19209389E-07_-0.415923417|0.00120189786|-0.323624402_6.27832947E-07|-0.99999994|-1.19209389E-07
+	attN = Wheel4,KCDE.Tianwen1.Zhurong.Wheel_4293830890_0.283606827|0.00120144198|0.310578614_3.89414367E-07|-0.99999994|-1.19209332E-07_0.283606827|0.00120144198|0.310578614_3.89414367E-07|-0.99999994|-1.19209332E-07
+	attN = Wheel5,KCDE.Tianwen1.Zhurong.Wheel_4293829822_-0.0675747991|0.00120189786|0.323624402_6.77626439E-21|-1.00000012|-8.34465027E-07_-0.0675747991|0.00120189786|0.323624402_6.77626439E-21|-1.00000012|-8.34465027E-07
+	attN = Wheel6,KCDE.Tianwen1.Zhurong.Wheel_4293829050_-0.415923417|0.00120189786|0.323624402_6.27832947E-07|-0.99999994|-1.19209389E-07_-0.415923417|0.00120189786|0.323624402_6.27832947E-07|-0.99999994|-1.19209389E-07
 	EVENTS
 	{
 	}
@@ -1263,22 +1245,6 @@ PART
 	}
 	MODULE
 	{
-		name = ModulePartVariants
-		isEnabled = True
-		useVariantMass = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = Refunding
 		isEnabled = True
 		active = True
@@ -1296,38 +1262,16 @@ PART
 	}
 	MODULE
 	{
-		name = GeometryPartModule
+		name = TweakScale
 		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
+		type = stack
+		active = True
+		available = True
+		currentScale = 0.720000029
+		defaultScale = 0.720000029
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 5000
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -1344,17 +1288,38 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-0.245977879, 15.0000029, 9.53674316E-07)
+		originalPos = (7.93486834E-07, 15.0644331, 0.112941623)
 		originalRotation = (0, -0.707106829, 0, 0.707106829)
-		correctlyInitialised = False
-		moduleVersion = 4
+		moduleVersion = 6
 		stagingEnabled = True
-		originalAttachNodePos = (0.4, 0.1, -0.1)
-		originalAttachNodePos = (0.4, 0.1, 0.1)
-		originalAttachNodePos = (-0.1, 0.0, 0.0)
-		originalAttachNodePos = (-0.1, 0.0, 0.0)
-		originalAttachNodePos = (0.1, 0.1, 0.0)
-		originalAttachNodePos = (0.1, 0.1, 0.0)
+		originalAttachNodePos = (0.0, 0.0, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, 0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
+		originalAttachNodePos = (0.3, 0.0, -0.3)
+		originalAttachNodeSize = 0
+		originalAttachNodeOrientation = (0.0, -1.0, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
+		originalAttachNodePos = (-0.1, 0.0, -0.3)
+		originalAttachNodeSize = 0
+		originalAttachNodeOrientation = (0.0, -1.0, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
+		originalAttachNodePos = (-0.4, 0.0, -0.3)
+		originalAttachNodeSize = 0
+		originalAttachNodeOrientation = (0.0, -1.0, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
+		originalAttachNodePos = (0.3, 0.0, 0.3)
+		originalAttachNodeSize = 0
+		originalAttachNodeOrientation = (0.0, -1.0, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
+		originalAttachNodePos = (-0.1, 0.0, 0.3)
+		originalAttachNodeSize = 0
+		originalAttachNodeOrientation = (0.0, -1.0, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
+		originalAttachNodePos = (-0.4, 0.0, 0.3)
+		originalAttachNodeSize = 0
+		originalAttachNodeOrientation = (0.0, -1.0, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		EVENTS
 		{
 		}
@@ -1368,1038 +1333,12 @@ PART
 }
 PART
 {
-	part = KCDE.Tianwen1.ZhurongQXB_4293954666
+	part = KCDE.Tianwen1.Zhurong.Wheel_4293830890
 	partName = Part
-	persistentId = 3933864336
-	pos = 0.245976478,15.0000029,8.86619091E-07
+	persistentId = 3004553936
+	pos = -0.31057781,14.9350643,0.397208005
 	attPos = 0,0,0
-	attPos0 = 0.245975941,-7.45058149E-09,8.8817842E-16
-	rot = 0,-0.707106829,0,0.707106829
-	attRot = 0,-0.707106769,0,0.707106769
-	attRot0 = -0.5,-0.5,0.5,0.5
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	link = KCDE.ZR.SIFU.Realsize_4293952692
-	link = KCDE.Tianwen1.Zhurong.Wheel_4293946838
-	attN = Wheel1,KCDE.Tianwen1.Zhurong.Wheel_4293946838_0.396547884|0.065633446|-0.0556432232_2.95027917E-07|-0.999999881|5.96046235E-08_0.396547884|0.065633446|-0.0556432232_2.95027917E-07|-0.999999881|5.96046235E-08
-	attN = Wheel2,Null_0_0.396547824|0.0656333715|0.0549568199_5.47909053E-07|-0.99999994|-1.19209389E-07_0.396547824|0.0656333715|0.0549568199_5.47909053E-07|-0.99999994|-1.19209389E-07
-	attN = SFLJ1,Null_0_-0.128659278|0.0323646069|0.00688061677_4.63881378E-09|-3.65311834E-08|1_-0.128659278|0.0323646069|0.00688061677_4.63881378E-09|-3.65311834E-08|1
-	attN = SFLJ2,KCDE.ZR.SIFU.Realsize_4293952692_-0.128659248|0.032364592|-0.00756701315_-4.63882088E-09|-1.50995788E-07|-1_-0.128659248|0.032364592|-0.00756701315_-4.63882088E-09|-1.50995788E-07|-1
-	attN = Node2,Null_0_0.112940975|0.0644322038|-0.0359784029_3.19648478E-07|1.50995788E-07|-1_0.112940975|0.0644322038|-0.0359784029_3.19648478E-07|1.50995788E-07|-1
-	attN = Node1,KCDE.Tianwen1.Zhurong_4293960492_0.112941042|0.0644322038|0.0359759405_-3.91731803E-09|-5.13092964E-08|1_0.112941042|0.0644322038|0.0359759405_-3.91731803E-09|-5.13092964E-08|1
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModulePartVariants
-		isEnabled = True
-		useVariantMass = True
-		stagingEnabled = True
-		selectedVariant = Simple
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 5000
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (0.245976478, 15.0000029, 8.86619091E-07)
-		originalRotation = (0, -0.707106829, 0, 0.707106829)
-		correctlyInitialised = False
-		moduleVersion = 4
-		stagingEnabled = True
-		originalAttachNodePos = (0.4, 0.1, -0.1)
-		originalAttachNodePos = (0.4, 0.1, 0.1)
-		originalAttachNodePos = (-0.1, 0.0, 0.0)
-		originalAttachNodePos = (-0.1, 0.0, 0.0)
-		originalAttachNodePos = (0.1, 0.1, 0.0)
-		originalAttachNodePos = (0.1, 0.1, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = KCDE.ZR.SIFU.Realsize_4293953428
-	partName = Part
-	persistentId = 3935361450
-	pos = -0.252858251,15.0323677,-0.128658175
-	attPos = 0,0,0
-	attPos0 = -0.128659084,0.0323648341,0.00688037183
-	rot = 0,-2.98023224E-08,0.707106829,0.707106829
-	attRot = 0,0,0.707106709,0.707106709
-	attRot0 = 0.5,0.5,0.5,0.5
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0.5
-	modMass = 4.99999987E-05
-	modSize = 0,0,0
-	link = KCDE.Tianwen1.ZR.HXB_4293952182
-	attN = N1,KCDE.Tianwen1.ZR.HXB_4293952182_0|0.0826670378|0_-5.47908883E-07|1.00000012|1.78813892E-07_-4.92730079E-09|0.0826663971|-2.98023259E-08_-6.2584877E-07|1.00000012|2.38418579E-07
-	attN = Bottom,KCDE.Tianwen1.ZhurongQXB_4293955418_-4.00770602E-07|2.32830587E-07|-2.24787215E-07_1.34645944E-07|-1.00000012|8.94069615E-07_-1.42108547E-14|2.38418636E-07|-2.53319769E-07_4.17232656E-07|-1.00000036|6.55651093E-07
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleRoboticRotationServo
-		isEnabled = True
-		softMinMaxAngles = (-179.990005, 180)
-		allowFullRotation = True
-		targetAngle = 0
-		inverted = False
-		mirrorRotation = False
-		traverseVelocity = 90
-		hingeDamping = 100
-		previousTargetAngle = 0
-		servoIsLocked = False
-		servoIsMotorized = True
-		jointParentRotation = 0,0,0,1
-		servoMotorIsEngaged = True
-		launchPosition = 0
-		servoMotorSize = 100
-		servoMotorLimit = 100
-		lockPartOnPowerLoss = True
-		servoTransformPosition = 0,0,0
-		servoTransformRotation = 0,0,0,1
-		useMultipleDragCubes = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			MaximumAngleAction
-			{
-				actionGroup = None
-				active = False
-				wasActiveBeforePartWasAdjusted = False
-			}
-			MinimumAngleAction
-			{
-				actionGroup = None
-				active = False
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ToggleServoAction
-			{
-				actionGroup = None
-				active = False
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ToggleServoLockedAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ServoEngageLockAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ServoDisgageLockAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ToggleMotorAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			MotorOnAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			MotorOffAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ResetPosition
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		AXISGROUPS
-		{
-			targetAngle
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-			}
-			traverseVelocity
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-			}
-			hingeDamping
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-			}
-			servoMotorLimit
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleResourceAutoShiftState
-		isEnabled = True
-		affectedResourceName = ElectricCharge
-		affectedModuleName = ModuleRoboticRotationServo
-		resourceShutOffStartUpUsePercent = True
-		resourceShutOffHandler = True
-		resourceStartUpHandler = True
-		resourceShutOffAmount = 0
-		resourceShutOffPercent = 0
-		resourceStartUpAmount = 0
-		resourceStartUpPercent = 5
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 5000.5
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (-0.252858251, 15.0323677, -0.128658175)
-		originalRotation = (0, -2.98023224E-08, 0.707106829, 0.707106829)
-		correctlyInitialised = False
-		moduleVersion = 4
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.1, 0.0)
-		originalAttachNodePos = (0.0, 0.0, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = KCDE.ZR.SIFU.Realsize_4293952692
-	partName = Part
-	persistentId = 1244226865
-	pos = 0.253543258,15.0323677,-0.12865819
-	attPos = 0,0,0
-	attPos0 = -0.128659055,0.0323648378,-0.00756677799
-	rot = 0,0,-0.707106829,0.707106829
-	attRot = 0,0,-0.707106709,0.707106709
-	attRot0 = -0.5,0.5,-0.5,0.5
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0.5
-	modMass = 4.99999987E-05
-	modSize = 0,0,0
-	link = KCDE.Tianwen1.ZR.HXB_4293951222
-	attN = N1,KCDE.Tianwen1.ZR.HXB_4293951222_0|0.0826670378|0_-5.47908883E-07|1.00000012|1.78813892E-07_0|0.0826664045|-2.98023295E-08_-5.3644186E-07|1.00000024|1.1920929E-07
-	attN = Bottom,KCDE.Tianwen1.ZhurongQXB_4293954666_-4.00770602E-07|2.32830587E-07|-2.24787215E-07_1.34645944E-07|-1.00000012|8.94069615E-07_0|2.38418664E-07|-2.53319797E-07_3.87430191E-07|-1.00000024|7.15255737E-07
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleRoboticRotationServo
-		isEnabled = True
-		softMinMaxAngles = (-179.990005, 180)
-		allowFullRotation = True
-		targetAngle = 0
-		inverted = False
-		mirrorRotation = False
-		traverseVelocity = 90
-		hingeDamping = 100
-		previousTargetAngle = 0
-		servoIsLocked = False
-		servoIsMotorized = True
-		jointParentRotation = 0,0,0,1
-		servoMotorIsEngaged = True
-		launchPosition = 0
-		servoMotorSize = 100
-		servoMotorLimit = 100
-		lockPartOnPowerLoss = True
-		servoTransformPosition = 0,0,0
-		servoTransformRotation = 0,0,0,1
-		useMultipleDragCubes = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			MaximumAngleAction
-			{
-				actionGroup = None
-				active = False
-				wasActiveBeforePartWasAdjusted = False
-			}
-			MinimumAngleAction
-			{
-				actionGroup = None
-				active = False
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ToggleServoAction
-			{
-				actionGroup = None
-				active = False
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ToggleServoLockedAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ServoEngageLockAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ServoDisgageLockAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ToggleMotorAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			MotorOnAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			MotorOffAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ResetPosition
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		AXISGROUPS
-		{
-			targetAngle
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-			traverseVelocity
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-			hingeDamping
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-			servoMotorLimit
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleResourceAutoShiftState
-		isEnabled = True
-		affectedResourceName = ElectricCharge
-		affectedModuleName = ModuleRoboticRotationServo
-		resourceShutOffStartUpUsePercent = True
-		resourceShutOffHandler = True
-		resourceStartUpHandler = True
-		resourceShutOffAmount = 0
-		resourceShutOffPercent = 0
-		resourceStartUpAmount = 0
-		resourceStartUpPercent = 5
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 5000.5
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (0.253543258, 15.0323677, -0.12865819)
-		originalRotation = (0, 0, -0.707106829, 0.707106829)
-		correctlyInitialised = False
-		moduleVersion = 4
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.1, 0.0)
-		originalAttachNodePos = (0.0, 0.0, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = KCDE.Tianwen1.ZR.HXB_4293952182
-	partName = Part
-	persistentId = 3649006424
-	pos = -0.347567856,15.0323677,-0.128658265
-	attPos = 0,0,0
-	attPos0 = -5.64513147E-09,0.094709605,-5.96046519E-08
-	rot = 0,0.707106829,2.98023224E-08,0.707106829
-	attRot = 0,0.707106769,0,0.707106769
-	attRot0 = 0.5,0.50000006,-0.5,0.5
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	link = KCDE.Tianwen1.Zhurong.Wheel_4293949412
-	link = KCDE.Tianwen1.Zhurong.Wheel_4293948556
-	attN = Wheel1,KCDE.Tianwen1.Zhurong.Wheel_4293949412_-0.17432341|0.0332694016|0.000521399954_3.89414367E-07|-0.99999994|-1.19209332E-07_-0.17432341|0.0332694016|0.000521399954_3.89414367E-07|-0.99999994|-1.19209332E-07
-	attN = Wheel2,KCDE.Tianwen1.Zhurong.Wheel_4293948556_0.174025208|0.0332694016|0.000521399954_0|-1|-3.57627869E-07_0.174025208|0.0332694016|0.000521399954_0|-1|-3.57627869E-07
-	attN = SFLJ1,Null_0_0|0|-0.0120432004_6.27832947E-07|3.13916473E-07|-1_0|0|-0.0120432004_6.27832947E-07|3.13916473E-07|-1
-	attN = SFLJ2,KCDE.ZR.SIFU.Realsize_4293953428_0|0|0.0120432004_-6.5168274E-07|-2.82129974E-07|1_0|0|0.0120432004_-6.5168274E-07|-2.82129974E-07|1
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 5000
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (-0.347567856, 15.0323677, -0.128658265)
-		originalRotation = (0, 0.707106829, 2.98023224E-08, 0.707106829)
-		correctlyInitialised = False
-		moduleVersion = 4
-		stagingEnabled = True
-		originalAttachNodePos = (-0.2, 0.0, 0.0)
-		originalAttachNodePos = (0.2, 0.0, 0.0)
-		originalAttachNodePos = (0.0, 0.0, 0.0)
-		originalAttachNodePos = (0.0, 0.0, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = KCDE.Tianwen1.ZR.HXB_4293951222
-	partName = Part
-	persistentId = 4012569998
-	pos = 0.348252863,15.0323677,-0.12865825
-	attPos = 0,0,0
-	attPos0 = 0,0.0947096199,-5.9604659E-08
-	rot = 0,0.707106829,0,0.707106829
-	attRot = 0,0.707106769,0,0.707106769
-	attRot0 = -0.5,0.5,0.5,0.5
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	link = KCDE.Tianwen1.Zhurong.Wheel_4293947706
-	link = KCDE.Tianwen1.Zhurong.Wheel_4293945976
-	attN = Wheel1,KCDE.Tianwen1.Zhurong.Wheel_4293945976_-0.17432341|0.0332694016|0.000521399954_3.89414367E-07|-0.99999994|-1.19209332E-07_-0.17432341|0.0332694016|0.000521399954_3.89414367E-07|-0.99999994|-1.19209332E-07
-	attN = Wheel2,KCDE.Tianwen1.Zhurong.Wheel_4293947706_0.174025208|0.0332694016|0.000521399954_0|-1|-3.57627869E-07_0.174025208|0.0332694016|0.000521399954_0|-1|-3.57627869E-07
-	attN = SFLJ1,KCDE.ZR.SIFU.Realsize_4293952692_0|0|-0.0120432004_6.27832947E-07|3.13916473E-07|-1_0|0|-0.0120432004_6.27832947E-07|3.13916473E-07|-1
-	attN = SFLJ2,Null_0_0|0|0.0120432004_-6.5168274E-07|-2.82129974E-07|1_0|0|0.0120432004_-6.5168274E-07|-2.82129974E-07|1
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 5000
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (0.348252863, 15.0323677, -0.12865825)
-		originalRotation = (0, 0.707106829, 0, 0.707106829)
-		correctlyInitialised = False
-		moduleVersion = 4
-		stagingEnabled = True
-		originalAttachNodePos = (-0.2, 0.0, 0.0)
-		originalAttachNodePos = (0.2, 0.0, 0.0)
-		originalAttachNodePos = (0.0, 0.0, 0.0)
-		originalAttachNodePos = (0.0, 0.0, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = KCDE.Tianwen1.Zhurong.Wheel_4293950600
-	partName = Part
-	persistentId = 611671078
-	pos = -0.300934702,14.9350662,0.397208244
-	attPos = 0,0,0
-	attPos0 = 0.397207111,-0.0649365857,0.0549568161
+	attPos0 = 0.284266084,-0.129368767,0.310578614
 	rot = 0,0,0,1.00000012
 	attRot = 0,0,0,1
 	attRot0 = 0,0.707106829,0,0.707106829
@@ -2418,7 +1357,7 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	attN = Top,KCDE.Tianwen1.ZhurongQXB_4293955418_-3.82145737E-09|0.13057059|-0.00065912609_-2.98023224E-08|1|5.96046448E-08_-3.82145737E-09|0.13057059|-0.00065912609_-2.98023224E-08|1|5.96046448E-08
+	attN = Top,KCDE.Tianwen1.ZhurongXB_4293834092_-3.82145737E-09|0.13057059|-0.00065912609_-2.98023224E-08|1|5.96046448E-08_-3.82145737E-09|0.13057059|-0.00065912609_-2.98023224E-08|1|5.96046448E-08
 	EVENTS
 	{
 	}
@@ -2635,38 +1574,16 @@ PART
 	}
 	MODULE
 	{
-		name = GeometryPartModule
+		name = TweakScale
 		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
+		type = stack
+		active = True
+		available = True
+		currentScale = 0.167999998
+		defaultScale = 0.167999998
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 5000
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -2683,12 +1600,14 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-0.300934702, 14.9350662, 0.397208244)
+		originalPos = (-0.31057781, 14.9350643, 0.397208005)
 		originalRotation = (0, 0, 0, 1.00000012)
-		correctlyInitialised = False
-		moduleVersion = 4
+		moduleVersion = 6
 		stagingEnabled = True
 		originalAttachNodePos = (0.0, 0.1, 0.0)
+		originalAttachNodeSize = 0
+		originalAttachNodeOrientation = (0.0, 1.0, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		EVENTS
 		{
 		}
@@ -2702,15 +1621,15 @@ PART
 }
 PART
 {
-	part = KCDE.Tianwen1.Zhurong.Wheel_4293949412
+	part = KCDE.Tianwen1.Zhurong.Wheel_4293829822
 	partName = Part
-	persistentId = 2357137665
-	pos = -0.347046435,14.9350662,0.046324309
+	persistentId = 814560543
+	pos = -0.323623598,14.9350643,0.0460259058
 	attPos = 0,0,0
-	attPos0 = -0.174982563,-0.0973014906,0.000521406473
+	attPos0 = -0.0669156462,-0.129368827,0.323624402
 	rot = 0,0,0,1.00000012
 	attRot = 0,0,0,1
-	attRot0 = 0,-0.707106829,-1.49011612E-08,0.707106829
+	attRot0 = 0,0.707106829,0,0.707106829
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = ForceHeaviest
@@ -2726,7 +1645,7 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	attN = Top,KCDE.Tianwen1.ZR.HXB_4293952182_-3.82145737E-09|0.13057059|-0.00065912609_-2.98023224E-08|1|5.96046448E-08_-3.82145737E-09|0.13057059|-0.00065912609_-2.98023224E-08|1|5.96046448E-08
+	attN = Top,KCDE.Tianwen1.ZhurongXB_4293834092_-3.82145737E-09|0.13057059|-0.00065912609_-2.98023224E-08|1|5.96046448E-08_-3.82145737E-09|0.13057059|-0.00065912609_-2.98023224E-08|1|5.96046448E-08
 	EVENTS
 	{
 	}
@@ -2935,38 +1854,16 @@ PART
 	}
 	MODULE
 	{
-		name = GeometryPartModule
+		name = TweakScale
 		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
+		type = stack
+		active = True
+		available = True
+		currentScale = 0.167999998
+		defaultScale = 0.167999998
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 5000
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -2983,12 +1880,14 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-0.347046435, 14.9350662, 0.046324309)
+		originalPos = (-0.323623598, 14.9350643, 0.0460259058)
 		originalRotation = (0, 0, 0, 1.00000012)
-		correctlyInitialised = False
-		moduleVersion = 4
+		moduleVersion = 6
 		stagingEnabled = True
 		originalAttachNodePos = (0.0, 0.1, 0.0)
+		originalAttachNodeSize = 0
+		originalAttachNodeOrientation = (0.0, 1.0, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		EVENTS
 		{
 		}
@@ -3002,15 +1901,15 @@ PART
 }
 PART
 {
-	part = KCDE.Tianwen1.Zhurong.Wheel_4293948556
+	part = KCDE.Tianwen1.Zhurong.Wheel_4293829050
 	partName = Part
-	persistentId = 2334010628
-	pos = -0.347046494,14.9350672,-0.302024394
+	persistentId = 3165170627
+	pos = -0.323623598,14.9350643,-0.302322984
 	attPos = 0,0,0
-	attPos0 = 0.173366114,-0.0973005518,0.000521376671
+	attPos0 = -0.415264368,-0.129368857,0.323624402
 	rot = 0,0,0,1.00000012
 	attRot = 0,0,0,1
-	attRot0 = 0,-0.707106829,-1.49011612E-08,0.707106829
+	attRot0 = 0,0.707106829,0,0.707106829
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = ForceHeaviest
@@ -3026,7 +1925,7 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	attN = Top,KCDE.Tianwen1.ZR.HXB_4293952182_-3.82145737E-09|0.13057059|-0.00065912609_-2.98023224E-08|1|5.96046448E-08_-3.82145737E-09|0.13057059|-0.00065912609_-2.98023224E-08|1|5.96046448E-08
+	attN = Top,KCDE.Tianwen1.ZhurongXB_4293834092_-3.82145737E-09|0.13057059|-0.00065912609_-2.98023224E-08|1|5.96046448E-08_-3.82145737E-09|0.13057059|-0.00065912609_-2.98023224E-08|1|5.96046448E-08
 	EVENTS
 	{
 	}
@@ -3235,38 +2134,16 @@ PART
 	}
 	MODULE
 	{
-		name = GeometryPartModule
+		name = TweakScale
 		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
+		type = stack
+		active = True
+		available = True
+		currentScale = 0.167999998
+		defaultScale = 0.167999998
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 5000
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -3283,12 +2160,14 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-0.347046494, 14.9350672, -0.302024394)
+		originalPos = (-0.323623598, 14.9350643, -0.302322984)
 		originalRotation = (0, 0, 0, 1.00000012)
-		correctlyInitialised = False
-		moduleVersion = 4
+		moduleVersion = 6
 		stagingEnabled = True
 		originalAttachNodePos = (0.0, 0.1, 0.0)
+		originalAttachNodeSize = 0
+		originalAttachNodeOrientation = (0.0, 1.0, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		EVENTS
 		{
 		}
@@ -3302,312 +2181,12 @@ PART
 }
 PART
 {
-	part = KCDE.Tianwen1.Zhurong.Wheel_4293947706
+	part = KCDE.Tianwen1.Zhurong.Wheel_4293828284
 	partName = Part
-	persistentId = 795276141
-	pos = 0.348774254,14.9350672,-0.30334267
+	persistentId = 2715871395
+	pos = 0.323625207,14.9350643,-0.303641319
 	attPos = 0,0,0
-	attPos0 = 0.17468442,-0.0973005518,0.000521391456
-	rot = 0,-1.00000012,0,0
-	attRot = 0,-0.99999994,0,0
-	attRot0 = 0,-0.707106829,0,-0.707106829
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = ForceHeaviest
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	attN = Top,KCDE.Tianwen1.ZR.HXB_4293951222_-3.82145737E-09|0.13057059|-0.00065912609_-2.98023224E-08|1|5.96046448E-08_-3.82145737E-09|0.13057059|-0.00065912609_-2.98023224E-08|1|5.96046448E-08
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleWheelBase
-		isEnabled = True
-		wheelType = MOTORIZED
-		isGrounded = False
-		autoFriction = True
-		frictionMultiplier = 1
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ActAutoFrictionToggle
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelSuspension
-		isEnabled = True
-		springTweakable = 1
-		damperTweakable = 1
-		autoSpringDamper = True
-		suspensionPos = (-1, -1, -1)
-		suspensionDefaultPos = (0, 0, 0)
-		autoBoost = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelSteering
-		isEnabled = True
-		autoSteeringAdjust = True
-		steeringEnabled = True
-		steeringInvert = False
-		angleTweakable = 45
-		responseTweakable = 2
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			SteeringToggle
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		AXISGROUPS
-		{
-			angleTweakable
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-			responseTweakable
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelMotor
-		isEnabled = True
-		autoTorque = True
-		motorEnabled = True
-		motorInverted = False
-		driveLimiter = 100
-		tractionControlScale = 1
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			MotorToggle
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			MotorEnable
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			MotorDisable
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ActAutoTorqueToggle
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelBrakes
-		isEnabled = True
-		brakeTweakable = 50
-		brakeInput = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			BrakeAction
-			{
-				actionGroup = Brakes
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelDamage
-		isEnabled = True
-		isDamaged = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 5000
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (0.348774254, 14.9350672, -0.30334267)
-		originalRotation = (0, -1.00000012, 0, 0)
-		correctlyInitialised = False
-		moduleVersion = 4
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.1, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = KCDE.Tianwen1.Zhurong.Wheel_4293946838
-	partName = Part
-	persistentId = 718559961
-	pos = 0.301619709,14.9350662,0.395889848
-	attPos = 0,0,0
-	attPos0 = 0.395888895,-0.0649365932,-0.0556432158
+	attPos0 = -0.416582644,-0.129368857,-0.323624402
 	rot = 0,-1.00000012,0,0
 	attRot = 0,-0.99999994,0,0
 	attRot0 = 0,-0.707106829,0,0.707106829
@@ -3626,7 +2205,7 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	attN = Top,KCDE.Tianwen1.ZhurongQXB_4293954666_-3.82145737E-09|0.13057059|-0.00065912609_-2.98023224E-08|1|5.96046448E-08_-3.82145737E-09|0.13057059|-0.00065912609_-2.98023224E-08|1|5.96046448E-08
+	attN = Top,KCDE.Tianwen1.ZhurongXB_4293834092_-3.82145737E-09|0.13057059|-0.00065912609_-2.98023224E-08|1|5.96046448E-08_-3.82145737E-09|0.13057059|-0.00065912609_-2.98023224E-08|1|5.96046448E-08
 	EVENTS
 	{
 	}
@@ -3835,38 +2414,16 @@ PART
 	}
 	MODULE
 	{
-		name = GeometryPartModule
+		name = TweakScale
 		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
+		type = stack
+		active = True
+		available = True
+		currentScale = 0.167999998
+		defaultScale = 0.167999998
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 5000
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -3883,12 +2440,14 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (0.301619709, 14.9350662, 0.395889848)
+		originalPos = (0.323625207, 14.9350643, -0.303641319)
 		originalRotation = (0, -1.00000012, 0, 0)
-		correctlyInitialised = False
-		moduleVersion = 4
+		moduleVersion = 6
 		stagingEnabled = True
 		originalAttachNodePos = (0.0, 0.1, 0.0)
+		originalAttachNodeSize = 0
+		originalAttachNodeOrientation = (0.0, 1.0, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		EVENTS
 		{
 		}
@@ -3902,15 +2461,15 @@ PART
 }
 PART
 {
-	part = KCDE.Tianwen1.Zhurong.Wheel_4293945976
+	part = KCDE.Tianwen1.Zhurong.Wheel_4293827524
 	partName = Part
-	persistentId = 670917067
-	pos = 0.348774254,14.9350662,0.0450061001
+	persistentId = 1053678848
+	pos = 0.310579419,14.9350643,0.39588961
 	attPos = 0,0,0
-	attPos0 = -0.173664317,-0.0973014757,0.000521391456
+	attPos0 = 0.282947809,-0.129368767,-0.310578614
 	rot = 0,-1.00000012,0,0
 	attRot = 0,-0.99999994,0,0
-	attRot0 = 0,-0.707106829,0,-0.707106829
+	attRot0 = 0,-0.707106829,0,0.707106829
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = ForceHeaviest
@@ -3926,7 +2485,7 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	attN = Top,KCDE.Tianwen1.ZR.HXB_4293951222_-3.82145737E-09|0.13057059|-0.00065912609_-2.98023224E-08|1|5.96046448E-08_-3.82145737E-09|0.13057059|-0.00065912609_-2.98023224E-08|1|5.96046448E-08
+	attN = Top,KCDE.Tianwen1.ZhurongXB_4293834092_-3.82145737E-09|0.13057059|-0.00065912609_-2.98023224E-08|1|5.96046448E-08_-3.82145737E-09|0.13057059|-0.00065912609_-2.98023224E-08|1|5.96046448E-08
 	EVENTS
 	{
 	}
@@ -4135,38 +2694,16 @@ PART
 	}
 	MODULE
 	{
-		name = GeometryPartModule
+		name = TweakScale
 		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
+		type = stack
+		active = True
+		available = True
+		currentScale = 0.167999998
+		defaultScale = 0.167999998
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 5000
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -4183,12 +2720,14 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (0.348774254, 14.9350662, 0.0450061001)
+		originalPos = (0.310579419, 14.9350643, 0.39588961)
 		originalRotation = (0, -1.00000012, 0, 0)
-		correctlyInitialised = False
-		moduleVersion = 4
+		moduleVersion = 6
 		stagingEnabled = True
 		originalAttachNodePos = (0.0, 0.1, 0.0)
+		originalAttachNodeSize = 0
+		originalAttachNodeOrientation = (0.0, 1.0, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		EVENTS
 		{
 		}
@@ -4202,10 +2741,290 @@ PART
 }
 PART
 {
-	part = KCDE.Tianwen1.Lander_4293944504
+	part = KCDE.Tianwen1.Zhurong.Wheel_4293826770
 	partName = Part
-	persistentId = 2420232987
-	pos = 5.36441803E-07,14.6580029,0.0390008986
+	persistentId = 405736467
+	pos = 0.323625207,14.9350643,0.0447076596
+	attPos = 0,0,0
+	attPos0 = -0.0682338998,-0.129368827,-0.323624402
+	rot = 0,-1.00000012,0,0
+	attRot = 0,-0.99999994,0,0
+	attRot0 = 0,-0.707106829,0,0.707106829
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = ForceHeaviest
+	rigidAttachment = False
+	istg = -1
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	attN = Top,KCDE.Tianwen1.ZhurongXB_4293834092_-3.82145737E-09|0.13057059|-0.00065912609_-2.98023224E-08|1|5.96046448E-08_-3.82145737E-09|0.13057059|-0.00065912609_-2.98023224E-08|1|5.96046448E-08
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleWheelBase
+		isEnabled = True
+		wheelType = MOTORIZED
+		isGrounded = False
+		autoFriction = True
+		frictionMultiplier = 1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ActAutoFrictionToggle
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelSuspension
+		isEnabled = True
+		springTweakable = 1
+		damperTweakable = 1
+		autoSpringDamper = True
+		suspensionPos = (-1, -1, -1)
+		suspensionDefaultPos = (0, 0, 0)
+		autoBoost = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelSteering
+		isEnabled = True
+		autoSteeringAdjust = True
+		steeringEnabled = True
+		steeringInvert = False
+		angleTweakable = 45
+		responseTweakable = 2
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			SteeringToggle
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		AXISGROUPS
+		{
+			angleTweakable
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
+				axisInverted = None
+			}
+			responseTweakable
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
+				axisInverted = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelMotor
+		isEnabled = True
+		autoTorque = True
+		motorEnabled = True
+		motorInverted = False
+		driveLimiter = 100
+		tractionControlScale = 1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			MotorToggle
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			MotorEnable
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			MotorDisable
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ActAutoTorqueToggle
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelBrakes
+		isEnabled = True
+		brakeTweakable = 50
+		brakeInput = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			BrakeAction
+			{
+				actionGroup = Brakes
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelDamage
+		isEnabled = True
+		isDamaged = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = Refunding
+		isEnabled = True
+		active = True
+		OriginalCost = 5000
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		type = stack
+		active = True
+		available = True
+		currentScale = 0.167999998
+		defaultScale = 0.167999998
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 5000
+		OriginalCrewCapacity = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = AttachedOnEditor
+		isEnabled = True
+		active = True
+		originalPos = (0.323625207, 14.9350643, 0.0447076596)
+		originalRotation = (0, -1.00000012, 0, 0)
+		moduleVersion = 6
+		stagingEnabled = True
+		originalAttachNodePos = (0.0, 0.1, 0.0)
+		originalAttachNodeSize = 0
+		originalAttachNodeOrientation = (0.0, 1.0, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = KCDE.Tianwen1.Lander_4293825418
+	partName = Part
+	persistentId = 1337386614
+	pos = 7.93486834E-07,14.6580009,0.0390004814
 	attPos = 0,0,0
 	attPos0 = 0,0.0390000343,0.342000037
 	rot = 0,0,0,1.00000012
@@ -4226,23 +3045,23 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCDE.Tianwen1.landing.Leg_4293941152
-	link = KCDE.Tianwen1.landing.Leg_4293940506
-	link = KCDE.Tianwen1.landing.Leg_4293940308
-	link = KCDE.Tianwen1.landing.Leg_4293940110
-	link = KCDE.Tianwen1.Lander.Engine_4293938234
-	link = KCDE.Tianwen1.Lander.RCS_4293935962
-	link = KCDE.Tianwen1.Heat.Shield_4293934812
-	link = KCDE.Tianwen1.Backshell_4293934064
-	attN = top,KCDE.Tianwen1.Zhurong_4293960492_0|0.300000012|0_0|0.600000024|0_0|0.300000012|0_0|0.600000024|0
-	attN = Pro,KCDE.Tianwen1.Backshell_4293934064_0|1.23670208|0_0|0.600000024|0_0|1.23670208|0_0|0.600000024|0
-	attN = Engine,KCDE.Tianwen1.Lander.Engine_4293938234_0|-0.0723078027|0_0|-0.600000024|0_0|-0.0723078027|0_0|-0.600000024|0
-	attN = RCS,KCDE.Tianwen1.Lander.RCS_4293935962_0|0|0_0|-0.600000024|0_0|0|0_0|-0.600000024|0
-	attN = bottom,KCDE.Tianwen1.Heat.Shield_4293934812_0|-0.302335829|0_0|-0.600000024|0_0|-0.302335829|0_0|-0.600000024|0
-	attN = leg1,KCDE.Tianwen1.landing.Leg_4293940308_0.523372233|-0.0457013994|0_0|0.600000024|0_0.523372233|-0.0457013994|0_0|0.600000024|0
-	attN = leg2,KCDE.Tianwen1.landing.Leg_4293941152_-0.523372233|-0.0457013994|0_0|0.600000024|0_-0.523372233|-0.0457013994|0_0|0.600000024|0
-	attN = leg3,KCDE.Tianwen1.landing.Leg_4293940506_0|-0.0457013994|0.523372233_0|0.600000024|0_0|-0.0457013994|0.523372233_0|0.600000024|0
-	attN = leg4,KCDE.Tianwen1.landing.Leg_4293940110_0|-0.0457013994|-0.523372233_0|0.600000024|0_0|-0.0457013994|-0.523372233_0|0.600000024|0
+	link = KCDE.Tianwen1.landing.Leg_4293822016
+	link = KCDE.Tianwen1.landing.Leg_4293821458
+	link = KCDE.Tianwen1.landing.Leg_4293821264
+	link = KCDE.Tianwen1.landing.Leg_4293821070
+	link = KCDE.Tianwen1.Lander.Engine_4293819660
+	link = KCDE.Tianwen1.Lander.RCS_4293804496
+	link = KCDE.Tianwen1.Heat.Shield_4293816272
+	link = KCDE.Tianwen1.Backshell_4293814818
+	attN = top,KCDE.Tianwen1.Zhurong_4293838494_0|0.300000012|0_0|0.600000024|0_0|0.300000012|0_0|0.600000024|0
+	attN = Pro,KCDE.Tianwen1.Backshell_4293814818_0|1.23670208|0_0|0.600000024|0_0|1.23670208|0_0|0.600000024|0
+	attN = Engine,KCDE.Tianwen1.Lander.Engine_4293819660_0|-0.0723078027|0_0|-0.600000024|0_0|-0.0723078027|0_0|-0.600000024|0
+	attN = RCS,KCDE.Tianwen1.Lander.RCS_4293804496_0|0|0_0|-0.600000024|0_0|0|0_0|-0.600000024|0
+	attN = bottom,KCDE.Tianwen1.Heat.Shield_4293816272_0|-0.302335829|0_0|-0.600000024|0_0|-0.302335829|0_0|-0.600000024|0
+	attN = leg1,KCDE.Tianwen1.landing.Leg_4293821264_0.523372233|-0.0457013994|0_0|0.600000024|0_0.523372233|-0.0457013994|0_0|0.600000024|0
+	attN = leg2,KCDE.Tianwen1.landing.Leg_4293822016_-0.523372233|-0.0457013994|0_0|0.600000024|0_-0.523372233|-0.0457013994|0_0|0.600000024|0
+	attN = leg3,KCDE.Tianwen1.landing.Leg_4293821458_0|-0.0457013994|0.523372233_0|0.600000024|0_0|-0.0457013994|0.523372233_0|0.600000024|0
+	attN = leg4,KCDE.Tianwen1.landing.Leg_4293821070_0|-0.0457013994|-0.523372233_0|0.600000024|0_0|-0.0457013994|-0.523372233_0|0.600000024|0
 	EVENTS
 	{
 	}
@@ -4266,6 +3085,28 @@ PART
 	}
 	PARTDATA
 	{
+	}
+	MODULE
+	{
+		name = ModuleDataTransmitter
+		isEnabled = True
+		xmitIncomplete = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			StartTransmissionAction
+			{
+				actionGroup = None
+				active = False
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
 	}
 	MODULE
 	{
@@ -4462,6 +3303,29 @@ PART
 	}
 	MODULE
 	{
+		name = TweakScale
+		isEnabled = True
+		type = stack
+		active = True
+		available = True
+		currentScale = 2.79999995
+		defaultScale = 2.79999995
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 4910.62988
+		OriginalCrewCapacity = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = MechJebCore
 		isEnabled = True
 		running = True
@@ -4568,98 +3432,49 @@ PART
 	}
 	MODULE
 	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = TrajectoriesVesselSettings
-		isEnabled = True
-		Initialized = False
-		EntryAngle = 3.1415926535897931
-		EntryHorizon = False
-		HighAngle = 3.1415926535897931
-		HighHorizon = False
-		LowAngle = 3.1415926535897931
-		LowHorizon = False
-		GroundAngle = 3.1415926535897931
-		GroundHorizon = False
-		RetrogradeEntry = True
-		TargetBody = 
-		TargetPosition_x = 0
-		TargetPosition_y = 0
-		TargetPosition_z = 0
-		ManualTargetTxt = 
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (5.36441803E-07, 14.6580029, 0.0390008986)
+		originalPos = (7.93486834E-07, 14.6580009, 0.0390004814)
 		originalRotation = (0, 0, 0, 1.00000012)
-		correctlyInitialised = False
-		moduleVersion = 4
+		moduleVersion = 6
 		stagingEnabled = True
 		originalAttachNodePos = (0.0, 0.3, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, 0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		originalAttachNodePos = (0.0, 1.2, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, 0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		originalAttachNodePos = (0.0, -0.1, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, -0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		originalAttachNodePos = (0.0, 0.0, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, -0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		originalAttachNodePos = (0.0, -0.3, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, -0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		originalAttachNodePos = (0.5, 0.0, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, 0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		originalAttachNodePos = (-0.5, 0.0, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, 0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		originalAttachNodePos = (0.0, 0.0, 0.5)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, 0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		originalAttachNodePos = (0.0, 0.0, -0.5)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, 0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		EVENTS
 		{
 		}
@@ -4751,10 +3566,10 @@ PART
 }
 PART
 {
-	part = KCDE.Tianwen1.ZHurong.Antenna_4293942150
+	part = KCDE.Tianwen1.ZHurong.Antenna_4293822838
 	partName = Part
-	persistentId = 901592324
-	pos = 5.00687747E-07,15.0000029,-0.419999331
+	persistentId = 2597802108
+	pos = 7.57732778E-07,15.000001,-0.419999987
 	attPos = 0,0,0
 	attPos0 = -3.57540557E-08,-0.420000046,5.96046448E-08
 	rot = 0,0,0,1.00000012
@@ -4775,7 +3590,7 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	attN = Bottom,KCDE.Tianwen1.Zhurong_4293960492_-9.50932663E-05|0.256199956|0.0185999405_0|-1.00000012|-1.1920929E-07_-9.50932663E-05|0.256199956|0.0185999405_0|-1.00000012|-1.1920929E-07
+	attN = Bottom,KCDE.Tianwen1.Zhurong_4293838494_-9.50932663E-05|0.256199956|0.0185999405_0|-1.00000012|-1.1920929E-07_-9.50932663E-05|0.256199956|0.0185999405_0|-1.00000012|-1.1920929E-07
 	EVENTS
 	{
 	}
@@ -4880,38 +3695,16 @@ PART
 	}
 	MODULE
 	{
-		name = GeometryPartModule
+		name = TweakScale
 		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
+		type = stack
+		active = True
+		available = True
+		currentScale = 0.779999971
+		defaultScale = 0.779999971
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 600
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -4928,12 +3721,14 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (5.00687747E-07, 15.0000029, -0.419999331)
+		originalPos = (7.57732778E-07, 15.000001, -0.419999987)
 		originalRotation = (0, 0, 0, 1.00000012)
-		correctlyInitialised = False
-		moduleVersion = 4
+		moduleVersion = 6
 		stagingEnabled = True
 		originalAttachNodePos = (0.0, 0.3, 0.0)
+		originalAttachNodeSize = 0
+		originalAttachNodeOrientation = (0.0, -1.0, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		EVENTS
 		{
 		}
@@ -4966,10 +3761,10 @@ PART
 }
 PART
 {
-	part = KCDE.Tianwen1.landing.Leg_4293941152
+	part = KCDE.Tianwen1.landing.Leg_4293822016
 	partName = Part
-	persistentId = 91624706
-	pos = -0.599999487,14.0880032,0.0390008688
+	persistentId = 2036674232
+	pos = -0.599999249,14.0880013,0.0390004516
 	attPos = 0,0,0
 	attPos0 = -0.600000024,-0.569999993,0
 	rot = 0,0,0,1.00000012
@@ -4990,10 +3785,10 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = KCDE.Tianwen1.landing.Leg_4293940506
-	sym = KCDE.Tianwen1.landing.Leg_4293940308
-	sym = KCDE.Tianwen1.landing.Leg_4293940110
-	attN = top,KCDE.Tianwen1.Lander_4293944504_0.0766277984|0.524298608|0_0|-0.600000024|0_0.0766277984|0.524298608|0_0|-0.600000024|0
+	sym = KCDE.Tianwen1.landing.Leg_4293821458
+	sym = KCDE.Tianwen1.landing.Leg_4293821264
+	sym = KCDE.Tianwen1.landing.Leg_4293821070
+	attN = top,KCDE.Tianwen1.Lander_4293825418_0.0766277984|0.524298608|0_0|-0.600000024|0_0.0766277984|0.524298608|0_0|-0.600000024|0
 	EVENTS
 	{
 	}
@@ -5152,38 +3947,16 @@ PART
 	}
 	MODULE
 	{
-		name = GeometryPartModule
+		name = TweakScale
 		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
+		type = stack
+		active = True
+		available = True
+		currentScale = 0.779999971
+		defaultScale = 0.779999971
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 200
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -5200,12 +3973,14 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-0.599999487, 14.0880032, 0.0390008688)
+		originalPos = (-0.599999249, 14.0880013, 0.0390004516)
 		originalRotation = (0, 0, 0, 1.00000012)
-		correctlyInitialised = False
-		moduleVersion = 4
+		moduleVersion = 6
 		stagingEnabled = True
 		originalAttachNodePos = (0.1, 0.5, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, -0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		EVENTS
 		{
 		}
@@ -5219,10 +3994,10 @@ PART
 }
 PART
 {
-	part = KCDE.Tianwen1.landing.Leg_4293940506
+	part = KCDE.Tianwen1.landing.Leg_4293821458
 	partName = Part
-	persistentId = 2676162567
-	pos = 5.4557654E-07,14.0880022,0.639001131
+	persistentId = 971821522
+	pos = 8.02621571E-07,14.0880003,0.639001191
 	attPos = 0,0,0
 	attPos0 = 9.13473741E-09,-0.570000887,0.600000262
 	rot = 0,0.707106888,0,0.707106888
@@ -5243,10 +4018,10 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = KCDE.Tianwen1.landing.Leg_4293940308
-	sym = KCDE.Tianwen1.landing.Leg_4293940110
-	sym = KCDE.Tianwen1.landing.Leg_4293941152
-	attN = top,KCDE.Tianwen1.Lander_4293944504_0.0766277984|0.524298608|0_0|-0.600000024|0_0.0766277984|0.524298608|0_0|-0.600000024|0
+	sym = KCDE.Tianwen1.landing.Leg_4293821264
+	sym = KCDE.Tianwen1.landing.Leg_4293821070
+	sym = KCDE.Tianwen1.landing.Leg_4293822016
+	attN = top,KCDE.Tianwen1.Lander_4293825418_0.0766277984|0.524298608|0_0|-0.600000024|0_0.0766277984|0.524298608|0_0|-0.600000024|0
 	EVENTS
 	{
 	}
@@ -5405,38 +4180,16 @@ PART
 	}
 	MODULE
 	{
-		name = GeometryPartModule
+		name = TweakScale
 		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
+		type = stack
+		active = True
+		available = True
+		currentScale = 0.779999971
+		defaultScale = 0.779999971
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 200
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -5453,12 +4206,14 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (5.4557654E-07, 14.0880022, 0.639001131)
+		originalPos = (8.02621571E-07, 14.0880003, 0.639001191)
 		originalRotation = (0, 0.707106888, 0, 0.707106888)
-		correctlyInitialised = False
-		moduleVersion = 4
+		moduleVersion = 6
 		stagingEnabled = True
 		originalAttachNodePos = (0.1, 0.5, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, -0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		EVENTS
 		{
 		}
@@ -5472,10 +4227,10 @@ PART
 }
 PART
 {
-	part = KCDE.Tianwen1.landing.Leg_4293940308
+	part = KCDE.Tianwen1.landing.Leg_4293821264
 	partName = Part
-	persistentId = 856583758
-	pos = 0.60000056,14.0880032,0.0390008688
+	persistentId = 2115254818
+	pos = 0.600000799,14.0880013,0.0390004516
 	attPos = 0,0,0
 	attPos0 = 0.600000024,-0.569999993,0
 	rot = 0,1.00000012,0,-4.37113918E-08
@@ -5496,10 +4251,10 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = KCDE.Tianwen1.landing.Leg_4293940110
-	sym = KCDE.Tianwen1.landing.Leg_4293941152
-	sym = KCDE.Tianwen1.landing.Leg_4293940506
-	attN = top,KCDE.Tianwen1.Lander_4293944504_0.0766277984|0.524298608|0_0|-0.600000024|0_0.0766277984|0.524298608|0_0|-0.600000024|0
+	sym = KCDE.Tianwen1.landing.Leg_4293821070
+	sym = KCDE.Tianwen1.landing.Leg_4293822016
+	sym = KCDE.Tianwen1.landing.Leg_4293821458
+	attN = top,KCDE.Tianwen1.Lander_4293825418_0.0766277984|0.524298608|0_0|-0.600000024|0_0.0766277984|0.524298608|0_0|-0.600000024|0
 	EVENTS
 	{
 	}
@@ -5658,38 +4413,16 @@ PART
 	}
 	MODULE
 	{
-		name = GeometryPartModule
+		name = TweakScale
 		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
+		type = stack
+		active = True
+		available = True
+		currentScale = 0.779999971
+		defaultScale = 0.779999971
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 200
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -5706,12 +4439,14 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (0.60000056, 14.0880032, 0.0390008688)
+		originalPos = (0.600000799, 14.0880013, 0.0390004516)
 		originalRotation = (0, 1.00000012, 0, -4.37113918E-08)
-		correctlyInitialised = False
-		moduleVersion = 4
+		moduleVersion = 6
 		stagingEnabled = True
 		originalAttachNodePos = (0.1, 0.5, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, -0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		EVENTS
 		{
 		}
@@ -5725,10 +4460,10 @@ PART
 }
 PART
 {
-	part = KCDE.Tianwen1.landing.Leg_4293940110
+	part = KCDE.Tianwen1.landing.Leg_4293821070
 	partName = Part
-	persistentId = 912671719
-	pos = 5.4557654E-07,14.0880032,-0.560999334
+	persistentId = 2921649578
+	pos = 8.02621571E-07,14.0880013,-0.56099999
 	attPos = 0,0,0
 	attPos0 = 9.13473741E-09,-0.570000052,-0.600000262
 	rot = 0,0.707106888,0,-0.707106888
@@ -5749,10 +4484,10 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = KCDE.Tianwen1.landing.Leg_4293941152
-	sym = KCDE.Tianwen1.landing.Leg_4293940506
-	sym = KCDE.Tianwen1.landing.Leg_4293940308
-	attN = top,KCDE.Tianwen1.Lander_4293944504_0.0766277984|0.524298608|0_0|-0.600000024|0_0.0766277984|0.524298608|0_0|-0.600000024|0
+	sym = KCDE.Tianwen1.landing.Leg_4293822016
+	sym = KCDE.Tianwen1.landing.Leg_4293821458
+	sym = KCDE.Tianwen1.landing.Leg_4293821264
+	attN = top,KCDE.Tianwen1.Lander_4293825418_0.0766277984|0.524298608|0_0|-0.600000024|0_0.0766277984|0.524298608|0_0|-0.600000024|0
 	EVENTS
 	{
 	}
@@ -5911,38 +4646,16 @@ PART
 	}
 	MODULE
 	{
-		name = GeometryPartModule
+		name = TweakScale
 		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
+		type = stack
+		active = True
+		available = True
+		currentScale = 0.779999971
+		defaultScale = 0.779999971
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 200
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -5959,12 +4672,14 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (5.4557654E-07, 14.0880032, -0.560999334)
+		originalPos = (8.02621571E-07, 14.0880013, -0.56099999)
 		originalRotation = (0, 0.707106888, 0, -0.707106888)
-		correctlyInitialised = False
-		moduleVersion = 4
+		moduleVersion = 6
 		stagingEnabled = True
 		originalAttachNodePos = (0.1, 0.5, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, -0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		EVENTS
 		{
 		}
@@ -5978,10 +4693,10 @@ PART
 }
 PART
 {
-	part = KCDE.Tianwen1.Lander.Engine_4293938234
+	part = KCDE.Tianwen1.Lander.Engine_4293819660
 	partName = Part
-	persistentId = 4089434443
-	pos = 5.36441803E-07,14.4298973,0.0390008688
+	persistentId = 786291724
+	pos = 7.93486834E-07,14.4298954,0.0390004516
 	attPos = 0,0,0
 	attPos0 = 0,-0.228105664,-2.98023295E-08
 	rot = 0,0,0,1.00000012
@@ -5994,7 +4709,7 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 0
-	sidx = 1
+	sidx = 0
 	sqor = 1
 	sepI = 0
 	attm = 0
@@ -6002,7 +4717,7 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	attN = top,KCDE.Tianwen1.Lander_4293944504_0|0.155798405|0_0|0.600000024|0_0|0.155798405|0_0|0.600000024|0
+	attN = top,KCDE.Tianwen1.Lander_4293825418_0|0.155798405|0_0|0.600000024|0_0|0.155798405|0_0|0.600000024|0
 	EVENTS
 	{
 	}
@@ -6146,38 +4861,16 @@ PART
 	}
 	MODULE
 	{
-		name = GeometryPartModule
+		name = TweakScale
 		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
+		type = stack
+		active = True
+		available = True
+		currentScale = 0.300000012
+		defaultScale = 0.300000012
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 500
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -6194,12 +4887,14 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (5.36441803E-07, 14.4298973, 0.0390008688)
+		originalPos = (7.93486834E-07, 14.4298954, 0.0390004516)
 		originalRotation = (0, 0, 0, 1.00000012)
-		correctlyInitialised = False
-		moduleVersion = 4
+		moduleVersion = 6
 		stagingEnabled = True
 		originalAttachNodePos = (0.0, 0.2, 0.0)
+		originalAttachNodeSize = 0
+		originalAttachNodeOrientation = (0.0, 0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		EVENTS
 		{
 		}
@@ -6228,10 +4923,10 @@ PART
 }
 PART
 {
-	part = KCDE.Tianwen1.Lander.RCS_4293935962
+	part = KCDE.Tianwen1.Lander.RCS_4293804496
 	partName = Part
-	persistentId = 1319251023
-	pos = 5.36441803E-07,15.1080027,0.0390008837
+	persistentId = 4289692695
+	pos = 7.93486834E-07,15.1080008,0.0390004665
 	attPos = 0,0,0
 	attPos0 = 0,0.450000048,0
 	rot = 0,0,0,1.00000012
@@ -6252,7 +4947,7 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	attN = top,KCDE.Tianwen1.Lander_4293944504_0|-0.450000018|0_0|0.600000024|0_0|-0.450000018|0_0|0.600000024|0
+	attN = top,KCDE.Tianwen1.Lander_4293825418_0|-0.450000018|0_0|0.600000024|0_0|-0.450000018|0_0|0.600000024|0
 	EVENTS
 	{
 	}
@@ -6327,38 +5022,16 @@ PART
 	}
 	MODULE
 	{
-		name = GeometryPartModule
+		name = TweakScale
 		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
+		type = stack
+		active = True
+		available = True
+		currentScale = 2.79999995
+		defaultScale = 2.79999995
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 5000
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -6375,12 +5048,14 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (5.36441803E-07, 15.1080027, 0.0390008837)
+		originalPos = (7.93486834E-07, 15.1080008, 0.0390004665)
 		originalRotation = (0, 0, 0, 1.00000012)
-		correctlyInitialised = False
-		moduleVersion = 4
+		moduleVersion = 6
 		stagingEnabled = True
 		originalAttachNodePos = (0.0, -0.5, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, 0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		EVENTS
 		{
 		}
@@ -6409,10 +5084,10 @@ PART
 }
 PART
 {
-	part = KCDE.Tianwen1.Heat.Shield_4293934812
+	part = KCDE.Tianwen1.Heat.Shield_4293816272
 	partName = Part
-	persistentId = 698799193
-	pos = 5.36441803E-07,14.5713062,0.0390009284
+	persistentId = 49434583
+	pos = 7.93486834E-07,14.5713043,0.0390005112
 	attPos = 0,0,0
 	attPos0 = 0,-0.0866966844,5.21540784E-08
 	rot = 0,0,0,1.00000012
@@ -6422,20 +5097,20 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 2
+	istg = 3
 	resPri = 0
 	dstg = 1
 	sidx = 0
-	sqor = 2
-	sepI = 2
+	sqor = 3
+	sepI = 3
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCDE.Tianwen1.Orbiter_4293930948
-	attN = top,KCDE.Tianwen1.Lander_4293944504_0|-0.215639398|0_0|0.600000024|0_0|-0.215639398|0_0|0.600000024|0
-	attN = bottom,KCDE.Tianwen1.Orbiter_4293930948_0|-0.246000007|0_0|-0.600000024|0_0|-0.246000007|0_0|-0.600000024|0
+	link = KCDE.Tianwen1.Orbiter_4293812288
+	attN = top,KCDE.Tianwen1.Lander_4293825418_0|-0.215639398|0_0|0.600000024|0_0|-0.215639398|0_0|0.600000024|0
+	attN = bottom,KCDE.Tianwen1.Orbiter_4293812288_0|-0.246000007|0_0|-0.600000024|0_0|-0.246000007|0_0|-0.600000024|0
 	EVENTS
 	{
 	}
@@ -6602,38 +5277,16 @@ PART
 	}
 	MODULE
 	{
-		name = GeometryPartModule
+		name = TweakScale
 		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
+		type = stack
+		active = True
+		available = True
+		currentScale = 2.25
+		defaultScale = 2.25
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 1023.20001
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -6650,13 +5303,18 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (5.36441803E-07, 14.5713062, 0.0390009284)
+		originalPos = (7.93486834E-07, 14.5713043, 0.0390005112)
 		originalRotation = (0, 0, 0, 1.00000012)
-		correctlyInitialised = False
-		moduleVersion = 4
+		moduleVersion = 6
 		stagingEnabled = True
 		originalAttachNodePos = (0.0, -0.2, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, 0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		originalAttachNodePos = (0.0, -0.2, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, -0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		EVENTS
 		{
 		}
@@ -6692,473 +5350,10 @@ PART
 }
 PART
 {
-	part = KCDE.Tianwen1.Backshell_4293934064
+	part = KCDE.Tianwen1.Orbiter_4293812288
 	partName = Part
-	persistentId = 1308386945
-	pos = 5.36441803E-07,15.1841669,0.0390009433
-	attPos = 0,0,0
-	attPos0 = 0,0.526164293,5.9604659E-08
-	rot = 0,0,0,1.00000012
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 1
-	resPri = 0
-	dstg = 1
-	sidx = 0
-	sqor = 1
-	sepI = 1
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	link = KCDE.Tianwen1.Parachute_4293931734
-	attN = bottom,KCDE.Tianwen1.Lander_4293944504_0|0.71053803|0_0|-0.600000024|0_0|0.71053803|0_0|-0.600000024|0
-	attN = top,KCDE.Tianwen1.Parachute_4293931734_0|0.718800008|0_0|0.600000024|0_0|0.718800008|0_0|0.600000024|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDecouple
-		isEnabled = True
-		ejectionForcePercent = 100
-		isDecoupled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			DecoupleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleAnimateGeneric
-		isEnabled = True
-		aniState = LOCKED
-		animSwitch = True
-		animTime = 0
-		animSpeed = 1
-		deployPercent = 100
-		animationIsDisabled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		AXISGROUPS
-		{
-			deployPercent
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 2000
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (5.36441803E-07, 15.1841669, 0.0390009433)
-		originalRotation = (0, 0, 0, 1.00000012)
-		correctlyInitialised = False
-		moduleVersion = 4
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.7, 0.0)
-		originalAttachNodePos = (0.0, 0.7, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = KCDE.Tianwen1.Parachute_4293931734
-	partName = Part
-	persistentId = 4124816603
-	pos = 5.36441803E-07,15.9241581,0.0390010476
-	attPos = 0,0,0
-	attPos0 = 0,0.739990592,5.9604659E-08
-	rot = 0,0,0,1.00000012
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 3
-	resPri = 0
-	dstg = 2
-	sidx = 0
-	sqor = 3
-	sepI = 1
-	attm = 0
-	sameVesselCollision = False
-	modCost = 17
-	modMass = 0
-	modSize = 0,0,0
-	attN = bottom,KCDE.Tianwen1.Backshell_4293934064_0|-0.0211896021|0_0|-0.600000024|0_0|-0.0211896021|0_0|-0.600000024|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = RealChuteModule
-		isEnabled = True
-		caseMass = 0.0500000007
-		cutSpeed = 0.5
-		timer = 0
-		mustGoDown = True
-		deployOnGround = False
-		spareChutes = 0
-		initiated = True
-		wait = True
-		armed = False
-		oneWasDeployed = False
-		staged = False
-		launched = False
-		chuteCount = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ActionDeploy
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ActionCut
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ActionArm
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ActionDisarm
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		PARACHUTE
-		{
-			material = Nylon
-			preDeployedDiameter = 3
-			deployedDiameter = 17
-			minIsPressure = False
-			capOff = False
-			minDeployment = 10000
-			minPressure = 0.00999999978
-			deploymentAlt = 5000
-			cutAlt = -1
-			preDeploymentSpeed = 2
-			deploymentSpeed = 6
-			time = 0
-			parachuteName = RC_canopy
-			baseParachuteName = RC_canopy
-			capName = Cap
-			preDeploymentAnimation = RC_chute_semi_deploy
-			deploymentAnimation = RC_chute_full_deploy
-			forcedOrientation = 0
-			maxRotation = 90
-			depState = STOWED
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ProceduralChute
-		isEnabled = True
-		caseId = -1
-		lastCaseId = -1
-		size = 0
-		lastSize = 0
-		planets = 0
-		presetId = 0
-		originalSize = (0.600000024, 0.600000024, 0.600000024)
-		top = 0
-		bottom = -0.0211896021
-		debut = 0.600000024
-		initiated = True
-		mustGoDown = True
-		deployOnGround = False
-		secondaryChute = False
-		timer = 0s
-		cutSpeed = 0.5
-		spares = 0
-		landingAlt = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		CHUTE
-		{
-			chuteID = 0
-			modelID = 0
-			typeID = 0
-			lastTypeID = 0
-			position = -0.477021217,19.5716305,7.65081835
-			isPressure = False
-			calcSelect = True
-			getMass = True
-			useDry = True
-			preDepDiam = 3
-			depDiam = 17
-			predepClause = 10000
-			mass = 10
-			landingSpeed = 6
-			deceleration = 10
-			refDepAlt = 700
-			chuteCount = 1
-			deploymentAlt = 5000
-			cutAlt = 
-			preDepSpeed = 2
-			depSpeed = 6
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 17
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (5.36441803E-07, 15.9241581, 0.0390010476)
-		originalRotation = (0, 0, 0, 1.00000012)
-		correctlyInitialised = False
-		moduleVersion = 4
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.0, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = KCDE.Tianwen1.Orbiter_4293930948
-	partName = Part
-	persistentId = 996380018
-	pos = 5.36441803E-07,13.9181919,0.0390010476
+	persistentId = 454499382
+	pos = 7.93486834E-07,13.91819,0.0390006304
 	attPos = 0,0,0
 	attPos0 = 0,-0.653114498,1.26659899E-07
 	rot = 0,0,0,1.00000012
@@ -7168,27 +5363,27 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 4
+	istg = 5
 	resPri = 0
 	dstg = 2
 	sidx = 0
-	sqor = 4
-	sepI = 4
+	sqor = 5
+	sepI = 5
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCDE.Tianwen1.Antenna_4293928658
-	link = KCDE.Tianwen1.SolarPanel_4293927686
-	link = KCDE.Tianwen1.SolarPanel_4293926290
-	link = KCDE.Tianwen1.Orbiter.Engine_4293929434
-	attN = top,KCDE.Tianwen1.Heat.Shield_4293934812_0|0.407114416|0_0|0.600000024|0_0|0.407114416|0_0|0.600000024|0
-	attN = Engine,KCDE.Tianwen1.Orbiter.Engine_4293929434_0|-0.369814813|0_0|-0.600000024|0_0|-0.369814813|0_0|-0.600000024|0
+	link = KCDE.Tianwen1.Orbiter.Engine_4293807922
+	link = KCDE.Tianwen1.SolarPanel_4293807366
+	link = KCDE.Tianwen1.SolarPanel_4293806510
+	link = KCDE.Tianwen1.Antenna_4293806134
+	attN = top,KCDE.Tianwen1.Heat.Shield_4293816272_0|0.407114416|0_0|0.600000024|0_0|0.407114416|0_0|0.600000024|0
+	attN = Engine,KCDE.Tianwen1.Orbiter.Engine_4293807922_0|-0.369814813|0_0|-0.600000024|0_0|-0.369814813|0_0|-0.600000024|0
 	attN = bottom,Null_0_0|-0.532146037|0_0|-0.600000024|0_0|-0.532146037|0_0|-0.600000024|0
-	attN = 1,KCDE.Tianwen1.SolarPanel_4293927686_-1.18417203|0.0174474008|0_-0.600000024|0|0_-1.18417203|0.0174474008|0_-0.600000024|0|0
-	attN = 2,KCDE.Tianwen1.SolarPanel_4293926290_1.18417203|0.0174474008|0_0.600000024|0|0_1.18417203|0.0174474008|0_0.600000024|0|0
-	attN = A,KCDE.Tianwen1.Antenna_4293928658_-0.0410850011|-0.0163788013|-1.06941605_0|-0.600000024|0_-0.0410850011|-0.0163788013|-1.06941605_0|-0.600000024|0
+	attN = 1,KCDE.Tianwen1.SolarPanel_4293807366_-1.18417203|0.0174474008|0_-0.600000024|0|0_-1.18417203|0.0174474008|0_-0.600000024|0|0
+	attN = 2,KCDE.Tianwen1.SolarPanel_4293806510_1.18417203|0.0174474008|0_0.600000024|0|0_1.18417203|0.0174474008|0_0.600000024|0|0
+	attN = A,KCDE.Tianwen1.Antenna_4293806134_-0.0410850011|-0.0163788013|-1.06941605_0|-0.600000024|0_-0.0410850011|-0.0163788013|-1.06941605_0|-0.600000024|0
 	EVENTS
 	{
 	}
@@ -7212,6 +5407,28 @@ PART
 	}
 	PARTDATA
 	{
+	}
+	MODULE
+	{
+		name = ModuleDataTransmitter
+		isEnabled = True
+		xmitIncomplete = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			StartTransmissionAction
+			{
+				actionGroup = None
+				active = False
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
 	}
 	MODULE
 	{
@@ -7546,6 +5763,29 @@ PART
 	}
 	MODULE
 	{
+		name = TweakScale
+		isEnabled = True
+		type = stack
+		active = True
+		available = True
+		currentScale = 2.46000004
+		defaultScale = 2.46000004
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 14709.8398
+		OriginalCrewCapacity = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = MechJebCore
 		isEnabled = True
 		running = True
@@ -7652,95 +5892,37 @@ PART
 	}
 	MODULE
 	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = TrajectoriesVesselSettings
-		isEnabled = True
-		Initialized = False
-		EntryAngle = 3.1415926535897931
-		EntryHorizon = False
-		HighAngle = 3.1415926535897931
-		HighHorizon = False
-		LowAngle = 3.1415926535897931
-		LowHorizon = False
-		GroundAngle = 3.1415926535897931
-		GroundHorizon = False
-		RetrogradeEntry = True
-		TargetBody = 
-		TargetPosition_x = 0
-		TargetPosition_y = 0
-		TargetPosition_z = 0
-		ManualTargetTxt = 
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (5.36441803E-07, 13.9181919, 0.0390010476)
+		originalPos = (7.93486834E-07, 13.91819, 0.0390006304)
 		originalRotation = (0, 0, 0, 1.00000012)
-		correctlyInitialised = False
-		moduleVersion = 4
+		moduleVersion = 6
 		stagingEnabled = True
 		originalAttachNodePos = (0.0, 0.4, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, 0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		originalAttachNodePos = (0.0, -0.4, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, -0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		originalAttachNodePos = (0.0, -0.5, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, -0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		originalAttachNodePos = (-1.2, 0.0, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (-0.6, 0.0, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		originalAttachNodePos = (1.2, 0.0, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.6, 0.0, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		originalAttachNodePos = (0.0, 0.0, -1.1)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, -0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		EVENTS
 		{
 		}
@@ -7832,583 +6014,10 @@ PART
 }
 PART
 {
-	part = KCDE.Tianwen1.Antenna_4293928658
+	part = KCDE.Tianwen1.Orbiter.Engine_4293807922
 	partName = Part
-	persistentId = 613664790
-	pos = -0.0410844646,13.9018116,-1.03041601
-	attPos = 0,0,0
-	attPos0 = -0.0410850011,-0.016379416,-1.06941664
-	rot = 0,0,0,1.00000012
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 4
-	resPri = 0
-	dstg = 2
-	sidx = -1
-	sqor = -1
-	sepI = 4
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	attN = bottom,KCDE.Tianwen1.Orbiter_4293930948_0|0|0_0|0.600000024|0_0|0|0_0|0.600000024|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleAnimateGeneric
-		isEnabled = True
-		aniState = LOCKED
-		animSwitch = True
-		animTime = 0
-		animSpeed = 1
-		deployPercent = 100
-		animationIsDisabled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		AXISGROUPS
-		{
-			deployPercent
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleDataTransmitter
-		isEnabled = True
-		xmitIncomplete = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			StartTransmissionAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModulePartVariants
-		isEnabled = True
-		useVariantMass = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 600
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (-0.0410844646, 13.9018116, -1.03041601)
-		originalRotation = (0, 0, 0, 1.00000012)
-		correctlyInitialised = False
-		moduleVersion = 4
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.0, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleTripLogger
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		Log
-		{
-			flight = 0
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = KCDE.Tianwen1.SolarPanel_4293927686
-	partName = Part
-	persistentId = 2198667076
-	pos = -1.18417144,13.9356384,0.0390010476
-	attPos = 0,0,0
-	attPos0 = -1.18417192,0.0174465179,0
-	rot = 1.00000012,0,0,0
-	attRot = 0.99999994,0,0,0
-	attRot0 = 1,0,0,0
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 4
-	resPri = 0
-	dstg = 2
-	sidx = -1
-	sqor = -1
-	sepI = 4
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	attN = bottom,KCDE.Tianwen1.Orbiter_4293930948_0|0|0_0.600000024|0|0_0|0|0_0.600000024|0|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDeployableSolarPanel
-		isEnabled = True
-		efficiencyMult = 1
-		launchUT = -1
-		currentRotation = (0, 0, 0.707106829, 0.707106829)
-		storedAnimationTime = 0
-		storedAnimationSpeed = 1
-		deployState = RETRACTED
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ExtendPanelsAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ExtendAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			RetractAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 380
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (-1.18417144, 13.9356384, 0.0390010476)
-		originalRotation = (1.00000012, 0, 0, 0)
-		correctlyInitialised = False
-		moduleVersion = 4
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.0, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = KCDE.Tianwen1.SolarPanel_4293926290
-	partName = Part
-	persistentId = 189450860
-	pos = 1.18417263,13.9356384,0.0390010476
-	attPos = 0,0,0
-	attPos0 = 1.18417215,0.0174465179,0
-	rot = 0,-1.00000012,0,0
-	attRot = 0,-0.999999881,0,0
-	attRot0 = 0,-1,0,0
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 4
-	resPri = 0
-	dstg = 2
-	sidx = -1
-	sqor = -1
-	sepI = 4
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	attN = bottom,KCDE.Tianwen1.Orbiter_4293930948_0|0|0_0.600000024|0|0_0|0|0_0.600000024|0|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDeployableSolarPanel
-		isEnabled = True
-		efficiencyMult = 1
-		launchUT = -1
-		currentRotation = (0, 0, 0.707106829, 0.707106829)
-		storedAnimationTime = 0
-		storedAnimationSpeed = 1
-		deployState = RETRACTED
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ExtendPanelsAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ExtendAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			RetractAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 380
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = GeometryPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARAeroPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (1.18417263, 13.9356384, 0.0390010476)
-		originalRotation = (0, -1.00000012, 0, 0)
-		correctlyInitialised = False
-		moduleVersion = 4
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.0, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = KCDE.Tianwen1.Orbiter.Engine_4293929434
-	partName = Part
-	persistentId = 1983052988
-	pos = 5.36441803E-07,13.2753096,0.0390011668
+	persistentId = 3127719462
+	pos = 7.93486834E-07,13.2753057,0.0390007496
 	attPos = 0,0,0
 	attPos0 = 0,-0.642880857,1.78813963E-07
 	rot = 0,0,0,1.00000012
@@ -8418,18 +6027,18 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 5
+	istg = 6
 	resPri = 0
 	dstg = 2
 	sidx = 0
-	sqor = 5
-	sepI = 4
+	sqor = 6
+	sepI = 5
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	attN = top,KCDE.Tianwen1.Orbiter_4293930948_0|0.273065418|0_0|0.600000024|0_0|0.273065418|0_0|0.600000024|0
+	attN = top,KCDE.Tianwen1.Orbiter_4293812288_0|0.273065418|0_0|0.600000024|0_0|0.273065418|0_0|0.600000024|0
 	EVENTS
 	{
 	}
@@ -8573,8 +6182,138 @@ PART
 	}
 	MODULE
 	{
-		name = GeometryPartModule
+		name = AttachedOnEditor
 		isEnabled = True
+		active = True
+		originalPos = (7.93486834E-07, 13.2753057, 0.0390007496)
+		originalRotation = (0, 0, 0, 1.00000012)
+		moduleVersion = 6
+		stagingEnabled = True
+		originalAttachNodePos = (0.0, 0.3, 0.0)
+		originalAttachNodeSize = 0
+		originalAttachNodeOrientation = (0.0, 0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = KCDE.Tianwen1.SolarPanel_4293807366
+	partName = Part
+	persistentId = 3161002389
+	pos = -1.1841712,13.9356365,0.0390006304
+	attPos = 0,0,0
+	attPos0 = -1.18417203,0.0174465179,0
+	rot = 0,0,0,1.00000012
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 5
+	resPri = 0
+	dstg = 2
+	sidx = -1
+	sqor = -1
+	sepI = 5
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	attN = bottom,KCDE.Tianwen1.Orbiter_4293812288_0|0|0_0.600000024|0|0_0|0|0_0.600000024|0|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = KopernicusSolarPanel
+		isEnabled = True
+		trackingBodyName = 
+		_manualTracking = False
+		efficiencyMult = 1
+		launchUT = -1
+		currentRotation = (0, 0, 0.707106829, 0.707106829)
+		storedAnimationTime = 0
+		storedAnimationSpeed = 1
+		deployState = RETRACTED
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ExtendPanelsAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ExtendAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			RetractAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = Refunding
+		isEnabled = True
+		active = True
+		OriginalCost = 380
 		stagingEnabled = True
 		EVENTS
 		{
@@ -8588,23 +6327,16 @@ PART
 	}
 	MODULE
 	{
-		name = FARAeroPartModule
+		name = TweakScale
 		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FARPartModule
-		isEnabled = True
+		type = stack
+		active = True
+		available = True
+		currentScale = 3.69000006
+		defaultScale = 3.69000006
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 380
+		OriginalCrewCapacity = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -8621,12 +6353,121 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (5.36441803E-07, 13.2753096, 0.0390011668)
+		originalPos = (-1.1841712, 13.9356365, 0.0390006304)
 		originalRotation = (0, 0, 0, 1.00000012)
-		correctlyInitialised = False
-		moduleVersion = 4
+		moduleVersion = 6
 		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.3, 0.0)
+		originalAttachNodePos = (0.0, 0.0, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.6, 0.0, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = KCDE.Tianwen1.SolarPanel_4293806510
+	partName = Part
+	persistentId = 948212477
+	pos = 1.18417287,13.9356365,0.0390006304
+	attPos = 0,0,0
+	attPos0 = 1.18417203,0.0174465179,0
+	rot = 0,0,1.00000012,0
+	attRot = 0,0,0.999999881,0
+	attRot0 = 0,0,1,0
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 5
+	resPri = 0
+	dstg = 2
+	sidx = -1
+	sqor = -1
+	sepI = 5
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	attN = bottom,KCDE.Tianwen1.Orbiter_4293812288_0|0|0_0.600000024|0|0_0|0|0_0.600000024|0|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = KopernicusSolarPanel
+		isEnabled = True
+		trackingBodyName = 
+		_manualTracking = False
+		efficiencyMult = 1
+		launchUT = -1
+		currentRotation = (0, 0, 0.707106829, 0.707106829)
+		storedAnimationTime = 0
+		storedAnimationSpeed = 1
+		deployState = RETRACTED
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ExtendPanelsAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ExtendAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			RetractAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = Refunding
+		isEnabled = True
+		active = True
+		OriginalCost = 380
+		stagingEnabled = True
 		EVENTS
 		{
 		}
@@ -8639,9 +6480,654 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleWaterfallFX
+		name = TweakScale
+		isEnabled = True
+		type = stack
+		active = True
+		available = True
+		currentScale = 3.69000006
+		defaultScale = 3.69000006
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 380
+		OriginalCrewCapacity = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = AttachedOnEditor
+		isEnabled = True
+		active = True
+		originalPos = (1.18417287, 13.9356365, 0.0390006304)
+		originalRotation = (0, 0, 1.00000012, 0)
+		moduleVersion = 6
+		stagingEnabled = True
+		originalAttachNodePos = (0.0, 0.0, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.6, 0.0, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = KCDE.Tianwen1.Antenna_4293806134
+	partName = Part
+	persistentId = 4079956019
+	pos = -0.0410842076,13.9018106,-1.03041732
+	attPos = 0,0,0
+	attPos0 = -0.0410850011,-0.0163792968,-1.06941652
+	rot = 0,0,0,1.00000012
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 5
+	resPri = 0
+	dstg = 2
+	sidx = -1
+	sqor = -1
+	sepI = 5
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	attN = bottom,KCDE.Tianwen1.Orbiter_4293812288_0|0|0_0|0.600000024|0_0|0|0_0|0.600000024|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleAnimateGeneric
+		isEnabled = True
+		aniState = LOCKED
+		animSwitch = True
+		animTime = 0
+		animSpeed = 1
+		deployPercent = 100
+		animationIsDisabled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		AXISGROUPS
+		{
+			deployPercent
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
+				axisInverted = None
+				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleDataTransmitter
+		isEnabled = True
+		xmitIncomplete = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			StartTransmissionAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModulePartVariants
+		isEnabled = True
+		useVariantMass = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = Refunding
+		isEnabled = True
+		active = True
+		OriginalCost = 600
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		type = stack
+		active = True
+		available = True
+		currentScale = 1.62
+		defaultScale = 1.62
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 600
+		OriginalCrewCapacity = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = AttachedOnEditor
+		isEnabled = True
+		active = True
+		originalPos = (-0.0410842076, 13.9018106, -1.03041732)
+		originalRotation = (0, 0, 0, 1.00000012)
+		moduleVersion = 6
+		stagingEnabled = True
+		originalAttachNodePos = (0.0, 0.0, 0.0)
+		originalAttachNodeSize = 0
+		originalAttachNodeOrientation = (0.0, 0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleTripLogger
 		isEnabled = True
 		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		Log
+		{
+			flight = 0
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = KCDE.Tianwen1.Backshell_4293814818
+	partName = Part
+	persistentId = 2200853524
+	pos = 7.93486834E-07,15.184165,0.0390005261
+	attPos = 0,0,0
+	attPos0 = 0,0.526164293,5.9604659E-08
+	rot = 0,0,0,1.00000012
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 2
+	resPri = 0
+	dstg = 1
+	sidx = 0
+	sqor = 2
+	sepI = 2
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	link = KCDE.Tianwen1.Parachute_4293812592
+	attN = bottom,KCDE.Tianwen1.Lander_4293825418_0|0.71053803|0_0|-0.600000024|0_0|0.71053803|0_0|-0.600000024|0
+	attN = top,KCDE.Tianwen1.Parachute_4293812592_0|0.718800008|0_0|0.600000024|0_0|0.718800008|0_0|0.600000024|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleDecouple
+		isEnabled = True
+		ejectionForcePercent = 100
+		isDecoupled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DecoupleAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleAnimateGeneric
+		isEnabled = True
+		aniState = LOCKED
+		animSwitch = True
+		animTime = 0
+		animSpeed = 1
+		deployPercent = 100
+		animationIsDisabled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		AXISGROUPS
+		{
+			deployPercent
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
+				axisInverted = None
+				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = Refunding
+		isEnabled = True
+		active = True
+		OriginalCost = 2000
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = TweakScale
+		isEnabled = True
+		type = stack
+		active = True
+		available = True
+		currentScale = 2.25
+		defaultScale = 2.25
+		defaultTransformScale = (0, 0, 0)
+		DryCost = 2000
+		OriginalCrewCapacity = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = AttachedOnEditor
+		isEnabled = True
+		active = True
+		originalPos = (7.93486834E-07, 15.184165, 0.0390005261)
+		originalRotation = (0, 0, 0, 1.00000012)
+		moduleVersion = 6
+		stagingEnabled = True
+		originalAttachNodePos = (0.0, 0.7, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, -0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
+		originalAttachNodePos = (0.0, 0.7, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, 0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = KCDE.Tianwen1.Parachute_4293812592
+	partName = Part
+	persistentId = 253301183
+	pos = 7.93486834E-07,15.9241562,0.0390006304
+	attPos = 0,0,0
+	attPos0 = 0,0.739990592,5.96046732E-08
+	rot = 0,0,0,1.00000012
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 4
+	resPri = 0
+	dstg = 2
+	sidx = 0
+	sqor = 4
+	sepI = 2
+	attm = 0
+	sameVesselCollision = False
+	modCost = 17
+	modMass = 0
+	modSize = 0,0,0
+	attN = bottom,KCDE.Tianwen1.Backshell_4293814818_0|-0.0211896021|0_0|-0.600000024|0_0|-0.0211896021|0_0|-0.600000024|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = RealChuteModule
+		isEnabled = True
+		caseMass = 0.0500000007
+		cutSpeed = 0.5
+		timer = 0
+		mustGoDown = True
+		deployOnGround = False
+		spareChutes = 0
+		initiated = True
+		wait = True
+		armed = False
+		oneWasDeployed = False
+		staged = False
+		launched = False
+		chuteCount = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ActionDeploy
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ActionCut
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ActionArm
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ActionDisarm
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		PARACHUTE
+		{
+			material = Nylon
+			preDeployedDiameter = 3
+			deployedDiameter = 17
+			minIsPressure = False
+			capOff = False
+			minDeployment = 10000
+			minPressure = 0.00999999978
+			deploymentAlt = 5000
+			cutAlt = -1
+			preDeploymentSpeed = 2
+			deploymentSpeed = 6
+			time = 0
+			parachuteName = RC_canopy
+			baseParachuteName = RC_canopy
+			capName = Cap
+			preDeploymentAnimation = RC_chute_semi_deploy
+			deploymentAnimation = RC_chute_full_deploy
+			forcedOrientation = 0
+			maxRotation = 90
+			depState = STOWED
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ProceduralChute
+		isEnabled = True
+		caseId = -1
+		lastCaseId = -1
+		size = 0
+		lastSize = 0
+		planets = 0
+		presetId = 0
+		originalSize = (0.600000024, 0.600000024, 0.600000024)
+		top = 0
+		bottom = -0.0211896021
+		debut = 0.600000024
+		initiated = True
+		mustGoDown = True
+		deployOnGround = False
+		secondaryChute = False
+		timer = 0s
+		cutSpeed = 0.5
+		spares = 0
+		landingAlt = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		CHUTE
+		{
+			chuteID = 0
+			modelID = 0
+			typeID = 0
+			lastTypeID = 0
+			position = 7.93486834E-07,15.8585091,0.0390006304
+			isPressure = False
+			calcSelect = True
+			getMass = True
+			useDry = True
+			preDepDiam = 3
+			depDiam = 17
+			predepClause = 10000
+			mass = 10
+			landingSpeed = 6
+			deceleration = 10
+			refDepAlt = 700
+			chuteCount = 1
+			deploymentAlt = 5000
+			cutAlt = 
+			preDepSpeed = 2
+			depSpeed = 6
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = Refunding
+		isEnabled = True
+		active = True
+		OriginalCost = 17
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = AttachedOnEditor
+		isEnabled = True
+		active = True
+		originalPos = (7.93486834E-07, 15.9241562, 0.0390006304)
+		originalRotation = (0, 0, 0, 1.00000012)
+		moduleVersion = 6
+		stagingEnabled = True
+		originalAttachNodePos = (0.0, 0.0, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, -0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		EVENTS
 		{
 		}
