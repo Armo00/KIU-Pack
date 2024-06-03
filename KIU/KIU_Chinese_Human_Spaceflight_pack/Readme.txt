@@ -1,15 +1,48 @@
-================================
-=KIU Chinese Human Spaceflight Pack==
-================================
-===========Version V0.9.0===========
-============20221022============
-================================
+======================================
+==KIU Chinese Human Spaceflight Pack==
+======================================
+============Version V1.0.7============
+===============20240603===============
+======================================
 
-Author:Armor00, Icecovery, Launcelot, Old_Copper
+Author: Armor00, Icecovery, Launcelot, Old_Copper
 
 License:CC BY-NC-SA 4.0
 
 KCHS Changelog:
+-1.0.7
+-Fixed the issue of conflict with KCAP in some cases
+-Bugs fixed
+
+-1.0.6
+-Added Free-IVA support (Big thanks to JonnyOThan!!!)
+
+-1.0.5-Hotfix
+-Changed MJ-fix patch's location to allow CKAN install
+
+-1.0.5
+-Compatibility update
+
+-1.0.4
+-Fixed localization files
+-Bug fixed
+
+-1.0.3
+--Fixed the crash problem caused by RPM(RasterPropMonitor) incompatibility in some cases.
+
+-1.0.2
+-bug fixed
+
+-1.0.1
+-Fixed the rolling over problem of the Mengtian Module.
+
+-1.0.0
+-Updated the appearance of Wentian and Mengtian
+-Bugs fixed
+
+-0.9.1
+-Fixed the Non-RO craft file of Mengtian cannot be opened.
+
 -0.9.0
 -Warning, this is a save-breaking update, all old craft will cease to exist, proceed with caution.
 -Start Merge with part of NCAP to form the new KCHS package
