@@ -1,8 +1,8 @@
 ==========================================
 ==KIU Chinese Deepspace Exploration Pack==
 ==========================================
-===============Version V1.0.5=============
-=================20240603=================
+===============Version V1.0.6=============
+=================20240612=================
 ==========================================
 
 Author:Armor00, Launcelot, Old_Copper
@@ -10,6 +10,9 @@ Author:Armor00, Launcelot, Old_Copper
 License:CC BY-NC-SA 4.0
 
 KCDE Changelog:
+-1.0.6
+-Optimized files
+
 -1.0.5
 -Fixed the issue of conflict with KCAP in some cases
 -Bugs fixed

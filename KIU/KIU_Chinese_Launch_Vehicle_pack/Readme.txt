@@ -1,8 +1,8 @@
 ===================================
 ==KIU Chinese Launch Vehicle Pack==
 ===================================
-===========Version V1.1.7==========
-==============20240603=============
+===========Version V1.1.9==========
+==============20240612=============
 ===================================
 
 Author: Armor00, Launcelot, Old_Copper
@@ -10,6 +10,13 @@ Author: Armor00, Launcelot, Old_Copper
 License:CC BY-NC-SA 4.0
 
 KCLV Changelog:
+
+-1.1.9
+-Fixed the issue of installation failure when using Ckan
+-Optimized files
+
+-1.1.8
+-Fixed the issue of YF-20 series engine disappears
 
 -1.1.7_public-beta
 -Added Longmarch 10 launch vehicle

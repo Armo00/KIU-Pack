@@ -1,15 +1,19 @@
 ======================================
 ==KIU Chinese Human Spaceflight Pack==
 ======================================
-============Version V1.0.7============
-===============20240603===============
+============Version V1.0.8============
+===============20240612===============
 ======================================
 
-Author: Armor00, Icecovery, Launcelot, Old_Copper
+Author: Armor00, Icecovery, Launcelot, Old_Copper, zmjt-cn
 
 License:CC BY-NC-SA 4.0
 
 KCHS Changelog:
+-1.0.8 Public Beta
+-Fixed the issue of Shenzhou Heat Shield exploded during reentry in some cases
+-Optimized files
+
 -1.0.7
 -Fixed the issue of conflict with KCAP in some cases
 -Bugs fixed
