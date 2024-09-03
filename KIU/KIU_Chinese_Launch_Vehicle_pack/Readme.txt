@@ -1,8 +1,8 @@
 ===================================
 ==KIU Chinese Launch Vehicle Pack==
 ===================================
-===========Version V1.1.9==========
-==============20240612=============
+===========Version V1.1.10=========
+==============20240902=============
 ===================================
 
 Author: Armor00, Launcelot, Old_Copper
@@ -10,6 +10,9 @@ Author: Armor00, Launcelot, Old_Copper
 License:CC BY-NC-SA 4.0
 
 KCLV Changelog:
+-1.1.10 Public Beta
+-Added Escape Tower for Mengzhou
+-Bug fixed
 
 -1.1.9
 -Fixed the issue of installation failure when using Ckan
