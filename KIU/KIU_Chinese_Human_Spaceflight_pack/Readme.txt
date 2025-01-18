@@ -1,8 +1,8 @@
 ======================================
 ==KIU Chinese Human Spaceflight Pack==
 ======================================
-============Version V1.0.9============
-===============20240902===============
+============Version V1.0.10============
+===============20250118===============
 ======================================
 
 Author: Armor00, Icecovery, Launcelot, Old_Copper, zmjt-cn
@@ -10,6 +10,10 @@ Author: Armor00, Icecovery, Launcelot, Old_Copper, zmjt-cn
 License:CC BY-NC-SA 4.0
 
 KCHS Changelog:
+-1.0.10 Public Beta
+-Added Lanyue
+-Bug fixed
+
 -1.0.9 Public Beta
 -Added Mengzhou
 -Bug fixed
