@@ -1,8 +1,8 @@
 ===================================
-==KIU Chinese Launch Vehicle Pack==
+======KIU Chinese Launch Vehicle Pack=======
 ===================================
-===========Version V1.1.10=========
-==============20240902=============
+=============Version V1.1.10===========
+==============20250120==============
 ===================================
 
 Author: Armor00, Launcelot, Old_Copper
@@ -10,6 +10,9 @@ Author: Armor00, Launcelot, Old_Copper
 License:CC BY-NC-SA 4.0
 
 KCLV Changelog:
+-1.1.10
+-Added craft files of Lanyue with CZ-10
+
 -1.1.10 Public Beta
 -Added Escape Tower for Mengzhou
 -Bug fixed
