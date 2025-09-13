@@ -4568,6 +4568,23 @@ PART
 	}
 	MODULE
 	{
+		name = ModulePartVariants
+		isEnabled = True
+		useVariantMass = True
+		stagingEnabled = True
+		selectedVariant = ZQ-2
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = TweakScale
 		isEnabled = True
 		active = True
