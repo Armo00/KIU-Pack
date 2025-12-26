@@ -2,9 +2,9 @@ ship = Mengzhou
 version = 1.12.5
 description = 
 type = VAB
-size = 2.70000005,11.3131561,2.70000029
+size = 2.70000005,4.84773636,2.70000005
 steamPublishedFileId = 0
-persistentId = 4195226833
+persistentId = 2545954356
 rot = 0,0,0,0
 missionFlag = Squad/Flags/China
 vesselType = Debris
@@ -14,9 +14,9 @@ OverrideAxisControl = 0,0,0,0
 OverrideGroupNames = ,,,
 PART
 {
-	part = KCHS.Mengzhou.ReEntry.Module_4294052852
+	part = KCHS.Mengzhou.ReEntry.Module_4293807824
 	partName = Part
-	persistentId = 1176489043
+	persistentId = 2067060604
 	pos = 0,15,0
 	attPos = 0,0,0
 	attPos0 = 0,15,0
@@ -27,26 +27,26 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 0
+	istg = -1
 	resPri = 0
 	dstg = 0
-	sidx = 0
-	sqor = 0
+	sidx = -1
+	sqor = -1
 	sepI = -1
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCHS.Mengzhou.Main.Chute_4293840942
-	link = KCHS.Mengzhou.Drogue.Chute_4293839776
-	link = KCHS.Mengzhou.Heat.Shield_4293836710
-	link = KCHS.Proactive.Docking.Port_4293843648
-	attN = TopNode,Null_0_0|0.804042041|0_0|0.99999994|-1.1920929E-07_0|0.804042041|0_0|0.99999994|-1.1920929E-07
-	attN = DocNode,KCHS.Proactive.Docking.Port_4293843648_0|0.499579191|0_0|0.99999994|-1.1920929E-07_0|0.499579191|0_0|0.99999994|-1.1920929E-07
-	attN = SheldNode,KCHS.Mengzhou.Heat.Shield_4293836710_3.46138563E-07|-0.66633004|-2.85456537E-07_3.89414367E-07|-1|-3.57627897E-07_3.46138563E-07|-0.66633004|-2.85456537E-07_3.89414367E-07|-1|-3.57627897E-07
-	attN = DrogueChuteNode,KCHS.Mengzhou.Drogue.Chute_4293839776_0|0.804042041|0_1|4.76837158E-07|-5.96046448E-08_0|0.804042041|0_1|4.76837158E-07|-5.96046448E-08
-	attN = MainChuteNode,KCHS.Mengzhou.Main.Chute_4293840942_0|0.804042041|-2.13650239E-07_-1|-3.27825546E-07|5.96046448E-08_0|0.804042041|-2.13650239E-07_-1|-3.27825546E-07|5.96046448E-08
+	link = KCHS.Mengzhou.Heat.Shield_4293796624
+	link = KCHS.Proactive.Docking.Port_4293793518
+	link = KCHS.Mengzhou.Main.Chute_4293774020
+	link = KCHS.Mengzhou.Drogue.Chute_4293773522
+	attN = TopNode,Null_0_0|0.804042041|0_0|0|1_0|0.804042041|0_0|0|1
+	attN = DocNode,KCHS.Proactive.Docking.Port_4293793518_0|0.499579191|0_0|0.99999994|-1.1920929E-07_0|0.499579191|0_0|0.99999994|-1.1920929E-07
+	attN = SheldNode,KCHS.Mengzhou.Heat.Shield_4293796624_3.46138563E-07|-0.66633004|-2.85456537E-07_3.89414367E-07|-1|-3.57627897E-07_3.46138563E-07|-0.66633004|-2.85456537E-07_3.89414367E-07|-1|-3.57627897E-07
+	attN = DrogueChuteNode,KCHS.Mengzhou.Drogue.Chute_4293773522_0|0.804042041|0_1|4.76837158E-07|-5.96046448E-08_0|0.804042041|0_1|4.76837158E-07|-5.96046448E-08
+	attN = MainChuteNode,KCHS.Mengzhou.Main.Chute_4293774020_0|0.804042041|-2.13650239E-07_-1|-3.27825546E-07|5.96046448E-08_0|0.804042041|-2.13650239E-07_-1|-3.27825546E-07|5.96046448E-08
 	EVENTS
 	{
 	}
@@ -346,7 +346,7 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 3860.0000023841858
+		OriginalCost = 10560.000002384186
 		stagingEnabled = True
 		EVENTS
 		{
@@ -470,12 +470,12 @@ PART
 			MechJebModuleRoverWindow
 			{
 				unlockParts = 
-				unlockTechs = 
+				unlockTechs = fieldScience
 			}
 			MechJebModuleAttitudeAdjustment
 			{
 				unlockParts = 
-				unlockTechs = 
+				unlockTechs = advFlightControl
 			}
 			MechJebModuleAscentNavBall
 			{
@@ -490,7 +490,7 @@ PART
 			MechJebModuleRCSBalancerWindow
 			{
 				unlockParts = 
-				unlockTechs = 
+				unlockTechs = advFlightControl
 			}
 			MechJebModuleRoverController
 			{
@@ -518,7 +518,7 @@ PART
 			{
 				runwayIndex = 0
 				unlockParts = 
-				unlockTechs = 
+				unlockTechs = unmannedTech
 			}
 			MechJebModuleAscentPVG
 			{
@@ -665,7 +665,7 @@ PART
 			MechJebModuleDockingGuidance
 			{
 				unlockParts = 
-				unlockTechs = 
+				unlockTechs = advUnmanned
 			}
 			MechJebModuleSettings
 			{
@@ -692,7 +692,7 @@ PART
 				forcePitch = True
 				forceYaw = True
 				unlockParts = 
-				unlockTechs = 
+				unlockTechs = flightControl
 				srfHdg
 				{
 					_val = 90
@@ -751,12 +751,12 @@ PART
 			{
 				autostageSavedState = False
 				unlockParts = 
-				unlockTechs = 
+				unlockTechs = advFlightControl
 			}
 			MechJebModuleWarpHelper
 			{
 				unlockParts = 
-				unlockTechs = 
+				unlockTechs = advFlightControl
 				phaseAngle
 				{
 					_val = 0
@@ -766,7 +766,7 @@ PART
 			MechJebModuleCustomWindowEditor
 			{
 				unlockParts = 
-				unlockTechs = 
+				unlockTechs = flightControl
 			}
 			MechJebModuleAscentAutopilot
 			{
@@ -776,7 +776,7 @@ PART
 			MechJebModuleRendezvousAutopilotWindow
 			{
 				unlockParts = 
-				unlockTechs = 
+				unlockTechs = advUnmanned
 			}
 			MechJebModuleNodeExecutor
 			{
@@ -786,19 +786,19 @@ PART
 			MechJebModuleNodeEditor
 			{
 				unlockParts = 
-				unlockTechs = 
+				unlockTechs = advFlightControl
 			}
 			MechJebModuleLandingAutopilot
 			{
 				deployGears = True
-				deployChutes = True
-				rcsAdjustment = True
+				deployChutes = False
+				rcsAdjustment = False
 				unlockParts = 
 				unlockTechs = 
 				touchdownSpeed
 				{
-					_val = 0.5
-					_text = 0.5
+					_val = 2
+					_text = 2
 				}
 				limitGearsStage
 				{
@@ -824,7 +824,7 @@ PART
 			{
 				landingSiteIdx = 0
 				unlockParts = 
-				unlockTechs = 
+				unlockTechs = unmannedTech
 			}
 			MechJebModuleLandingPredictions
 			{
@@ -834,7 +834,7 @@ PART
 			MechJebModuleTranslatron
 			{
 				unlockParts = 
-				unlockTechs = 
+				unlockTechs = advFlightControl
 				trans_spd
 				{
 					_val = 0
@@ -844,7 +844,7 @@ PART
 			MechJebModuleAscentGuidance
 			{
 				unlockParts = 
-				unlockTechs = 
+				unlockTechs = unmannedTech
 			}
 			MechJebModuleRendezvousAutopilot
 			{
@@ -869,7 +869,7 @@ PART
 			MechJebModuleManeuverPlanner
 			{
 				unlockParts = 
-				unlockTechs = 
+				unlockTechs = advFlightControl
 			}
 			MechJebModuleStageStats
 			{
@@ -890,7 +890,7 @@ PART
 			MechJebModuleRendezvousGuidance
 			{
 				unlockParts = 
-				unlockTechs = 
+				unlockTechs = advUnmanned
 			}
 			MechJebModuleAscentClassicMenu
 			{
@@ -980,13 +980,13 @@ PART
 				}
 				Kp
 				{
-					_val = 0.125
-					_text = 0.125
+					_val = 0.12492219800962338
+					_text = 0.124922198009623
 				}
 				Ki
 				{
-					_val = 0.070000000000000007
-					_text = 0.07
+					_val = 0.0073611111111111091
+					_text = 0.00736111111111111
 				}
 				Kd
 				{
@@ -1058,7 +1058,7 @@ PART
 		stagingEnabled = True
 		originalAttachNodePos = (0.0, 0.8, 0.0)
 		originalAttachNodeSize = 1
-		originalAttachNodeOrientation = (0.0, 1.0, 0.0)
+		originalAttachNodeOrientation = (0.0, 0.0, 1.0)
 		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		originalAttachNodePos = (0.0, 0.5, 0.0)
 		originalAttachNodeSize = 2
@@ -1076,6 +1076,21 @@ PART
 		originalAttachNodeSize = 1
 		originalAttachNodeOrientation = (-1.0, 0.0, 0.0)
 		originalAttachNodeOffset = (0.0, 0.0, 0.0)
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
 		EVENTS
 		{
 		}
@@ -1130,449 +1145,9 @@ PART
 }
 PART
 {
-	part = KCHS.Mengzhou.Main.Chute_4293840942
+	part = KCHS.Mengzhou.Heat.Shield_4293796624
 	partName = Part
-	persistentId = 826850733
-	pos = 0,15.8040419,-2.13650239E-07
-	attPos = 0,0,0
-	attPos0 = 0,0.804041862,-2.13650239E-07
-	rot = 0,0,0,1
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 2
-	resPri = 0
-	dstg = 0
-	sidx = 0
-	sqor = 2
-	sepI = -1
-	attm = 0
-	sameVesselCollision = False
-	modCost = 147.300003
-	modMass = 3.7252903E-09
-	modSize = 0,0,0
-	attN = MainChuteNode,KCHS.Mengzhou.ReEntry.Module_4294052852_0|0|0_1|3.27825546E-07|5.96046448E-08_0|0|0_1|3.27825546E-07|5.96046448E-08
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = RealChuteModule
-		isEnabled = True
-		caseMass = 0.0500000007
-		cutSpeed = 0.5
-		timer = 0
-		mustGoDown = True
-		deployOnGround = False
-		spareChutes = 0
-		initiated = True
-		wait = True
-		armed = False
-		oneWasDeployed = False
-		staged = False
-		launched = False
-		chuteCount = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ActionDeploy
-			{
-				actionGroup = Custom02
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ActionCut
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ActionArm
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ActionDisarm
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		PARACHUTE
-		{
-			material = Nylon
-			preDeployedDiameter = 2.5
-			deployedDiameter = 50
-			minIsPressure = False
-			capOff = False
-			minDeployment = 1950
-			minPressure = 0.00999999978
-			deploymentAlt = 1500
-			cutAlt = -1
-			preDeploymentSpeed = 2
-			deploymentSpeed = 6
-			time = 0
-			parachuteName = RC_triple_canopy
-			baseParachuteName = RC_triple_canopy
-			capName = MainChute
-			preDeploymentAnimation = RC_triple_chute_semi_deploy
-			deploymentAnimation = RC_triple_chute_full_deploy
-			forcedOrientation = 0
-			maxRotation = 90
-			depState = STOWED
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ProceduralChute
-		isEnabled = True
-		caseId = -1
-		lastCaseId = -1
-		size = 0
-		lastSize = 0
-		planets = 0
-		presetId = 0
-		originalSize = (0.600000024, 0.600000024, 0.600000024)
-		top = 0
-		bottom = 0
-		debut = 0.600000024
-		initiated = True
-		mustGoDown = True
-		deployOnGround = False
-		secondaryChute = False
-		timer = 0s
-		cutSpeed = 0.5
-		spares = 0
-		landingAlt = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		CHUTE
-		{
-			chuteID = 0
-			modelID = 1
-			typeID = 0
-			lastTypeID = 0
-			position = 0,15.8040419,-2.13650239E-07
-			isPressure = False
-			calcSelect = True
-			getMass = True
-			useDry = True
-			preDepDiam = 2.5
-			depDiam = 50
-			predepClause = 1950
-			mass = 10
-			landingSpeed = 6
-			deceleration = 10
-			refDepAlt = 700
-			chuteCount = 1
-			deploymentAlt = 1500
-			cutAlt = 
-			preDepSpeed = 2
-			depSpeed = 6
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 147.30000305175781
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (0, 15.8040419, -2.13650239E-07)
-		originalRotation = (0, 0, 0, 1)
-		moduleVersion = 6
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.0, 0.0)
-		originalAttachNodeSize = 1
-		originalAttachNodeOrientation = (1.0, 0.0, 0.0)
-		originalAttachNodeOffset = (0.0, 0.0, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = KCHS.Mengzhou.Drogue.Chute_4293839776
-	partName = Part
-	persistentId = 3734730836
-	pos = 0,15.8040419,0
-	attPos = 0,0,0
-	attPos0 = 0,0.804041862,0
-	rot = 0,0,0,1
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 3
-	resPri = 0
-	dstg = 0
-	sidx = 0
-	sqor = 3
-	sepI = -1
-	attm = 0
-	sameVesselCollision = False
-	modCost = 6.30000019
-	modMass = -4.65661287E-10
-	modSize = 0,0,0
-	attN = DrogueChuteNode,KCHS.Mengzhou.ReEntry.Module_4294052852_0|0|0_-1|-3.27825546E-07|-4.76837158E-07_0|0|0_-1|-3.27825546E-07|-4.76837158E-07
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = RealChuteModule
-		isEnabled = True
-		caseMass = 0.0500000007
-		cutSpeed = 0.5
-		timer = 0
-		mustGoDown = True
-		deployOnGround = False
-		spareChutes = 0
-		initiated = True
-		wait = True
-		armed = False
-		oneWasDeployed = False
-		staged = False
-		launched = False
-		chuteCount = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ActionDeploy
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ActionCut
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ActionArm
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ActionDisarm
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		PARACHUTE
-		{
-			material = Kevlar
-			preDeployedDiameter = 3
-			deployedDiameter = 10
-			minIsPressure = False
-			capOff = False
-			minDeployment = 30000
-			minPressure = 0.00999999978
-			deploymentAlt = 7000
-			cutAlt = 2000
-			preDeploymentSpeed = 1
-			deploymentSpeed = 3
-			time = 0
-			parachuteName = RC_canopy2
-			baseParachuteName = RC_canopy2
-			capName = DrogueChute
-			preDeploymentAnimation = RC_chute2_semi_deploy
-			deploymentAnimation = RC_chute2_full_deploy
-			forcedOrientation = 0
-			maxRotation = 90
-			depState = STOWED
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ProceduralChute
-		isEnabled = True
-		caseId = -1
-		lastCaseId = -1
-		size = 0
-		lastSize = 0
-		planets = 0
-		presetId = 0
-		originalSize = (0.600000024, 0.600000024, 0.600000024)
-		top = 0
-		bottom = 0
-		debut = 0.600000024
-		initiated = True
-		mustGoDown = True
-		deployOnGround = False
-		secondaryChute = False
-		timer = 0s
-		cutSpeed = 0.5
-		spares = 0
-		landingAlt = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		CHUTE
-		{
-			chuteID = 1
-			modelID = 0
-			typeID = 0
-			lastTypeID = 0
-			position = 0,15.8040419,0
-			isPressure = False
-			calcSelect = True
-			getMass = True
-			useDry = True
-			preDepDiam = 3
-			depDiam = 10
-			predepClause = 30000
-			mass = 10
-			landingSpeed = 6
-			deceleration = 10
-			refDepAlt = 700
-			chuteCount = 1
-			deploymentAlt = 7000
-			cutAlt = 2000
-			preDepSpeed = 1
-			depSpeed = 3
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 6.3000001907348633
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (0, 15.8040419, 0)
-		originalRotation = (0, 0, 0, 1)
-		moduleVersion = 6
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.0, 0.0)
-		originalAttachNodeSize = 1
-		originalAttachNodeOrientation = (-1.0, 0.0, 0.0)
-		originalAttachNodeOffset = (0.0, 0.0, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = KCHS.Mengzhou.Heat.Shield_4293836710
-	partName = Part
-	persistentId = 1319539007
+	persistentId = 3284820659
 	pos = 3.46138563E-07,14.1347179,-2.85456537E-07
 	attPos = 0,0,0
 	attPos0 = 3.46138563E-07,-0.865282059,-2.85456537E-07
@@ -1583,7 +1158,7 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 1
+	istg = 0
 	resPri = 0
 	dstg = 1
 	sidx = 0
@@ -1594,9 +1169,9 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCHS.Mengzhou.Service.Module_4293830226
-	attN = BottomNode,KCHS.Mengzhou.Service.Module_4293830226_0|0.198951617|0_-3.89414367E-07|-1|-3.57627897E-07_0|0.198951617|0_-3.89414367E-07|-1|-3.57627897E-07
-	attN = TopNode,KCHS.Mengzhou.ReEntry.Module_4294052852_0|0.198951617|0_0|0.99999994|-1.1920929E-07_0|0.198951617|0_0|0.99999994|-1.1920929E-07
+	link = KCHS.Mengzhou.Service.Module_4293797530
+	attN = BottomNode,KCHS.Mengzhou.Service.Module_4293797530_0|0.198951617|0_-3.89414367E-07|-1|-3.57627897E-07_0|0.198951617|0_-3.89414367E-07|-1|-3.57627897E-07
+	attN = TopNode,KCHS.Mengzhou.ReEntry.Module_4293807824_0|0.198951617|0_0|0.99999994|-1.1920929E-07_0|0.198951617|0_0|0.99999994|-1.1920929E-07
 	EVENTS
 	{
 	}
@@ -1635,7 +1210,7 @@ PART
 		{
 			DecoupleAction
 			{
-				actionGroup = Custom01
+				actionGroup = None
 				wasActiveBeforePartWasAdjusted = False
 			}
 		}
@@ -1732,9 +1307,9 @@ PART
 }
 PART
 {
-	part = KCHS.Mengzhou.Service.Module_4293830226
+	part = KCHS.Mengzhou.Service.Module_4293797530
 	partName = Part
-	persistentId = 1702143937
+	persistentId = 4142376865
 	pos = 3.46138563E-07,12.779994,-2.85456537E-07
 	attPos = 0,0,0
 	attPos0 = 0,-1.35472393,0
@@ -1745,31 +1320,31 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 4
+	istg = 1
 	resPri = 0
 	dstg = 2
 	sidx = 0
-	sqor = 4
-	sepI = 4
+	sqor = 2
+	sepI = 2
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.Mengzhou.Engine_4293828838
-	link = KCLV.Mengzhou.Engine_4293828448
-	link = KCLV.Mengzhou.Engine_4293828238
-	link = KCLV.Mengzhou.Engine_4293827544
-	link = KCHS.Mengzhou.Solar.Panel_4293826924
-	link = KCHS.Mengzhou.Solar.Panel_4293823884
+	link = KCHS.Mengzhou.Engine_4293780496
+	link = KCHS.Mengzhou.Engine_4293779950
+	link = KCHS.Mengzhou.Engine_4293779604
+	link = KCHS.Mengzhou.Engine_4293779362
+	link = KCHS.Mengzhou.Solar.Panel_4293776364
+	link = KCHS.Mengzhou.Solar.Panel_4293775164
 	attN = bottom,Null_0_0|-0.760284066|0_0|-0.600000024|0_0|-0.760284066|0_0|-0.600000024|0
-	attN = EngineNode1,KCLV.Mengzhou.Engine_4293828838_0.178141817|-1.24206614|0.178141817_0|-1|-3.57627869E-07_0.178141817|-1.24206614|0.178141817_0|-1|-3.57627869E-07
-	attN = EngineNode2,KCLV.Mengzhou.Engine_4293828238_-0.178141817|-1.24206614|0.178141817_0|-1|-3.57627869E-07_-0.178141817|-1.24206614|0.178141817_0|-1|-3.57627869E-07
-	attN = EngineNode3,KCLV.Mengzhou.Engine_4293827544_0.178141817|-1.24206614|-0.178141817_0|-1|-3.57627869E-07_0.178141817|-1.24206614|-0.178141817_0|-1|-3.57627869E-07
-	attN = EngineNode4,KCLV.Mengzhou.Engine_4293828448_-0.178141817|-1.24206614|-0.178141817_0|-1|-3.57627869E-07_-0.178141817|-1.24206614|-0.178141817_0|-1|-3.57627869E-07
-	attN = SolarNode1,KCHS.Mengzhou.Solar.Panel_4293826924_0|0|0.900000036_4.37113883E-08|-5.32907052E-15|1_0|0|0.900000036_4.37113883E-08|-5.32907052E-15|1
-	attN = SolarNode2,KCHS.Mengzhou.Solar.Panel_4293823884_0|0|-0.900000036_0|-1.50995803E-07|-1_0|0|-0.900000036_0|-1.50995803E-07|-1
-	attN = TopNode,KCHS.Mengzhou.Heat.Shield_4293836710_0|1.55367601|0_0|0.99999994|-1.1920929E-07_0|1.55367601|0_0|0.99999994|-1.1920929E-07
+	attN = EngineNode1,KCHS.Mengzhou.Engine_4293779362_0.178141817|-1.24206614|0.178141817_0|-1|-3.57627869E-07_0.178141817|-1.24206614|0.178141817_0|-1|-3.57627869E-07
+	attN = EngineNode2,KCHS.Mengzhou.Engine_4293779950_-0.178141817|-1.24206614|0.178141817_0|-1|-3.57627869E-07_-0.178141817|-1.24206614|0.178141817_0|-1|-3.57627869E-07
+	attN = EngineNode3,KCHS.Mengzhou.Engine_4293780496_0.178141817|-1.24206614|-0.178141817_0|-1|-3.57627869E-07_0.178141817|-1.24206614|-0.178141817_0|-1|-3.57627869E-07
+	attN = EngineNode4,KCHS.Mengzhou.Engine_4293779604_-0.178141817|-1.24206614|-0.178141817_0|-1|-3.57627869E-07_-0.178141817|-1.24206614|-0.178141817_0|-1|-3.57627869E-07
+	attN = SolarNode1,KCHS.Mengzhou.Solar.Panel_4293775164_0|0|0.900000036_4.37113883E-08|-5.32907052E-15|1_0|0|0.900000036_4.37113883E-08|-5.32907052E-15|1
+	attN = SolarNode2,KCHS.Mengzhou.Solar.Panel_4293776364_0|0|-0.900000036_0|-1.50995803E-07|-1_0|0|-0.900000036_0|-1.50995803E-07|-1
+	attN = TopNode,KCHS.Mengzhou.Heat.Shield_4293796624_0|1.55367601|0_0|0.99999994|-1.1920929E-07_0|1.55367601|0_0|0.99999994|-1.1920929E-07
 	EVENTS
 	{
 	}
@@ -1839,7 +1414,7 @@ PART
 		{
 			DecoupleAction
 			{
-				actionGroup = Custom01
+				actionGroup = None
 				wasActiveBeforePartWasAdjusted = False
 			}
 		}
@@ -1915,6 +1490,21 @@ PART
 		{
 		}
 	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
 	RESOURCE
 	{
 		name = MonoPropellant
@@ -1940,899 +1530,9 @@ PART
 }
 PART
 {
-	part = KCLV.Mengzhou.Engine_4293828838
+	part = KCHS.Proactive.Docking.Port_4293793518
 	partName = Part
-	persistentId = 1346538339
-	pos = 0.148142159,11.3688869,0.178141534
-	attPos = 0,0,0
-	attPos0 = 0.148141816,-1.41110706,0.178141817
-	rot = 0,0,0,1
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 5
-	resPri = 0
-	dstg = 2
-	sidx = 0
-	sqor = 5
-	sepI = 4
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = KCLV.Mengzhou.Engine_4293828448
-	attN = TopNode,KCHS.Mengzhou.Service.Module_4293830226_0.0300000012|0.169041008|0_0|0.99999994|-1.1920929E-07_0.0300000012|0.169041008|0_0|0.99999994|-1.1920929E-07
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleEnginesFX
-		isEnabled = True
-		independentThrottle = False
-		independentThrottlePercentage = 0
-		staged = False
-		flameout = False
-		EngineIgnited = False
-		engineShutdown = False
-		currentThrottle = 0
-		thrustPercentage = 100
-		manuallyOverridden = False
-		includeinDVCalcs = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			OnAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ShutdownAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ActivateAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ToggleThrottle
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		AXISGROUPS
-		{
-			independentThrottlePercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-			}
-			thrustPercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 1600
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (0.148142159, 11.3688869, 0.178141534)
-		originalRotation = (0, 0, 0, 1)
-		moduleVersion = 6
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.2, 0.0)
-		originalAttachNodeSize = 1
-		originalAttachNodeOrientation = (0.0, 1.0, 0.0)
-		originalAttachNodeOffset = (0.0, 0.0, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = KCLV.Mengzhou.Engine_4293828448
-	partName = Part
-	persistentId = 2562751329
-	pos = -0.148141474,11.3688869,-0.178142101
-	attPos = 0,0,0
-	attPos0 = -0.148141816,-1.41110706,-0.178141817
-	rot = 0,1,0,-4.37113883E-08
-	attRot = 0,0,0,1
-	attRot0 = 0,1,0,-4.37113883E-08
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 5
-	resPri = 0
-	dstg = 2
-	sidx = 0
-	sqor = 5
-	sepI = 4
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = KCLV.Mengzhou.Engine_4293828838
-	attN = TopNode,KCHS.Mengzhou.Service.Module_4293830226_0.0300000012|0.169041008|0_0|0.99999994|-1.1920929E-07_0.0300000012|0.169041008|0_0|0.99999994|-1.1920929E-07
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleEnginesFX
-		isEnabled = True
-		independentThrottle = False
-		independentThrottlePercentage = 0
-		staged = False
-		flameout = False
-		EngineIgnited = False
-		engineShutdown = False
-		currentThrottle = 0
-		thrustPercentage = 100
-		manuallyOverridden = False
-		includeinDVCalcs = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			OnAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ShutdownAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ActivateAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ToggleThrottle
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		AXISGROUPS
-		{
-			independentThrottlePercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-			thrustPercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 1600
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (-0.148141474, 11.3688869, -0.178142101)
-		originalRotation = (0, 1, 0, -4.37113883E-08)
-		moduleVersion = 6
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.2, 0.0)
-		originalAttachNodeSize = 1
-		originalAttachNodeOrientation = (0.0, 1.0, 0.0)
-		originalAttachNodeOffset = (0.0, 0.0, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = KCLV.Mengzhou.Engine_4293828238
-	partName = Part
-	persistentId = 2811106497
-	pos = -0.208141476,11.3688869,0.178141534
-	attPos = 0,0,0
-	attPos0 = -0.208141819,-1.41110706,0.178141817
-	rot = 0,0,0,1
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 5
-	resPri = 0
-	dstg = 2
-	sidx = 1
-	sqor = 5
-	sepI = 4
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = KCLV.Mengzhou.Engine_4293827544
-	attN = TopNode,KCHS.Mengzhou.Service.Module_4293830226_0.0300000012|0.169041008|0_0|0.99999994|-1.1920929E-07_0.0300000012|0.169041008|0_0|0.99999994|-1.1920929E-07
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleEnginesFX
-		isEnabled = True
-		independentThrottle = False
-		independentThrottlePercentage = 0
-		staged = False
-		flameout = False
-		EngineIgnited = False
-		engineShutdown = False
-		currentThrottle = 0
-		thrustPercentage = 100
-		manuallyOverridden = False
-		includeinDVCalcs = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			OnAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ShutdownAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ActivateAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ToggleThrottle
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		AXISGROUPS
-		{
-			independentThrottlePercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-			thrustPercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 1600
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (-0.208141476, 11.3688869, 0.178141534)
-		originalRotation = (0, 0, 0, 1)
-		moduleVersion = 6
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.2, 0.0)
-		originalAttachNodeSize = 1
-		originalAttachNodeOrientation = (0.0, 1.0, 0.0)
-		originalAttachNodeOffset = (0.0, 0.0, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = KCLV.Mengzhou.Engine_4293827544
-	partName = Part
-	persistentId = 1654918273
-	pos = 0.208142161,11.3688869,-0.178142101
-	attPos = 0,0,0
-	attPos0 = 0.208141819,-1.41110706,-0.178141817
-	rot = 0,1,0,-4.37113883E-08
-	attRot = 0,0,0,1
-	attRot0 = 0,1,0,-4.37113883E-08
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 5
-	resPri = 0
-	dstg = 2
-	sidx = 1
-	sqor = 5
-	sepI = 4
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = KCLV.Mengzhou.Engine_4293828238
-	attN = TopNode,KCHS.Mengzhou.Service.Module_4293830226_0.0300000012|0.169041008|0_0|0.99999994|-1.1920929E-07_0.0300000012|0.169041008|0_0|0.99999994|-1.1920929E-07
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleEnginesFX
-		isEnabled = True
-		independentThrottle = False
-		independentThrottlePercentage = 0
-		staged = False
-		flameout = False
-		EngineIgnited = False
-		engineShutdown = False
-		currentThrottle = 0
-		thrustPercentage = 100
-		manuallyOverridden = False
-		includeinDVCalcs = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			OnAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ShutdownAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ActivateAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ToggleThrottle
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		AXISGROUPS
-		{
-			independentThrottlePercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-			thrustPercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 1600
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (0.208142161, 11.3688869, -0.178142101)
-		originalRotation = (0, 1, 0, -4.37113883E-08)
-		moduleVersion = 6
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.2, 0.0)
-		originalAttachNodeSize = 1
-		originalAttachNodeOrientation = (0.0, 1.0, 0.0)
-		originalAttachNodeOffset = (0.0, 0.0, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = KCHS.Mengzhou.Solar.Panel_4293826924
-	partName = Part
-	persistentId = 3337033186
-	pos = 3.46138563E-07,12.779994,0.899999738
-	attPos = 0,0,0
-	attPos0 = 0,0,0.900000036
-	rot = 0,-0.707106829,0,0.707106829
-	attRot = 0,-0.707106769,0,0.707106769
-	attRot0 = 0,-0.707106829,0,0.707106829
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 4
-	resPri = 0
-	dstg = 2
-	sidx = -1
-	sqor = -1
-	sepI = 4
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = KCHS.Mengzhou.Solar.Panel_4293823884
-	attN = Node,KCHS.Mengzhou.Service.Module_4293830226_0|0|0_-1|0|-2.38418579E-07_0|0|0_-1|0|-2.38418579E-07
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = KopernicusSolarPanel
-		isEnabled = True
-		trackingBodyName = 
-		_manualTracking = False
-		efficiencyMult = 1
-		launchUT = -1
-		currentRotation = (0, 0, -0.707106829, 0.707106829)
-		storedAnimationTime = 0
-		storedAnimationSpeed = 1
-		deployState = RETRACTED
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ExtendPanelsAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ExtendAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			RetractAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 3800
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (3.46138563E-07, 12.779994, 0.899999738)
-		originalRotation = (0, -0.707106829, 0, 0.707106829)
-		moduleVersion = 6
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.0, 0.0)
-		originalAttachNodeSize = 0
-		originalAttachNodeOrientation = (-1.0, 0.0, 0.0)
-		originalAttachNodeOffset = (0.0, 0.0, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = KCHS.Mengzhou.Solar.Panel_4293823884
-	partName = Part
-	persistentId = 2490162295
-	pos = 3.46138563E-07,12.779994,-0.900000334
-	attPos = 0,0,0
-	attPos0 = 0,0,-0.900000036
-	rot = 0,0.707106888,0,0.707106769
-	attRot = 0,-0.707106769,0,0.707106769
-	attRot0 = 0,0.707106888,0,0.707106769
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 4
-	resPri = 0
-	dstg = 2
-	sidx = -1
-	sqor = -1
-	sepI = 4
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = KCHS.Mengzhou.Solar.Panel_4293826924
-	attN = Node,KCHS.Mengzhou.Service.Module_4293830226_0|0|0_-1|0|-2.38418579E-07_0|0|0_-1|0|-2.38418579E-07
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = KopernicusSolarPanel
-		isEnabled = True
-		trackingBodyName = 
-		_manualTracking = False
-		efficiencyMult = 1
-		launchUT = -1
-		currentRotation = (0, 0, -0.707106829, 0.707106829)
-		storedAnimationTime = 0
-		storedAnimationSpeed = 1
-		deployState = RETRACTED
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ExtendPanelsAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ExtendAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			RetractAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 3800
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (3.46138563E-07, 12.779994, -0.900000334)
-		originalRotation = (0, 0.707106888, 0, 0.707106769)
-		moduleVersion = 6
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.0, 0.0)
-		originalAttachNodeSize = 0
-		originalAttachNodeOrientation = (-1.0, 0.0, 0.0)
-		originalAttachNodeOffset = (0.0, 0.0, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = KCHS.Proactive.Docking.Port_4293843648
-	partName = Part
-	persistentId = 279272728
+	persistentId = 485242878
 	pos = 0,15.6195097,0
 	attPos = 0,0,0
 	attPos0 = 0,0.619509697,0
@@ -2843,7 +1543,7 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 0
+	istg = -1
 	resPri = 0
 	dstg = 0
 	sidx = -1
@@ -2854,9 +1554,8 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.CZ-10.Escape.Tower.Lower_4294003504
-	attN = bottom,KCHS.Mengzhou.ReEntry.Module_4294052852_0|-0.119930401|0_0|-0.600000024|0_0|-0.119930401|0_0|-0.600000024|0
-	attN = top,KCLV.CZ-10.Escape.Tower.Lower_4294003504_0|0.186514199|0_0|0.600000024|0_0|0.186514199|0_0|0.600000024|0
+	attN = bottom,KCHS.Mengzhou.ReEntry.Module_4293807824_0|-0.119930401|0_0|-0.600000024|0_0|-0.119930401|0_0|-0.600000024|0
+	attN = top,Null_0_0|0.186514199|0_0|0.600000024|0_0|0.186514199|0_0|0.600000024|0
 	EVENTS
 	{
 	}
@@ -2970,7 +1669,7 @@ PART
 		aniState = LOCKED
 		animSwitch = True
 		animTime = 0
-		animSpeed = 1
+		animSpeed = -41.2500038
 		deployPercent = 100
 		animationIsDisabled = False
 		stagingEnabled = True
@@ -3089,12 +1788,12 @@ PART
 }
 PART
 {
-	part = KCLV.CZ-10.Escape.Tower.Lower_4294003504
+	part = KCHS.Mengzhou.Engine_4293780496
 	partName = Part
-	persistentId = 3683712139
-	pos = 0,17.3179035,0
+	persistentId = 1095634634
+	pos = 0.17814216,11.3688869,-0.178142101
 	attPos = 0,0,0
-	attPos0 = 0,1.69839382,0
+	attPos0 = 0.178141817,-1.41110706,-0.178141817
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -3102,20 +1801,19 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 0
+	istg = 2
 	resPri = 0
-	dstg = 0
-	sidx = 1
-	sqor = 0
-	sepI = 0
+	dstg = 2
+	sidx = 0
+	sqor = 2
+	sepI = 2
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.CZ-10.Escape.Tower.Upper_4294002562
-	attN = BottomNode,KCHS.Proactive.Docking.Port_4293843648_0|-1.51188004|0_-1.32348898E-22|-0.99999994|3.57627869E-07_0|-1.51188004|0_-1.32348898E-22|-0.99999994|3.57627869E-07
-	attN = TopNode,KCLV.CZ-10.Escape.Tower.Upper_4294002562_4.27822821E-22|1.6122061|0_3.88235118E-23|0.99999994|-1.1920929E-07_4.27822821E-22|1.6122061|0_3.88235118E-23|0.99999994|-1.1920929E-07
+	sym = KCHS.Mengzhou.Engine_4293779950
+	attN = TopNode,KCHS.Mengzhou.Service.Module_4293797530_0|0.169041008|0_0|0.99999994|-1.1920929E-07_0|0.169041008|0_0|0.99999994|-1.1920929E-07
 	EVENTS
 	{
 	}
@@ -3172,7 +1870,7 @@ PART
 			}
 			ActivateAction
 			{
-				actionGroup = Custom01
+				actionGroup = None
 				wasActiveBeforePartWasAdjusted = False
 			}
 			ToggleThrottle
@@ -3212,32 +1910,10 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleDecouple
-		isEnabled = True
-		ejectionForcePercent = 100
-		isDecoupled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			DecoupleAction
-			{
-				actionGroup = Custom02
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 1530.0000011920929
+		OriginalCost = 160
 		stagingEnabled = True
 		EVENTS
 		{
@@ -3254,15 +1930,11 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (0, 17.3179035, 0)
+		originalPos = (0.17814216, 11.3688869, -0.178142101)
 		originalRotation = (0, 0, 0, 1)
 		moduleVersion = 6
 		stagingEnabled = True
-		originalAttachNodePos = (0.0, -1.5, 0.0)
-		originalAttachNodeSize = 1
-		originalAttachNodeOrientation = (0.0, -1.0, 0.0)
-		originalAttachNodeOffset = (0.0, 0.0, 0.0)
-		originalAttachNodePos = (0.0, 1.6, 0.0)
+		originalAttachNodePos = (0.0, 0.2, 0.0)
 		originalAttachNodeSize = 1
 		originalAttachNodeOrientation = (0.0, 1.0, 0.0)
 		originalAttachNodeOffset = (0.0, 0.0, 0.0)
@@ -3276,45 +1948,50 @@ PART
 		{
 		}
 	}
-	RESOURCE
+	MODULE
 	{
-		name = SolidFuel
-		amount = 50
-		maxAmount = 50
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
 	}
 }
 PART
 {
-	part = KCLV.CZ-10.Escape.Tower.Upper_4294002562
+	part = KCHS.Mengzhou.Engine_4293779950
 	partName = Part
-	persistentId = 3405578448
-	pos = 4.27822821E-22,20.7193756,0
+	persistentId = 2709654352
+	pos = -0.178141475,11.3688869,0.178141534
 	attPos = 0,0,0
-	attPos0 = 4.27822821E-22,3.40147209,0
-	rot = 0,0,0,1
+	attPos0 = -0.178141817,-1.41110706,0.178141817
+	rot = 0,1,0,-4.37113883E-08
 	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
+	attRot0 = 0,1,0,-4.37113883E-08
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 0
+	istg = 2
 	resPri = 0
-	dstg = 0
-	sidx = 2
-	sqor = 0
-	sepI = 0
+	dstg = 2
+	sidx = 0
+	sqor = 2
+	sepI = 2
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	attN = BottomNode,KCLV.CZ-10.Escape.Tower.Lower_4294003504_0|-1.78926611|0_1.94117543E-23|-1|1.1920929E-06_0|-1.78926611|0_1.94117543E-23|-1|1.1920929E-06
+	sym = KCHS.Mengzhou.Engine_4293780496
+	attN = TopNode,KCHS.Mengzhou.Service.Module_4293797530_0|0.169041008|0_0|0.99999994|-1.1920929E-07_0|0.169041008|0_0|0.99999994|-1.1920929E-07
 	EVENTS
 	{
 	}
@@ -3371,7 +2048,7 @@ PART
 			}
 			ActivateAction
 			{
-				actionGroup = Custom02
+				actionGroup = None
 				wasActiveBeforePartWasAdjusted = False
 			}
 			ToggleThrottle
@@ -3388,10 +2065,6 @@ PART
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				axisSpeedMultiplier = 0
 				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 			}
 			thrustPercentage
 			{
@@ -3399,32 +2072,6 @@ PART
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				axisSpeedMultiplier = 0
 				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleDecouple
-		isEnabled = True
-		ejectionForcePercent = 100
-		isDecoupled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			DecoupleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
 			}
 		}
 		UPGRADESAPPLIED
@@ -3436,7 +2083,7 @@ PART
 		name = Refunding
 		isEnabled = True
 		active = True
-		OriginalCost = 1500.6000000104309
+		OriginalCost = 160
 		stagingEnabled = True
 		EVENTS
 		{
@@ -3453,13 +2100,13 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (4.27822821E-22, 20.7193756, 0)
-		originalRotation = (0, 0, 0, 1)
+		originalPos = (-0.178141475, 11.3688869, 0.178141534)
+		originalRotation = (0, 1, 0, -4.37113883E-08)
 		moduleVersion = 6
 		stagingEnabled = True
-		originalAttachNodePos = (0.0, -1.8, 0.0)
+		originalAttachNodePos = (0.0, 0.2, 0.0)
 		originalAttachNodeSize = 1
-		originalAttachNodeOrientation = (0.0, -1.0, 0.0)
+		originalAttachNodeOrientation = (0.0, 1.0, 0.0)
 		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		EVENTS
 		{
@@ -3471,15 +2118,1061 @@ PART
 		{
 		}
 	}
-	RESOURCE
+	MODULE
 	{
-		name = SolidFuel
-		amount = 0.99999997764825821
-		maxAmount = 50
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = KCHS.Mengzhou.Engine_4293779604
+	partName = Part
+	persistentId = 1184690588
+	pos = -0.178141475,11.3688869,-0.178142101
+	attPos = 0,0,0
+	attPos0 = -0.178141817,-1.41110706,-0.178141817
+	rot = 0,0,0,1
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 2
+	resPri = 0
+	dstg = 2
+	sidx = 1
+	sqor = 2
+	sepI = 2
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = KCHS.Mengzhou.Engine_4293779362
+	attN = TopNode,KCHS.Mengzhou.Service.Module_4293797530_0|0.169041008|0_0|0.99999994|-1.1920929E-07_0|0.169041008|0_0|0.99999994|-1.1920929E-07
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleEnginesFX
+		isEnabled = True
+		independentThrottle = False
+		independentThrottlePercentage = 0
+		staged = False
+		flameout = False
+		EngineIgnited = False
+		engineShutdown = False
+		currentThrottle = 0
+		thrustPercentage = 100
+		manuallyOverridden = False
+		includeinDVCalcs = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			OnAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ShutdownAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ActivateAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ToggleThrottle
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		AXISGROUPS
+		{
+			independentThrottlePercentage
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
+				axisInverted = None
+			}
+			thrustPercentage
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
+				axisInverted = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = Refunding
+		isEnabled = True
+		active = True
+		OriginalCost = 160
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = AttachedOnEditor
+		isEnabled = True
+		active = True
+		originalPos = (-0.178141475, 11.3688869, -0.178142101)
+		originalRotation = (0, 0, 0, 1)
+		moduleVersion = 6
+		stagingEnabled = True
+		originalAttachNodePos = (0.0, 0.2, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, 1.0, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = KCHS.Mengzhou.Engine_4293779362
+	partName = Part
+	persistentId = 669510513
+	pos = 0.17814216,11.3688869,0.178141534
+	attPos = 0,0,0
+	attPos0 = 0.178141817,-1.41110706,0.178141817
+	rot = 0,1,0,-4.37113883E-08
+	attRot = 0,0,0,1
+	attRot0 = 0,1,0,-4.37113883E-08
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 2
+	resPri = 0
+	dstg = 2
+	sidx = 1
+	sqor = 2
+	sepI = 2
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = KCHS.Mengzhou.Engine_4293779604
+	attN = TopNode,KCHS.Mengzhou.Service.Module_4293797530_0|0.169041008|0_0|0.99999994|-1.1920929E-07_0|0.169041008|0_0|0.99999994|-1.1920929E-07
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleEnginesFX
+		isEnabled = True
+		independentThrottle = False
+		independentThrottlePercentage = 0
+		staged = False
+		flameout = False
+		EngineIgnited = False
+		engineShutdown = False
+		currentThrottle = 0
+		thrustPercentage = 100
+		manuallyOverridden = False
+		includeinDVCalcs = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			OnAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ShutdownAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ActivateAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ToggleThrottle
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		AXISGROUPS
+		{
+			independentThrottlePercentage
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
+				axisInverted = None
+			}
+			thrustPercentage
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
+				axisInverted = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = Refunding
+		isEnabled = True
+		active = True
+		OriginalCost = 160
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = AttachedOnEditor
+		isEnabled = True
+		active = True
+		originalPos = (0.17814216, 11.3688869, 0.178141534)
+		originalRotation = (0, 1, 0, -4.37113883E-08)
+		moduleVersion = 6
+		stagingEnabled = True
+		originalAttachNodePos = (0.0, 0.2, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, 1.0, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = KCHS.Mengzhou.Solar.Panel_4293776364
+	partName = Part
+	persistentId = 1031671987
+	pos = 3.46138563E-07,12.779994,-0.900000334
+	attPos = 0,0,0
+	attPos0 = 0,0,-0.900000036
+	rot = 0,0.707106829,0,0.707106829
+	attRot = 0,0.707106709,0,0.707106709
+	attRot0 = 0,0.707106829,0,0.707106829
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 2
+	resPri = 0
+	dstg = 2
+	sidx = -1
+	sqor = -1
+	sepI = 2
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = KCHS.Mengzhou.Solar.Panel_4293775164
+	attN = Node,KCHS.Mengzhou.Service.Module_4293797530_0|0|0_-1|0|-2.38418579E-07_0|0|0_-1|0|-2.38418579E-07
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = KopernicusSolarPanel
+		isEnabled = True
+		trackingBodyName = 
+		_manualTracking = False
+		efficiencyMult = 1
+		launchUT = -1
+		currentRotation = (0, 0, -0.707106829, 0.707106829)
+		storedAnimationTime = 0
+		storedAnimationSpeed = -10
+		deployState = RETRACTED
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ExtendPanelsAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ExtendAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			RetractAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = Refunding
+		isEnabled = True
+		active = True
+		OriginalCost = 380
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = AttachedOnEditor
+		isEnabled = True
+		active = True
+		originalPos = (3.46138563E-07, 12.779994, -0.900000334)
+		originalRotation = (0, 0.707106829, 0, 0.707106829)
+		moduleVersion = 6
+		stagingEnabled = True
+		originalAttachNodePos = (0.0, 0.0, 0.0)
+		originalAttachNodeSize = 0
+		originalAttachNodeOrientation = (-1.0, 0.0, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = KCHS.Mengzhou.Solar.Panel_4293775164
+	partName = Part
+	persistentId = 2207603629
+	pos = 3.46138563E-07,12.779994,0.899999738
+	attPos = 0,0,0
+	attPos0 = 0,0,0.900000036
+	rot = 0,0.707106709,0,-0.707106829
+	attRot = 0,0.707106709,0,0.707106709
+	attRot0 = 0,0.707106709,0,-0.707106829
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 2
+	resPri = 0
+	dstg = 2
+	sidx = -1
+	sqor = -1
+	sepI = 2
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = KCHS.Mengzhou.Solar.Panel_4293776364
+	attN = Node,KCHS.Mengzhou.Service.Module_4293797530_0|0|0_-1|0|-2.38418579E-07_0|0|0_-1|0|-2.38418579E-07
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = KopernicusSolarPanel
+		isEnabled = True
+		trackingBodyName = 
+		_manualTracking = False
+		efficiencyMult = 1
+		launchUT = -1
+		currentRotation = (0, 0, -0.707106829, 0.707106829)
+		storedAnimationTime = 0
+		storedAnimationSpeed = -10
+		deployState = RETRACTED
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ExtendPanelsAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ExtendAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			RetractAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = Refunding
+		isEnabled = True
+		active = True
+		OriginalCost = 380
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = AttachedOnEditor
+		isEnabled = True
+		active = True
+		originalPos = (3.46138563E-07, 12.779994, 0.899999738)
+		originalRotation = (0, 0.707106709, 0, -0.707106829)
+		moduleVersion = 6
+		stagingEnabled = True
+		originalAttachNodePos = (0.0, 0.0, 0.0)
+		originalAttachNodeSize = 0
+		originalAttachNodeOrientation = (-1.0, 0.0, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = KCHS.Mengzhou.Main.Chute_4293774020
+	partName = Part
+	persistentId = 3535790969
+	pos = 0,15.8040419,-2.13650239E-07
+	attPos = 0,0,0
+	attPos0 = 0,0.804041862,-2.13650239E-07
+	rot = 0,0,0,1
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 0
+	resPri = 0
+	dstg = 0
+	sidx = 1
+	sqor = 0
+	sepI = -1
+	attm = 0
+	sameVesselCollision = False
+	modCost = 288.600006
+	modMass = 0
+	modSize = 0,0,0
+	attN = MainChuteNode,KCHS.Mengzhou.ReEntry.Module_4293807824_0|0|0_1|3.27825546E-07|5.96046448E-08_0|0|0_1|3.27825546E-07|5.96046448E-08
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = RealChuteModule
+		isEnabled = True
+		caseMass = 0.150000006
+		cutSpeed = 0.5
+		timer = 0
+		mustGoDown = True
+		deployOnGround = False
+		spareChutes = 0
+		initiated = True
+		wait = True
+		armed = False
+		oneWasDeployed = False
+		staged = False
+		launched = False
+		chuteCount = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ActionDeploy
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ActionCut
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ActionArm
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ActionDisarm
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		PARACHUTE
+		{
+			material = Nylon
+			preDeployedDiameter = 8
+			deployedDiameter = 70
+			minIsPressure = False
+			capOff = False
+			minDeployment = 3000
+			minPressure = 0.00999999978
+			deploymentAlt = 1500
+			cutAlt = -1
+			preDeploymentSpeed = 0.5
+			deploymentSpeed = 6
+			time = 0
+			parachuteName = RC_triple_canopy
+			baseParachuteName = RC_triple_canopy
+			capName = MainChute
+			preDeploymentAnimation = RC_triple_chute_semi_deploy
+			deploymentAnimation = RC_triple_chute_full_deploy
+			forcedOrientation = 0
+			maxRotation = 90
+			depState = STOWED
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ProceduralChute
+		isEnabled = True
+		caseId = -1
+		lastCaseId = -1
+		size = 0
+		lastSize = 0
+		planets = 0
+		presetId = 0
+		originalSize = (0.600000024, 0.600000024, 0.600000024)
+		top = 0
+		bottom = 0
+		debut = 0.600000024
+		initiated = True
+		mustGoDown = True
+		deployOnGround = False
+		secondaryChute = False
+		timer = 0s
+		cutSpeed = 0.5
+		spares = 0
+		landingAlt = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		CHUTE
+		{
+			chuteID = 0
+			modelID = 1
+			typeID = 0
+			lastTypeID = 0
+			position = 0.98419857,19.1731663,7.92288685
+			isPressure = False
+			calcSelect = True
+			getMass = True
+			useDry = True
+			preDepDiam = 8
+			depDiam = 70
+			predepClause = 3000
+			mass = 10
+			landingSpeed = 6
+			deceleration = 10
+			refDepAlt = 700
+			chuteCount = 1
+			deploymentAlt = 1500
+			cutAlt = 
+			preDepSpeed = 0.5
+			depSpeed = 6
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = Refunding
+		isEnabled = True
+		active = True
+		OriginalCost = 288.60000610351563
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = AttachedOnEditor
+		isEnabled = True
+		active = True
+		originalPos = (0, 15.8040419, -2.13650239E-07)
+		originalRotation = (0, 0, 0, 1)
+		moduleVersion = 6
+		stagingEnabled = True
+		originalAttachNodePos = (0.0, 0.0, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (1.0, 0.0, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = KCHS.Mengzhou.Drogue.Chute_4293773522
+	partName = Part
+	persistentId = 3463897028
+	pos = 0,15.8040419,0
+	attPos = 0,0,0
+	attPos0 = 0,0.804041862,0
+	rot = 0,0,0,1
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 0
+	resPri = 0
+	dstg = 0
+	sidx = 2
+	sqor = 0
+	sepI = -1
+	attm = 0
+	sameVesselCollision = False
+	modCost = 1.60000002
+	modMass = 0
+	modSize = 0,0,0
+	attN = DrogueChuteNode,KCHS.Mengzhou.ReEntry.Module_4293807824_0|0|0_-1|-3.27825546E-07|-4.76837158E-07_0|0|0_-1|-3.27825546E-07|-4.76837158E-07
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = RealChuteModule
+		isEnabled = True
+		caseMass = 0.0500000007
+		cutSpeed = 0.5
+		timer = 0
+		mustGoDown = True
+		deployOnGround = False
+		spareChutes = 0
+		initiated = True
+		wait = True
+		armed = False
+		oneWasDeployed = False
+		staged = False
+		launched = False
+		chuteCount = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ActionDeploy
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ActionCut
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ActionArm
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ActionDisarm
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		PARACHUTE
+		{
+			material = Kevlar
+			preDeployedDiameter = 2.5
+			deployedDiameter = 5
+			minIsPressure = False
+			capOff = False
+			minDeployment = 30000
+			minPressure = 0.00999999978
+			deploymentAlt = 7000
+			cutAlt = 2900
+			preDeploymentSpeed = 1
+			deploymentSpeed = 3
+			time = 0
+			parachuteName = RC_canopy2
+			baseParachuteName = RC_canopy2
+			capName = DrogueChute
+			preDeploymentAnimation = RC_chute2_semi_deploy
+			deploymentAnimation = RC_chute2_full_deploy
+			forcedOrientation = 0
+			maxRotation = 90
+			depState = STOWED
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ProceduralChute
+		isEnabled = True
+		caseId = -1
+		lastCaseId = -1
+		size = 0
+		lastSize = 0
+		planets = 0
+		presetId = 0
+		originalSize = (0.600000024, 0.600000024, 0.600000024)
+		top = 0
+		bottom = 0
+		debut = 0.600000024
+		initiated = True
+		mustGoDown = True
+		deployOnGround = False
+		secondaryChute = False
+		timer = 0s
+		cutSpeed = 0.5
+		spares = 0
+		landingAlt = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		CHUTE
+		{
+			chuteID = 1
+			modelID = 0
+			typeID = 0
+			lastTypeID = 0
+			position = -6.26315022,18.8671951,-4.56657505
+			isPressure = False
+			calcSelect = True
+			getMass = True
+			useDry = True
+			preDepDiam = 2.5
+			depDiam = 5
+			predepClause = 30000
+			mass = 10
+			landingSpeed = 6
+			deceleration = 10
+			refDepAlt = 700
+			chuteCount = 1
+			deploymentAlt = 7000
+			cutAlt = 2900
+			preDepSpeed = 1
+			depSpeed = 3
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = Refunding
+		isEnabled = True
+		active = True
+		OriginalCost = 1.6000000238418579
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = AttachedOnEditor
+		isEnabled = True
+		active = True
+		originalPos = (0, 15.8040419, 0)
+		originalRotation = (0, 0, 0, 1)
+		moduleVersion = 6
+		stagingEnabled = True
+		originalAttachNodePos = (0.0, 0.0, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (-1.0, 0.0, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
 	}
 }

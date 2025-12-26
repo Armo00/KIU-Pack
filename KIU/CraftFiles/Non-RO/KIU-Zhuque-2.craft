@@ -2,9 +2,9 @@ ship = Zhuque-2
 version = 1.12.5
 description = 
 type = VAB
-size = 3.91996956,29.9098206,3.91996956
+size = 3.91357946,29.9098206,3.91357946
 steamPublishedFileId = 0
-persistentId = 2803321321
+persistentId = 2499033041
 rot = 0,0,0,0
 missionFlag = Squad/Flags/China
 vesselType = Debris
@@ -14,12 +14,12 @@ OverrideAxisControl = 0,0,0,0
 OverrideGroupNames = ,,,
 PART
 {
-	part = KCLV.ZQ2.Adapter_4293801504
+	part = KCLV.ZQ2.Adapter_4293815688
 	partName = Part
-	persistentId = 1455405985
-	pos = 2.09199902E-06,29.7090187,-1.97419445E-06
+	persistentId = 2843610904
+	pos = 6.50078277E-07,37.3479881,-2.13603721E-06
 	attPos = 0,0,0
-	attPos0 = 2.09199902E-06,29.7090187,-1.97419445E-06
+	attPos0 = 6.50078277E-07,37.3479881,-2.13603721E-06
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -38,13 +38,13 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.ZQ2.Stage.2_4293797232
-	link = KCLV.ZQ2.Fairing_4293792786
-	link = KCLV.ZQ2.Fairing_4293790432
-	attN = bottom,KCLV.ZQ2.Stage.2_4293797232_0|-0.337163419|0_0|-0.600000024|0_0|-0.337163419|0_0|-0.600000024|0
+	link = KCLV.ZQ2.Stage.2_4293812230
+	link = KCLV.ZQ2.Fairing_4293790696
+	link = KCLV.ZQ2.Fairing_4293788312
+	attN = bottom,KCLV.ZQ2.Stage.2_4293812230_0|-0.337163419|0_0|-0.600000024|0_0|-0.337163419|0_0|-0.600000024|0
 	attN = top,Null_0_0|0.38283661|0_0|0.600000024|0_0|0.38283661|0_0|0.600000024|0
-	attN = FN1,KCLV.ZQ2.Fairing_4293792786_-1.005|-0.337163419|0_-1|0|-2.38418579E-07_-1.005|-0.337163419|0_-1|0|-2.38418579E-07
-	attN = FN2,KCLV.ZQ2.Fairing_4293790432_1.005|-0.337163419|0_1|-2.98023224E-08|0_1.005|-0.337163419|0_1|-2.98023224E-08|0
+	attN = FN1,KCLV.ZQ2.Fairing_4293790696_-1.005|-0.337163419|0_-1|0|-2.38418579E-07_-1.005|-0.337163419|0_-1|0|-2.38418579E-07
+	attN = FN2,KCLV.ZQ2.Fairing_4293788312_1.005|-0.337163419|0_1|-2.98023224E-08|0_1.005|-0.337163419|0_1|-2.98023224E-08|0
 	EVENTS
 	{
 	}
@@ -908,7 +908,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (2.09199902E-06, 29.7090187, -1.97419445E-06)
+		originalPos = (6.50078277E-07, 37.3479881, -2.13603721E-06)
 		originalRotation = (0, 0, 0, 1)
 		moduleVersion = 6
 		stagingEnabled = True
@@ -971,10 +971,10 @@ PART
 }
 PART
 {
-	part = KCLV.ZQ2.Stage.2_4293797232
+	part = KCLV.ZQ2.Stage.2_4293812230
 	partName = Part
-	persistentId = 4000610144
-	pos = 2.09199902E-06,26.6348953,-1.97419445E-06
+	persistentId = 903365570
+	pos = 6.50078277E-07,34.2738647,-2.13603721E-06
 	attPos = 0,0,0
 	attPos0 = 0,-3.07412338,0
 	rot = 0,0,0,1
@@ -987,7 +987,7 @@ PART
 	istg = 2
 	resPri = 0
 	dstg = 1
-	sidx = 0
+	sidx = 2
 	sqor = 2
 	sepI = 0
 	attm = 0
@@ -995,11 +995,15 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.ZQ2.Stage2.Engine.Bracket_4293788650
-	link = KCLV.ZQ2.interstage.1-2_4293784760
-	attN = top,KCLV.ZQ2.Adapter_4293801504_0|2.73696017|0_0|0.600000024|0_0|2.73696017|0_0|0.600000024|0
-	attN = bottom,KCLV.ZQ2.Stage2.Engine.Bracket_4293788650_0|-2.73696017|0_0|-0.600000024|0_0|-2.73696017|0_0|-0.600000024|0
-	attN = bottom2,KCLV.ZQ2.interstage.1-2_4293784760_0|-2.73696017|0_0|-0.600000024|0_0|-2.73696017|0_0|-0.600000024|0
+	link = KCLV.TQ12_4293779610
+	link = KCLV.ZQ2.interstage.1-2_4293807750
+	attN = top,KCLV.ZQ2.Adapter_4293815688_0|2.73696017|0_0|0.600000024|0_0|2.73696017|0_0|0.600000024|0
+	attN = bottom,KCLV.TQ12_4293779610_0|-2.73696017|0_0|-0.600000024|0_0|-2.73696017|0_0|-0.600000024|0
+	attN = bottom2,KCLV.ZQ2.interstage.1-2_4293807750_0|-2.73696017|0_0|-0.600000024|0_0|-2.73696017|0_0|-0.600000024|0
+	attN = RCS_Node_1,Null_0_-0.956736028|-2.62239599|0.256356627_-0.965925813|-3.27825546E-07|0.258819044_-0.956736028|-2.62239599|0.256356627_-0.965925813|-3.27825546E-07|0.258819044
+	attN = RCS_Node_2,Null_0_-0.256356686|-2.62239599|-0.956736028_-0.258818954|-4.47034836E-08|-0.965926111_-0.256356686|-2.62239599|-0.956736028_-0.258818954|-4.47034836E-08|-0.965926111
+	attN = RCS_Node_3,Null_0_0.256356597|-2.62239599|0.956736028_0.258819103|8.94069672E-08|0.965925813_0.256356597|-2.62239599|0.956736028_0.258819103|8.94069672E-08|0.965925813
+	attN = RCS_Node_4,Null_0_0.956736028|-2.62239599|-0.256356537_0.965925813|3.27825546E-07|-0.258819044_0.956736028|-2.62239599|-0.256356537_0.965925813|3.27825546E-07|-0.258819044
 	EVENTS
 	{
 	}
@@ -1170,7 +1174,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (2.09199902E-06, 26.6348953, -1.97419445E-06)
+		originalPos = (6.50078277E-07, 34.2738647, -2.13603721E-06)
 		originalRotation = (0, 0, 0, 1)
 		moduleVersion = 6
 		stagingEnabled = True
@@ -1185,6 +1189,22 @@ PART
 		originalAttachNodePos = (0.0, -2.7, 0.0)
 		originalAttachNodeSize = 1
 		originalAttachNodeOrientation = (0.0, -0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
+		originalAttachNodePos = (-1.0, -2.6, 0.3)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (-1.0, 0.0, 0.3)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
+		originalAttachNodePos = (-0.3, -2.6, -1.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (-0.3, 0.0, -1.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
+		originalAttachNodePos = (0.3, -2.6, 1.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.3, 0.0, 1.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
+		originalAttachNodePos = (1.0, -2.6, -0.3)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (1.0, 0.0, -0.3)
 		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		EVENTS
 		{
@@ -1258,12 +1278,12 @@ PART
 }
 PART
 {
-	part = KCLV.ZQ2.Fairing_4293792786
+	part = KCLV.ZQ2.Fairing_4293790696
 	partName = Part
-	persistentId = 967868680
-	pos = -0.00571358204,31.8438549,0.000134639646
+	persistentId = 2483757800
+	pos = -0.00571513176,39.4828262,0.000134477814
 	attPos = 0,0,0
-	attPos0 = -0.00571567426,2.1348362,0.000136613846
+	attPos0 = -0.00571578182,2.1348381,0.000136613846
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -1282,8 +1302,8 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = KCLV.ZQ2.Fairing_4293790432
-	attN = top,KCLV.ZQ2.Adapter_4293801504_-0.999284267|-2.47200012|-0.000136613846_1.00000012|2.08616257E-07|-3.57627869E-07_-0.999284267|-2.47200012|-0.000136613846_1.00000012|2.08616257E-07|-3.57627869E-07
+	sym = KCLV.ZQ2.Fairing_4293788312
+	attN = top,KCLV.ZQ2.Adapter_4293815688_-0.999284267|-2.47200012|-0.000136613846_1.00000012|2.08616257E-07|-3.57627869E-07_-0.999284267|-2.47200012|-0.000136613846_1.00000012|2.08616257E-07|-3.57627869E-07
 	EVENTS
 	{
 	}
@@ -1445,7 +1465,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-0.00571358204, 31.8438549, 0.000134639646)
+		originalPos = (-0.00571513176, 39.4828262, 0.000134477814)
 		originalRotation = (0, 0, 0, 1)
 		moduleVersion = 6
 		stagingEnabled = True
@@ -1477,12 +1497,12 @@ PART
 }
 PART
 {
-	part = KCLV.ZQ2.Fairing_4293790432
+	part = KCLV.ZQ2.Fairing_4293788312
 	partName = Part
-	persistentId = 1205064884
-	pos = 0.00571787357,31.8438549,-0.000138500691
+	persistentId = 2439878362
+	pos = 0.00571632385,39.4828262,-0.000138662523
 	attPos = 0,0,0
-	attPos0 = 0.00571578136,2.1348362,-0.000136526491
+	attPos0 = 0.00571567379,2.1348381,-0.000136526491
 	rot = 0,1,0,-4.37113883E-08
 	attRot = 0,0,0,1
 	attRot0 = 0,1,0,-4.37113883E-08
@@ -1501,8 +1521,8 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = KCLV.ZQ2.Fairing_4293792786
-	attN = top,KCLV.ZQ2.Adapter_4293801504_-0.999284267|-2.47200012|-0.000136613846_1.00000012|2.08616257E-07|-3.57627869E-07_-0.999284267|-2.47200012|-0.000136613846_1.00000012|2.08616257E-07|-3.57627869E-07
+	sym = KCLV.ZQ2.Fairing_4293790696
+	attN = top,KCLV.ZQ2.Adapter_4293815688_-0.999284267|-2.47200012|-0.000136613846_1.00000012|2.08616257E-07|-3.57627869E-07_-0.999284267|-2.47200012|-0.000136613846_1.00000012|2.08616257E-07|-3.57627869E-07
 	EVENTS
 	{
 	}
@@ -1656,7 +1676,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (0.00571787357, 31.8438549, -0.000138500691)
+		originalPos = (0.00571632385, 39.4828262, -0.000138662523)
 		originalRotation = (0, 1, 0, -4.37113883E-08)
 		moduleVersion = 6
 		stagingEnabled = True
@@ -1688,12 +1708,12 @@ PART
 }
 PART
 {
-	part = KCLV.ZQ2.Stage2.Engine.Bracket_4293788650
+	part = KCLV.TQ12_4293779610
 	partName = Part
-	persistentId = 2374247965
-	pos = 2.09199902E-06,23.7308083,-1.97419445E-06
+	persistentId = 88181108
+	pos = 6.50078277E-07,30.217083,-2.13603721E-06
 	attPos = 0,0,0
-	attPos0 = 0,-2.90408707,0
+	attPos0 = 0,-4.05678177,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -1703,220 +1723,25 @@ PART
 	rigidAttachment = False
 	istg = 2
 	resPri = 0
-	dstg = 2
-	sidx = -1
-	sqor = -1
+	dstg = 1
+	sidx = 0
+	sqor = 2
 	sepI = 0
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.TQ12_4293747922
-	attN = Node_Top,KCLV.ZQ2.Stage.2_4293797232_0|0.167125806|0_0|0.99999994|-1.1920929E-07_0|0.167125806|0_0|0.99999994|-1.1920929E-07
-	attN = Node_Engine,KCLV.TQ12_4293747922_0|-0.259161621|0_-3.44107135E-22|-1|8.94069672E-07_0|-0.259161621|0_-3.44107135E-22|-1|8.94069672E-07
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleRCSFX
-		isEnabled = True
-		rcsEnabled = True
-		thrustPercentage = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		enableX = True
-		enableY = True
-		enableZ = True
-		useThrottle = False
-		fullThrust = False
-		stagingEnabled = False
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModulePartVariants
-		isEnabled = True
-		useVariantMass = True
-		stagingEnabled = True
-		selectedVariant = Without RCS
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = Refunding
-		isEnabled = True
-		active = True
-		OriginalCost = 1000
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		type = KCLVStack
-		active = True
-		available = True
-		currentScale = 2.00999999
-		defaultScale = 2.00999999
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 952
-		OriginalCrewCapacity = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = AttachedOnEditor
-		isEnabled = True
-		active = True
-		originalPos = (2.09199902E-06, 23.7308083, -1.97419445E-06)
-		originalRotation = (0, 0, 0, 1)
-		moduleVersion = 6
-		stagingEnabled = True
-		originalAttachNodePos = (0.0, 0.2, 0.0)
-		originalAttachNodeSize = 1
-		originalAttachNodeOrientation = (0.0, 1.0, 0.0)
-		originalAttachNodeOffset = (0.0, 0.0, 0.0)
-		originalAttachNodePos = (0.0, -0.3, 0.0)
-		originalAttachNodeSize = 1
-		originalAttachNodeOrientation = (0.0, -1.0, 0.0)
-		originalAttachNodeOffset = (0.0, 0.0, 0.0)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWaterfallFX
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	RESOURCE
-	{
-		name = MonoPropellant
-		amount = 0
-		maxAmount = 40
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = KCLV.TQ12_4293747922
-	partName = Part
-	persistentId = 2870246066
-	pos = 2.09199902E-06,22.5781155,-1.97419445E-06
-	attPos = 0,0,0
-	attPos0 = 0,-1.15269279,0
-	rot = 0,0,0,1
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 3
-	resPri = 0
-	dstg = 3
-	sidx = 1
-	sqor = 3
-	sepI = 0
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	link = KCLV.TQ-11_4293745146
-	link = KCLV.TQ-11_4293744508
-	link = KCLV.TQ-11_4293744414
-	link = KCLV.TQ-11_4293744320
+	link = KCLV.TQ-11_4293776874
+	link = KCLV.TQ-11_4293775738
+	link = KCLV.TQ-11_4293775644
+	link = KCLV.TQ-11_4293775550
+	attN = top,KCLV.ZQ2.Stage.2_4293812230_0|1.31982017|0_0|0.600000024|0_0|1.31982017|0_0|0.600000024|0
 	attN = bottom,Null_0_0|-0.825923979|0_0|-0.600000024|0_0|-0.825923979|0_0|-0.600000024|0
-	attN = Node_Top,KCLV.ZQ2.Stage2.Engine.Bracket_4293788650_0|0.893530607|0_3.88235181E-23|1|-8.34465027E-07_0|0.893530607|0_3.88235181E-23|1|-8.34465027E-07
-	attN = Node1,KCLV.TQ-11_4293745146_-0.432234347|0.752535343|-0.432236224_-0.69636333|0.173648268|-0.696365416_-0.432234347|0.752535343|-0.432236224_-0.69636333|0.173648268|-0.696365416
-	attN = Node2,KCLV.TQ-11_4293744508_-0.432236284|0.752535403|0.432234436_-0.696365118|0.173648387|0.696363389_-0.432236284|0.752535403|0.432234436_-0.696365118|0.173648387|0.696363389
-	attN = Node3,KCLV.TQ-11_4293744320_0.432236344|0.752535343|-0.432234198_0.696365178|0.173648328|-0.696363509_0.432236344|0.752535343|-0.432234198_0.696365178|0.173648328|-0.696363509
-	attN = Node4,KCLV.TQ-11_4293744414_0.432234198|0.752535462|0.432236493_0.696363568|0.173648387|0.69636488_0.432234198|0.752535462|0.432236493_0.696363568|0.173648387|0.69636488
+	attN = Node1,KCLV.TQ-11_4293776874_-0.432234347|0.752535343|-0.432236224_-0.69636333|0.173648268|-0.696365416_-0.432234347|0.752535343|-0.432236224_-0.69636333|0.173648268|-0.696365416
+	attN = Node2,KCLV.TQ-11_4293775738_-0.432236284|0.752535403|0.432234436_-0.696365118|0.173648387|0.696363389_-0.432236284|0.752535403|0.432234436_-0.696365118|0.173648387|0.696363389
+	attN = Node3,KCLV.TQ-11_4293775550_0.432236344|0.752535343|-0.432234198_0.696365178|0.173648328|-0.696363509_0.432236344|0.752535343|-0.432234198_0.696365178|0.173648328|-0.696363509
+	attN = Node4,KCLV.TQ-11_4293775644_0.432234198|0.752535462|0.432236493_0.696363568|0.173648387|0.69636488_0.432234198|0.752535462|0.432236493_0.696363568|0.173648387|0.69636488
 	EVENTS
 	{
 	}
@@ -2146,17 +1971,17 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (2.09199902E-06, 22.5781155, -1.97419445E-06)
+		originalPos = (6.50078277E-07, 30.217083, -2.13603721E-06)
 		originalRotation = (0, 0, 0, 1)
 		moduleVersion = 6
 		stagingEnabled = True
+		originalAttachNodePos = (0.0, 1.3, 0.0)
+		originalAttachNodeSize = 1
+		originalAttachNodeOrientation = (0.0, 0.6, 0.0)
+		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		originalAttachNodePos = (0.0, -0.8, 0.0)
 		originalAttachNodeSize = 1
 		originalAttachNodeOrientation = (0.0, -0.6, 0.0)
-		originalAttachNodeOffset = (0.0, 0.0, 0.0)
-		originalAttachNodePos = (0.0, 0.9, 0.0)
-		originalAttachNodeSize = 1
-		originalAttachNodeOrientation = (0.0, 1.0, 0.0)
 		originalAttachNodeOffset = (0.0, 0.0, 0.0)
 		originalAttachNodePos = (-0.4, 0.8, -0.4)
 		originalAttachNodeSize = 1
@@ -2202,10 +2027,10 @@ PART
 }
 PART
 {
-	part = KCLV.TQ-11_4293745146
+	part = KCLV.TQ-11_4293776874
 	partName = Part
-	persistentId = 1259456476
-	pos = -0.458816022,23.1174374,-0.458821982
+	persistentId = 1414959039
+	pos = -0.458817452,30.7564049,-0.458822161
 	attPos = 0,0,0
 	attPos0 = -0.458818108,0.539321899,-0.458820015
 	rot = 0.0616284199,-8.67568701E-07,-0.0616284534,0.99619472
@@ -2215,21 +2040,21 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 3
+	istg = 2
 	resPri = 0
-	dstg = 3
-	sidx = 0
-	sqor = 3
+	dstg = 1
+	sidx = 1
+	sqor = 2
 	sepI = 0
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = KCLV.TQ-11_4293744508
-	sym = KCLV.TQ-11_4293744414
-	sym = KCLV.TQ-11_4293744320
-	attN = Node,KCLV.TQ12_4293747922_-9.37404332E-18|0.216501594|9.37404414E-18_0.707107008|0|0.70710665_-9.37404332E-18|0.216501594|9.37404414E-18_0.707107008|0|0.70710665
+	sym = KCLV.TQ-11_4293775738
+	sym = KCLV.TQ-11_4293775644
+	sym = KCLV.TQ-11_4293775550
+	attN = Node,KCLV.TQ12_4293779610_-9.37404332E-18|0.216501594|9.37404414E-18_0.707107008|0|0.70710665_-9.37404332E-18|0.216501594|9.37404414E-18_0.707107008|0|0.70710665
 	EVENTS
 	{
 	}
@@ -2428,7 +2253,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-0.458816022, 23.1174374, -0.458821982)
+		originalPos = (-0.458817452, 30.7564049, -0.458822161)
 		originalRotation = (0.0616284199, -8.67568701E-07, -0.0616284534, 0.99619472)
 		moduleVersion = 6
 		stagingEnabled = True
@@ -2464,10 +2289,10 @@ PART
 }
 PART
 {
-	part = KCLV.TQ-11_4293744508
+	part = KCLV.TQ-11_4293775738
 	partName = Part
-	persistentId = 713164548
-	pos = -0.458817989,23.1174374,0.45881623
+	persistentId = 3112886791
+	pos = -0.458819419,30.7564049,0.458816051
 	attPos = 0,0,0
 	attPos0 = -0.458820075,0.539321899,0.458818197
 	rot = -2.37076012E-08,0.704415441,-0.0871557668,0.704416633
@@ -2477,21 +2302,21 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 3
+	istg = 2
 	resPri = 0
-	dstg = 3
-	sidx = 0
-	sqor = 3
+	dstg = 1
+	sidx = 1
+	sqor = 2
 	sepI = 0
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = KCLV.TQ-11_4293744414
-	sym = KCLV.TQ-11_4293744320
-	sym = KCLV.TQ-11_4293745146
-	attN = Node,KCLV.TQ12_4293747922_-9.37404332E-18|0.216501594|9.37404414E-18_0.707107008|0|0.70710665_-9.37404332E-18|0.216501594|9.37404414E-18_0.707107008|0|0.70710665
+	sym = KCLV.TQ-11_4293775644
+	sym = KCLV.TQ-11_4293775550
+	sym = KCLV.TQ-11_4293776874
+	attN = Node,KCLV.TQ12_4293779610_-9.37404332E-18|0.216501594|9.37404414E-18_0.707107008|0|0.70710665_-9.37404332E-18|0.216501594|9.37404414E-18_0.707107008|0|0.70710665
 	EVENTS
 	{
 	}
@@ -2682,7 +2507,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-0.458817989, 23.1174374, 0.45881623)
+		originalPos = (-0.458819419, 30.7564049, 0.458816051)
 		originalRotation = (-2.37076012E-08, 0.704415441, -0.0871557668, 0.704416633)
 		moduleVersion = 6
 		stagingEnabled = True
@@ -2718,10 +2543,10 @@ PART
 }
 PART
 {
-	part = KCLV.TQ-11_4293744414
+	part = KCLV.TQ-11_4293775644
 	partName = Part
-	persistentId = 2198759769
-	pos = 0.458820045,23.1174374,0.458818316
+	persistentId = 805373637
+	pos = 0.458818614,30.7564049,0.458818138
 	attPos = 0,0,0
 	attPos0 = 0.458817959,0.539321899,0.458820283
 	rot = -0.0616284572,0.99619472,-0.0616284162,8.2402363E-07
@@ -2731,21 +2556,21 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 3
+	istg = 2
 	resPri = 0
-	dstg = 3
-	sidx = 0
-	sqor = 3
+	dstg = 1
+	sidx = 1
+	sqor = 2
 	sepI = 0
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = KCLV.TQ-11_4293744320
-	sym = KCLV.TQ-11_4293745146
-	sym = KCLV.TQ-11_4293744508
-	attN = Node,KCLV.TQ12_4293747922_-9.37404332E-18|0.216501594|9.37404414E-18_0.707107008|0|0.70710665_-9.37404332E-18|0.216501594|9.37404414E-18_0.707107008|0|0.70710665
+	sym = KCLV.TQ-11_4293775550
+	sym = KCLV.TQ-11_4293776874
+	sym = KCLV.TQ-11_4293775738
+	attN = Node,KCLV.TQ12_4293779610_-9.37404332E-18|0.216501594|9.37404414E-18_0.707107008|0|0.70710665_-9.37404332E-18|0.216501594|9.37404414E-18_0.707107008|0|0.70710665
 	EVENTS
 	{
 	}
@@ -2936,7 +2761,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (0.458820045, 23.1174374, 0.458818316)
+		originalPos = (0.458818614, 30.7564049, 0.458818138)
 		originalRotation = (-0.0616284572, 0.99619472, -0.0616284162, 8.2402363E-07)
 		moduleVersion = 6
 		stagingEnabled = True
@@ -2972,10 +2797,10 @@ PART
 }
 PART
 {
-	part = KCLV.TQ-11_4293744320
+	part = KCLV.TQ-11_4293775550
 	partName = Part
-	persistentId = 2329731038
-	pos = 0.458822221,23.1174374,-0.458819926
+	persistentId = 3041598477
+	pos = 0.45882079,30.7564049,-0.458820105
 	attPos = 0,0,0
 	attPos0 = 0.458820134,0.539321899,-0.458817959
 	rot = -0.0871557668,0.704416633,2.37076012E-08,-0.704415441
@@ -2985,21 +2810,21 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 3
+	istg = 2
 	resPri = 0
-	dstg = 3
-	sidx = 0
-	sqor = 3
+	dstg = 1
+	sidx = 1
+	sqor = 2
 	sepI = 0
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = KCLV.TQ-11_4293745146
-	sym = KCLV.TQ-11_4293744508
-	sym = KCLV.TQ-11_4293744414
-	attN = Node,KCLV.TQ12_4293747922_-9.37404332E-18|0.216501594|9.37404414E-18_0.707107008|0|0.70710665_-9.37404332E-18|0.216501594|9.37404414E-18_0.707107008|0|0.70710665
+	sym = KCLV.TQ-11_4293776874
+	sym = KCLV.TQ-11_4293775738
+	sym = KCLV.TQ-11_4293775644
+	attN = Node,KCLV.TQ12_4293779610_-9.37404332E-18|0.216501594|9.37404414E-18_0.707107008|0|0.70710665_-9.37404332E-18|0.216501594|9.37404414E-18_0.707107008|0|0.70710665
 	EVENTS
 	{
 	}
@@ -3190,7 +3015,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (0.458822221, 23.1174374, -0.458819926)
+		originalPos = (0.45882079, 30.7564049, -0.458820105)
 		originalRotation = (-0.0871557668, 0.704416633, 2.37076012E-08, -0.704415441)
 		moduleVersion = 6
 		stagingEnabled = True
@@ -3226,10 +3051,10 @@ PART
 }
 PART
 {
-	part = KCLV.ZQ2.interstage.1-2_4293784760
+	part = KCLV.ZQ2.interstage.1-2_4293807750
 	partName = Part
-	persistentId = 2543594336
-	pos = 2.09199902E-06,22.6109333,-1.97419445E-06
+	persistentId = 3585552981
+	pos = 6.50078277E-07,30.2499027,-2.13603721E-06
 	attPos = 0,0,0
 	attPos0 = 0,-4.02396202,0
 	rot = 0,0,0,1
@@ -3242,7 +3067,7 @@ PART
 	istg = 2
 	resPri = 0
 	dstg = 1
-	sidx = 1
+	sidx = 3
 	sqor = 2
 	sepI = 2
 	attm = 0
@@ -3250,9 +3075,9 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.ZQ2.Stage.1_4293781378
-	attN = top,KCLV.ZQ2.Stage.2_4293797232_0|1.28700006|0_0|0.600000024|0_0|1.28700006|0_0|0.600000024|0
-	attN = bottom,KCLV.ZQ2.Stage.1_4293781378_0|-1.28700006|0_0|-0.600000024|0_0|-1.28700006|0_0|-0.600000024|0
+	link = KCLV.ZQ2.Stage.1_4293795186
+	attN = top,KCLV.ZQ2.Stage.2_4293812230_0|1.28700006|0_0|0.600000024|0_0|1.28700006|0_0|0.600000024|0
+	attN = bottom,KCLV.ZQ2.Stage.1_4293795186_0|-1.28700006|0_0|-0.600000024|0_0|-1.28700006|0_0|-0.600000024|0
 	EVENTS
 	{
 	}
@@ -3339,7 +3164,6 @@ PART
 		isEnabled = True
 		useVariantMass = True
 		stagingEnabled = True
-		selectedVariant = ZQ-2
 		EVENTS
 		{
 		}
@@ -3395,7 +3219,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (2.09199902E-06, 22.6109333, -1.97419445E-06)
+		originalPos = (6.50078277E-07, 30.2499027, -2.13603721E-06)
 		originalRotation = (0, 0, 0, 1)
 		moduleVersion = 6
 		stagingEnabled = True
@@ -3420,10 +3244,10 @@ PART
 }
 PART
 {
-	part = KCLV.ZQ2.Stage.1_4293781378
+	part = KCLV.ZQ2.Stage.1_4293795186
 	partName = Part
-	persistentId = 141930166
-	pos = 2.09199902E-06,13.9739323,-1.97419445E-06
+	persistentId = 1139158578
+	pos = 6.50078277E-07,21.6129017,-2.13603721E-06
 	attPos = 0,0,0
 	attPos0 = 0,-8.63700104,0
 	rot = 0,0,0,1
@@ -3436,7 +3260,7 @@ PART
 	istg = 2
 	resPri = 0
 	dstg = 1
-	sidx = 2
+	sidx = 4
 	sqor = 2
 	sepI = 2
 	attm = 0
@@ -3444,9 +3268,9 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.TQ13.With.Shell_4293779230
-	attN = top,KCLV.ZQ2.interstage.1-2_4293784760_0|7.35000038|0_0|0.600000024|0_0|7.35000038|0_0|0.600000024|0
-	attN = bottom,KCLV.TQ13.With.Shell_4293779230_0|-7.35000038|0_0|-0.600000024|0_0|-7.35000038|0_0|-0.600000024|0
+	link = KCLV.TQ13.With.Shell_4293793448
+	attN = top,KCLV.ZQ2.interstage.1-2_4293807750_0|7.35000038|0_0|0.600000024|0_0|7.35000038|0_0|0.600000024|0
+	attN = bottom,KCLV.TQ13.With.Shell_4293793448_0|-7.35000038|0_0|-0.600000024|0_0|-7.35000038|0_0|-0.600000024|0
 	EVENTS
 	{
 	}
@@ -3678,7 +3502,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (2.09199902E-06, 13.9739323, -1.97419445E-06)
+		originalPos = (6.50078277E-07, 21.6129017, -2.13603721E-06)
 		originalRotation = (0, 0, 0, 1)
 		moduleVersion = 6
 		stagingEnabled = True
@@ -3751,10 +3575,10 @@ PART
 }
 PART
 {
-	part = KCLV.TQ13.With.Shell_4293779230
+	part = KCLV.TQ13.With.Shell_4293793448
 	partName = Part
-	persistentId = 3344809304
-	pos = 2.09199902E-06,5.34651947,-1.97419445E-06
+	persistentId = 663827303
+	pos = 6.50078277E-07,12.9854889,-2.13603721E-06
 	attPos = 0,0,0
 	attPos0 = 0,-8.6274128,0
 	rot = 0,0,0,1
@@ -3767,7 +3591,7 @@ PART
 	istg = 3
 	resPri = 0
 	dstg = 1
-	sidx = 2
+	sidx = 0
 	sqor = 3
 	sepI = 2
 	attm = 0
@@ -3775,11 +3599,11 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = KCLV.ZQ2.Wing_4293775770
-	link = KCLV.ZQ2.Wing_4293774760
-	link = KCLV.ZQ2.Wing_4293774652
-	link = KCLV.ZQ2.Wing_4293774544
-	attN = top,KCLV.ZQ2.Stage.1_4293781378_0|1.27741206|0_0|0.600000024|0_0|1.27741206|0_0|0.600000024|0
+	link = KCLV.ZQ2.Wing_4293791826
+	link = KCLV.ZQ2.Wing_4293791098
+	link = KCLV.ZQ2.Wing_4293790990
+	link = KCLV.ZQ2.Wing_4293790882
+	attN = top,KCLV.ZQ2.Stage.1_4293795186_0|1.27741206|0_0|0.600000024|0_0|1.27741206|0_0|0.600000024|0
 	attN = bottom,Null_0_0|-0.338868022|0_0|-0.600000024|0_0|-0.338868022|0_0|-0.600000024|0
 	EVENTS
 	{
@@ -4182,7 +4006,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (2.09199902E-06, 5.34651947, -1.97419445E-06)
+		originalPos = (6.50078277E-07, 12.9854889, -2.13603721E-06)
 		originalRotation = (0, 0, 0, 1)
 		moduleVersion = 6
 		stagingEnabled = True
@@ -4222,12 +4046,12 @@ PART
 }
 PART
 {
-	part = KCLV.ZQ2.Wing_4293775770
+	part = KCLV.ZQ2.Wing_4293791826
 	partName = Part
-	persistentId = 1780827177
-	pos = -1.00978112,5.60680199,-1.91400659E-06
+	persistentId = 4286500428
+	pos = -1.00658762,13.2459526,-2.07603989E-06
 	attPos = 0,0,0
-	attPos0 = -1.00978327,0.260282516,6.01878583E-08
+	attPos0 = -1.00658822,0.260463715,5.99973191E-08
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -4246,10 +4070,10 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = KCLV.ZQ2.Wing_4293774760
-	sym = KCLV.ZQ2.Wing_4293774652
-	sym = KCLV.ZQ2.Wing_4293774544
-	srfN = srfAttach,KCLV.TQ13.With.Shell_4293779230,ShellCCC,0|0|0,0.600000024|0|0,0|0|0
+	sym = KCLV.ZQ2.Wing_4293791098
+	sym = KCLV.ZQ2.Wing_4293790990
+	sym = KCLV.ZQ2.Wing_4293790882
+	srfN = srfAttach,KCLV.TQ13.With.Shell_4293793448,ShellCCC,0|0|0,0.600000024|0|0,0|0|0
 	EVENTS
 	{
 	}
@@ -4334,7 +4158,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (-1.00978112, 5.60680199, -1.91400659E-06)
+		originalPos = (-1.00658762, 13.2459526, -2.07603989E-06)
 		originalRotation = (0, 0, 0, 1)
 		moduleVersion = 6
 		stagingEnabled = True
@@ -4351,12 +4175,12 @@ PART
 }
 PART
 {
-	part = KCLV.ZQ2.Wing_4293774760
+	part = KCLV.ZQ2.Wing_4293791098
 	partName = Part
-	persistentId = 967168263
-	pos = 2.09199902E-06,5.60680199,1.00978112
+	persistentId = 428488807
+	pos = 6.50078277E-07,13.2459526,1.00658596
 	attPos = 0,0,0
-	attPos0 = 0,0.260282516,1.00978315
+	attPos0 = 0,0.260463715,1.0065881
 	rot = 0,0.707106829,0,0.707106829
 	attRot = 0,0,0,1
 	attRot0 = 0,0.707106829,0,0.707106829
@@ -4375,10 +4199,10 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = KCLV.ZQ2.Wing_4293774652
-	sym = KCLV.ZQ2.Wing_4293774544
-	sym = KCLV.ZQ2.Wing_4293775770
-	srfN = srfAttach,KCLV.TQ13.With.Shell_4293779230,ShellCCC,0|0|0,0.600000024|0|0,0|0|0
+	sym = KCLV.ZQ2.Wing_4293790990
+	sym = KCLV.ZQ2.Wing_4293790882
+	sym = KCLV.ZQ2.Wing_4293791826
+	srfN = srfAttach,KCLV.TQ13.With.Shell_4293793448,ShellCCC,0|0|0,0.600000024|0|0,0|0|0
 	EVENTS
 	{
 	}
@@ -4463,7 +4287,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (2.09199902E-06, 5.60680199, 1.00978112)
+		originalPos = (6.50078277E-07, 13.2459526, 1.00658596)
 		originalRotation = (0, 0.707106829, 0, 0.707106829)
 		moduleVersion = 6
 		stagingEnabled = True
@@ -4480,12 +4304,12 @@ PART
 }
 PART
 {
-	part = KCLV.ZQ2.Wing_4293774652
+	part = KCLV.ZQ2.Wing_4293790990
 	partName = Part
-	persistentId = 3468512908
-	pos = 1.00978541,5.60680199,-2.12266036E-06
+	persistentId = 2705929582
+	pos = 1.00658882,13.2459526,-2.28403337E-06
 	attPos = 0,0,0
-	attPos0 = 1.00978327,0.260282516,-1.48465915E-07
+	attPos0 = 1.00658822,0.260463715,-1.47996161E-07
 	rot = 0,1,0,-4.37113883E-08
 	attRot = 0,0,0,1
 	attRot0 = 0,1,0,-4.37113883E-08
@@ -4504,10 +4328,10 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = KCLV.ZQ2.Wing_4293774544
-	sym = KCLV.ZQ2.Wing_4293775770
-	sym = KCLV.ZQ2.Wing_4293774760
-	srfN = srfAttach,KCLV.TQ13.With.Shell_4293779230,ShellCCC,0|0|0,0.600000024|0|0,0|0|0
+	sym = KCLV.ZQ2.Wing_4293790882
+	sym = KCLV.ZQ2.Wing_4293791826
+	sym = KCLV.ZQ2.Wing_4293791098
+	srfN = srfAttach,KCLV.TQ13.With.Shell_4293793448,ShellCCC,0|0|0,0.600000024|0|0,0|0|0
 	EVENTS
 	{
 	}
@@ -4592,7 +4416,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (1.00978541, 5.60680199, -2.12266036E-06)
+		originalPos = (1.00658882, 13.2459526, -2.28403337E-06)
 		originalRotation = (0, 1, 0, -4.37113883E-08)
 		moduleVersion = 6
 		stagingEnabled = True
@@ -4609,12 +4433,12 @@ PART
 }
 PART
 {
-	part = KCLV.ZQ2.Wing_4293774544
+	part = KCLV.ZQ2.Wing_4293790882
 	partName = Part
-	persistentId = 3261546318
-	pos = 1.97162331E-06,5.60680199,-1.00978518
+	persistentId = 3521160055
+	pos = 5.30083639E-07,13.2459526,-1.00659025
 	attPos = 0,0,0
-	attPos0 = -1.20375717E-07,0.260282516,-1.00978315
+	attPos0 = -1.19994638E-07,0.260463715,-1.0065881
 	rot = 0,0.707106829,0,-0.707106829
 	attRot = 0,0,0,1
 	attRot0 = 0,0.707106829,0,-0.707106829
@@ -4633,10 +4457,10 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = KCLV.ZQ2.Wing_4293775770
-	sym = KCLV.ZQ2.Wing_4293774760
-	sym = KCLV.ZQ2.Wing_4293774652
-	srfN = srfAttach,KCLV.TQ13.With.Shell_4293779230,ShellCCC,0|0|0,0.600000024|0|0,0|0|0
+	sym = KCLV.ZQ2.Wing_4293791826
+	sym = KCLV.ZQ2.Wing_4293791098
+	sym = KCLV.ZQ2.Wing_4293790990
+	srfN = srfAttach,KCLV.TQ13.With.Shell_4293793448,ShellCCC,0|0|0,0.600000024|0|0,0|0|0
 	EVENTS
 	{
 	}
@@ -4721,7 +4545,7 @@ PART
 		name = AttachedOnEditor
 		isEnabled = True
 		active = True
-		originalPos = (1.97162331E-06, 5.60680199, -1.00978518)
+		originalPos = (5.30083639E-07, 13.2459526, -1.00659025)
 		originalRotation = (0, 0.707106829, 0, -0.707106829)
 		moduleVersion = 6
 		stagingEnabled = True
