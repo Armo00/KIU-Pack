@@ -10,6 +10,11 @@ Author: Armor00, Launcelot, Old_Copper
 License:CC BY-NC-SA 4.0
 
 KCLV Changelog:
+-1.1.11
+-Added TQ-15 for Zhuque-2E
+_Added Texture Unlimited support for Zhuque-2's Engines
+
+KCLV Changelog:
 -1.1.10
 -Added craft files of Lanyue with CZ-10
 
