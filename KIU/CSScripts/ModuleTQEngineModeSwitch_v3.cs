@@ -6,10 +6,17 @@ using UnityEngine;
 
 namespace KCLV_CustomPlugins
 {
-    // V3 models the cluster as one RF engine whose configuration changes in place.
-    // It deliberately never Activate()s or Shutdown()s an engine during a configuration change.
+    // RF uses one engine whose configuration changes in place; stock uses four engine modules.
+    // Only the RF backend deliberately avoids Activate() and Shutdown() during a mode change.
     public class ModuleTQEngineModeSwitch_v3 : PartModule, IEngineStatus
     {
+        private enum EngineBackend
+        {
+            Unavailable,
+            RealFuels,
+            Stock
+        }
+
         [KSPField]
         public string engineID = "TQ12A_V3";
 
@@ -29,7 +36,9 @@ namespace KCLV_CustomPlugins
         private PartModule engineConfigs;
         private MethodInfo setConfiguration;
         private FieldInfo throttleResponseRate;
+        private readonly Dictionary<int, ModuleEnginesFX> stockEngines = new Dictionary<int, ModuleEnginesFX>();
         private readonly List<WaterfallTarget> waterfallTargets = new List<WaterfallTarget>();
+        private EngineBackend backend = EngineBackend.Unavailable;
         private bool initialized;
         private bool missingConfigReported;
 
@@ -87,19 +96,32 @@ namespace KCLV_CustomPlugins
             base.OnStart(state);
         }
 
-        // Unity Start runs after every PartModule has completed OnStart, including ModuleEngineConfigs.
+        // Unity Start runs after every PartModule has completed OnStart, including optional ModuleEngineConfigs.
         public void Start()
         {
             FindEngine();
             FindEngineConfigs();
+            FindStockEngines();
             FindWaterfallTargets();
-            initialized = engine != null && engineConfigs != null && setConfiguration != null;
 
-            if (initialized)
+            if (engine != null && engineConfigs != null && setConfiguration != null)
+            {
+                backend = EngineBackend.RealFuels;
+                initialized = true;
+                ConfigureThrustControls(true);
                 ApplyConfiguration(currentMode, currentThrustLevel);
+            }
+            else if (stockEngines.Count == 4)
+            {
+                backend = EngineBackend.Stock;
+                initialized = true;
+                ConfigureThrustControls(false);
+                SetStockMode(currentMode, true);
+            }
             else if (!missingConfigReported)
             {
-                Debug.LogError("[KCLV] TQ-12A V3 requires its ModuleEnginesRF and ModuleEngineConfigs modules.");
+                ConfigureThrustControls(false);
+                Debug.LogError("[KCLV] TQ-12A V3 requires either its RF configuration module or all four stock engine modules.");
                 missingConfigReported = true;
             }
         }
@@ -140,6 +162,62 @@ namespace KCLV_CustomPlugins
                 setConfiguration = method;
                 return;
             }
+        }
+
+        private void FindStockEngines()
+        {
+            stockEngines.Clear();
+            foreach (ModuleEnginesFX candidate in part.FindModulesImplementing<ModuleEnginesFX>())
+            {
+                int mode = ModeForStockEngine(candidate.engineID);
+                if (mode == 0) continue;
+
+                stockEngines[mode] = candidate;
+                HideAutomaticEngineEvents(candidate);
+                candidate.manuallyOverridden = true;
+                candidate.isEnabled = false;
+            }
+        }
+
+        private static int ModeForStockEngine(string candidateEngineID)
+        {
+            switch (candidateEngineID)
+            {
+                case "TQ12A_V3_Stock_Mode1": return 1;
+                case "TQ12A_V3_Stock_Mode3": return 3;
+                case "TQ12A_V3_Stock_Mode5": return 5;
+                case "TQ12A_V3_Stock_Mode9": return 9;
+                default: return 0;
+            }
+        }
+
+        private static void HideAutomaticEngineEvents(ModuleEnginesFX candidate)
+        {
+            for (int index = 0; index < candidate.Events.Count; index++)
+            {
+                BaseEvent engineEvent = candidate.Events[index];
+                if (engineEvent == null || (engineEvent.name != "Activate" && engineEvent.name != "Shutdown")) continue;
+
+                engineEvent.guiActive = false;
+                engineEvent.guiActiveEditor = false;
+            }
+        }
+
+        private void ConfigureThrustControls(bool isRealFuels)
+        {
+            Fields[nameof(thrustDisplay)].guiActive = isRealFuels;
+            Fields[nameof(thrustDisplay)].guiActiveEditor = isRealFuels;
+
+            Events[nameof(Thrust100Event)].guiActive = isRealFuels;
+            Events[nameof(Thrust100Event)].guiActiveEditor = isRealFuels;
+            Events[nameof(Thrust101Event)].guiActive = isRealFuels;
+            Events[nameof(Thrust101Event)].guiActiveEditor = isRealFuels;
+            Events[nameof(Thrust110Event)].guiActive = isRealFuels;
+            Events[nameof(Thrust110Event)].guiActiveEditor = isRealFuels;
+
+            Actions[nameof(Thrust100Action)].active = isRealFuels;
+            Actions[nameof(Thrust101Action)].active = isRealFuels;
+            Actions[nameof(Thrust110Action)].active = isRealFuels;
         }
 
         private void FindWaterfallTargets()
@@ -193,20 +271,65 @@ namespace KCLV_CustomPlugins
 
         private void SetMode(int mode)
         {
+            if (!initialized) return;
+            if (backend == EngineBackend.Stock)
+            {
+                SetStockMode(mode, false);
+                return;
+            }
+            if (backend != EngineBackend.RealFuels) return;
             if (ConfigurationFor(currentThrustLevel, mode) == null) return;
             ApplyConfiguration(mode, currentThrustLevel);
         }
 
         private void SetThrustLevel(int rating)
         {
+            if (backend != EngineBackend.RealFuels) return;
             if (ConfigurationFor(rating, currentMode) == null) return;
             ApplyConfiguration(currentMode, rating);
+        }
+
+        private void SetStockMode(int mode, bool setup)
+        {
+            if (!stockEngines.TryGetValue(mode, out ModuleEnginesFX targetEngine)) return;
+
+            ModuleEnginesFX oldEngine = engine;
+            float previousLimiter = oldEngine != null ? oldEngine.thrustPercentage : targetEngine.thrustPercentage;
+            bool wasIgnited = oldEngine != null && oldEngine.EngineIgnited;
+
+            targetEngine.thrustPercentage = previousLimiter;
+            targetEngine.manuallyOverridden = false;
+            targetEngine.isEnabled = true;
+
+            if (oldEngine != null && oldEngine != targetEngine)
+            {
+                if (wasIgnited && !setup)
+                {
+                    targetEngine.Activate();
+                    targetEngine.currentThrottle = oldEngine.currentThrottle;
+                    oldEngine.Shutdown();
+                }
+
+                oldEngine.manuallyOverridden = true;
+                oldEngine.isEnabled = false;
+            }
+
+            foreach (KeyValuePair<int, ModuleEnginesFX> entry in stockEngines)
+            {
+                if (entry.Value == targetEngine) continue;
+                entry.Value.manuallyOverridden = true;
+                entry.Value.isEnabled = false;
+            }
+
+            engine = targetEngine;
+            currentMode = mode;
+            modeDisplay = $"{mode} Engine{(mode == 1 ? "" : "s")}";
         }
 
         private void ApplyConfiguration(int mode, int rating)
         {
             string configuration = ConfigurationFor(rating, mode);
-            if (!initialized || configuration == null) return;
+            if (!initialized || backend != EngineBackend.RealFuels || configuration == null) return;
 
             try
             {
