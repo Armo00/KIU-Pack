@@ -269,6 +269,32 @@ namespace KCLV_CustomPlugins
             }
         }
 
+        private static string RunningEffectForMode(int mode)
+        {
+            switch (mode)
+            {
+                case 1: return "running_1";
+                case 3: return "running_3";
+                case 5: return "running_5";
+                case 9: return "running_9";
+                default: return null;
+            }
+        }
+
+        private void SetRunningEffect(int mode)
+        {
+            string nextEffect = RunningEffectForMode(mode);
+            if (engine == null || nextEffect == null || engine.runningEffectName == nextEffect) return;
+
+            // ModuleEnginesFX only drives its current effect group. Explicitly stop the old
+            // group before changing the name so an RF in-place mode switch cannot leave a
+            // plume from the previous engine-count mode running.
+            if (!string.IsNullOrEmpty(engine.runningEffectName))
+                part.Effect(engine.runningEffectName, 0f);
+
+            engine.runningEffectName = nextEffect;
+        }
+
         private void SetMode(int mode)
         {
             if (!initialized) return;
@@ -335,6 +361,7 @@ namespace KCLV_CustomPlugins
             {
                 // This is RF's public API. The same ModuleEnginesRF instance remains ignited.
                 setConfiguration.Invoke(engineConfigs, new object[] { configuration, false });
+                SetRunningEffect(mode);
                 StartCoroutine(TemporarilyRemoveSpoolUp());
                 currentMode = mode;
                 currentThrustLevel = rating;
