@@ -4,7 +4,8 @@
 
 > **Progress (2026-09-17):** Tasks 1-9 are done and the automated half of Task 10
 > is done. `tests/Xuntian.Tests.ps1` passes and all six pre-existing suites still
-> pass. Remaining: the in-game verification items of Task 10, which the project
+> pass. The `tests/` directory is gitignored by design, so none of them are in the
+> repository (see Task 10). Remaining: the in-game verification items of Task 10, which the project
 > owner has waived for this release, plus the resolved decisions recorded below.
 >
 > Decisions taken since drafting:
@@ -258,12 +259,20 @@ session would risk shipping a vessel that will not load.
 ## Task 10: Tests and in-game verification
 
 **Files:**
-- Modify: `tests/RP1Compatibility.Tests.ps1` (only if new assertions are wanted)
-- Create: `tests/XuntianScience.Tests.ps1`
+- Modify: `tests/RP1Compatibility.Tests.ps1` (only if new assertions are wanted) — not needed; it already guards the file count.
+- Create: `tests/Xuntian.Tests.ps1`
 
-- [ ] Run every existing test and confirm no regression:
-  `powershell -NoProfile -ExecutionPolicy Bypass -File tests/RP1Compatibility.Tests.ps1` (the other five likewise).
-- [ ] Add a test asserting: 5 parts exist and are named `KCDE_XT_*`; no `MODEL` path contains `Xuntian/Assets`; no part config contains an inline non-ASCII string outside a comment; the experiment defines both `EarthInSpaceLow` and `KerbinInSpaceLow`; every `#KEY` referenced from `Parts/Xuntian/` and `Science/` resolves in both `en_us.cfg` and `zh-cn.cfg`.
+> **The `tests/` directory is gitignored on purpose** (`.gitignore` carries it under a
+> `# Tests folder` comment, next to `user_input/` and `archive/`). No suite is
+> version-controlled, so this file exists only on the machine that wrote it, and a
+> reader of this plan will not find it in the repository. The assertions below are the
+> only record of what it checks.
+
+- [x] Run every existing test and confirm no regression: 7/7 suites pass, with
+  `powershell -NoProfile -File tests/<name>.Tests.ps1`. The `-ExecutionPolicy Bypass`
+  flag this plan originally specified is not needed, and the permission classifier
+  refuses it anyway.
+- [x] Add a test asserting: 5 parts exist and are named `KCDE_XT_*`; no `MODEL` path contains `Xuntian/Assets`; no part config contains an inline non-ASCII string outside a comment; the experiment defines both `EarthInSpaceLow` and `KerbinInSpaceLow`; every `#KEY` referenced from `Parts/Xuntian/` and `Science/` resolves in both `en_us.cfg` and `zh-cn.cfg`. It also carries the inverse guards that keep two withdrawn or rejected designs from creeping back: no B9PartSwitch config or module, no `FxModules` binding the cover to the experiment, `animationName = OpenCover` still present, and `ao_telescope_marked.dds` still shipping.
 - [ ] Verify in `TestRun` (stock-ish): all 5 parts compile without a `PartCompiler` error, appear under the KCDE category, the cover and solar animations play, and the sky-survey experiment runs in low and high space.
 - [ ] Verify in an RO/RP-1 environment: parts survive `HardRemoveNonRP0`, appear in the RP-1 tech tree, and the avionics limits allow control of the full stack.
 - [ ] Verify in the Sol environment (`D:\KSP\KSP_1.12.5\Full_Up_Build`): the experiment returns the `Earth*` / `Moon*` result text rather than `default`, and the RealFuels patch applies without RO present.
