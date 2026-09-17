@@ -1,8 +1,8 @@
 ==========================================
 ==KIU Chinese Deepspace Exploration Pack==
 ==========================================
-===============Version V1.0.6=============
-=================20240612=================
+===============Version V1.1.0=============
+=================20260917=================
 ==========================================
 
 Author:Armor00, Launcelot, Old_Copper
@@ -10,6 +10,12 @@ Author:Armor00, Launcelot, Old_Copper
 License:CC BY-NC-SA 4.0
 
 KCDE Changelog:
+-1.1.0
+-Added the Xuntian space telescope (CSST): telescope, service module, deployable solar wing, antenna and docking port
+-Added the Xuntian sky survey experiment, with observation text for both the stock system and the real solar system bodies used by RSS and Sol
+-Full Chinese and English localization for the Xuntian parts
+-Xuntian compatibility with RO, RealFuels, RP-1, RemoteTech, TweakScale, VABO, Waterfall and RealAntennas
+
 -1.0.6
 -Optimized files
 
