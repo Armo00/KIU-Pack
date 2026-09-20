@@ -1,8 +1,8 @@
 ======================================
 ==KIU Chinese Human Spaceflight Pack==
 ======================================
-============Version V1.0.10============
-===============20250118===============
+============Version V1.0.11============
+===============20260723===============
 ======================================
 
 Author: Armor00, Icecovery, Launcelot, Old_Copper, zmjt-cn
@@ -10,6 +10,16 @@ Author: Armor00, Icecovery, Launcelot, Old_Copper, zmjt-cn
 License:CC BY-NC-SA 4.0
 
 KCHS Changelog:
+-1.0.11
+-Fixed Mengzhou craft file can not be open
+-Waterfall config changes
+
+-1.0.11-Hotfix
+-Fix Wrong Packaging
+
+-1.0.11-Hotfix v2
+-This time its definitly correct. Maybe.
+
 -1.0.10 Public Beta
 -Added Lanyue
 -Bug fixed

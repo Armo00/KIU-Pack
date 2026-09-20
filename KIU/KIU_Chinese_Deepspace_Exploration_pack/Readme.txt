@@ -16,6 +16,12 @@ KCDE Changelog:
 -Full Chinese and English localization for the Xuntian parts
 -Xuntian compatibility with RO, RealFuels, RP-1, RemoteTech, TweakScale, VABO, Waterfall and RealAntennas
 
+-1.0.7
+-Waterfall config changes
+
+-1.0.7-Hotfix
+-Fix Wrong Packaging
+
 -1.0.6
 -Optimized files
 

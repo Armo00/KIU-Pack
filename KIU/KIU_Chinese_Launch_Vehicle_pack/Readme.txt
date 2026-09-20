@@ -1,8 +1,8 @@
 ===================================
 ======KIU Chinese Launch Vehicle Pack=======
 ===================================
-=============Version V1.1.10===========
-==============20250120==============
+=============Version V1.1.12===========
+==============20260719==============
 ===================================
 
 Author: Armor00, Launcelot, Old_Copper
@@ -10,11 +10,20 @@ Author: Armor00, Launcelot, Old_Copper
 License:CC BY-NC-SA 4.0
 
 KCLV Changelog:
+-1.1.12
+-Added ZhuQue-3 launch vehicle
+-Fixed CZ-7 1st stage engine shell can not be place on the bottom of 1st stage tank
+-Fixed CZ-10 MengZhou craft file can not be open
+
+-1.1.12_hotfix
+-Fix Zhuque-3 Engine Cluster lacking effects when Waterfall not installed
+-Fix Zhuque-3 First and second stage lacks Antenna
+-Fix wrong packaging
+
 -1.1.11
 -Added TQ-15 for Zhuque-2E
-_Added Texture Unlimited support for Zhuque-2's Engines
+-Added Texture Unlimited support for Zhuque-2's Engines
 
-KCLV Changelog:
 -1.1.10
 -Added craft files of Lanyue with CZ-10
 
