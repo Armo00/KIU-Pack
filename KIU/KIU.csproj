@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <KSPManaged Condition="'$(KSPManaged)' == ''">D:/KSP_Clean/KSP_x64_Data/Managed</KSPManaged>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>disable</Nullable>
     <LangVersion>8.0</LangVersion>
@@ -10,17 +12,24 @@
 
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>E:\Kerbal Space Program\KSP_x64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>$(KSPManaged)/Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>E:\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>$(KSPManaged)/UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>E:\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>$(KSPManaged)/UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
 
+<ItemGroup>
+    <Compile Include="CSScripts/ModuleTQEngineModeSwitch_v3.cs" />
+    <Compile Include="CSScripts/ModuleUnifiedGimbalController.cs" />
+    <Compile Include="CSScripts/ModuleWaterfallRemapControllerFix.cs" />
+    <Compile Include="ZQ3Stage1Engine.cs" />
+    <Compile Include="CSScripts/PusherAnimatedInterstage.cs" />
+</ItemGroup>
 </Project>

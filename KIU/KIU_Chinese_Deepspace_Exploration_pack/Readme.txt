@@ -10,6 +10,8 @@ Author:Armor00, Launcelot, Old_Copper
 License:CC BY-NC-SA 4.0
 
 KCDE Changelog:
+-Xuntian asset revision v0.2.4: retained the supplied optimized meshes, restored service shell placement, corrected the cover mount and stay motion, and exported the telescope atlas as lossless RGBA8 DDS to remove RGB565 color tint. KCDE part IDs, localization and compatibility configs retained.
+-Xuntian asset revision v0.2.3: refreshed five MU assets and all referenced textures; updated shadow atlases and separate high-resolution hull markings. KCDE part IDs, localization and compatibility configs retained.
 -1.1.0
 -Added the Xuntian space telescope (CSST): telescope, service module, deployable solar wing, antenna and docking port
 -Added the Xuntian sky survey experiment, with observation text for both the stock system and the real solar system bodies used by RSS and Sol
