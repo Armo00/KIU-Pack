@@ -20,6 +20,7 @@
 - `Shared_ChinaFlag.v3.3.1.dds`
 - `Shared_White.v3.3.0.dds`
 - `Shared_ChinaSpaceText.v1.0.0.png`
+- `Shared_MatteSpec.v1.0.0.png`（只用于哑光高光控制，不是外观图片）
 
 公共图像内容、压缩格式与分辨率保持不变。本目录不复制公共国旗、标志或字形的完整图片。公共目录由用户维护，制作新贴图前先查其 `catalog.json`。
 
@@ -29,7 +30,7 @@
 
 | 子目录 | 行为 |
 |---|---|
-| `B9PartSwitch` | 只切换燃料箱涂装；支架始终为独立 Part |
+| `B9PartSwitch` | 燃料箱涂装与三件的 Default Finish／Matte Finish 独立切换；支架始终为独立 Part |
 | `Stock` | 没有 B9 时使用 `ModulePartVariants` 切换涂装 |
 | `RealFuels` | 箱内液氢／液氧，支架内联氨；保留已验证的容量与 RCS 参数 |
 | `RO` | 真实尺寸及 `RSSROConfig` 标记 |
@@ -62,17 +63,26 @@ craft/save 中 KSP 通常将下划线保存为点号，例如 `KCLV.CZ8A.Stage.2
 
 ## 来源、验证与维护
 
-来源为 `MODELS/CZ-335_Cryogenic/releases/v1.0.3` 中经过管线修复的模型。只改 MU 末尾纹理名称表；几何、三角形顺序、法线、切线、材质参数、碰撞体、RCS 和发动机挂点字节全部保留。专用贴图也逐字节复用。没有重新缩放支架或引擎，没有分离小固推。
+来源为 `local_workspace/CZ-335_Cryogenic/releases/v1.0.3` 中经过管线修复的模型。初次整合只修改 MU 末尾纹理名称表。2026-09-22 标识更新进一步调整燃料箱两侧的 12 个国旗、CASC 与中文字形贴面：放大、修正国旗比例并避开下方短管。除此之外的模型字节（包括结构、材质默认参数、碰撞体、RCS、供给管口和发动机挂点）全部保留，专用贴图逐字节复用。
+
+`SurfaceGloss` 与 `CZ8ALivery` 为两个独立的 B9 模块。Default 不覆盖材质参数，由 B9 恢复各材质原值；Matte 降低普通 Specular 的 `_SpecColor`、`_Shininess`，并为 Mapped Specular 指定公共零值 `_SpecMap`。透明标识贴图、主色图与法线不替换。没有 B9 时仍保留原版涂装切换和模型默认材质，不提供 Finish 菜单。
 
 从仓库根目录执行：
 
 ```powershell
-python MODELS/CZ-335_Cryogenic/tools/validate_cz8a.py
+python local_workspace/CZ-335_Cryogenic/tools/validate_cz8a.py
+python local_workspace/CZ-335_Cryogenic/tools/validate_surface_finish.py
 python tools/validate_common_textures.py
 ```
 
-离线证据位于 `MODELS/CZ-335_Cryogenic/audit/cz8a-integration/validation.json`，包括完整 MU 字节回归、引用闭包、双语键、示例装配、公共图片哈希及可选依赖条件覆盖。条件覆盖是静态检查，不是运行 ModuleManager。
+离线证据位于 `local_workspace/CZ-335_Cryogenic/audit/cz8a-integration/validation.json` 与 `audit/markings-finish-20260922`，包括排除已声明贴面后的完整 MU 字节回归、贴面间隙、引用闭包、双语键、示例装配、公共图片哈希及可选依赖条件覆盖。条件覆盖是静态检查，不是运行 ModuleManager。
 
-本次整合尚未进行原生 KSP 复测：测试安装由 CZ 家族任务占用，未修改该游戏目录或启动 KSP。历史 v1.0.3 的 260 项原生断言只证明原测试目录中的模型与静态装配，不能代替新路径、纹理重映射及新增适配的原生验收。RO、RP-1、TweakScale、VABOrganizer 的完整组合也未在本机实测。飞行、发动机摇摆时的管路运动、分离动力学及性能仍不在已验收范围。
+2026-09-22 在 KSP 1.12.3 / D3D11 中完成首轮原生检查：五个目标 Part 均成功加载；正式 CZ8A 路径与公共贴图绑定正确；燃料箱的 Default → Matte → Default、涂装独立性与材质覆盖共通过 325 项断言，Default 与恢复后截图字节一致。游戏不在前台时仍能输出图形截图。本轮没有 Deferred / TUFX。
 
-后续更新以本目录为准。`MODELS/CZ-335_Cryogenic` 保留 Blender 源场景、历史冻结版本、一次性迁移工具和验证记录；不重新运行历史打包脚本。原始及派生美术资产沿用项目 CC BY-NC-SA 4.0，MU 工具的 GPL 声明保留在其原工具目录。
+首轮探针的保存字段读取错误已修正。随后 Texturing 的 Deferred / TUFX run05 完成了三件 CZ8A 与 YF-20 / YF-21 的材质参数、涂装／外壳变体、Default 恢复及保存重载检查：本任务五件共 8,172 项断言通过，零失败。证据为 `local_workspace/KCLV_RenderFix/audit/run05/results.txt`，本任务汇总见 `local_workspace/CZ-335_Cryogenic/audit/markings-finish-20260922/report.html`。
+
+回归中发现原版外壳变体会重置 YF-20 / YF-21 的哑光参数。run05 使用另一任务提供的 `KIUSurfaceFinishSync`，在外壳切换后通知 B9 重建材质修改并重新应用当前 Finish；上述 8,172 项通过结论对应包含该插件的测试组合。该任务随后将其同步插件及补丁撤出 KIU，因此它们不包含在本次提交中。未安装对应附加修复时，YF-20 / YF-21 切换外壳后仍可能重置哑光参数，需要重新选择 Finish，不能将 run05 的外壳联动通过结论用于这种环境。CZ8A 三件的专用 Finish 配置全部留在本目录，它们不使用该原版外壳联动补丁。
+
+RO、RP-1、TweakScale、VABOrganizer 的完整组合未实测；本次五件的飞行、发动机摇摆时的管路运动、分离动力学及性能也不在已验收范围。
+
+后续更新以本目录为准。`local_workspace/CZ-335_Cryogenic` 保留 Blender 源场景、历史冻结版本、一次性迁移工具和验证记录；当前燃料箱源场景为 `source/current/CZ8A_Tank.blend`。不重新运行历史打包脚本。原始及派生美术资产沿用项目 CC BY-NC-SA 4.0，MU 工具的 GPL 声明保留在其原工具目录。

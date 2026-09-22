@@ -42,3 +42,7 @@ CZ 家族 v3.4.2 已合入单材质模型修复，继续复用同样的 15 张�
 长二F、长三、长六及引力一号复用已有国旗、CMS、CASC、LM、白底和平坦法线，批准的2048²图标保持原字节。新增 `Shared_CZ6Blue.v3.5.0.dds`：4×4均匀蓝色色块，BC1解码为RGBA=(49,81,132,255)，来源及量化差异见catalog。当前索引共17张图片，已有其他任务资源保持。
 
 v3.5.0统一使用本页开头的新运行路径 `GameData/KIU/Common/KIU_Common_texture`。前述v3.4.1历史段落的旧路径仅对应当时的冻结包。安装与回退仍由用户维护公共目录，脚本只做校验。本次扩展尚未进行KSP原生验证。
+
+## Finish 高光控制图
+
+`Shared_MatteSpec.v1.0.0.png` 是 4×4、RGBA 四通道全零的控制数据，仅供 B9 Matte Finish 替换 Mapped Specular 材质的 `_SpecMap`。它没有图案，不用于 `_MainTex`，也不改变主色图透明度。CZ-8A 燃料箱／支架及 YF-20／YF-21 共用该文件；切回 Default 恢复原高光图。新增索引项 `MatteSpec` 记录其路径、哈希和消费者，原有公共图片不变。

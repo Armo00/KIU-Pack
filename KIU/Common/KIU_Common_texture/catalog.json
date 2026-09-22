@@ -631,6 +631,38 @@
         "KCLV_CZ6_stage1"
       ],
       "user_maintained": true
+    },
+    {
+      "id": "MatteSpec",
+      "name": "Mapped shader matte specular control",
+      "file_name": "Shared_MatteSpec.v1.0.0.png",
+      "path": "KIU/Common/KIU_Common_texture/Shared_MatteSpec.v1.0.0.png",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_MatteSpec.v1.0.0",
+      "content": "4x4 uniform RGBA=(0,0,0,0) numeric control map. B9 Matte Finish assigns it only to _SpecMap on mapped specular materials; zero RGB/alpha suppresses specular contribution without changing diffuse color or opacity. Not a logo or an albedo texture.",
+      "tags": [
+        "specular",
+        "matte",
+        "finish",
+        "mapped",
+        "control"
+      ],
+      "width": 4,
+      "height": 4,
+      "format": "PNG",
+      "channels": "RGBA",
+      "bytes": 69,
+      "sha256": "6fa466e21df6bf014ed03517399a711777f572b1f0be6a561b947790cda9f634",
+      "reuse_notes": "Use for _SpecMap only; do not use for _MainTex. Preserve all four zero channels. Default Finish restores the original map.",
+      "layout_references": [],
+      "layout_note": "Uniform control data; all UV coordinates are equivalent.",
+      "source": "Deterministic 4x4 RGBA zero control data, generated 2026-09-22. No source artwork.",
+      "consumers": [
+        "KCLV_CZ8A_Stage_2",
+        "KCLV_CZ8A_Engine_Mount",
+        "KCLV_YF-20_Series_Engine",
+        "KCLV_YF-21C"
+      ],
+      "user_maintained": true
     }
   ]
 }
