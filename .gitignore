@@ -298,6 +298,10 @@ node_modules/
 
 # Visual Studio LightSwitch build output
 **/*.HTMLClient/GeneratedArtifacts
+
+# Repository-local agent instructions and tools
+/AGENTS.md
+/tools/
 **/*.DesktopClient/GeneratedArtifacts
 **/*.DesktopClient/ModelManifest.xml
 **/*.Server/GeneratedArtifacts
@@ -369,3 +373,6 @@ user_input/
 archive/
 # Tests folder
 tests/
+
+# Local modelling workspaces and verification artifacts
+/local_workspace/
