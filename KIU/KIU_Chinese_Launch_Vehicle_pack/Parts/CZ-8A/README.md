@@ -65,6 +65,8 @@ craft/save 中 KSP 通常将下划线保存为点号，例如 `KCLV.CZ8A.Stage.2
 
 来源为 `local_workspace/CZ-335_Cryogenic/releases/v1.0.3` 中经过管线修复的模型。初次整合只修改 MU 末尾纹理名称表。2026-09-22 标识更新进一步调整燃料箱两侧的 12 个国旗、CASC 与中文字形贴面：放大、修正国旗比例并避开下方短管。除此之外的模型字节（包括结构、材质默认参数、碰撞体、RCS、供给管口和发动机挂点）全部保留，专用贴图逐字节复用。
 
+2026-09-23 按用户要求删除燃料箱两侧的国旗对象，现有涂装只显示 CASC 与“中国航天”。两个标志和八个字形的位置、尺寸及其余模型字节不变。旧材质／纹理表与加载映射保留兼容，但已没有渲染国旗的网格；公共国旗文件继续供其他零件使用，不删除。离线证据位于 `local_workspace/CZ-335_Cryogenic/audit/remove-flags-20260923`，本次外观调整未启动 KSP 验证。
+
 `SurfaceGloss` 与 `CZ8ALivery` 为两个独立的 B9 模块。Default 不覆盖材质参数，由 B9 恢复各材质原值；Matte 降低普通 Specular 的 `_SpecColor`、`_Shininess`，并为 Mapped Specular 指定公共零值 `_SpecMap`。透明标识贴图、主色图与法线不替换。没有 B9 时仍保留原版涂装切换和模型默认材质，不提供 Finish 菜单。
 
 从仓库根目录执行：
