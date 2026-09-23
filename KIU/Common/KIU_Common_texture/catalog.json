@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "library": "KIU_Common_texture",
-  "updated_at": "2026-09-22",
+  "updated_at": "2026-09-23",
   "path_base": "repository root",
   "game_data_directory": "GameData/KIU/Common/KIU_Common_texture",
   "description": "跨 Part 公共贴图内容索引。制作贴图前必须先读本文件，按内容搜索并检查可复用素材。",
@@ -115,7 +115,9 @@
         "KCLV_CZ8_Fairing_1",
         "KCLV_CZ8_Fairing_Y2",
         "KCLV_YL-1_Fairing_4200",
-        "KCLV_CZ8A_Stage_2"
+        "KCLV_CZ8A_Stage_2",
+        "KCLV_CZ-10B_Short_Fairing",
+        "KCLV_CZ-10B_Long_Fairing"
       ],
       "user_maintained": true,
       "deployment_note": "CZ335 v1.0.2 uses the user-confirmed nested KIU/Common runtime path; older frozen releases retain their historical paths.",
@@ -156,7 +158,8 @@
       "source": "local_workspace/CZ-335_Cryogenic/source/v1.0.0/texture-layout.v1.0.0.json",
       "consumers": [
         "KCLV_CZ335_CryoTank",
-        "KCLV_CZ8A_Stage_2"
+        "KCLV_CZ8A_Stage_2",
+        "KCLV_CZ-10B_Stage1_Tank"
       ],
       "user_maintained": true,
       "deployment_note": "CZ335 v1.0.2 uses the user-confirmed nested KIU/Common runtime path; older frozen releases retain their historical paths."
@@ -661,6 +664,67 @@
         "KCLV_CZ8A_Engine_Mount",
         "KCLV_YF-20_Series_Engine",
         "KCLV_YF-21C"
+      ],
+      "user_maintained": true
+    },
+    {
+      "id": "CZ10Logo",
+      "name": "长征十号红色10专属标志",
+      "file_name": "Shared_CZ10Logo.v1.0.0.dds",
+      "path": "KIU/Common/KIU_Common_texture/Shared_CZ10Logo.v1.0.0.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_CZ10Logo.v1.0.0",
+      "content": "Red stylized 10 logo from the CZ-10B first-stage livery. Not the second-stage red dragon or small red emblem. Transparent background; original glyph shape preserved.",
+      "tags": [
+        "CZ-10",
+        "CZ-10B",
+        "Long March 10",
+        "长征十号",
+        "10",
+        "logo",
+        "red"
+      ],
+      "width": 512,
+      "height": 256,
+      "format": "DXT5",
+      "channels": "RGBA",
+      "bytes": 174928,
+      "sha256": "5b4097d83fe65edb04477f12fbfb19cbde97b019487d75c4d16edce5f5102048",
+      "reuse_notes": "Alpha is opacity, not specular. Use a cutoff decal material. Visible glyph rectangle: top-left pixel coordinates (16,9)-(495,247); rest is transparent padding. DDS stored in the standard vertically flipped game orientation.",
+      "layout_references": [
+        "local_workspace/CZ-10B/tests/build/2026-09-23-common-livery/recipe.json"
+      ],
+      "source": "local_workspace/CZ-10B/source/blender/textures/v060/S1Tank/s1_body_color-base.png; extracted bbox (780,308)-(1259,546), foreground RGB (189,20,33).",
+      "consumers": [
+        "KCLV_CZ-10B_Stage1_Tank"
+      ],
+      "user_maintained": true
+    },
+    {
+      "id": "ChinaRocketText",
+      "name": "中国火箭字形图集",
+      "file_name": "Shared_ChinaRocketText.v1.0.0.png",
+      "path": "KIU/Common/KIU_Common_texture/Shared_ChinaRocketText.v1.0.0.png",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_ChinaRocketText.v1.0.0",
+      "content": "Original CZ-10B second-stage 中国火箭 four separate glyphs, left to right 中 国 火 箭. Transparent background, original blue and glyph shape.",
+      "tags": [
+        "中国火箭",
+        "CZ-10B",
+        "字形",
+        "中文"
+      ],
+      "width": 512,
+      "height": 256,
+      "format": "PNG",
+      "channels": "RGBA",
+      "bytes": 14396,
+      "sha256": "59bb83aa63e87854d02c5e4ea0c53d78f4eed331cdfdabe5f8e2799f2dc911bc",
+      "reuse_notes": "Alpha is opacity. Top-left pixel rectangles: [(13, 60, 115, 196), (141, 60, 243, 196), (269, 60, 371, 196), (397, 60, 499, 196)]. Cutoff decal UVs; transparent gutters.",
+      "layout_references": [
+        "local_workspace/CZ-10B/tests/build/2026-09-23-texture-2k/recipe.json"
+      ],
+      "source": "local_workspace/CZ-10B/source/ksp/textures/s2_text_color.dds",
+      "consumers": [
+        "KCLV_CZ-10B_Stage2_Tank"
       ],
       "user_maintained": true
     }

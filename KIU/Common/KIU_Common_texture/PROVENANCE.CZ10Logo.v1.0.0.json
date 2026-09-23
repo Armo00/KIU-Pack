@@ -1,0 +1,32 @@
+{
+  "id": "CZ10Logo",
+  "name": "长征十号红色10专属标志",
+  "file_name": "Shared_CZ10Logo.v1.0.0.dds",
+  "path": "KIU/Common/KIU_Common_texture/Shared_CZ10Logo.v1.0.0.dds",
+  "game_url": "KIU/Common/KIU_Common_texture/Shared_CZ10Logo.v1.0.0",
+  "content": "Red stylized 10 logo from the CZ-10B first-stage livery. Not the second-stage red dragon or small red emblem. Transparent background; original glyph shape preserved.",
+  "tags": [
+    "CZ-10",
+    "CZ-10B",
+    "Long March 10",
+    "长征十号",
+    "10",
+    "logo",
+    "red"
+  ],
+  "width": 512,
+  "height": 256,
+  "format": "DXT5",
+  "channels": "RGBA",
+  "bytes": 174928,
+  "sha256": "5b4097d83fe65edb04477f12fbfb19cbde97b019487d75c4d16edce5f5102048",
+  "reuse_notes": "Alpha is opacity, not specular. Use a cutoff decal material. Visible glyph rectangle: top-left pixel coordinates (16,9)-(495,247); rest is transparent padding. DDS stored in the standard vertically flipped game orientation.",
+  "layout_references": [
+    "local_workspace/CZ-10B/tests/build/2026-09-23-common-livery/recipe.json"
+  ],
+  "source": "local_workspace/CZ-10B/source/blender/textures/v060/S1Tank/s1_body_color-base.png; extracted bbox (780,308)-(1259,546), foreground RGB (189,20,33).",
+  "consumers": [
+    "KCLV_CZ-10B_Stage1_Tank"
+  ],
+  "user_maintained": true
+}

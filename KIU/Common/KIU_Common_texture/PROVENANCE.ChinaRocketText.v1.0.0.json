@@ -1,0 +1,60 @@
+{
+  "source": "D:\\My Coding Project\\KIU-Pack\\local_workspace\\CZ-10B\\source\\ksp\\textures\\s2_text_color.dds",
+  "source_sha256": "f7d897356da6c803af6a5cb696b6ea99cda9f6e26b2d0efc9c22b3f8de493eaf",
+  "extraction": "DDS flipped to top-left image orientation; exact glyph pixels cropped without resampling",
+  "glyph_rects": [
+    [
+      13,
+      60,
+      115,
+      196
+    ],
+    [
+      141,
+      60,
+      243,
+      196
+    ],
+    [
+      269,
+      60,
+      371,
+      196
+    ],
+    [
+      397,
+      60,
+      499,
+      196
+    ]
+  ],
+  "asset": {
+    "id": "ChinaRocketText",
+    "name": "中国火箭字形图集",
+    "file_name": "Shared_ChinaRocketText.v1.0.0.png",
+    "path": "KIU/Common/KIU_Common_texture/Shared_ChinaRocketText.v1.0.0.png",
+    "game_url": "KIU/Common/KIU_Common_texture/Shared_ChinaRocketText.v1.0.0",
+    "content": "Original CZ-10B second-stage 中国火箭 four separate glyphs, left to right 中 国 火 箭. Transparent background, original blue and glyph shape.",
+    "tags": [
+      "中国火箭",
+      "CZ-10B",
+      "字形",
+      "中文"
+    ],
+    "width": 512,
+    "height": 256,
+    "format": "PNG",
+    "channels": "RGBA",
+    "bytes": 14396,
+    "sha256": "59bb83aa63e87854d02c5e4ea0c53d78f4eed331cdfdabe5f8e2799f2dc911bc",
+    "reuse_notes": "Alpha is opacity. Top-left pixel rectangles: [(13, 60, 115, 196), (141, 60, 243, 196), (269, 60, 371, 196), (397, 60, 499, 196)]. Cutoff decal UVs; transparent gutters.",
+    "layout_references": [
+      "local_workspace/CZ-10B/tests/build/2026-09-23-texture-2k/recipe.json"
+    ],
+    "source": "local_workspace/CZ-10B/source/ksp/textures/s2_text_color.dds",
+    "consumers": [
+      "KCLV_CZ-10B_Stage2_Tank"
+    ],
+    "user_maintained": true
+  }
+}
