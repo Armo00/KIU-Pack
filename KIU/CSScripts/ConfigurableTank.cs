@@ -39,9 +39,21 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     public string tankMode="Stock";
     [KSPField(guiActiveEditor=true,guiName="Layout (lower / upper)")]
     public string layout;
+    // Defaults preserve the existing bottom-origin CZ10B contract.
+    [KSPField] public float originFraction = 0f;
+    [KSPField] public bool scaleWithModel = false;
+    [KSPField] public bool realFuelsVolumeIsUsable = false;
+    [KSPField] public string extensionLabel = "Extension segments";
+    [KSPField] public string specLabel = "Tank Spec";
+    [KSPField] public string modeLabel = "Tank mode";
+    [KSPField] public string layoutLabel = "Layout (lower / upper)";
+    [KSPField] public string addLabel = "Add extension";
+    [KSPField] public string removeLabel = "Remove extension";
     private Transform lower,upper,body,template;
     private Vector3 originalLower,originalUpper;
     private bool initialized;
+    private float modelScale=1;
+    private float appliedDown,appliedUp;
     private readonly List<GameObject> copies=new List<GameObject>();
     private readonly List<ResourceSpec> resources=new List<ResourceSpec>();
     private class ResourceSpec { public string name; public double baseline,increment; }
@@ -71,6 +83,12 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     public override void OnStart(StartState state)
     {
         base.OnStart(state);
+        Fields["extensionCount"].guiName=KSP.Localization.Localizer.Format(extensionLabel);
+        Fields["tankSpec"].guiName=KSP.Localization.Localizer.Format(specLabel);
+        Fields["tankMode"].guiName=KSP.Localization.Localizer.Format(modeLabel);
+        Fields["layout"].guiName=KSP.Localization.Localizer.Format(layoutLabel);
+        Events["AddExtension"].guiName=KSP.Localization.Localizer.Format(addLabel);
+        Events["RemoveExtension"].guiName=KSP.Localization.Localizer.Format(removeLabel);
         maxSegments=Math.Max(0,maxSegments);
         ConfigureSegmentControl();
         InitializeModel();
@@ -123,6 +141,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         // Authored section roots are at zero; do not inherit an already extended symmetry clone's offsets.
         originalLower=Vector3.zero;originalUpper=Vector3.zero;
         template.gameObject.SetActive(false);
+        modelScale=scaleWithModel ? part.transform.InverseTransformVector(template.parent.TransformVector(Vector3.up)).magnitude : 1f;
         foreach(Transform child in template.parent)
             if(child.name.StartsWith("TankExtension_"))copies.Add(child.gameObject);
         initialized=true;
@@ -166,27 +185,31 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         InitializeModel();
         int low=LowerCount(count),high=UpperCount(count);
         float down=low*segmentLength,up=high*segmentLength;
+        float baseBottom=-baseHeight*originFraction,baseTop=baseBottom+baseHeight;
+        float newBottom=(baseBottom-down)*modelScale,newTop=(baseTop+up)*modelScale;
         AttachNode bn=part.FindAttachNode(bottomNode),tn=part.FindAttachNode(topNode);
-        Vector3 bd=Vector3.zero,td=Vector3.zero;
-        if(bn!=null)bd=Vector3.up*(-down-bn.position.y);
-        if(tn!=null)td=Vector3.up*(baseHeight+up-tn.position.y);
-        Vector3 anchor=Vector3.zero;
-        if(moveAttached) {
-            if(bn!=null && bn.attachedPart==part.parent)anchor=bd;
-            else if(tn!=null && tn.attachedPart==part.parent)anchor=td;
-            if(anchor!=Vector3.zero)MoveTree(part,-part.transform.TransformVector(anchor));
-            if(bn!=null && bn.attachedPart!=null && bn.attachedPart!=part.parent)MoveTree(bn.attachedPart,part.transform.TransformVector(bd));
-            if(tn!=null && tn.attachedPart!=null && tn.attachedPart!=part.parent)MoveTree(tn.attachedPart,part.transform.TransformVector(td));
-            // Radial accessories on fixed main body stay fixed; caps follow their translations.
-            foreach(Part child in part.children) {
-                if((bn!=null && bn.attachedPart==child)||(tn!=null && tn.attachedPart==child))continue;
-                float y=part.transform.InverseTransformPoint(child.transform.position).y;
-                if(y<bottomCapHeight)MoveTree(child,part.transform.TransformVector(bd));
-                else if(y>bottomCapHeight+mainBodyHeight)MoveTree(child,part.transform.TransformVector(td));
-            }
+        Vector3 bd=bn==null?Vector3.zero:Vector3.up*(newBottom-bn.position.y);
+        Vector3 td=tn==null?Vector3.zero:Vector3.up*(newTop-tn.position.y);
+        // Classify radial attachments before moving the parent tree. Compare
+        // against the current cap locations, not coordinates from another size.
+        var radial=new List<KeyValuePair<Part,Vector3>>();
+        if(moveAttached) foreach(Part child in part.children) {
+            if((bn!=null&&bn.attachedPart==child)||(tn!=null&&tn.attachedPart==child))continue;
+            float y=part.transform.InverseTransformPoint(child.transform.position).y;
+            if(y<(baseBottom+bottomCapHeight-appliedDown)*modelScale)radial.Add(new KeyValuePair<Part,Vector3>(child,bd));
+            else if(y>(baseBottom+bottomCapHeight+mainBodyHeight+appliedUp)*modelScale)radial.Add(new KeyValuePair<Part,Vector3>(child,td));
         }
-        if(bn!=null) { bn.position=new Vector3(bn.position.x,-down,bn.position.z);bn.originalPosition=bn.position; }
-        if(tn!=null) { tn.position=new Vector3(tn.position.x,baseHeight+up,tn.position.z);tn.originalPosition=tn.position; }
+        if(moveAttached) {
+            Vector3 anchor=Vector3.zero;
+            if(bn!=null&&bn.attachedPart==part.parent)anchor=bd;
+            else if(tn!=null&&tn.attachedPart==part.parent)anchor=td;
+            if(anchor!=Vector3.zero)MoveTree(part,-part.transform.TransformVector(anchor));
+            if(bn!=null&&bn.attachedPart!=null&&bn.attachedPart!=part.parent)MoveTree(bn.attachedPart,part.transform.TransformVector(bd));
+            if(tn!=null&&tn.attachedPart!=null&&tn.attachedPart!=part.parent)MoveTree(tn.attachedPart,part.transform.TransformVector(td));
+            foreach(var pair in radial)MoveTree(pair.Key,part.transform.TransformVector(pair.Value));
+        }
+        if(bn!=null){bn.position=new Vector3(bn.position.x,newBottom,bn.position.z);bn.originalPosition=bn.position;}
+        if(tn!=null){tn.position=new Vector3(tn.position.x,newTop,tn.position.z);tn.originalPosition=tn.position;}
         lower.localPosition=originalLower-Vector3.up*down;
         upper.localPosition=originalUpper+Vector3.up*up;
         foreach(GameObject old in copies) { old.SetActive(false);Destroy(old); }
@@ -196,12 +219,13 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
             GameObject obj=Instantiate(template.gameObject);obj.name="TankExtension_"+i;
             obj.transform.SetParent(template.parent,false);obj.transform.localRotation=template.localRotation;
             obj.transform.localScale=Vector3.one;
-            obj.transform.localPosition=Vector3.up*(below?bottomCapHeight-(index+1)*segmentLength:bottomCapHeight+mainBodyHeight+index*segmentLength);
+            obj.transform.localPosition=Vector3.up*(below?baseBottom+bottomCapHeight-(index+1)*segmentLength:baseBottom+bottomCapHeight+mainBodyHeight+index*segmentLength);
             obj.SetActive(true);copies.Add(obj);
         }
-        float center=(baseHeight+up-down)*.5f;
+        appliedDown=down;appliedUp=up;
+        float center=(-baseHeight*originFraction+(baseHeight+up-down)*.5f)*modelScale;
         part.CoMOffset=new Vector3(0,center,0);part.CoLOffset=part.CoMOffset;part.CoPOffset=part.CoMOffset;
-        tankLength=baseHeight+count*segmentLength;layout=low+" / "+high;
+        tankLength=(baseHeight+count*segmentLength)*modelScale;layout=low+" / "+high;
         UpdateTankSpec(count);
         extensionCount=count;
         Events["AddExtension"].active=false;Events["RemoveExtension"].active=false;
@@ -220,7 +244,18 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
             if(target<=0)throw new InvalidOperationException("Missing realFuels volume cfg");
             MethodInfo method=mft.GetType().GetMethod("ChangeTotalVolume",new Type[]{typeof(double),typeof(bool)});
             if(method==null)throw new NotSupportedException("ModuleFuelTanks.ChangeTotalVolume(double,bool) is required");
-            method.Invoke(mft,new object[]{target,false});
+            // The cfg contract is usable fuel volume, matching ModuleFuelTanks
+            // "volume". ChangeTotalVolume expects geometric volume before its
+            // utilization percentage; passing usable volume directly loses fuel.
+            double volume=target;
+            if(realFuelsVolumeIsUsable) {
+                FieldInfo utilizationField=mft.GetType().GetField("utilization");
+                if(utilizationField==null)throw new NotSupportedException("ModuleFuelTanks.utilization is required");
+                double utilization=Convert.ToDouble(utilizationField.GetValue(mft),CultureInfo.InvariantCulture)*.01;
+                if(utilization<=0||utilization>1)throw new InvalidOperationException("Invalid MFT utilization");
+                volume=target/utilization;
+            }
+            method.Invoke(mft,new object[]{volume,false});
             MethodInfo mass=mft.GetType().GetMethod("CalculateMass",Type.EmptyTypes);
             if(mass!=null)mass.Invoke(mft,null);
         } else {
@@ -248,7 +283,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     }
     private void UpdateTankSpec(int count)
     {
-        tankSpec=string.Format(CultureInfo.InvariantCulture,"{0:F1}m/{1:F1}t",baseHeight+count*segmentLength,DryMassForCount(count));
+        tankSpec=string.Format(CultureInfo.InvariantCulture,"{0:F1}m/{1:F1}t",(baseHeight+count*segmentLength)*modelScale,DryMassForCount(count));
     }
     private void RefreshAerodynamics()
     {
@@ -265,6 +300,6 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     public ModifierChangeWhen GetModuleMassChangeWhen() { return ModifierChangeWhen.CONSTANTLY; }
     public float GetModuleCost(float defaultCost,ModifierStagingSituation sit) { return segments*costPerSegment; }
     public ModifierChangeWhen GetModuleCostChangeWhen() { return ModifierChangeWhen.CONSTANTLY; }
-    public Vector3 GetModuleSize(Vector3 defaultSize,ModifierStagingSituation sit) { return Vector3.up*(segments*segmentLength); }
+    public Vector3 GetModuleSize(Vector3 defaultSize,ModifierStagingSituation sit) { return Vector3.up*(segments*segmentLength*modelScale); }
     public ModifierChangeWhen GetModuleSizeChangeWhen() { return ModifierChangeWhen.CONSTANTLY; }
 }
