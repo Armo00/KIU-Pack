@@ -731,6 +731,615 @@
         "KCLV_CZ-10B_Stage2_Tank"
       ],
       "user_maintained": true
+    },
+    {
+      "id": "LatinF",
+      "name": "Latin capital F for rocket lettering",
+      "file_name": "Shared_LatinF.v1.0.0.png",
+      "path": "KIU/Common/KIU_Common_texture/Shared_LatinF.v1.0.0.png",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_LatinF.v1.0.0",
+      "content": "Single dark-blue uppercase F, Arial regular, RGBA=(46,51,94,alpha), transparent background; supplements the existing Serial atlas without duplicating C/Z/digits.",
+      "tags": [
+        "glyph",
+        "Latin",
+        "F",
+        "CZ-2F"
+      ],
+      "width": 256,
+      "height": 256,
+      "format": "PNG",
+      "channels": "RGBA",
+      "bytes": 943,
+      "sha256": "bf09addb7e8ae7c1d75056bf6d29c0e84925f185bfb1d3e168e66aa537a4264e",
+      "layout": {
+        "ink_rect": [
+          37,
+          16,
+          161,
+          200
+        ],
+        "origin": "top-left"
+      },
+      "source": {
+        "font": "Arial regular",
+        "font_sha256": "b3658eadae55e682b5f69eb64c439c1ecc8f196c0bb8d4756d145d13bc86476a",
+        "font_size": 256,
+        "generator": "local_workspace/KCLV_RenderFix/tools/fix_lettering.py"
+      },
+      "consumers": [
+        "KCLV_CZ2F_stage1"
+      ],
+      "user_maintained": true,
+      "reuse_notes": "One glyph only. Map the alpha ink rectangle, preserve aspect ratio. Not a complete CZ-2F wordmark.",
+      "publication_note": "Published to the repository shared library by explicit user request on 2026-09-23; Part bindings remain in the v3.5.3 addon. Historical release bytes unchanged."
+    },
+    {
+      "id": "FairingNormalNative",
+      "name": "整流罩共用结构法线（KSP RGB 输入）",
+      "file_name": "Shared_FairingNormal.v3.5.2.png",
+      "path": "KIU/Common/KIU_Common_texture/Shared_FairingNormal.v3.5.2.png",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_FairingNormal.v3.5.2",
+      "content": "复用 FairingNormal 的全部结构/平坦法线内容。RGB PNG：R=原 A（X），G=原 G（Y），B=重建 Z，Alpha=255。KSP 导入后 A/G 与原设计逐像素一致，无二次有损压缩。",
+      "tags": [
+        "法线",
+        "normal",
+        "整流罩",
+        "CZ-7",
+        "CZ-7A",
+        "CZ-8",
+        "RGB-normal-input",
+        "native-normal"
+      ],
+      "width": 1024,
+      "height": 1024,
+      "format": "PNG",
+      "channels": "RGBA, unpacked RGB normal input",
+      "bytes": 58375,
+      "sha256": "dda0a360f3dee91694b124667e5bb54de84ee58857aa7e32d5ba1ab0d8d5821f",
+      "source": "KIU/Common/KIU_Common_texture/Shared_FairingNormal.v3.3.0.png",
+      "source_sha256": "9e6152b8b0e676144476a7a723bc607f5128b54256707e4cc9a06ebd320c479d",
+      "consumers": [
+        "KCLV_CZ7A_FAIRING_420x1000",
+        "KCLV_CZ7A_SGFairing_Lower",
+        "KCLV_CZ7A_SGFairing_Middle",
+        "KCLV_CZ7A_SGFairing_Upper",
+        "KCLV_CZ7_Fairing",
+        "KCLV_CZ7_Fairing_Solid_Booster",
+        "KCLV_CZ8_Fairing_1",
+        "KCLV_CZ8_Fairing_Y2"
+      ],
+      "reuse_notes": "使用 KSP 法线槽（_BumpMap），MU texture type=1。PNG 是 RGB 法线输入，不是直接供 shader 采样的 packed AG 图；KSP 自动转换。结构图必须匹配原 UV；FlatNormalNative 可通用。",
+      "user_maintained": true,
+      "publication_note": "Published to the repository shared library by explicit user request on 2026-09-23; Part bindings remain in the v3.5.3 addon. Historical release bytes unchanged."
+    },
+    {
+      "id": "FlatNormalNative",
+      "name": "平坦表面 法线（KSP RGB 输入）",
+      "file_name": "Shared_FlatNormal.v3.5.2.png",
+      "path": "KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2.png",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2",
+      "content": "复用 FlatNormal 的全部结构/平坦法线内容。RGB PNG：R=原 A（X），G=原 G（Y），B=重建 Z，Alpha=255。KSP 导入后 A/G 与原设计逐像素一致，无二次有损压缩。",
+      "tags": [
+        "法线",
+        "normal",
+        "平坦",
+        "packed",
+        "flat",
+        "RGB-normal-input",
+        "native-normal"
+      ],
+      "width": 4,
+      "height": 4,
+      "format": "PNG",
+      "channels": "RGBA, unpacked RGB normal input",
+      "bytes": 78,
+      "sha256": "50761dd383077ec328caa7e6882927b1824376c5b890c52caff5a5cd1970148d",
+      "source": "KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.3.0.png",
+      "source_sha256": "fef3018acc5ffe048f9744b2c2ff5d790a6b09148fd48a06604fb86c645091ff",
+      "consumers": [
+        "KCLV_2.25m_NoseCone",
+        "KCLV_2m_NoseCone",
+        "KCLV_CZ2F_Adapter",
+        "KCLV_CZ2F_Escape_tower",
+        "KCLV_CZ2F_Escape_tower_Upper",
+        "KCLV_CZ2F_Fairing_Down",
+        "KCLV_CZ2F_Fairing_Mid",
+        "KCLV_CZ2F_Fairing_Upper",
+        "KCLV_CZ2F_Wing",
+        "KCLV_CZ2F_high_altitude_abort_Engine",
+        "KCLV_CZ2F_interstage",
+        "KCLV_CZ2F_stage1",
+        "KCLV_CZ2F_stage2",
+        "KCLV_CZ3_Instrument_Bay_1",
+        "KCLV_CZ3_Instrument_Bay_2",
+        "KCLV_CZ6A_Adapter",
+        "KCLV_CZ6A_Booster_Separator",
+        "KCLV_CZ6A_Engine_Shell",
+        "KCLV_CZ6A_Fairing_Mid",
+        "KCLV_CZ6A_Interstage",
+        "KCLV_CZ6A_stage1",
+        "KCLV_CZ6A_stage2",
+        "KCLV_CZ6_Adapter",
+        "KCLV_CZ6_Engine_Shell",
+        "KCLV_CZ6_Interstage",
+        "KCLV_CZ6_Interstage2-3",
+        "KCLV_CZ6_stage1",
+        "KCLV_CZ6_stage2",
+        "KCLV_CZ6_stage3",
+        "KCLV_CZ7A_Booster_Solid_Booster",
+        "KCLV_CZ7A_Stage_2",
+        "KCLV_CZ7_8_Wing",
+        "KCLV_CZ7_Engine_Shell_1st",
+        "KCLV_CZ7_Fairing_Solid_Booster",
+        "KCLV_CZ7_Interstage1-2",
+        "KCLV_CZ7_Stage_1",
+        "KCLV_YF115"
+      ],
+      "reuse_notes": "使用 KSP 法线槽（_BumpMap），MU texture type=1。PNG 是 RGB 法线输入，不是直接供 shader 采样的 packed AG 图；KSP 自动转换。结构图必须匹配原 UV；FlatNormalNative 可通用。",
+      "user_maintained": true,
+      "publication_note": "Published to the repository shared library by explicit user request on 2026-09-23; Part bindings remain in the v3.5.3 addon. Historical release bytes unchanged."
+    },
+    {
+      "id": "UpperStageNormalNative",
+      "name": "上面级共用结构法线（KSP RGB 输入）",
+      "file_name": "Shared_UpperStageNormal.v3.5.2.png",
+      "path": "KIU/Common/KIU_Common_texture/Shared_UpperStageNormal.v3.5.2.png",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_UpperStageNormal.v3.5.2",
+      "content": "复用 UpperStageNormal 的全部结构/平坦法线内容。RGB PNG：R=原 A（X），G=原 G（Y），B=重建 Z，Alpha=255。KSP 导入后 A/G 与原设计逐像素一致，无二次有损压缩。",
+      "tags": [
+        "法线",
+        "normal",
+        "上面级",
+        "二级",
+        "结构",
+        "RGB-normal-input",
+        "native-normal"
+      ],
+      "width": 1024,
+      "height": 1024,
+      "format": "PNG",
+      "channels": "RGBA, unpacked RGB normal input",
+      "bytes": 63020,
+      "sha256": "e81fc3fa98df10673964b60c14445d169156f2d8f94ff899c1cbf8ac820a685c",
+      "source": "KIU/Common/KIU_Common_texture/Shared_UpperStageNormal.v3.3.0.png",
+      "source_sha256": "3ab84114be0ad1b1949d3197530846aef8b409bc9ffeba9091f21285324d6c41",
+      "consumers": [
+        "KCLV_CZ7A_Stage_2",
+        "KCLV_CZ7_Stage_2"
+      ],
+      "reuse_notes": "使用 KSP 法线槽（_BumpMap），MU texture type=1。PNG 是 RGB 法线输入，不是直接供 shader 采样的 packed AG 图；KSP 自动转换。结构图必须匹配原 UV；FlatNormalNative 可通用。",
+      "user_maintained": true,
+      "publication_note": "Published to the repository shared library by explicit user request on 2026-09-23; Part bindings remain in the v3.5.3 addon. Historical release bytes unchanged."
+    },
+    {
+      "id": "Shared_CASC_Classic_v353",
+      "name": "CASC 历史蓝紫配色标志 v3.5.3",
+      "path": "KIU/Common/KIU_Common_texture/Shared_CASC_Classic.v3.5.3.dds",
+      "file_name": "Shared_CASC_Classic.v3.5.3.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_CASC_Classic.v3.5.3",
+      "content": "三道蓝紫圆环、深浅蓝紫四分面箭头及 CASC 字母；透明背景，适配 CZ-3B 旧款图样。整幅2048方形供贴面采样。",
+      "width": 2048,
+      "height": 2048,
+      "format": "DXT1 / BC1 cutout",
+      "channels": "RGB + 1-bit alpha",
+      "mips": 12,
+      "bytes": 2796344,
+      "sha256": "55a2cc44030988e72fe844f370537e0b7cf2ca151087162c417b86819adece3c",
+      "source": "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.3/Shared_CASC_Classic.v3.5.3.svg",
+      "consumers": [
+        "KCLV_CZ3_STAGE3"
+      ],
+      "tags": [
+        "v3.5.3",
+        "public",
+        "logo"
+      ],
+      "reuse_notes": "Use KSP/Alpha/Cutoff at 0.45; each source mip thresholded before BC1 encoding. Not a soft-alpha translucent texture. Versioned reconstruction from original package references, not an official logo master.",
+      "layout": {
+        "sample_rect": [
+          0,
+          0,
+          2048,
+          2048
+        ],
+        "glyph_rects": null
+      },
+      "native_KSP_tested": false,
+      "publication_note": "Published to the repository shared library by explicit user request on 2026-09-23; Part bindings remain in the v3.5.3 addon. Historical release bytes unchanged."
+    },
+    {
+      "id": "Shared_CASC_Teal_v353",
+      "name": "CASC 蓝紫与青灰配色标志 v3.5.3",
+      "path": "KIU/Common/KIU_Common_texture/Shared_CASC_Teal.v3.5.3.dds",
+      "file_name": "Shared_CASC_Teal.v3.5.3.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_CASC_Teal.v3.5.3",
+      "content": "蓝紫三环、蓝紫/青灰四色分面箭头及浅灰紫 CASC 字母；透明背景。保留 CZ-6A、CZ-7 等原型中的青灰配色，与蓝紫单色变体不同。",
+      "width": 2048,
+      "height": 2048,
+      "format": "DXT1 / BC1 cutout",
+      "channels": "RGB + 1-bit alpha",
+      "mips": 12,
+      "bytes": 2796344,
+      "sha256": "9ccc8c24ac1a31d5b4b553842bf5740614df293a8de9112f33ba3fbe64a0b804",
+      "source": "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.3/Shared_CASC_Teal.v3.5.3.svg",
+      "consumers": [
+        "KCLV_CZ3_STAGE3",
+        "KCLV_CZ6A_stage1",
+        "KCLV_CZ7_Stage_2"
+      ],
+      "tags": [
+        "v3.5.3",
+        "public",
+        "logo"
+      ],
+      "reuse_notes": "Use KSP/Alpha/Cutoff at 0.45; each source mip thresholded before BC1 encoding. Not a soft-alpha translucent texture. Versioned reconstruction from original package references, not an official logo master.",
+      "layout": {
+        "sample_rect": [
+          67,
+          80,
+          1980,
+          1965
+        ],
+        "glyph_rects": null
+      },
+      "native_KSP_tested": false,
+      "publication_note": "Published to the repository shared library by explicit user request on 2026-09-23; Part bindings remain in the v3.5.3 addon. Historical release bytes unchanged."
+    },
+    {
+      "id": "Shared_CASC_Blue_v353",
+      "name": "CASC 蓝色渐变标志 v3.5.3",
+      "path": "KIU/Common/KIU_Common_texture/Shared_CASC_Blue.v3.5.3.dds",
+      "file_name": "Shared_CASC_Blue.v3.5.3.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_CASC_Blue.v3.5.3",
+      "content": "蓝色三环、深蓝至浅蓝渐变的四分面箭头及蓝色 CASC 字母；透明背景。供 CZ-2F 二级、CZ-6 一级的历史蓝色图样复用。",
+      "width": 2048,
+      "height": 2048,
+      "format": "DXT1 / BC1 cutout",
+      "channels": "RGB + 1-bit alpha",
+      "mips": 12,
+      "bytes": 2796344,
+      "sha256": "d3baa20eef25cb4e6525a27c0123eb221a71d3a1c269719e2d7583feca3edef8",
+      "source": "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.3/Shared_CASC_Blue.v3.5.3.svg",
+      "consumers": [
+        "KCLV_CZ2F_stage2",
+        "KCLV_CZ6_stage1"
+      ],
+      "tags": [
+        "v3.5.3",
+        "public",
+        "logo"
+      ],
+      "reuse_notes": "Use KSP/Alpha/Cutoff at 0.45; each source mip thresholded before BC1 encoding. Not a soft-alpha translucent texture. Versioned reconstruction from original package references, not an official logo master.",
+      "layout": {
+        "sample_rect": [
+          67,
+          80,
+          1980,
+          1965
+        ],
+        "glyph_rects": null
+      },
+      "native_KSP_tested": false,
+      "publication_note": "Published to the repository shared library by explicit user request on 2026-09-23; Part bindings remain in the v3.5.3 addon. Historical release bytes unchanged."
+    },
+    {
+      "id": "Shared_LM_OpenOrbit_v353",
+      "name": "LM 开口轨道式标志 v3.5.3",
+      "path": "KIU/Common/KIU_Common_texture/Shared_LM_OpenOrbit.v3.5.3.dds",
+      "file_name": "Shared_LM_OpenOrbit.v3.5.3.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_LM_OpenOrbit.v3.5.3",
+      "content": "原 CZ-6A 二级的开口轨道式 LM：左右各三条渐收窄蓝色轨道带、粗体倾斜 LM 字母，透明背景；不同于其他零件使用的闭环式 LM。",
+      "width": 2048,
+      "height": 2048,
+      "format": "DXT1 / BC1 cutout",
+      "channels": "RGB + 1-bit alpha",
+      "mips": 12,
+      "bytes": 2796344,
+      "sha256": "6946b942e9000e19d66def861107f8b5b08adfbcc5c3411be7a8d51bcddc7aac",
+      "source": "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.3/Shared_LM_OpenOrbit.v3.5.3.svg",
+      "consumers": [
+        "KCLV_CZ6A_stage2"
+      ],
+      "tags": [
+        "v3.5.3",
+        "public",
+        "logo"
+      ],
+      "reuse_notes": "Use KSP/Alpha/Cutoff at 0.45; each source mip thresholded before BC1 encoding. Not a soft-alpha translucent texture. Versioned reconstruction from original package references, not an official logo master.",
+      "layout": {
+        "sample_rect": [
+          219,
+          267,
+          1748,
+          1779
+        ],
+        "glyph_rects": null
+      },
+      "native_KSP_tested": false,
+      "publication_note": "Published to the repository shared library by explicit user request on 2026-09-23; Part bindings remain in the v3.5.3 addon. Historical release bytes unchanged."
+    },
+    {
+      "id": "Shared_LM_Badge_v353",
+      "name": "LM 蓝底红白条纹徽章 v3.5.3",
+      "path": "KIU/Common/KIU_Common_texture/Shared_LM_Badge.v3.5.3.dds",
+      "file_name": "Shared_LM_Badge.v3.5.3.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_LM_Badge.v3.5.3",
+      "content": "原 CZ-2F 一级徽章图样：实心蓝圆、白色倾斜 LM 字母、白色轨道带及外圈线，背后是红白水平细条纹方形底。",
+      "width": 2048,
+      "height": 2048,
+      "format": "DXT1 / BC1 cutout",
+      "channels": "RGB + 1-bit alpha",
+      "mips": 12,
+      "bytes": 2796344,
+      "sha256": "b094898088b4a75a3997fe64846eed9870783361fe1815d528da18bfa0788b9f",
+      "source": "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.3/Shared_LM_Badge.v3.5.3.svg",
+      "consumers": [
+        "KCLV_CZ2F_stage1"
+      ],
+      "tags": [
+        "v3.5.3",
+        "public",
+        "logo"
+      ],
+      "reuse_notes": "Use KSP/Alpha/Cutoff at 0.45; each source mip thresholded before BC1 encoding. Not a soft-alpha translucent texture. Versioned reconstruction from original package references, not an official logo master.",
+      "layout": {
+        "sample_rect": [
+          219,
+          267,
+          1748,
+          1779
+        ],
+        "glyph_rects": null
+      },
+      "native_KSP_tested": false,
+      "publication_note": "Published to the repository shared library by explicit user request on 2026-09-23; Part bindings remain in the v3.5.3 addon. Historical release bytes unchanged."
+    },
+    {
+      "id": "Shared_ChinaFlag_Red_v353",
+      "name": "国旗：亮红与纯黄五星 v3.5.3",
+      "path": "KIU/Common/KIU_Common_texture/Shared_ChinaFlag_Red.v3.5.3.dds",
+      "file_name": "Shared_ChinaFlag_Red.v3.5.3.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_ChinaFlag_Red.v3.5.3",
+      "content": "横向五星红旗；源稿旗面为亮红 #F11523，五星为纯黄 #FFFF00，旗外透明。复用统一五角星几何；色值为压缩前源稿值。",
+      "width": 2048,
+      "height": 2048,
+      "format": "DXT1 / BC1 cutout",
+      "channels": "RGB + 1-bit alpha",
+      "mips": 12,
+      "bytes": 2796344,
+      "sha256": "2ee286abfb4adef52c378489767b3ee11afa17717da7cc0574b119bcfb1f6550",
+      "source": "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.3/Shared_ChinaFlag_Red.v3.5.3.svg",
+      "consumers": [
+        "KCLV_CZ3B_FAIRING_4200",
+        "KCLV_CZ6_Fairing_2.6m",
+        "KCLV_CZ7A_FAIRING_420x1000",
+        "KCLV_CZ7A_SGFairing_Upper",
+        "KCLV_CZ7_Fairing",
+        "KCLV_CZ7_Launch_Platform",
+        "KCLV_CZ8_Fairing_1",
+        "KCLV_CZ8_Fairing_Y2",
+        "KCLV_YL-1_Fairing_4200"
+      ],
+      "tags": [
+        "v3.5.3",
+        "public",
+        "logo"
+      ],
+      "reuse_notes": "Use KSP/Alpha/Cutoff at 0.45; each source mip thresholded before BC1 encoding. Not a soft-alpha translucent texture. Versioned reconstruction from original package references, not an official logo master.",
+      "layout": {
+        "sample_rect": [
+          64,
+          384,
+          1984,
+          1664
+        ],
+        "glyph_rects": null
+      },
+      "native_KSP_tested": false,
+      "publication_note": "Published to the repository shared library by explicit user request on 2026-09-23; Part bindings remain in the v3.5.3 addon. Historical release bytes unchanged."
+    },
+    {
+      "id": "Shared_ChinaFlag_Crimson_v353",
+      "name": "国旗：CZ-6A 深红配色 v3.5.3",
+      "path": "KIU/Common/KIU_Common_texture/Shared_ChinaFlag_Crimson.v3.5.3.dds",
+      "file_name": "Shared_ChinaFlag_Crimson.v3.5.3.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_ChinaFlag_Crimson.v3.5.3",
+      "content": "横向五星红旗；源稿旗面为深红 #CB0008，五星为纯黄 #FFFF00，旗外透明。保留 CZ-6A 旧配色；色值为压缩前源稿值。",
+      "width": 2048,
+      "height": 2048,
+      "format": "DXT1 / BC1 cutout",
+      "channels": "RGB + 1-bit alpha",
+      "mips": 12,
+      "bytes": 2796344,
+      "sha256": "ac6b330dab117309c26ee66314f8c0670e2c61a8ba66f3cecbadc006c21eb3f8",
+      "source": "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.3/Shared_ChinaFlag_Crimson.v3.5.3.svg",
+      "consumers": [
+        "KCLV_CZ6A_Fairing_Mid"
+      ],
+      "tags": [
+        "v3.5.3",
+        "public",
+        "logo"
+      ],
+      "reuse_notes": "Use KSP/Alpha/Cutoff at 0.45; each source mip thresholded before BC1 encoding. Not a soft-alpha translucent texture. Versioned reconstruction from original package references, not an official logo master.",
+      "layout": {
+        "sample_rect": [
+          64,
+          384,
+          1984,
+          1664
+        ],
+        "glyph_rects": null
+      },
+      "native_KSP_tested": false,
+      "publication_note": "Published to the repository shared library by explicit user request on 2026-09-23; Part bindings remain in the v3.5.3 addon. Historical release bytes unchanged."
+    },
+    {
+      "id": "Shared_ChinaFlag_2F_v353",
+      "name": "国旗：CZ-2F 红黄配色 v3.5.3",
+      "path": "KIU/Common/KIU_Common_texture/Shared_ChinaFlag_2F.v3.5.3.dds",
+      "file_name": "Shared_ChinaFlag_2F.v3.5.3.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_ChinaFlag_2F.v3.5.3",
+      "content": "横向五星红旗；源稿旗面为 #E70012，五星为 #FCE000，旗外透明。保留 CZ-2F 旧配色；色值为压缩前源稿值。",
+      "width": 2048,
+      "height": 2048,
+      "format": "DXT1 / BC1 cutout",
+      "channels": "RGB + 1-bit alpha",
+      "mips": 12,
+      "bytes": 2796344,
+      "sha256": "e832b68c34fadf596c52c20bf1d8f9120d0ace648ac3e89dad32661c64279ac2",
+      "source": "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.3/Shared_ChinaFlag_2F.v3.5.3.svg",
+      "consumers": [
+        "KCLV_CZ2F_Fairing_Down"
+      ],
+      "tags": [
+        "v3.5.3",
+        "public",
+        "logo"
+      ],
+      "reuse_notes": "Use KSP/Alpha/Cutoff at 0.45; each source mip thresholded before BC1 encoding. Not a soft-alpha translucent texture. Versioned reconstruction from original package references, not an official logo master.",
+      "layout": {
+        "sample_rect": [
+          64,
+          384,
+          1984,
+          1664
+        ],
+        "glyph_rects": null
+      },
+      "native_KSP_tested": false,
+      "publication_note": "Published to the repository shared library by explicit user request on 2026-09-23; Part bindings remain in the v3.5.3 addon. Historical release bytes unchanged."
+    },
+    {
+      "id": "Shared_WenchangBold_v353",
+      "name": "文昌国际航天城：粗体分字图集 v3.5.3",
+      "path": "KIU/Common/KIU_Common_texture/Shared_WenchangBold.v3.5.3.dds",
+      "file_name": "Shared_WenchangBold.v3.5.3.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_WenchangBold.v3.5.3",
+      "content": "“文昌国际航天城”七个深蓝粗体字，按文、昌、国、际、航、天、城顺序横排，每字独立256像素格；透明背景。仅含这七字，不含编号；逐字UV见layout.glyph_rects。",
+      "width": 2048,
+      "height": 256,
+      "format": "DXT1 / BC1 cutout",
+      "channels": "RGB + 1-bit alpha",
+      "mips": 12,
+      "bytes": 349704,
+      "sha256": "d2dd3e5bfd4f62186592bf33696062da35a2439b3485137a61e00e8f049d32d2",
+      "source": "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.3/Shared_WenchangBold.v3.5.3.svg",
+      "consumers": [
+        "KCLV_CZ7_Stage_1"
+      ],
+      "tags": [
+        "v3.5.3",
+        "public",
+        "glyph"
+      ],
+      "reuse_notes": "Use KSP/Alpha/Cutoff at 0.45; each source mip thresholded before BC1 encoding. Not a soft-alpha translucent texture. Versioned reconstruction from original package references, not an official logo master.",
+      "layout": {
+        "sample_rect": null,
+        "glyph_rects": [
+          [
+            15,
+            11,
+            206,
+            196
+          ],
+          [
+            289,
+            14,
+            445,
+            187
+          ],
+          [
+            542,
+            13,
+            702,
+            186
+          ],
+          [
+            794,
+            13,
+            972,
+            181
+          ],
+          [
+            1039,
+            11,
+            1226,
+            197
+          ],
+          [
+            1292,
+            13,
+            1488,
+            184
+          ],
+          [
+            1552,
+            11,
+            1739,
+            194
+          ]
+        ]
+      },
+      "native_KSP_tested": false,
+      "publication_note": "Published to the repository shared library by explicit user request on 2026-09-23; Part bindings remain in the v3.5.3 addon. Historical release bytes unchanged."
+    },
+    {
+      "id": "Shared_ChinaSpaceBold_v353",
+      "name": "中国航天：粗体分字图集 v3.5.3",
+      "path": "KIU/Common/KIU_Common_texture/Shared_ChinaSpaceBold.v3.5.3.dds",
+      "file_name": "Shared_ChinaSpaceBold.v3.5.3.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_ChinaSpaceBold.v3.5.3",
+      "content": "“中国航天”四个深蓝粗体字，按中、国、航、天顺序横排，每字独立256像素格；透明背景。适合粗字重箭体文字；逐字UV见layout.glyph_rects。",
+      "width": 1024,
+      "height": 256,
+      "format": "DXT1 / BC1 cutout",
+      "channels": "RGB + 1-bit alpha",
+      "mips": 11,
+      "bytes": 174920,
+      "sha256": "4efc36c43237d7020107f827fc3107de76edcc622e185b1a98d2de87586f8224",
+      "source": "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.3/Shared_ChinaSpaceBold.v3.5.3.svg",
+      "consumers": [
+        "KCLV_CZ6A_stage1",
+        "KCLV_CZ7_Stage_2"
+      ],
+      "tags": [
+        "v3.5.3",
+        "public",
+        "glyph"
+      ],
+      "reuse_notes": "Use KSP/Alpha/Cutoff at 0.45; each source mip thresholded before BC1 encoding. Not a soft-alpha translucent texture. Versioned reconstruction from original package references, not an official logo master.",
+      "layout": {
+        "sample_rect": null,
+        "glyph_rects": [
+          [
+            39,
+            16,
+            209,
+            214
+          ],
+          [
+            291,
+            16,
+            469,
+            209
+          ],
+          [
+            530,
+            14,
+            739,
+            221
+          ],
+          [
+            783,
+            15,
+            1002,
+            206
+          ]
+        ]
+      },
+      "native_KSP_tested": false,
+      "publication_note": "Published to the repository shared library by explicit user request on 2026-09-23; Part bindings remain in the v3.5.3 addon. Historical release bytes unchanged."
     }
   ]
 }
