@@ -1,0 +1,247 @@
+{
+  "version": "3.4.1",
+  "created_for": "CZ Family v3.4.1",
+  "directory": "KIU_Common_texture",
+  "license": "KIU derived assets: CC BY-NC-SA 4.0; inherited provenance retained",
+  "user_maintained": true,
+  "existing_different_hash_policy": "refuse overwrite",
+  "assets": [
+    {
+      "file": "Shared_CASC.v3.3.1.dds",
+      "url": "KIU_Common_texture/Shared_CASC.v3.3.1",
+      "placeholder": "Ref_CASC.v3.4.1.png",
+      "sha256": "ecf5d99e9e6b268926ec3f4154b765121e6f94e978399d0b9985e340564033a1",
+      "bytes": 5592560,
+      "already_in_common": true,
+      "source": "MODELS/CZ-7_3.0/releases/v3.4.0/GameData/KIU_CZFamily/Assets/Shared_CASC.v3.3.1.dds",
+      "consumers": [
+        "KCLV_CZ3_STAGE3",
+        "KCLV_CZ6A_stage1",
+        "KCLV_CZ7_Stage_2"
+      ],
+      "user_maintained": true
+    },
+    {
+      "file": "Shared_CheckerPalette.v3.3.0.dds",
+      "url": "KIU_Common_texture/Shared_CheckerPalette.v3.3.0",
+      "placeholder": "Ref_CheckerPalette.v3.4.1.png",
+      "sha256": "40ac2d927fbe29ec02ee14f2fb78b0c1315534a24b6da1c8967f61e01ae3dd45",
+      "bytes": 2872,
+      "already_in_common": false,
+      "source": "MODELS/CZ-7_3.0/releases/v3.4.0/GameData/KIU_CZFamily/Assets/Shared_CheckerPalette.v3.3.0.dds",
+      "consumers": [
+        "KCLV_CZ6A_Booster",
+        "KCLV_CZ6A_Booster_Separator",
+        "KCLV_CZ6A_stage1"
+      ],
+      "user_maintained": true
+    },
+    {
+      "file": "Shared_ChinaFlag.v3.3.1.dds",
+      "url": "KIU_Common_texture/Shared_ChinaFlag.v3.3.1",
+      "placeholder": "Ref_ChinaFlag.v3.4.1.png",
+      "sha256": "9425781e968644fe427a7062133e435955c93c621c5fdc358dd3cd15e6a93da8",
+      "bytes": 5592560,
+      "already_in_common": true,
+      "source": "MODELS/CZ-7_3.0/releases/v3.4.0/GameData/KIU_CZFamily/Assets/Shared_ChinaFlag.v3.3.1.dds",
+      "consumers": [
+        "KCLV_CZ6A_Fairing_Mid",
+        "KCLV_CZ7_Fairing",
+        "KCLV_CZ7A_FAIRING_420x1000",
+        "KCLV_CZ7A_SGFairing_Upper",
+        "KCLV_CZ8_Fairing_1",
+        "KCLV_CZ8_Fairing_Y2",
+        "KCLV_CZ7_Launch_Platform"
+      ],
+      "user_maintained": true
+    },
+    {
+      "file": "Shared_CMS.v3.3.1.dds",
+      "url": "KIU_Common_texture/Shared_CMS.v3.3.1",
+      "placeholder": "Ref_CMS.v3.4.1.png",
+      "sha256": "0020e1711bffc95984dd80078a5ebb069ff15e8910104bb439a99a47a5927e15",
+      "bytes": 5592560,
+      "already_in_common": false,
+      "source": "MODELS/CZ-7_3.0/releases/v3.4.0/GameData/KIU_CZFamily/Assets/Shared_CMS.v3.3.1.dds",
+      "consumers": [
+        "KCLV_CZ7_Fairing"
+      ],
+      "user_maintained": true
+    },
+    {
+      "file": "Shared_CNSA.v3.3.1.dds",
+      "url": "KIU_Common_texture/Shared_CNSA.v3.3.1",
+      "placeholder": "Ref_CNSA.v3.4.1.png",
+      "sha256": "aa5ddf03a1d138d31a2593613ceca43eb3d6627e1138364756d3d9f6df66ee7c",
+      "bytes": 5592560,
+      "already_in_common": false,
+      "source": "MODELS/CZ-7_3.0/releases/v3.4.0/GameData/KIU_CZFamily/Assets/Shared_CNSA.v3.3.1.dds",
+      "consumers": [
+        "KCLV_CZ8_Fairing_1",
+        "KCLV_CZ8_Fairing_Y2"
+      ],
+      "user_maintained": true
+    },
+    {
+      "file": "Shared_CZ6A_FairingMark.v3.3.0.png",
+      "url": "KIU_Common_texture/Shared_CZ6A_FairingMark.v3.3.0",
+      "placeholder": "Ref_CZ6A_FairingMark.v3.4.1.png",
+      "sha256": "eccc4e82aa25eba2c50c296d21737f10ffef6f5a4b914a03488a8f4273f57ae8",
+      "bytes": 104058,
+      "already_in_common": false,
+      "source": "MODELS/CZ-7_3.0/releases/v3.4.0/GameData/KIU_CZFamily/Assets/Shared_CZ6A_FairingMark.v3.3.0.png",
+      "consumers": [
+        "KCLV_CZ6A_Fairing_Mid"
+      ],
+      "user_maintained": true
+    },
+    {
+      "file": "Shared_ExtraGlyphs.v3.3.1.dds",
+      "url": "KIU_Common_texture/Shared_ExtraGlyphs.v3.3.1",
+      "placeholder": "Ref_ExtraGlyphs.v3.4.1.png",
+      "sha256": "3e17b652235cb8b266a4dbfc17fdf093d3cf97167591dd425207e58d4995bbd5",
+      "bytes": 699216,
+      "already_in_common": false,
+      "source": "MODELS/CZ-7_3.0/releases/v3.4.0/GameData/KIU_CZFamily/Assets/Shared_ExtraGlyphs.v3.3.1.dds",
+      "consumers": [
+        "KCLV_CZ6A_Interstage"
+      ],
+      "user_maintained": true
+    },
+    {
+      "file": "Shared_FairingNormal.v3.3.0.png",
+      "url": "KIU_Common_texture/Shared_FairingNormal.v3.3.0",
+      "placeholder": "Ref_FairingNormal.v3.4.1.png",
+      "sha256": "9e6152b8b0e676144476a7a723bc607f5128b54256707e4cc9a06ebd320c479d",
+      "bytes": 79890,
+      "already_in_common": false,
+      "source": "MODELS/CZ-7_3.0/releases/v3.4.0/GameData/KIU_CZFamily/Assets/Shared_FairingNormal.v3.3.0.png",
+      "consumers": [
+        "KCLV_CZ7_Fairing",
+        "KCLV_CZ7_Fairing_Solid_Booster",
+        "KCLV_CZ7A_FAIRING_420x1000",
+        "KCLV_CZ7A_SGFairing_Upper",
+        "KCLV_CZ7A_SGFairing_Lower",
+        "KCLV_CZ7A_SGFairing_Middle",
+        "KCLV_CZ8_Fairing_1",
+        "KCLV_CZ8_Fairing_Y2"
+      ],
+      "user_maintained": true
+    },
+    {
+      "file": "Shared_FlatNormal.v3.3.0.png",
+      "url": "KIU_Common_texture/Shared_FlatNormal.v3.3.0",
+      "placeholder": "Ref_FlatNormal.v3.4.1.png",
+      "sha256": "fef3018acc5ffe048f9744b2c2ff5d790a6b09148fd48a06604fb86c645091ff",
+      "bytes": 78,
+      "already_in_common": false,
+      "source": "MODELS/CZ-7_3.0/releases/v3.4.0/GameData/KIU_CZFamily/Assets/Shared_FlatNormal.v3.3.0.png",
+      "consumers": [
+        "KCLV_CZ3_Instrument_Bay_1",
+        "KCLV_CZ3_Instrument_Bay_2",
+        "KCLV_CZ6_Adapter",
+        "KCLV_CZ6A_Adapter",
+        "KCLV_CZ6A_Fairing_Mid",
+        "KCLV_CZ6A_Interstage",
+        "KCLV_CZ6A_Booster_Separator",
+        "KCLV_CZ6A_Engine_Shell",
+        "KCLV_CZ6A_stage1",
+        "KCLV_CZ6A_stage2",
+        "KCLV_CZ7_Interstage1-2",
+        "KCLV_CZ7A_Booster_Solid_Booster",
+        "KCLV_CZ7_Stage_1",
+        "KCLV_CZ7_Engine_Shell_1st",
+        "KCLV_YF115",
+        "KCLV_2.25m_NoseCone",
+        "KCLV_2m_NoseCone",
+        "KCLV_CZ2F_Wing",
+        "KCLV_CZ7_8_Wing"
+      ],
+      "user_maintained": true
+    },
+    {
+      "file": "Shared_LM.v3.3.1.dds",
+      "url": "KIU_Common_texture/Shared_LM.v3.3.1",
+      "placeholder": "Ref_LM.v3.4.1.png",
+      "sha256": "06e8cebbd4a2eb3f3d671279659e0b42dc83533047df875464f91b82702d920a",
+      "bytes": 5592560,
+      "already_in_common": false,
+      "source": "MODELS/CZ-7_3.0/releases/v3.4.0/GameData/KIU_CZFamily/Assets/Shared_LM.v3.3.1.dds",
+      "consumers": [
+        "KCLV_CZ6A_stage2",
+        "KCLV_CZ7_Stage_1",
+        "KCLV_CZ7A_Stage_2"
+      ],
+      "user_maintained": true
+    },
+    {
+      "file": "Shared_LongMarch.v3.3.1.dds",
+      "url": "KIU_Common_texture/Shared_LongMarch.v3.3.1",
+      "placeholder": "Ref_LongMarch.v3.4.1.png",
+      "sha256": "a91d6df17dddb259c7e1257fc9ef6c2f8401284022d09d490d3d0e822de60fae",
+      "bytes": 5592560,
+      "already_in_common": false,
+      "source": "MODELS/CZ-7_3.0/releases/v3.4.0/GameData/KIU_CZFamily/Assets/Shared_LongMarch.v3.3.1.dds",
+      "consumers": [
+        "KCLV_CZ7_Stage_1"
+      ],
+      "user_maintained": true
+    },
+    {
+      "file": "Shared_PlatformSigns.v3.3.0.dds",
+      "url": "KIU_Common_texture/Shared_PlatformSigns.v3.3.0",
+      "placeholder": "Ref_PlatformSigns.v3.4.1.png",
+      "sha256": "a2b45b71637dae64a03a30a6e012a3e2da01249ca91022066a99fffe267d5ac5",
+      "bytes": 349672,
+      "already_in_common": false,
+      "source": "MODELS/CZ-7_3.0/releases/v3.4.0/GameData/KIU_CZFamily/Assets/Shared_PlatformSigns.v3.3.0.dds",
+      "consumers": [
+        "KCLV_CZ7_Launch_Platform"
+      ],
+      "user_maintained": true
+    },
+    {
+      "file": "Shared_Serial.v3.3.1.dds",
+      "url": "KIU_Common_texture/Shared_Serial.v3.3.1",
+      "placeholder": "Ref_Serial.v3.4.1.png",
+      "sha256": "ee9d9bbe087c6d69dcef8f47127f1d5ab0d25b474586091c1fb1ba2a248fcc8c",
+      "bytes": 1398256,
+      "already_in_common": false,
+      "source": "MODELS/CZ-7_3.0/releases/v3.4.0/GameData/KIU_CZFamily/Assets/Shared_Serial.v3.3.1.dds",
+      "consumers": [
+        "KCLV_CZ7_booster",
+        "KCLV_CZ7_Stage_1"
+      ],
+      "user_maintained": true
+    },
+    {
+      "file": "Shared_UpperStageNormal.v3.3.0.png",
+      "url": "KIU_Common_texture/Shared_UpperStageNormal.v3.3.0",
+      "placeholder": "Ref_UpperStageNormal.v3.4.1.png",
+      "sha256": "3ab84114be0ad1b1949d3197530846aef8b409bc9ffeba9091f21285324d6c41",
+      "bytes": 84200,
+      "already_in_common": false,
+      "source": "MODELS/CZ-7_3.0/releases/v3.4.0/GameData/KIU_CZFamily/Assets/Shared_UpperStageNormal.v3.3.0.png",
+      "consumers": [
+        "KCLV_CZ7_Stage_2",
+        "KCLV_CZ7A_Stage_2"
+      ],
+      "user_maintained": true
+    },
+    {
+      "file": "Shared_White.v3.3.0.dds",
+      "url": "KIU_Common_texture/Shared_White.v3.3.0",
+      "placeholder": "Ref_White.v3.4.1.png",
+      "sha256": "bb9f6098939c5f432afe6e880badbe3f632d75a61941bf9a1ac5696b4cf68489",
+      "bytes": 152,
+      "already_in_common": true,
+      "source": "MODELS/CZ-7_3.0/releases/v3.4.0/GameData/KIU_CZFamily/Assets/Shared_White.v3.3.0.dds",
+      "consumers": [
+        "KCLV_CZ6A_Interstage",
+        "KCLV_2.25m_NoseCone",
+        "KCLV_2m_NoseCone"
+      ],
+      "user_maintained": true
+    }
+  ]
+}
