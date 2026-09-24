@@ -117,7 +117,8 @@
         "KCLV_YL-1_Fairing_4200",
         "KCLV_CZ8A_Stage_2",
         "KCLV_CZ-10B_Short_Fairing",
-        "KCLV_CZ-10B_Long_Fairing"
+        "KCLV_CZ-10B_Long_Fairing",
+        "KCLV_CZ12B_FairingB"
       ],
       "user_maintained": true,
       "deployment_note": "CZ335 v1.0.2 uses the user-confirmed nested KIU/Common runtime path; older frozen releases retain their historical paths.",
@@ -159,7 +160,8 @@
       "consumers": [
         "KCLV_CZ335_CryoTank",
         "KCLV_CZ8A_Stage_2",
-        "KCLV_CZ-10B_Stage1_Tank"
+        "KCLV_CZ-10B_Stage1_Tank",
+        "KCLV_CZ12B_S1Tank"
       ],
       "user_maintained": true,
       "deployment_note": "CZ335 v1.0.2 uses the user-confirmed nested KIU/Common runtime path; older frozen releases retain their historical paths."
@@ -413,14 +415,15 @@
         "KCLV_CZ3_interstage_1-2",
         "KCLV_CZ6A_stage2",
         "KCLV_CZ7A_Stage_2",
-        "KCLV_CZ7_Stage_1"
+        "KCLV_CZ7_Stage_1",
+        "KCLV_CZ12B_S2Tank"
       ],
       "user_maintained": true,
       "candidate_consumers": [
         {
           "part": "KCLV_CZ12B_S2Tank",
-          "workspace": "local_workspace/CZ-12B/working/GameData/KCLV_CZ12B",
-          "status": "local candidate only; not deployed to live KIU; native KSP validation pending",
+          "workspace": "local_workspace/CZ-12B/work/GameData/KCLV_CZ12B",
+          "status": "deployed to live KIU 2026-09-23; static and Blender validation, native KSP validation pending",
           "approved_on": "2026-09-22"
         }
       ]
@@ -583,7 +586,8 @@
         "KCLV_CZ6A_Interstage",
         "KCLV_CZ6_Interstage2-3",
         "KCLV_CZ7A_Stage_2",
-        "KCLV_CZ8A_Stage_2"
+        "KCLV_CZ8A_Stage_2",
+        "KCLV_CZ12B_LandingLeg"
       ],
       "user_maintained": true,
       "deployment_note": "CZ335 v1.0.2 uses the user-confirmed nested KIU/Common runtime path; older frozen releases retain their historical paths.",

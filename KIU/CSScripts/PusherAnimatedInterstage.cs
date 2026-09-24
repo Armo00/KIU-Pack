@@ -1,17 +1,31 @@
-// Stock ModuleAnimateGeneric remains responsible for motion, saving and PAW controls.
-// Unlike a blind Toggle at staging, this always requests extension, including
-// when the user has already manually extended the pushers before separating.
+// Shared trigger; stock ModuleAnimateGeneric owns motion, persistence and PAW/AG.
 public class PusherAnimatedInterstage : PartModule
 {
+    [KSPField] public bool triggerOnDecouple = false;
+    [KSPField] public string decouplerNodeID = "";
     private ModuleAnimateGeneric animation;
+    private ModuleDecouple decoupler;
+    private bool wasSeparated;
     public override void OnStart(StartState state)
     {
-        animation = part.FindModuleImplementing<ModuleAnimateGeneric>();
+        animation=part.FindModuleImplementing<ModuleAnimateGeneric>();
+        foreach(PartModule module in part.Modules) {
+            ModuleDecouple candidate=module as ModuleDecouple;
+            if(candidate!=null && (decouplerNodeID.Length==0 || candidate.explosiveNodeID==decouplerNodeID)) {decoupler=candidate;break;}
+        }
+        wasSeparated=decoupler!=null && decoupler.isDecoupled;
     }
-    public override void OnActive()
+    private void RequestExtension()
     {
-        if (animation == null) animation = part.FindModuleImplementing<ModuleAnimateGeneric>();
-        // In stock MAG animSwitch=true means the next Toggle requests extension.
-        if (animation != null && animation.animSwitch) animation.Toggle();
+        if(animation==null)animation=part.FindModuleImplementing<ModuleAnimateGeneric>();
+        if(animation!=null && animation.animSwitch)animation.Toggle();
+    }
+    public override void OnActive() { RequestExtension(); }
+    public void FixedUpdate()
+    {
+        if(!triggerOnDecouple || !HighLogic.LoadedSceneIsFlight || decoupler==null)return;
+        bool separated=decoupler.isDecoupled;
+        if(separated && !wasSeparated)RequestExtension();
+        wasSeparated=separated;
     }
 }
