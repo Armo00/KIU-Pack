@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "library": "KIU_Common_texture",
-  "updated_at": "2026-09-23",
+  "updated_at": "2026-09-24",
   "path_base": "repository root",
   "game_data_directory": "GameData/KIU/Common/KIU_Common_texture",
   "description": "跨 Part 公共贴图内容索引。制作贴图前必须先读本文件，按内容搜索并检查可复用素材。",
@@ -1336,6 +1336,388 @@
       },
       "native_KSP_tested": false,
       "publication_note": "Published to the repository shared library by explicit user request on 2026-09-23; Part bindings remain in the v3.5.3 addon. Historical release bytes unchanged."
+    },
+    {
+      "id": "CrumpledFoilNormalGL",
+      "name": "揉皱金属箔 切线法线（RGB +Y）",
+      "file_name": "Shared_CrumpledFoil_NormalGL.v1.0.0.png",
+      "path": "KIU/Common/KIU_Common_texture/Shared_CrumpledFoil_NormalGL.v1.0.0.png",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_CrumpledFoil_NormalGL.v1.0.0",
+      "content": "无文字、无标志的可平铺揉皱薄金属箔法线图；不规则密集折脊、较大的折面和细小折痕。RGB 分别编码切线 X/Y/Z，OpenGL +Y，非 KSP packed AG。可与金色或银色基础色搭配。",
+      "width": 2048,
+      "height": 2048,
+      "format": "PNG",
+      "bit_depth": 16,
+      "channels": "RGB",
+      "bytes": 21938043,
+      "sha256": "fb47cc231974291212ef4a5ff2a26187e4e53d6de80729f8ab40da71bf97b789",
+      "tags": [
+        "foil",
+        "crumpled",
+        "MLI",
+        "箔",
+        "热控",
+        "gold",
+        "silver",
+        "NormalGL"
+      ],
+      "license": "CC0-1.0",
+      "source": "https://ambientcg.com/a/Foil002",
+      "source_download": "https://ambientcg.com/get?file=Foil002_2K-PNG.zip",
+      "source_archive_sha256": "1dedfb58f4106786a48303e3b0bf72cfd48aa0f8abdd09230c8b6abe77332ece",
+      "source_file": "Foil002_2K-PNG_NormalGL.png",
+      "license_url": "https://docs.ambientcg.com/license/",
+      "layout_note": "Seamless repeating UV tile. Shared maps must use the same UV transform; source physical tile size unknown. YZ-2 currently uses an estimated 2.0 m repeat.",
+      "reuse_notes": "Non-Color / linear input. Source pixels are unchanged. RGB +Y normal requires tangent-space normal decoding; do not assign as albedo. Roughness is not a specular mask.",
+      "consumers": [
+        "YZ2 Blender v0.3 material source (offline)"
+      ],
+      "user_maintained": true,
+      "validation": "Blender source and bake only; no KSP shader or runtime validation. No Part binding or KSP installation made."
+    },
+    {
+      "id": "CrumpledFoilRoughness",
+      "name": "揉皱金属箔 粗糙度",
+      "file_name": "Shared_CrumpledFoil_Roughness.v1.0.0.png",
+      "path": "KIU/Common/KIU_Common_texture/Shared_CrumpledFoil_Roughness.v1.0.0.png",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_CrumpledFoil_Roughness.v1.0.0",
+      "content": "与 CrumpledFoilNormalGL 匹配的可平铺灰度粗糙度图；较平整折面更光滑，细褶区域有局部变化。无文字、无标志、无照明高光；线性数值数据，不是基础色图。",
+      "width": 2048,
+      "height": 2048,
+      "format": "PNG",
+      "bit_depth": 8,
+      "channels": "L",
+      "bytes": 1715797,
+      "sha256": "44730c203973ececd355a91bb2b438f4e425e6302305eb8069779012fcd88444",
+      "tags": [
+        "foil",
+        "crumpled",
+        "MLI",
+        "箔",
+        "热控",
+        "gold",
+        "silver",
+        "Roughness"
+      ],
+      "license": "CC0-1.0",
+      "source": "https://ambientcg.com/a/Foil002",
+      "source_download": "https://ambientcg.com/get?file=Foil002_2K-PNG.zip",
+      "source_archive_sha256": "1dedfb58f4106786a48303e3b0bf72cfd48aa0f8abdd09230c8b6abe77332ece",
+      "source_file": "Foil002_2K-PNG_Roughness.png",
+      "license_url": "https://docs.ambientcg.com/license/",
+      "layout_note": "Seamless repeating UV tile. Shared maps must use the same UV transform; source physical tile size unknown. YZ-2 currently uses an estimated 2.0 m repeat.",
+      "reuse_notes": "Non-Color / linear input. Source pixels are unchanged. RGB +Y normal requires tangent-space normal decoding; do not assign as albedo. Roughness is not a specular mask.",
+      "consumers": [
+        "YZ2 Blender v0.3 material source (offline)"
+      ],
+      "user_maintained": true,
+      "validation": "Blender source and bake only; no KSP shader or runtime validation. No Part binding or KSP installation made."
+    },
+    {
+      "id": "Dedup_StationStructure_Norm",
+      "name": "中国空间站共用结构法线",
+      "file_name": "Shared_StationStructure_Norm.v1.0.0.png",
+      "path": "KIU/Common/KIU_Common_texture/Shared_StationStructure_Norm.v1.0.0.png",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_StationStructure_Norm.v1.0.0",
+      "content": "天和与实验舱共用的结构凹凸法线；原RGBA打包通道，R恒255，G/A保存法线分量。",
+      "width": 2048,
+      "height": 2048,
+      "format": "PNG",
+      "bytes": 6447008,
+      "sha256": "049fb4f1f0770603c1f792b788c50fb16e182e8c33e9bdbedd1c9c140d372fa2",
+      "source": [
+        "KIU_Chinese_Human_Spaceflight_pack/ChineseSpaceStation/ExperimentModule/Antenna/SYC_Service_Module_Norm.png",
+        "KIU_Chinese_Human_Spaceflight_pack/ChineseSpaceStation/ExperimentModule/CrewWorkingCompartment/SYCDZD_Main_Body_Norm.png",
+        "KIU_Chinese_Human_Spaceflight_pack/ChineseSpaceStation/ExperimentModule/DockingPort/SYC_DJK_Norm.png",
+        "KIU_Chinese_Human_Spaceflight_pack/ChineseSpaceStation/ExperimentModule/ExternalExperiments/SYC_XZD_Norm.png",
+        "KIU_Chinese_Human_Spaceflight_pack/ChineseSpaceStation/ExperimentModule/ServiceModule/SYC_Service_Module_Norm.png",
+        "KIU_Chinese_Human_Spaceflight_pack/ChineseSpaceStation/Tianhe/BigBody/THDZD_Norm.png",
+        "KIU_Chinese_Human_Spaceflight_pack/ChineseSpaceStation/Tianhe/Docking Port/Tianhe_Normal.png",
+        "KIU_Chinese_Human_Spaceflight_pack/ChineseSpaceStation/Tianhe/Node Cabin/THJDC_Norm.png",
+        "KIU_Chinese_Human_Spaceflight_pack/ChineseSpaceStation/Tianhe/Robot arm/THXZD_Norm.png",
+        "KIU_Chinese_Human_Spaceflight_pack/ChineseSpaceStation/Tianhe/Service module/THFWC_Norm.png",
+        "KIU_Chinese_Human_Spaceflight_pack/ChineseSpaceStation/Tianhe/Small body/THXZD_Norm.png"
+      ],
+      "consumers": [
+        "KCHS_LaboratoryCabinModule_Mengtian_DZD",
+        "KCHS_LaboratoryCabinModule_Wentian_DZD",
+        "KCHS_LaboratoryCabinModule_DockingPort",
+        "KCHS_LaboratoryCabinModule_MENGTIAN_XZD",
+        "KCHS_LaboratoryCabinModule_WENTIAN_XZD",
+        "KCHS_LaboratoryCabinModule_XJXB",
+        "KCHS_LaboratoryCabinModule_FWC",
+        "KCHS_Tianhe_DZD",
+        "KCHS_Tianhe_DockingPort",
+        "KCHS_Tianhe_JDC",
+        "KCHS_Tianhe_JXB",
+        "KCHS_Tianhe_FWC",
+        "KCHS_Tianhe_XZD"
+      ],
+      "reuse_notes": "Original bytes; identical UV/content. Packed normals used directly by MU must bind with B9 isNormalMap=false; preserve pre-existing MODEL remap behavior. Do not request this shared image as isNormalMap=true: KSP replaces its raw cache during conversion. Use the recorded raw packed path only.",
+      "user_maintained": true,
+      "validation": {
+        "date": "2026-09-24",
+        "method": "KSP 1.12.3 background native loading and paired visual review",
+        "report": "local_workspace/KIU_ReTexture/work/shared-dedup/REPORT.md"
+      }
+    },
+    {
+      "id": "Dedup_CZ2F_Interstage",
+      "name": "长征二号F级间段图集",
+      "file_name": "Shared_CZ2F_Interstage.v1.0.0.dds",
+      "path": "KIU/Common/KIU_Common_texture/Shared_CZ2F_Interstage.v1.0.0.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_CZ2F_Interstage.v1.0.0",
+      "content": "长征二号F级间段原始颜色图集，保留原文字、表面细节和UV布局。",
+      "width": 2048,
+      "height": 2048,
+      "format": "DDS",
+      "bytes": 2796344,
+      "sha256": "9d680a178b211173d4b195dd84d81319343037c7a4d4fcfa5904f75e21a3c9c6",
+      "source": [
+        "KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Fairing/interstage.dds",
+        "KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Interstage/interstage.dds",
+        "KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Tanks/interstage.dds"
+      ],
+      "consumers": [
+        "KCLV_CZ2F_interstage"
+      ],
+      "reuse_notes": "Original bytes; identical UV/content. Packed normals used directly by MU must bind with B9 isNormalMap=false; preserve pre-existing MODEL remap behavior.",
+      "user_maintained": true,
+      "validation": {
+        "date": "2026-09-24",
+        "method": "KSP 1.12.3 background native loading and paired visual review",
+        "report": "local_workspace/KIU_ReTexture/work/shared-dedup/REPORT.md"
+      }
+    },
+    {
+      "id": "Dedup_Xuntian_SolarFront",
+      "name": "巡天太阳翼正面",
+      "file_name": "Shared_Xuntian_SolarFront.v1.0.0.dds",
+      "path": "KIU/Common/KIU_Common_texture/Shared_Xuntian_SolarFront.v1.0.0.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_Xuntian_SolarFront.v1.0.0",
+      "content": "巡天太阳翼正面电池板图样；原032/091/991版本字节相同。",
+      "width": 1024,
+      "height": 1024,
+      "format": "DDS",
+      "bytes": 1398256,
+      "sha256": "4d9691be8b3cf871abfcb17b33f979335ac41e272e0df7e1991f899ee8f38e13",
+      "source": [
+        "KIU_Chinese_Deepspace_Exploration_pack/Parts/Xuntian/SolarWing/solar_front_032.dds",
+        "KIU_Chinese_Deepspace_Exploration_pack/Parts/Xuntian/SolarWing/solar_front_091.dds",
+        "KIU_Chinese_Deepspace_Exploration_pack/Parts/Xuntian/SolarWing/solar_front_991.dds"
+      ],
+      "consumers": [
+        "KCDE_XT_SolarWing"
+      ],
+      "reuse_notes": "Original bytes; identical UV/content. Packed normals used directly by MU must bind with B9 isNormalMap=false; preserve pre-existing MODEL remap behavior.",
+      "user_maintained": true,
+      "validation": {
+        "date": "2026-09-24",
+        "method": "KSP 1.12.3 background native loading and paired visual review",
+        "report": "local_workspace/KIU_ReTexture/work/shared-dedup/REPORT.md"
+      }
+    },
+    {
+      "id": "Dedup_Tianhe_Body",
+      "name": "天和主体共用图集",
+      "file_name": "Shared_Tianhe_Body.v1.0.0.dds",
+      "path": "KIU/Common/KIU_Common_texture/Shared_Tianhe_Body.v1.0.0.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_Tianhe_Body.v1.0.0",
+      "content": "天和大小柱段共用的原始主体颜色图集；必须保持原UV布局。",
+      "width": 2048,
+      "height": 2048,
+      "format": "DDS",
+      "bytes": 2796344,
+      "sha256": "c26dcd3e0268ab1c573b594d1c5f5bbafaee0c426472b881b5cd62b21227826b",
+      "source": [
+        "KIU_Chinese_Human_Spaceflight_pack/ChineseSpaceStation/Tianhe/BigBody/Tianhe_DZD_Map.dds",
+        "KIU_Chinese_Human_Spaceflight_pack/ChineseSpaceStation/Tianhe/Small body/Tianhe_XZD_Map.dds"
+      ],
+      "consumers": [
+        "KCHS_Tianhe_DZD",
+        "KCHS_Tianhe_XZD"
+      ],
+      "reuse_notes": "Original bytes; identical UV/content. Packed normals used directly by MU must bind with B9 isNormalMap=false; preserve pre-existing MODEL remap behavior.",
+      "user_maintained": true,
+      "validation": {
+        "date": "2026-09-24",
+        "method": "KSP 1.12.3 background native loading and paired visual review",
+        "report": "local_workspace/KIU_ReTexture/work/shared-dedup/REPORT.md"
+      }
+    },
+    {
+      "id": "Dedup_Tianhe_Body2",
+      "name": "天和结构与机械臂图集",
+      "file_name": "Shared_Tianhe_Body2.v1.0.0.dds",
+      "path": "KIU/Common/KIU_Common_texture/Shared_Tianhe_Body2.v1.0.0.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_Tianhe_Body2.v1.0.0",
+      "content": "天和小柱段和机械臂共用的第二张原始颜色图集。",
+      "width": 2048,
+      "height": 2048,
+      "format": "DDS",
+      "bytes": 2796344,
+      "sha256": "1c0bbc3cfe65ce262bb6642dce251f995544adbb7126f06ccc6b5ccc42c4f3aa",
+      "source": [
+        "KIU_Chinese_Human_Spaceflight_pack/ChineseSpaceStation/Tianhe/Robot arm/Tianhe_XZD_Map2.dds",
+        "KIU_Chinese_Human_Spaceflight_pack/ChineseSpaceStation/Tianhe/Small body/Tianhe_XZD_Map2.dds"
+      ],
+      "consumers": [
+        "KCHS_Tianhe_JXB",
+        "KCHS_Tianhe_XZD"
+      ],
+      "reuse_notes": "Original bytes; identical UV/content. Packed normals used directly by MU must bind with B9 isNormalMap=false; preserve pre-existing MODEL remap behavior.",
+      "user_maintained": true,
+      "validation": {
+        "date": "2026-09-24",
+        "method": "KSP 1.12.3 background native loading and paired visual review",
+        "report": "local_workspace/KIU_ReTexture/work/shared-dedup/REPORT.md"
+      }
+    },
+    {
+      "id": "Dedup_CZ2F_EscapeFairing",
+      "name": "长征二号F逃逸整流罩图集",
+      "file_name": "Shared_CZ2F_EscapeFairing.v1.0.0.dds",
+      "path": "KIU/Common/KIU_Common_texture/Shared_CZ2F_EscapeFairing.v1.0.0.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_CZ2F_EscapeFairing.v1.0.0",
+      "content": "长征二号F逃逸塔和整流罩共用的原始颜色图集，保留标识、文字及原UV。",
+      "width": 2048,
+      "height": 2048,
+      "format": "DDS",
+      "bytes": 2796344,
+      "sha256": "aab939dc3a99da2f059d99c6ff7c42e3d69056fa77772aa2f0e1eb6c50b010f3",
+      "source": [
+        "KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/EscapeTower/fairings&tower.dds",
+        "KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Fairing/fairings&tower.dds"
+      ],
+      "consumers": [
+        "KCLV_CZ2F_Escape_tower",
+        "KCLV_CZ2F_Escape_tower_Upper",
+        "KCLV_CZ2F_Fairing_Down",
+        "KCLV_CZ2F_Fairing_Mid",
+        "KCLV_CZ2F_Fairing_Upper",
+        "KCLV_CZ2F_high_altitude_abort_Engine"
+      ],
+      "reuse_notes": "Original bytes; identical UV/content. Packed normals used directly by MU must bind with B9 isNormalMap=false; preserve pre-existing MODEL remap behavior.",
+      "user_maintained": true,
+      "validation": {
+        "date": "2026-09-24",
+        "method": "KSP 1.12.3 background native loading and paired visual review",
+        "report": "local_workspace/KIU_ReTexture/work/shared-dedup/REPORT.md"
+      }
+    },
+    {
+      "id": "Dedup_Xuntian_Paint",
+      "name": "巡天表面涂装图集",
+      "file_name": "Shared_Xuntian_Paint.v1.0.0.dds",
+      "path": "KIU/Common/KIU_Common_texture/Shared_Xuntian_Paint.v1.0.0.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_Xuntian_Paint.v1.0.0",
+      "content": "巡天服务舱及太阳翼共用的表面涂装原图。",
+      "width": 1024,
+      "height": 1024,
+      "format": "DDS",
+      "bytes": 1398256,
+      "sha256": "fc8075e2cfb0d8506c03b1e7409308b0dfcd526a9a490592ff16ccc37e60234d",
+      "source": [
+        "KIU_Chinese_Deepspace_Exploration_pack/Parts/Xuntian/ServiceModule/paint.dds",
+        "KIU_Chinese_Deepspace_Exploration_pack/Parts/Xuntian/SolarWing/paint.dds"
+      ],
+      "consumers": [
+        "KCDE_XT_ServiceModule",
+        "KCDE_XT_SolarWing"
+      ],
+      "reuse_notes": "Original bytes; identical UV/content. Packed normals used directly by MU must bind with B9 isNormalMap=false; preserve pre-existing MODEL remap behavior.",
+      "user_maintained": true,
+      "validation": {
+        "date": "2026-09-24",
+        "method": "KSP 1.12.3 background native loading and paired visual review",
+        "report": "local_workspace/KIU_ReTexture/work/shared-dedup/REPORT.md"
+      }
+    },
+    {
+      "id": "Dedup_Xuntian_SolarBack",
+      "name": "巡天太阳翼背面",
+      "file_name": "Shared_Xuntian_SolarBack.v1.0.0.dds",
+      "path": "KIU/Common/KIU_Common_texture/Shared_Xuntian_SolarBack.v1.0.0.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_Xuntian_SolarBack.v1.0.0",
+      "content": "巡天太阳翼背面原图，032和091版本字节相同。",
+      "width": 1024,
+      "height": 1024,
+      "format": "DDS",
+      "bytes": 1398256,
+      "sha256": "bfd6ebac8b55aff0217f8f32830fb19aaea6b2e9e81b23842403ae29d8c87da8",
+      "source": [
+        "KIU_Chinese_Deepspace_Exploration_pack/Parts/Xuntian/SolarWing/solar_back_032.dds",
+        "KIU_Chinese_Deepspace_Exploration_pack/Parts/Xuntian/SolarWing/solar_back_091.dds"
+      ],
+      "consumers": [
+        "KCDE_XT_SolarWing"
+      ],
+      "reuse_notes": "Original bytes; identical UV/content. Packed normals used directly by MU must bind with B9 isNormalMap=false; preserve pre-existing MODEL remap behavior.",
+      "user_maintained": true,
+      "validation": {
+        "date": "2026-09-24",
+        "method": "KSP 1.12.3 background native loading and paired visual review",
+        "report": "local_workspace/KIU_ReTexture/work/shared-dedup/REPORT.md"
+      }
+    },
+    {
+      "id": "Dedup_CZ3_Interstage",
+      "name": "长征三号与八甲级间图集",
+      "file_name": "Shared_CZ3_Interstage.v1.0.0.dds",
+      "path": "KIU/Common/KIU_Common_texture/Shared_CZ3_Interstage.v1.0.0.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_CZ3_Interstage.v1.0.0",
+      "content": "长征三号2至3级间、长征八号及八甲级间段共用原色图，沿用原结构UV。",
+      "width": 1024,
+      "height": 1024,
+      "format": "DDS",
+      "bytes": 699192,
+      "sha256": "c68f64d10ebd888c903d493f6d70de326c34afc9f8af778c1b99b8cae0cda1c7",
+      "source": [
+        "KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Interstage/CZ-3B_INTERSTAGE2-3.dds",
+        "KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-8A/Textures/CZ8A_Interstage.dds"
+      ],
+      "consumers": [
+        "KCLV_CZ3_interstage_2-3",
+        "KCLV_CZ8_interstage",
+        "KCLV_CZ8A_Interstage"
+      ],
+      "reuse_notes": "Original bytes; identical UV/content. Packed normals used directly by MU must bind with B9 isNormalMap=false; preserve pre-existing MODEL remap behavior.",
+      "user_maintained": true,
+      "validation": {
+        "date": "2026-09-24",
+        "method": "KSP 1.12.3 background native loading and paired visual review",
+        "report": "local_workspace/KIU_ReTexture/work/shared-dedup/REPORT.md"
+      }
+    },
+    {
+      "id": "Dedup_YF25_Norm",
+      "name": "YF20系列结构法线",
+      "file_name": "Shared_YF25_Norm.v1.0.0.png",
+      "path": "KIU/Common/KIU_Common_texture/Shared_YF25_Norm.v1.0.0.png",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_YF25_Norm.v1.0.0",
+      "content": "YF20/YF22等模型使用的YF25结构法线；保持原RGBA通道解释。",
+      "width": 1024,
+      "height": 1024,
+      "format": "PNG",
+      "bytes": 653642,
+      "sha256": "b45e7c011c6367069baa1f3493291b44bd228af4aea236545e91116f0b04079b",
+      "source": [
+        "KIU_Chinese_Launch_Vehicle_pack/Parts/Engines/YF-20_Series/YF-25_Norm.png",
+        "KIU_Chinese_Launch_Vehicle_pack/Parts/Engines/YF-20_Series/YF24-B/YF-25_Norm.png"
+      ],
+      "consumers": [
+        "KCLV_YF-20_Series_Engine",
+        "KCLV_YF-21C",
+        "KCLV_YF22",
+        "KCLV_YF23V"
+      ],
+      "reuse_notes": "Original bytes; identical UV/content. Packed normals used directly by MU must bind with B9 isNormalMap=false; preserve pre-existing MODEL remap behavior. Do not request this shared image as isNormalMap=true: KSP replaces its raw cache during conversion. Use the recorded raw packed path only.",
+      "user_maintained": true,
+      "validation": {
+        "date": "2026-09-24",
+        "method": "KSP 1.12.3 background native loading and paired visual review",
+        "report": "local_workspace/KIU_ReTexture/work/shared-dedup/REPORT.md"
+      }
     }
   ]
 }
