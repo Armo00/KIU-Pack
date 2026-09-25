@@ -16,10 +16,10 @@
 
 公共资产直接引用 `KIU/Common/KIU_Common_texture`：
 
-- `Shared_CASC.v3.3.1.dds`
+- `Shared_CASC_Blue.v3.5.3.dds`
 - `Shared_ChinaFlag.v3.3.1.dds`
 - `Shared_White.v3.3.0.dds`
-- `Shared_ChinaSpaceText.v1.0.0.png`
+- `Shared_ChinaSpaceBold.v3.5.4.dds`
 - `Shared_MatteSpec.v1.0.0.png`（只用于哑光高光控制，不是外观图片）
 
 公共图像内容、压缩格式与分辨率保持不变。本目录不复制公共国旗、标志或字形的完整图片。公共目录由用户维护，制作新贴图前先查其 `catalog.json`。
@@ -88,3 +88,17 @@ python tools/validate_common_textures.py
 RO、RP-1、TweakScale、VABOrganizer 的完整组合未实测；本次五件的飞行、发动机摇摆时的管路运动、分离动力学及性能也不在已验收范围。
 
 后续更新以本目录为准。`local_workspace/CZ-335_Cryogenic` 保留 Blender 源场景、历史冻结版本、一次性迁移工具和验证记录；当前燃料箱源场景为 `source/current/CZ8A_Tank.blend`。不重新运行历史打包脚本。原始及派生美术资产沿用项目 CC BY-NC-SA 4.0，MU 工具的 GPL 声明保留在其原工具目录。
+## 2026-09-25 当前材质与贴面
+
+本会话为用户指定特例，本轮直接维护当前 KIU 文件，不交付附加修复包。模型、配置、纹理引用和 Finish 修改均在本 CZ-8A 目录；公共库索引同步更新。未提交 Git。
+
+- “中国航天”与 CZ-6A 最新修订共用 `Shared_ChinaSpaceBold.v3.5.4.dds`，逐字 UV 与色调参数一致。CASC 使用用户指定的 `Shared_CASC_Blue.v3.5.3.dds`。旧 `Shared_CASC.v3.3.1.dds` 从 live 公共库移除，历史发布包及来源记录不改写，退役文件有哈希核对备份。
+- 实际可见文字与 logo 从 `KSP/Alpha/Translucent` 改为 `KSP/Alpha/Cutoff`，阈值 0.45；贴面逐三角形贴合筒壁，间隙由约 2 mm 提高到约 6 mm，位置与尺寸保持。同时按 CZ-6A 关闭标识投影、保留接收阴影，避免印刷图案在筒壁上投下细碎阴影。处理透明排序与深度竞争风险，不能承诺亚像素远景完全没有采样闪动。
+- 筒壁复用 `Shared_FlatNormal.v3.5.2.png`，不再让没有对应凹凸结构的筒壁采样结构图集。硬件和级间使用已验证的 RGB 输入法线，MU type=1；新 PNG 逐像素复用已有修正资源，原 A/G 分量完整保留。不是把错法线的亮斑压暗。
+- 涂漆材质对齐新版 CZ-7 一级：`_Color=(0.8,0.8,0.8,1)`、`_SpecColor=(0.15,0.15,0.15,1)`、`_Shininess=0.15`。级间从原 1.0 的 Shininess 调整为同一参数。结构细节与金属管路各自保留，不用同一粗糙度替换所有金属。
+- 继承此前 COPV/RCS 罐体深灰处理。Default/Matte 各自可选；Matte 按 Renderer 的实际 shader 覆盖，只改不透明结构材质，不再修改文字/logo。Default 恢复原参数。国旗仍不显示。
+- 10 个标识贴面仅改 UV 和径向间距，其余几何、RCS、燃料管接口、碰撞与节点原字节保留；Part 配置除 MODEL 外的功能内容比较不变。
+
+当前检查入口：`local_workspace/CZ-335_Cryogenic/surface-fix-20260925/tools/check.py`；旧 `validate_cz8a.py` 与 `validate_surface_finish.py` 已转到此版本的 CZ8A 检查。当前可视场景、对照图与报告在本轮工作目录；`source/current` 和旧证据保留为历史，不是当前材质快照。
+
+已直接修改 KIU，并完成后台 KSP 加载与代表性飞行画面复验。三件 Default/Matte 切换、默认材质恢复通过；最终模型的近景双面标识及 13–200 m 画面已检查。未提交 Git。

@@ -46,3 +46,7 @@ v3.5.0统一使用本页开头的新运行路径 `GameData/KIU/Common/KIU_Common
 ## Finish 高光控制图
 
 `Shared_MatteSpec.v1.0.0.png` 是 4×4、RGBA 四通道全零的控制数据，仅供 B9 Matte Finish 替换 Mapped Specular 材质的 `_SpecMap`。它没有图案，不用于 `_MainTex`，也不改变主色图透明度。CZ-8A 燃料箱／支架及 YF-20／YF-21 共用该文件；切回 Default 恢复原高光图。新增索引项 `MatteSpec` 记录其路径、哈希和消费者，原有公共图片不变。
+
+## 2026-09-25 旧 CASC 退役
+
+按用户明确要求，从当前公共库移除 `Shared_CASC.v3.3.1.dds`，正式 CFG 引用已迁移到 `Shared_CASC_Blue.v3.5.3.dds`。旧文件的哈希核对备份位于 `local_workspace/CZ-335_Cryogenic/surface-fix-20260925/audit/retired-public`；上文初始化记录和 PROVENANCE 是历史来源，不代表旧文件仍在运行库。Classic / Teal 等独立图样保留，历史发布包不改写。新文字继续复用 `Shared_ChinaSpaceBold.v3.5.4.dds`。

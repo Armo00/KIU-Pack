@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "library": "KIU_Common_texture",
-  "updated_at": "2026-09-24",
+  "updated_at": "2026-09-25",
   "path_base": "repository root",
   "game_data_directory": "GameData/KIU/Common/KIU_Common_texture",
   "description": "跨 Part 公共贴图内容索引。制作贴图前必须先读本文件，按内容搜索并检查可复用素材。",
@@ -12,40 +12,6 @@
     "更新前重读当前索引并合并，保留其他 agent 的条目；历史包里的索引仅作快照。"
   ],
   "assets": [
-    {
-      "id": "CASC",
-      "name": "CASC 航天科技集团标志",
-      "file_name": "Shared_CASC.v3.3.1.dds",
-      "path": "KIU/Common/KIU_Common_texture/Shared_CASC.v3.3.1.dds",
-      "game_url": "KIU/Common/KIU_Common_texture/Shared_CASC.v3.3.1",
-      "content": "蓝色圆环与 A 形航天图形的 CASC 标志；透明背景，供箭体与其他 Part 的独立标志贴面复用。",
-      "tags": [
-        "CASC",
-        "航天科技",
-        "logo",
-        "标志"
-      ],
-      "width": 2048,
-      "height": 2048,
-      "format": "DXT5",
-      "channels": "RGBA",
-      "bytes": 5592560,
-      "sha256": "ecf5d99e9e6b268926ec3f4154b765121e6f94e978399d0b9985e340564033a1",
-      "reuse_notes": "使用原透明度；不是官方矢量原稿。",
-      "layout_references": [],
-      "layout_note": null,
-      "source": "local_workspace/CZ-7_3.0/releases/v3.4.0/GameData/KIU_CZFamily/Assets/Shared_CASC.v3.3.1.dds",
-      "consumers": [
-        "KCLV_CZ335_CryoTank",
-        "KCLV_CZ3_STAGE3",
-        "KCLV_CZ6A_stage1",
-        "KCLV_CZ6_stage1",
-        "KCLV_CZ7_Stage_2",
-        "KCLV_CZ8A_Stage_2"
-      ],
-      "user_maintained": true,
-      "deployment_note": "CZ335 v1.0.2 uses the user-confirmed nested KIU/Common runtime path; older frozen releases retain their historical paths."
-    },
     {
       "id": "CheckerPalette",
       "name": "红色棋盘纹路调色板",
@@ -874,7 +840,8 @@
         "KCLV_CZ7_Fairing_Solid_Booster",
         "KCLV_CZ7_Interstage1-2",
         "KCLV_CZ7_Stage_1",
-        "KCLV_YF115"
+        "KCLV_YF115",
+        "KCLV_CZ8A_Stage_2"
       ],
       "reuse_notes": "使用 KSP 法线槽（_BumpMap），MU texture type=1。PNG 是 RGB 法线输入，不是直接供 shader 采样的 packed AG 图；KSP 自动转换。结构图必须匹配原 UV；FlatNormalNative 可通用。",
       "user_maintained": true,
@@ -1003,7 +970,8 @@
       "source": "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.3/Shared_CASC_Blue.v3.5.3.svg",
       "consumers": [
         "KCLV_CZ2F_stage2",
-        "KCLV_CZ6_stage1"
+        "KCLV_CZ6_stage1",
+        "KCLV_CZ8A_Stage_2"
       ],
       "tags": [
         "v3.5.3",
@@ -2187,7 +2155,8 @@
       "consumers": [
         "KCLV_CZ3_STAGE3",
         "KCLV_CZ6A_stage1",
-        "KCLV_CZ7_Stage_2"
+        "KCLV_CZ7_Stage_2",
+        "KCLV_CZ8A_Stage_2"
       ],
       "tags": [
         "public",
@@ -2368,6 +2337,47 @@
       "native_validation_scope": "本版离线消费者/UV 对照，未逐项进 KSP。",
       "publication_note": "用户公共贴图库例外授权；仅发布新版本公共资产，Part 绑定仍只在附加包。旧版本不覆盖、不删除。",
       "user_maintained": true
+    },
+    {
+      "id": "Shared_LongMarch_WhitePaint_v355",
+      "name": "LONGMARCH 彩色标志／白漆表面深度写入版 v3.5.5",
+      "file_name": "Shared_LongMarch_WhitePaint.v3.5.5.png",
+      "path": "KIU/Common/KIU_Common_texture/Shared_LongMarch_WhitePaint.v3.5.5.png",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_LongMarch_WhitePaint.v3.5.5",
+      "content": "含红黄渐变箭头、蓝色弯曲条带和 LONGMARCH 黑字。由已批准的 v3.3.1 原图在线性光下与白底合成，将蓝色透明渐变保留在 RGB，alpha 只保留轮廓覆盖；供白色漆面与 KSP/Alpha/Cutoff 搭配。图案、UV 布局及 2048 分辨率不变，未重新绘制。",
+      "width": 2048,
+      "height": 2048,
+      "format": "lossless RGBA PNG",
+      "bytes": 433407,
+      "sha256": "9499874bed788635ffb97d92fb8ce4bfe294b74005e3a25146d340468d9e5f71",
+      "source": "KIU/Common/KIU_Common_texture/Shared_LongMarch.v3.3.1.dds",
+      "source_sha256": "a91d6df17dddb259c7e1257fc9ef6c2f8401284022d09d490d3d0e822de60fae",
+      "tags": [
+        "LONGMARCH",
+        "CZ-8",
+        "白色漆面",
+        "Cutoff",
+        "抗拖影"
+      ],
+      "consumers": [
+        "KCLV_CZ7_Stage_1"
+      ],
+      "consumer_release": "3.5.5 addon",
+      "reuse_notes": "仅适合白色漆面；不能直接代替深色/彩色底面上的半透明标志。旧 DDS 保留。PNG 小文件体积不表示显存占用更小；需按运行时格式评估。",
+      "native_KSP_tested": true,
+      "native_scope": "Targeted CZ8 livery flight comparison using full stage meshes; see v3.5.5 report.",
+      "publication_note": "New versioned reusable asset published by the user-approved public-library exception; Part bindings remain addon-only."
+    }
+  ],
+  "retired_assets": [
+    {
+      "file_name": "Shared_CASC.v3.3.1.dds",
+      "retired_at": "2026-09-25",
+      "reason": "Explicit user request in CZ8A task; live CFG consumer migrated to CASC Blue.",
+      "replacement": "KIU/Common/KIU_Common_texture/Shared_CASC_Blue.v3.5.3.dds",
+      "prior_sha256": "ecf5d99e9e6b268926ec3f4154b765121e6f94e978399d0b9985e340564033a1",
+      "archive": "local_workspace/CZ-335_Cryogenic/surface-fix-20260925/audit/retired-public",
+      "historical_release_archives_unchanged": true
     }
   ]
 }
