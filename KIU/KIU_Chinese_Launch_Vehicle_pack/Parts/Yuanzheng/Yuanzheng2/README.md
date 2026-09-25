@@ -1,60 +1,60 @@
-# Yuanzheng-2 / 远征二号
+# 远征二号 / Yuanzheng-2 — v0.8
 
-目录组织沿用 CZ-10B；整个文件夹保留在 `GameData/KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Yuanzheng/Yuanzheng2`。无需额外 DLL。
+安装目录：`GameData/KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Yuanzheng/Yuanzheng2`。Part ID：`KCLV_Yuanzheng2`。部件无需测试控制 DLL。安装时清除旧的 `Parts/Yuanzheng-2` 副本，避免重复 Part。
 
-```text
-Yuanzheng/Yuanzheng2/
-  Assets/                 Yuanzheng2.mu、YZ2_Color.dds、YZ2_Normal.dds、YZ2_Specular.dds
-  UpperStage/part.cfg      KCLV_Yuanzheng2
-  Localization/           en_us.cfg、zh-cn.cfg
-  Compatibility/
-    B9PartSwitch/          Default / Matte Finish
-    RealFuels/             UDMH/NTO 燃料与双组元 RCS
-    RemoteTech/            通信与无人控制
-    VABO/                  avionics 分组
-    Waterfall/             20 个 RCS 喷口；主发动机复用现有适配
-    Tweakscale/            KCLVStack，默认 3.8 m
-    TUFX/                  KIU-Metal-Review-Editor / Flight 可选配置
-    RO/                    撤销全局通配补丁的未验证 RO 标记
-```
+## 模型与节点
 
-## 装配与质量
+主体直径 3.8 m，四球罐、四载荷挂点，两台主发动机另装。顶部中央节点 Y=0.075 m、朝上；底部中央节点 Y=-1.54 m、朝下。底部节点随下移的 RCS 留出空间，旧载具若保留原节点位置应重新装配。
 
-本体直径 3.8 m，比例 1:1。`engine1`、`engine2` 各安装一台已有 `KCLV_YF50E`；本体不包含主发动机。新增两块低面数转接安装盘，将较小的 YF-50E 安装端接到原预留安装环。发动机节点中心距 0.84 m，仍是临时适配尺寸，不代表已核实的 YF-50D 真机接口。顶部 `payload1`—`payload4` 为四个载荷挂点，`top`/`bottom` 为中央堆叠接口。外接载荷分离器、转接段另装；本体不自动抛弃载荷。
+金色上法兰整体低于白色平台顶面 8 mm，消除原来的共面重叠。金箔侧裙从 Y=-0.006 延伸到 -1.120 m，覆盖球罐完整 1.53 m 高度的 72.8%。四组五喷口 RCS 直接安装在金色侧壁下部，中心半径 2.0 m、Y=-0.95 m。65 mm 短箱形底座通过曲面加强板、穿透式紧固件及内侧背板连接竖向加强梁，再传至上下承力环；金箔不承受推力。含喷口最大外廓约 4.216 m，主体直径仍为 3.8 m，装入整流罩时按喷口外廓留空间。顶部增加中央检修盖、四组服务盖板及封盖接口、面板接缝和紧固件，细节最高 24 mm，低于 +75 mm 安装节点。每个 Renderer 仅有一个材质和一个 submesh。
 
-| 项目 | 默认环境 | RealFuels |
-| --- | --- | --- |
-| 本体干重 | 1.700 t | 1.700 t |
-| 两台默认 YF-50E | 0.100 t | 0.100 t |
-| 默认主推进剂 | LF 550.8 + Ox 673.2 单位，共 6.120 t | UDMH 2486.790017962 L + NTO 2919.275238477 L，共 6.200 t |
-| RCS 推进剂 | MonoPropellant 20 单位，共 0.080 t | 与主发动机共用上述 UDMH/NTO；体积配比同为 0.46:0.54 |
-| 电量 | 6000 EC | 6000 EC；RF unmanaged resource |
-| 整级干重／默认湿重 | 1.800 / 8.000 t | 1.800 / 8.000 t |
-| 最大容量／整级最大湿重 | 默认装载不变 | 7.200 t / 9.000 t；UDMH 2887.885182149 L + NTO 3390.126083393 L |
+engine1/engine2 各安装既有 KCLV_YF50E。现有默认发动机每台 0.05 t，接口与发动机自身均未更改；这是暂代 YF-50D 的装配，不代表已核实的真机接口。
 
-上述质量不含载荷及外接适配器。默认环境的主推进剂/RCS 分账、100 N/喷口、EC 容量和 Isp 是暂定游戏参数。RF 净容量上限 6278.011265542 L，默认装量 5406.065256439 L；`amount` 与 `maxAmount` 分开设置。RF 按容积计算本体干重，在默认尺寸为 1.7 t，TweakScale 缩放时随容积变化。各资源的附加罐壳质量设为零，因为已包含在本体预算内，避免重复计重；参考 [RealFuels 质量计算实现](https://github.com/KSP-RO/RealFuels/blob/master/Source/Tanks/ModuleFuelTanks.cs)。
+## 质量与 RF 分配
 
-四个主球罐外径 1.53 m，实际网格包围体积共 7413.68 L；小增压罐不计入推进剂容量。两罐 UDMH、两罐 NTO 的分配下，7.2 t 由 NTO 侧限制。采用径向 8 mm 包覆/间隙/罐壁预算、2% 内部构件和 3% 气枕，可用 6828.65 L，NTO 两罐余量 24.20 L。可保留外观模型，但这是较紧的内部设计预算，不是实测壁厚或承压认证。原先 20 mm / 5% / 5% 的预留只适用于默认 6.2 t。详细敏感性结果见工作区 `audit/tank-capacity.json`。
+| 项目 | 数值 |
+| --- | --- |
+| 本体干重 | 1.1 t |
+| 默认双 YF-50E | 合计 0.1 t |
+| 整级干重 | 1.2 t |
+| 默认推进剂／整级湿重 | 6.2 t／7.4 t |
+| UDMH/NTO 满容量／整级湿重 | 7.2 t／8.4 t |
+| RF 总净容积 | 6278.011266 L |
+| 默认已分配容积 | 5406.065256 L，全部加满 |
+| 默认未分配容积 | 871.946009 L |
 
-UDMH/NTO 的 RF 热模型字段显式设为 3 mm 壁厚、5 mm 隔热层，替代模组通用的 100 mm 壁厚默认值；这两个字段本身不会替游戏自动扣减液体容量，容量已按上述预算另行核算。
+按 CZ-7 一级的方式：UDMH `maxAmount = 39.61111111111111%`，NTO `maxAmount = 46.5%`，两者 `amount = Full`。两种资源默认分别是 2486.790018 L、2919.275238 L。它们各自的资源条为满，其余 13.8889% 总容积尚未分配。
 
-按用户要求暂用 YF-50E，不新建或改名为 YF-50D。没有改动全项目 YF-50E：默认 RF 发动机仅允许一次点火，Advanced 配置允许重启但单台质量增加至 0.060 t，改选后整级变为 1.820 / 8.020 t。未来正式 YF-50D 接入时须重新核对接口、质量和推进性能。
+要装 7.2 t UDMH/NTO，应在 RF 编辑器中把容积分配调整至 46%／54%，再加满；仅点击 Fill 不会扩大已分配容量。7.2 t 是该混合物的容量换算，不是任何燃料的统一质量上限。切换其他燃料时密度和总质量会改变。
 
-RealFuels 下现有 YF-50E 还要求推进剂沉底。自由落体中未稳定推进剂就点火，会报管路气相并消耗点火次数；不能把有电、燃料充足或通信连接正常等同于可点火。此行为在真空 API 测试中实际复现，未通过改写全局发动机或禁用 RF 沉底规则绕过。
+四只球罐的几何、容积不变。7.2 t 保留原先的较紧内部预算：径向 8 mm、构件 2%、气枕 3%，NTO 两罐余约 24.2 L；此为游戏模型空间估算。干重按用户设定更新，不代表重新完成真实压力容器结构设计。
 
-## 资产与验证
+非 RF：保留 6.12 t LF/Ox + 0.08 t MonoPropellant，总湿重同为 7.4 t。RF 本体质量由 ModuleFuelTanks 按体积计入，RCS 的 ModuleEngineConfigs 使用 origMass=-1，避免重复修改本体质量。原有 Advanced YF-50E 每台增重 0.01 t，换用后整级增重 0.02 t。
 
-- 本体 23,248 三角面，加两块转接盘 384 面，共 23,632 面；2 个 Renderer，每个只有 1 个材质、1 个 submesh，共用 1 套材质。34 个简单碰撞体。
-- 20 个 `rcsThrust`，四组五喷口，KSP 本地 +Z 为排气方向，`useZaxis=True`；支持六自由度。没有额外反作用轮。
-- 三张专用 1024×1024 BC3 DDS，含 11 层 mip。Color RGB 基础色、A=1；Normal A/G 为切线 X/Y；Specular RGB 为彩色 F0。DDS 使用 KSP 行序。材质为 KSP/Bumped Specular (Mapped)，光滑度 0.80；Default 恢复彩色高光，Matte 引用公共零高光图。Mapped shader 的统一光滑度不能完整复现 Blender 的逐像素粗糙度。
-- 箔材图集衍生自公共库内的 `Shared_CrumpledFoil_NormalGL.v1.0.0.png` 和 `Shared_CrumpledFoil_Roughness.v1.0.0.png`，原素材为 [ambientCG Foil002](https://ambientcg.com/a/Foil002)，CC0-1.0。图集采用本体专属 UV，不是可直接通用的重复纹理；公共源文件保持不变。
-- Blender 源文件、导出脚本、MU 回读装配预览、检查记录和 HTML 报告位于 `local_workspace/yuanzheng-2`。
-- 已在 KSP 1.12.3 实际 KIU 路径加载；默认/哑光切换、RF RCS 和双 YF-50E 共用推进剂均取得原生证据。各项兼容性最终结果与适用资产哈希见工作区 `audit/ksp-native-summary.json`，不以离线检查代替未完成的飞行验证。
-- 金属外观测试采用反射 Low、256²、MSAA 关闭，以及本目录的 TUFX HDR/FXAA/Neutral 配置。TUFX 是可选项，不在发布配置中强改玩家全局设置；已有存档可能覆盖全局 TUFX 默认项，需要在该场景实际选中对应配置。
-- RO 补丁仅避免宣称已完成 RO 平衡；不是 RO/RP-1 生涯适配。
+## RCS 配置
 
+| 配置 | 体积比 | 单喷口推力 | 真空／海平面 Isp |
+| --- | --- | --- | --- |
+| UDMH/NTO（默认） | 0.46／0.54 | 100 N | 290／100 s |
+| MMH/NTO | 0.499／0.501 | 100 N | 310／110 s |
+| Hydrazine | 1 | 80 N | 240／85 s |
 
-## 目录迁移
+这是暂定游戏参数。默认 RCS 与主发动机共用 UDMH/NTO。选择其他 RCS 配置后，需要在 RF 里为 MMH 或 Hydrazine 分配并加注燃料；RCS 的选择不会更改两台现有主发动机的燃料配置。资源从本 Part 取用。6000 EC 保持 unmanaged。
 
-目录迁移说明（2026-09-24）：现行位置为 Parts/Yuanzheng/Yuanzheng2，模型引用与维护脚本已同步。按用户要求，本次迁移后未重新测试；下方原生记录与截图来自迁移前版本，测试环境尚未重新部署。
-安装新目录时应移除旧的 Parts/Yuanzheng-2 安装副本，避免重复加载同一 Part ID。历史测试日志、哈希清单和截图保留原始路径。
+现有 YF-50E 在 RF 下仍受推进剂沉底与点火次数限制，未改全项目发动机配置。
+
+## 材质与兼容性
+
+金箔与银箔改为独立的平铺 UV，1.50 m 重复周期，直接复用公共 2K 法线，避免整级 1K 图集压缩掉细褶皱。三个专用 DDS 仍为 1024²：Color/Specular 为无照明色板，Normal 为模型加载占位。MODEL 将 Normal 重映射到公共 `KIU/Common/KIU_Common_texture/Shared_CrumpledFoil_NormalAG.v1.0.0`。必须随公共库一同安装。
+
+共享法线由已有 CC0 Foil002 的 RGB +Y 法线以 0.70 强度转换为 KSP A/G 编码，源文件保持原样。Default 使用金属高光，Matte 仍由 B9 切换；保留 Waterfall、RemoteTech、TweakScale、VABO、TUFX 和中英本地化。RO 补丁不代表完整 RO/RP-1 生涯平衡。
+
+共 25,156 三角面（本体 24,772 + 转接盘 384），相对 v0.7 净增加 1,204 面。4 个 Renderer、3 个材质，每个 Renderer 单材质/单 submesh。新细节复用已有 1K 专用色板与公共法线；本轮没有增加或修改贴图。金箔细节来自法线，不靠细分网格。
+
+## 本轮证据
+
+本轮完成实际 MU/DDS 的 Blender 回读渲染与配置检查。20 个喷口，3,060 条 15° 扩散角采样射线未发现本体遮挡；48 组正反控制分配仍可实现六自由度。检查的是本部件，不包含外接载荷、发动机及整流罩。
+
+四组短底座取代外露六杆支架。31 种喷口开关组合、每喷口 100 N 的安装面合力上限约 261.3 N，合力矩上限约 12.15 N·m。这是接口静载估算，不代表接头、材料或发射振动强度验证；旧六杆矩阵结果不适用于本结构。
+
+顶部细节与安装点间有余量，球罐、金箔覆盖高度、连接节点、质量和 RF 配置沿用 v0.7。未启动 KSP、未同步游戏测试目录。最新 HTML 报告、可编辑 Blender 和记录位于 `local_workspace/yuanzheng-2`，v0.7 报告及源场景保留供对照；未提交 Git。

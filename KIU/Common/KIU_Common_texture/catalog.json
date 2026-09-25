@@ -1723,6 +1723,651 @@
         "method": "KSP 1.12.3 background native loading and paired visual review",
         "report": "local_workspace/KIU_ReTexture/work/shared-dedup/REPORT.md"
       }
+    },
+    {
+      "id": "CrumpledFoilNormalAG",
+      "name": "揉皱金属箔 KSP AG 法线",
+      "file_name": "Shared_CrumpledFoil_NormalAG.v1.0.0.dds",
+      "path": "KIU/Common/KIU_Common_texture/Shared_CrumpledFoil_NormalAG.v1.0.0.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_CrumpledFoil_NormalAG.v1.0.0",
+      "content": "无文字、无标志的可平铺揉皱薄金属箔法线。由现有 Foil002 RGB +Y 法线以 0.70 强度转换为 KSP DXT5nm：A=X、G=Y、R/B=255；DDS 行序已翻转。用于金箔/银箔细折痕，不含基础色或烘焙照明。",
+      "width": 2048,
+      "height": 2048,
+      "format": "BC3/DXT5",
+      "mips": 12,
+      "bytes": 5592560,
+      "sha256": "8046d0038f67e0b8e9483d8748930cc809393677235a53484e02542dce9fce72",
+      "tags": [
+        "foil",
+        "箔",
+        "normal",
+        "KSP",
+        "AG",
+        "gold",
+        "silver"
+      ],
+      "license": "CC0-1.0",
+      "source": "KIU/Common/KIU_Common_texture/Shared_CrumpledFoil_NormalGL.v1.0.0.png",
+      "source_sha256": "fb47cc231974291212ef4a5ff2a26187e4e53d6de80729f8ab40da71bf97b789",
+      "upstream": "https://ambientcg.com/a/Foil002",
+      "layout_note": "Seamless tiled UV; normals use the same UV basis as mesh tangents. YZ2 v0.7 repeats every 1.50 m. Not a unique mesh atlas.",
+      "consumers": [
+        "KCLV_Yuanzheng2"
+      ],
+      "user_maintained": true,
+      "native_KSP_tested": false
+    },
+    {
+      "id": "Shared_Serial_v354",
+      "name": "长征型号与编号矢量字库 v3.5.4",
+      "file_name": "Shared_Serial.v3.5.4.dds",
+      "path": "KIU/Common/KIU_Common_texture/Shared_Serial.v3.5.4.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_Serial.v3.5.4",
+      "content": "CZ-7 Y、CZ-7A Y、CZ-8 Y 三种前缀；0–9 独立数字；C/Z/I/7/8/A 大字；文昌国际航天城逐字；红蓝色块。Arial 明确轮廓，中文为微软雅黑粗体轮廓。 深蓝字、透明背景；所有 mip 的透明像素也保留前景 RGB，BC3 连续 alpha。",
+      "width": 2048,
+      "height": 2048,
+      "format": "DXT5 / BC3",
+      "channels": "RGBA",
+      "mips": 12,
+      "bytes": 5592560,
+      "sha256": "6664fe3f6fca720af30bd73157f1515b17674ecfe532f4f792db59b73f4a7c87",
+      "source": "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.4/Shared_Serial.v3.5.4.svg",
+      "consumers": [
+        "KCLV_CZ2F_stage1",
+        "KCLV_CZ7_Stage_1",
+        "KCLV_CZ7_booster"
+      ],
+      "tags": [
+        "public",
+        "glyph",
+        "v3.5.4",
+        "vector-source"
+      ],
+      "reuse_notes": "按图集格分别采样，不能把整图当标签。归一化 UV 与旧版兼容；像素坐标为旧版的两倍。编号与隐藏由 MU/B9 控制；现有 Cutoff 材质阈值 0.45。不得用于法线或金属贴图。",
+      "layout": {
+        "coordinate_space": "top-left pixel origin in upright source; DDS encoded vertically flipped for KSP",
+        "source_viewbox": [
+          1024,
+          1024
+        ],
+        "ink_rects": [
+          {
+            "text": "CZ-7 Y",
+            "rect": [
+              60,
+              48,
+              856,
+              236
+            ],
+            "key": "serial_prefix_7"
+          },
+          {
+            "text": "CZ-7A Y",
+            "rect": [
+              60,
+              304,
+              1026,
+              492
+            ],
+            "key": "serial_prefix_7A"
+          },
+          {
+            "text": "CZ-8 Y",
+            "rect": [
+              60,
+              560,
+              856,
+              748
+            ],
+            "key": "serial_prefix_8"
+          },
+          {
+            "text": "0",
+            "rect": [
+              58,
+              864,
+              178,
+              1050
+            ],
+            "key": "serial_digit_0"
+          },
+          {
+            "text": "1",
+            "rect": [
+              252,
+              864,
+              320,
+              1048
+            ],
+            "key": "serial_digit_1"
+          },
+          {
+            "text": "2",
+            "rect": [
+              408,
+              864,
+              528,
+              1048
+            ],
+            "key": "serial_digit_2"
+          },
+          {
+            "text": "3",
+            "rect": [
+              588,
+              864,
+              706,
+              1050
+            ],
+            "key": "serial_digit_3"
+          },
+          {
+            "text": "4",
+            "rect": [
+              756,
+              864,
+              882,
+              1048
+            ],
+            "key": "serial_digit_4"
+          },
+          {
+            "text": "5",
+            "rect": [
+              938,
+              864,
+              1060,
+              1048
+            ],
+            "key": "serial_digit_5"
+          },
+          {
+            "text": "6",
+            "rect": [
+              1114,
+              864,
+              1234,
+              1050
+            ],
+            "key": "serial_digit_6"
+          },
+          {
+            "text": "7",
+            "rect": [
+              1292,
+              864,
+              1410,
+              1046
+            ],
+            "key": "serial_digit_7"
+          },
+          {
+            "text": "8",
+            "rect": [
+              1466,
+              864,
+              1588,
+              1050
+            ],
+            "key": "serial_digit_8"
+          },
+          {
+            "text": "9",
+            "rect": [
+              1642,
+              864,
+              1764,
+              1050
+            ],
+            "key": "serial_digit_9"
+          },
+          {
+            "text": "C",
+            "rect": [
+              52,
+              1216,
+              316,
+              1522
+            ],
+            "key": "serial_large_C"
+          },
+          {
+            "text": "Z",
+            "rect": [
+              376,
+              1216,
+              612,
+              1514
+            ],
+            "key": "serial_large_Z"
+          },
+          {
+            "text": "I",
+            "rect": [
+              744,
+              1216,
+              782,
+              1514
+            ],
+            "key": "serial_large_I"
+          },
+          {
+            "text": "7",
+            "rect": [
+              1060,
+              1216,
+              1252,
+              1510
+            ],
+            "key": "serial_large_7"
+          },
+          {
+            "text": "8",
+            "rect": [
+              1392,
+              1216,
+              1590,
+              1518
+            ],
+            "key": "serial_large_8"
+          },
+          {
+            "text": "A",
+            "rect": [
+              1714,
+              1216,
+              1992,
+              1514
+            ],
+            "key": "serial_large_A"
+          },
+          {
+            "text": "文",
+            "rect": [
+              56,
+              1794,
+              184,
+              1926
+            ],
+            "key": "serial_cn_0"
+          },
+          {
+            "text": "昌",
+            "rect": [
+              244,
+              1792,
+              356,
+              1920
+            ],
+            "key": "serial_cn_1"
+          },
+          {
+            "text": "国",
+            "rect": [
+              422,
+              1792,
+              538,
+              1920
+            ],
+            "key": "serial_cn_2"
+          },
+          {
+            "text": "际",
+            "rect": [
+              600,
+              1794,
+              726,
+              1916
+            ],
+            "key": "serial_cn_3"
+          },
+          {
+            "text": "航",
+            "rect": [
+              774,
+              1794,
+              906,
+              1924
+            ],
+            "key": "serial_cn_4"
+          },
+          {
+            "text": "天",
+            "rect": [
+              954,
+              1792,
+              1086,
+              1916
+            ],
+            "key": "serial_cn_5"
+          },
+          {
+            "text": "城",
+            "rect": [
+              1134,
+              1792,
+              1268,
+              1924
+            ],
+            "key": "serial_cn_6"
+          }
+        ],
+        "note": "ink_rects 是字形外包框，不等于完整采样格；现有消费者使用兼容的归一化 UV。CZ6A 内部逐字位置额外按旧字形外包框匹配。"
+      },
+      "layout_references": [
+        "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.4/layout.json",
+        "local_workspace/KIU_ReTexture/source/assets/Textures/v3.3.0/shared-library.v3.3.0.json"
+      ],
+      "native_KSP_tested": true,
+      "native_validation_scope": "2026-09-24：KSP 1.12.3 + Deferred，代表性 MU 裁片字形/材质对照，非全部消费者整 Part 验收。",
+      "publication_note": "用户公共贴图库例外授权；仅发布新版本公共资产，Part 绑定仍只在附加包。旧版本不覆盖、不删除。",
+      "user_maintained": true
+    },
+    {
+      "id": "Shared_ExtraGlyphs_v354",
+      "name": "中国航天及 CZ-6A 补充字库 v3.5.4",
+      "file_name": "Shared_ExtraGlyphs.v3.5.4.dds",
+      "path": "KIU/Common/KIU_Common_texture/Shared_ExtraGlyphs.v3.5.4.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_ExtraGlyphs.v3.5.4",
+      "content": "中国航天逐字、CZ-6A 横排、 中国载人航天横排。CZ-6A 按原每字像素位置重排以兼容裁切过的模型 UV；中文移除人工描边。 深蓝字、透明背景；所有 mip 的透明像素也保留前景 RGB，BC3 连续 alpha。",
+      "width": 2048,
+      "height": 1024,
+      "format": "DXT5 / BC3",
+      "channels": "RGBA",
+      "mips": 12,
+      "bytes": 2796368,
+      "sha256": "93463ad5d811771eb7216c97af59ee5630fd4c946d5d8c5eee792d8149c8f1ff",
+      "source": "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.4/Shared_ExtraGlyphs.v3.5.4.svg",
+      "consumers": [
+        "KCLV_CZ2F_interstage",
+        "KCLV_CZ2F_stage2",
+        "KCLV_CZ6A_Interstage"
+      ],
+      "tags": [
+        "public",
+        "glyph",
+        "v3.5.4",
+        "vector-source"
+      ],
+      "reuse_notes": "按图集格分别采样，不能把整图当标签。归一化 UV 与旧版兼容；像素坐标为旧版的两倍。编号与隐藏由 MU/B9 控制；现有 Cutoff 材质阈值 0.45。不得用于法线或金属贴图。",
+      "layout": {
+        "coordinate_space": "top-left pixel origin in upright source; DDS encoded vertically flipped for KSP",
+        "source_viewbox": [
+          1024,
+          512
+        ],
+        "ink_rects": [
+          {
+            "text": "中",
+            "rect": [
+              74,
+              42,
+              300,
+              308
+            ],
+            "key": "china_0"
+          },
+          {
+            "text": "国",
+            "rect": [
+              390,
+              42,
+              626,
+              300
+            ],
+            "key": "china_1"
+          },
+          {
+            "text": "航",
+            "rect": [
+              690,
+              44,
+              964,
+              314
+            ],
+            "key": "china_2"
+          },
+          {
+            "text": "天",
+            "rect": [
+              1012,
+              42,
+              1286,
+              294
+            ],
+            "key": "china_3"
+          },
+          {
+            "text": "CZ-6A",
+            "rect": [
+              40,
+              392,
+              1016,
+              668
+            ],
+            "key": "CZ6A"
+          },
+          {
+            "text": "中国载人航天",
+            "rect": [
+              64,
+              754,
+              906,
+              888
+            ],
+            "key": "ChinaManned"
+          }
+        ],
+        "note": "ink_rects 是字形外包框，不等于完整采样格；现有消费者使用兼容的归一化 UV。CZ6A 内部逐字位置额外按旧字形外包框匹配。"
+      },
+      "layout_references": [
+        "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.4/layout.json",
+        "local_workspace/KIU_ReTexture/source/assets/Textures/v3.3.0/shared-library.v3.3.0.json"
+      ],
+      "native_KSP_tested": false,
+      "native_validation_scope": "本版离线消费者/UV 对照，未逐项进 KSP。",
+      "publication_note": "用户公共贴图库例外授权；仅发布新版本公共资产，Part 绑定仍只在附加包。旧版本不覆盖、不删除。",
+      "user_maintained": true
+    },
+    {
+      "id": "Shared_ChinaSpaceBold_v354",
+      "name": "中国航天分字矢量字库 v3.5.4",
+      "file_name": "Shared_ChinaSpaceBold.v3.5.4.dds",
+      "path": "KIU/Common/KIU_Common_texture/Shared_ChinaSpaceBold.v3.5.4.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_ChinaSpaceBold.v3.5.4",
+      "content": "中、国、航、天四字横排独立格，微软雅黑粗体的真实轮廓，无额外描边，国和航的内部留白保留。 深蓝字、透明背景；所有 mip 的透明像素也保留前景 RGB，BC3 连续 alpha。",
+      "width": 2048,
+      "height": 512,
+      "format": "DXT5 / BC3",
+      "channels": "RGBA",
+      "mips": 12,
+      "bytes": 1398288,
+      "sha256": "e24c457fdbc095f99253366c6ad104fc16b37f525b866f36e6fbaa3f988803e9",
+      "source": "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.4/Shared_ChinaSpaceBold.v3.5.4.svg",
+      "consumers": [
+        "KCLV_CZ3_STAGE3",
+        "KCLV_CZ6A_stage1",
+        "KCLV_CZ7_Stage_2"
+      ],
+      "tags": [
+        "public",
+        "glyph",
+        "v3.5.4",
+        "vector-source"
+      ],
+      "reuse_notes": "按图集格分别采样，不能把整图当标签。归一化 UV 与旧版兼容；像素坐标为旧版的两倍。编号与隐藏由 MU/B9 控制；现有 Cutoff 材质阈值 0.45。不得用于法线或金属贴图。",
+      "layout": {
+        "coordinate_space": "top-left pixel origin in upright source; DDS encoded vertically flipped for KSP",
+        "source_viewbox": [
+          1024,
+          256
+        ],
+        "ink_rects": [
+          {
+            "text": "中",
+            "rect": [
+              82,
+              36,
+              414,
+              424
+            ],
+            "key": "0"
+          },
+          {
+            "text": "国",
+            "rect": [
+              586,
+              36,
+              934,
+              414
+            ],
+            "key": "1"
+          },
+          {
+            "text": "航",
+            "rect": [
+              1064,
+              32,
+              1474,
+              438
+            ],
+            "key": "2"
+          },
+          {
+            "text": "天",
+            "rect": [
+              1570,
+              34,
+              2000,
+              408
+            ],
+            "key": "3"
+          }
+        ],
+        "note": "ink_rects 是字形外包框，不等于完整采样格；现有消费者使用兼容的归一化 UV。CZ6A 内部逐字位置额外按旧字形外包框匹配。"
+      },
+      "layout_references": [
+        "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.4/layout.json",
+        "local_workspace/KIU_ReTexture/source/assets/Textures/v3.3.0/shared-library.v3.3.0.json"
+      ],
+      "native_KSP_tested": true,
+      "native_validation_scope": "2026-09-24：KSP 1.12.3 + Deferred，代表性 MU 裁片字形/材质对照，非全部消费者整 Part 验收。",
+      "publication_note": "用户公共贴图库例外授权；仅发布新版本公共资产，Part 绑定仍只在附加包。旧版本不覆盖、不删除。",
+      "user_maintained": true
+    },
+    {
+      "id": "Shared_WenchangBold_v354",
+      "name": "文昌国际航天城分字矢量字库 v3.5.4",
+      "file_name": "Shared_WenchangBold.v3.5.4.dds",
+      "path": "KIU/Common/KIU_Common_texture/Shared_WenchangBold.v3.5.4.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_WenchangBold.v3.5.4",
+      "content": "文、昌、国、际、航、天、城七字横排独立格；微软雅黑粗体真实轮廓，无额外描边。 深蓝字、透明背景；所有 mip 的透明像素也保留前景 RGB，BC3 连续 alpha。",
+      "width": 4096,
+      "height": 512,
+      "format": "DXT5 / BC3",
+      "channels": "RGBA",
+      "mips": 13,
+      "bytes": 2796432,
+      "sha256": "151039f1c8e423abd1919339d830e9dc66bdc3a6a18826f2187b8560fc41e17d",
+      "source": "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.4/Shared_WenchangBold.v3.5.4.svg",
+      "consumers": [
+        "KCLV_CZ7_Stage_1"
+      ],
+      "tags": [
+        "public",
+        "glyph",
+        "v3.5.4",
+        "vector-source"
+      ],
+      "reuse_notes": "按图集格分别采样，不能把整图当标签。归一化 UV 与旧版兼容；像素坐标为旧版的两倍。编号与隐藏由 MU/B9 控制；现有 Cutoff 材质阈值 0.45。不得用于法线或金属贴图。",
+      "layout": {
+        "coordinate_space": "top-left pixel origin in upright source; DDS encoded vertically flipped for KSP",
+        "source_viewbox": [
+          2048,
+          256
+        ],
+        "ink_rects": [
+          {
+            "text": "文",
+            "rect": [
+              34,
+              26,
+              408,
+              388
+            ],
+            "key": "0"
+          },
+          {
+            "text": "昌",
+            "rect": [
+              582,
+              32,
+              886,
+              370
+            ],
+            "key": "1"
+          },
+          {
+            "text": "国",
+            "rect": [
+              1088,
+              30,
+              1400,
+              368
+            ],
+            "key": "2"
+          },
+          {
+            "text": "际",
+            "rect": [
+              1592,
+              30,
+              1940,
+              358
+            ],
+            "key": "3"
+          },
+          {
+            "text": "航",
+            "rect": [
+              2082,
+              26,
+              2448,
+              390
+            ],
+            "key": "4"
+          },
+          {
+            "text": "天",
+            "rect": [
+              2588,
+              30,
+              2972,
+              364
+            ],
+            "key": "5"
+          },
+          {
+            "text": "城",
+            "rect": [
+              3108,
+              26,
+              3474,
+              384
+            ],
+            "key": "6"
+          }
+        ],
+        "note": "ink_rects 是字形外包框，不等于完整采样格；现有消费者使用兼容的归一化 UV。CZ6A 内部逐字位置额外按旧字形外包框匹配。"
+      },
+      "layout_references": [
+        "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.4/layout.json",
+        "local_workspace/KIU_ReTexture/source/assets/Textures/v3.3.0/shared-library.v3.3.0.json"
+      ],
+      "native_KSP_tested": false,
+      "native_validation_scope": "本版离线消费者/UV 对照，未逐项进 KSP。",
+      "publication_note": "用户公共贴图库例外授权；仅发布新版本公共资产，Part 绑定仍只在附加包。旧版本不覆盖、不删除。",
+      "user_maintained": true
     }
   ]
 }
