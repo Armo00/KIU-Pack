@@ -1,5 +1,14 @@
 # 远征二号 / Yuanzheng-2 — v0.8
 
+## 2026-09-25：VAB 不显示的加载修复
+
+v0.8 硬件材质使用带法线槽的 Shader，却漏绑 `_BumpMap`。已在 KSP 复现：`PartLoader.ReplaceTextures` 抛出 `NullReferenceException`，导致整个 Part 编译失败、VAB 中不显示。硬件和发动机转接盘现显式绑定 4×4 公共平坦法线；金箔与银箔仍使用原褶皱法线。几何、节点、碰撞、RF 和 RCS 配置未改。
+
+本机后台原生对照：`yz2-v08-load01` 修复前失败；`yz2-v08-load02` 修复后载入远征二号及两台 YF-50E，4 个模型 Renderer 均正常，截图和保存的 craft 已核对。此轮验证加载与 VAB 显示，没有重新验证飞行性能。证据在 `local_workspace/yuanzheng-2/diagnostics/20260925-load`。
+
+另一台电脑至少同步以下运行文件，再重启 KSP：本目录的 `Assets/Yuanzheng2.mu`、新增 `Assets/YZ2_HardwareNormal.png`、`UpperStage/part.cfg`，以及 `GameData/KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2.png`。建议同步整个当前 Yuanzheng2 目录和公共库，避免混用版本。下面保留造型修订时的历史说明；原来的“未启动 KSP”仅指当时的建模阶段。本轮未提交 Git。
+
+
 安装目录：`GameData/KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Yuanzheng/Yuanzheng2`。Part ID：`KCLV_Yuanzheng2`。部件无需测试控制 DLL。安装时清除旧的 `Parts/Yuanzheng-2` 副本，避免重复 Part。
 
 ## 模型与节点

@@ -841,7 +841,8 @@
         "KCLV_CZ7_Interstage1-2",
         "KCLV_CZ7_Stage_1",
         "KCLV_YF115",
-        "KCLV_CZ8A_Stage_2"
+        "KCLV_CZ8A_Stage_2",
+        "KCLV_Yuanzheng2"
       ],
       "reuse_notes": "使用 KSP 法线槽（_BumpMap），MU texture type=1。PNG 是 RGB 法线输入，不是直接供 shader 采样的 packed AG 图；KSP 自动转换。结构图必须匹配原 UV；FlatNormalNative 可通用。",
       "user_maintained": true,
