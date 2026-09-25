@@ -881,19 +881,19 @@
     },
     {
       "id": "Shared_CASC_Classic_v353",
-      "name": "CASC 历史蓝紫配色标志 v3.5.3",
+      "name": "CASC 历史蓝紫配色标志 v3.5.3（CASC 文字加粗 A）",
       "path": "KIU/Common/KIU_Common_texture/Shared_CASC_Classic.v3.5.3.dds",
       "file_name": "Shared_CASC_Classic.v3.5.3.dds",
       "game_url": "KIU/Common/KIU_Common_texture/Shared_CASC_Classic.v3.5.3",
-      "content": "三道蓝紫圆环、深浅蓝紫四分面箭头及 CASC 字母；透明背景，适配 CZ-3B 旧款图样。整幅2048方形供贴面采样。",
+      "content": "三道蓝紫圆环、深浅蓝紫四分面箭头及 CASC 字母；透明背景，适配 CZ-3B 旧款图样。整幅2048方形供贴面采样。 2026-09-25 按用户选择采用方案 A：仅 CASC 四个字母适度加粗，文字着色面积增加约 28%；字母位置、字号、字距、图形主体和配色不变。",
       "width": 2048,
       "height": 2048,
       "format": "DXT1 / BC1 cutout",
       "channels": "RGB + 1-bit alpha",
       "mips": 12,
       "bytes": 2796344,
-      "sha256": "55a2cc44030988e72fe844f370537e0b7cf2ca151087162c417b86819adece3c",
-      "source": "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.3/Shared_CASC_Classic.v3.5.3.svg",
+      "sha256": "0f9b4dca1fc9837d02947ec52fe6866860c29d9eee230ce22ac4c4aaa0810b2d",
+      "source": "local_workspace/KIU_ReTexture/archive/rollback/casc-weight-20260925/A/Shared_CASC_Classic.v3.5.3.svg",
       "consumers": [
         "KCLV_CZ3_STAGE3",
         "KCLV_CZ8A_Stage_2"
@@ -914,23 +914,36 @@
         "glyph_rects": null
       },
       "native_KSP_tested": false,
-      "publication_note": "Published to the repository shared library by explicit user request on 2026-09-23; Part bindings remain in the v3.5.3 addon. Historical release bytes unchanged."
+      "publication_note": "Published to the repository shared library by explicit user request on 2026-09-23; Part bindings remain in the v3.5.3 addon. Historical release bytes unchanged.",
+      "revision": "CASC-lettering-A-2026-09-25",
+      "revision_history": [
+        {
+          "date": "2026-09-25",
+          "change": "User explicitly selected A and authorized same-name replacement after backing up original, A and B. Runtime path and filename retained.",
+          "previous_sha256": "55a2cc44030988e72fe844f370537e0b7cf2ca151087162c417b86819adece3c",
+          "sha256": "0f9b4dca1fc9837d02947ec52fe6866860c29d9eee230ce22ac4c4aaa0810b2d",
+          "previous_source": "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.3/Shared_CASC_Classic.v3.5.3.svg",
+          "backup_directory": "local_workspace/KIU_ReTexture/archive/rollback/casc-weight-20260925",
+          "validation": "Offline DDS/hash/layout checks only; 2048x2048 BC1 cutout, 12 mips, 2796344 bytes. Non-text regions unchanged. No KSP run for this revision.",
+          "frozen_release_archives_unchanged": true
+        }
+      ]
     },
     {
       "id": "Shared_CASC_Teal_v353",
-      "name": "CASC 蓝紫与青灰配色标志 v3.5.3",
+      "name": "CASC 蓝紫与青灰配色标志 v3.5.3（CASC 文字加粗 A）",
       "path": "KIU/Common/KIU_Common_texture/Shared_CASC_Teal.v3.5.3.dds",
       "file_name": "Shared_CASC_Teal.v3.5.3.dds",
       "game_url": "KIU/Common/KIU_Common_texture/Shared_CASC_Teal.v3.5.3",
-      "content": "蓝紫三环、蓝紫/青灰四色分面箭头及浅灰紫 CASC 字母；透明背景。保留 CZ-6A、CZ-7 等原型中的青灰配色，与蓝紫单色变体不同。",
+      "content": "蓝紫三环、蓝紫/青灰四色分面箭头及浅灰紫 CASC 字母；透明背景。保留 CZ-6A、CZ-7 等原型中的青灰配色，与蓝紫单色变体不同。 2026-09-25 按用户选择采用方案 A：仅 CASC 四个字母适度加粗，文字着色面积增加约 28%；字母位置、字号、字距、图形主体和配色不变。",
       "width": 2048,
       "height": 2048,
       "format": "DXT1 / BC1 cutout",
       "channels": "RGB + 1-bit alpha",
       "mips": 12,
       "bytes": 2796344,
-      "sha256": "9ccc8c24ac1a31d5b4b553842bf5740614df293a8de9112f33ba3fbe64a0b804",
-      "source": "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.3/Shared_CASC_Teal.v3.5.3.svg",
+      "sha256": "399cbd2b6e606e706518a149c194efa2735440fddef0574143e5ce492ff34830",
+      "source": "local_workspace/KIU_ReTexture/archive/rollback/casc-weight-20260925/A/Shared_CASC_Teal.v3.5.3.svg",
       "consumers": [
         "KCLV_CZ3_STAGE3",
         "KCLV_CZ6A_stage1",
@@ -952,23 +965,36 @@
         "glyph_rects": null
       },
       "native_KSP_tested": false,
-      "publication_note": "Published to the repository shared library by explicit user request on 2026-09-23; Part bindings remain in the v3.5.3 addon. Historical release bytes unchanged."
+      "publication_note": "Published to the repository shared library by explicit user request on 2026-09-23; Part bindings remain in the v3.5.3 addon. Historical release bytes unchanged.",
+      "revision": "CASC-lettering-A-2026-09-25",
+      "revision_history": [
+        {
+          "date": "2026-09-25",
+          "change": "User explicitly selected A and authorized same-name replacement after backing up original, A and B. Runtime path and filename retained.",
+          "previous_sha256": "9ccc8c24ac1a31d5b4b553842bf5740614df293a8de9112f33ba3fbe64a0b804",
+          "sha256": "399cbd2b6e606e706518a149c194efa2735440fddef0574143e5ce492ff34830",
+          "previous_source": "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.3/Shared_CASC_Teal.v3.5.3.svg",
+          "backup_directory": "local_workspace/KIU_ReTexture/archive/rollback/casc-weight-20260925",
+          "validation": "Offline DDS/hash/layout checks only; 2048x2048 BC1 cutout, 12 mips, 2796344 bytes. Non-text regions unchanged. No KSP run for this revision.",
+          "frozen_release_archives_unchanged": true
+        }
+      ]
     },
     {
       "id": "Shared_CASC_Blue_v353",
-      "name": "CASC 蓝色渐变标志 v3.5.3",
+      "name": "CASC 蓝色渐变标志 v3.5.3（CASC 文字加粗 A）",
       "path": "KIU/Common/KIU_Common_texture/Shared_CASC_Blue.v3.5.3.dds",
       "file_name": "Shared_CASC_Blue.v3.5.3.dds",
       "game_url": "KIU/Common/KIU_Common_texture/Shared_CASC_Blue.v3.5.3",
-      "content": "蓝色三环、深蓝至浅蓝渐变的四分面箭头及蓝色 CASC 字母；透明背景。供 CZ-2F 二级、CZ-6 一级的历史蓝色图样复用。",
+      "content": "蓝色三环、深蓝至浅蓝渐变的四分面箭头及蓝色 CASC 字母；透明背景。供 CZ-2F 二级、CZ-6 一级的历史蓝色图样复用。 2026-09-25 按用户选择采用方案 A：仅 CASC 四个字母适度加粗，文字着色面积增加约 28%；字母位置、字号、字距、图形主体和配色不变。",
       "width": 2048,
       "height": 2048,
       "format": "DXT1 / BC1 cutout",
       "channels": "RGB + 1-bit alpha",
       "mips": 12,
       "bytes": 2796344,
-      "sha256": "d3baa20eef25cb4e6525a27c0123eb221a71d3a1c269719e2d7583feca3edef8",
-      "source": "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.3/Shared_CASC_Blue.v3.5.3.svg",
+      "sha256": "f334c2046364dc13264ca30c7faa969b92b5cf7bf090de8b4ce8004cf7f76ee8",
+      "source": "local_workspace/KIU_ReTexture/archive/rollback/casc-weight-20260925/A/Shared_CASC_Blue.v3.5.3.svg",
       "consumers": [
         "KCLV_CZ2F_stage2",
         "KCLV_CZ6_stage1"
@@ -989,7 +1015,20 @@
         "glyph_rects": null
       },
       "native_KSP_tested": false,
-      "publication_note": "Published to the repository shared library by explicit user request on 2026-09-23; Part bindings remain in the v3.5.3 addon. Historical release bytes unchanged."
+      "publication_note": "Published to the repository shared library by explicit user request on 2026-09-23; Part bindings remain in the v3.5.3 addon. Historical release bytes unchanged.",
+      "revision": "CASC-lettering-A-2026-09-25",
+      "revision_history": [
+        {
+          "date": "2026-09-25",
+          "change": "User explicitly selected A and authorized same-name replacement after backing up original, A and B. Runtime path and filename retained.",
+          "previous_sha256": "d3baa20eef25cb4e6525a27c0123eb221a71d3a1c269719e2d7583feca3edef8",
+          "sha256": "f334c2046364dc13264ca30c7faa969b92b5cf7bf090de8b4ce8004cf7f76ee8",
+          "previous_source": "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.3/Shared_CASC_Blue.v3.5.3.svg",
+          "backup_directory": "local_workspace/KIU_ReTexture/archive/rollback/casc-weight-20260925",
+          "validation": "Offline DDS/hash/layout checks only; 2048x2048 BC1 cutout, 12 mips, 2796344 bytes. Non-text regions unchanged. No KSP run for this revision.",
+          "frozen_release_archives_unchanged": true
+        }
+      ]
     },
     {
       "id": "Shared_LM_OpenOrbit_v353",
