@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "library": "KIU_Common_texture",
-  "updated_at": "2026-09-25",
+  "updated_at": "2026-09-26",
   "path_base": "repository root",
   "game_data_directory": "GameData/KIU/Common/KIU_Common_texture",
   "description": "跨 Part 公共贴图内容索引。制作贴图前必须先读本文件，按内容搜索并检查可复用素材。",
@@ -634,7 +634,8 @@
         "KCLV_CZ8A_Engine_Mount",
         "KCLV_YF-20_Series_Engine",
         "KCLV_YF-21C",
-        "KCLV_Yuanzheng2"
+        "KCLV_Yuanzheng2",
+        "KCLV_Yuanzheng2_PayloadBracket"
       ],
       "user_maintained": true
     },
@@ -842,7 +843,8 @@
         "KCLV_CZ7_Stage_1",
         "KCLV_YF115",
         "KCLV_CZ8A_Stage_2",
-        "KCLV_Yuanzheng2"
+        "KCLV_Yuanzheng2",
+        "KCLV_Yuanzheng2_PayloadBracket"
       ],
       "reuse_notes": "使用 KSP 法线槽（_BumpMap），MU texture type=1。PNG 是 RGB 法线输入，不是直接供 shader 采样的 packed AG 图；KSP 自动转换。结构图必须匹配原 UV；FlatNormalNative 可通用。",
       "user_maintained": true,
@@ -1767,19 +1769,19 @@
     },
     {
       "id": "Shared_Serial_v354",
-      "name": "长征型号与编号矢量字库 v3.5.4",
+      "name": "长征型号与编号矢量字库（方案 A / v3.5.7 编码修复）",
       "file_name": "Shared_Serial.v3.5.4.dds",
       "path": "KIU/Common/KIU_Common_texture/Shared_Serial.v3.5.4.dds",
       "game_url": "KIU/Common/KIU_Common_texture/Shared_Serial.v3.5.4",
-      "content": "CZ-7 Y、CZ-7A Y、CZ-8 Y 三种前缀；0–9 独立数字；C/Z/I/7/8/A 大字；文昌国际航天城逐字；红蓝色块。Arial 明确轮廓，中文为微软雅黑粗体轮廓。 深蓝字、透明背景；所有 mip 的透明像素也保留前景 RGB，BC3 连续 alpha。",
+      "content": "27 项字形：CZ-7 Y、CZ-7A Y、CZ-8 Y 前缀；0–9 数字；C/Z/I/7/8/A 大字；文昌国际航天城七字；独立 A 字重数字 2。另含红蓝两色块。保留已批准 A 字重、布局与原细体 2 格（供 CZ-2F）；CZ-7 读取右侧 A 字重 2 格。v3.5.7 修复全部字形和 12 层 mip 的 BC3 alpha，源图与解码图在 0.45 Cutoff 下轮廓一致；原 RGB 压缩块不变。",
       "width": 2048,
       "height": 2048,
       "format": "DXT5 / BC3",
       "channels": "RGBA",
       "mips": 12,
       "bytes": 5592560,
-      "sha256": "6664fe3f6fca720af30bd73157f1515b17674ecfe532f4f792db59b73f4a7c87",
-      "source": "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.4/Shared_Serial.v3.5.4.svg",
+      "sha256": "d92d700ade56586237bf5ca96103762cbb95d066541b9b6f8f824a3632cc4d8a",
+      "source": "local_workspace/KIU_ReTexture/work/v3.5.7/source/Serial-A.svg",
       "consumers": [
         "KCLV_CZ2F_stage1",
         "KCLV_CZ7_Stage_1",
@@ -1791,7 +1793,7 @@
         "v3.5.4",
         "vector-source"
       ],
-      "reuse_notes": "按图集格分别采样，不能把整图当标签。归一化 UV 与旧版兼容；像素坐标为旧版的两倍。编号与隐藏由 MU/B9 控制；现有 Cutoff 材质阈值 0.45。不得用于法线或金属贴图。",
+      "reuse_notes": "按图集格分别采样，不能把整图当标签。归一化 UV 与旧版兼容；像素坐标为旧版的两倍。编号与隐藏由 MU/B9 控制；现有 Cutoff 材质阈值 0.45。不得用于法线或金属贴图。 2026-09-26 同名粗体修订：新增 serial_digit_2_bold 格，CZ-7 一级/助推器需配套 SerialBold v1.0.0 的 MU UV 更新；旧 MU 的数字 2 仍读取保留的细体格。CZ-2F 一级的旧 UV 保持不变。不能把粗体 2 放回旧 2 格，否则将影响 CZ-2F。 v3.5.7：字库全部字形边缘/mip 的 alpha 编码修复，不再承诺非编号采样区 RGBA 字节不变；字形设计和 UV 布局不变。CZ-8A 前缀由 MU 拼接。需配套 v3.5.7 两个 MU 才包含透明留边裁切和编号面深度修复；单换贴图不会修复几何重叠。",
       "layout": {
         "coordinate_space": "top-left pixel origin in upright source; DDS encoded vertically flipped for KSP",
         "source_viewbox": [
@@ -1802,50 +1804,50 @@
           {
             "text": "CZ-7 Y",
             "rect": [
-              60,
-              48,
-              856,
-              236
+              57,
+              45,
+              859,
+              239
             ],
             "key": "serial_prefix_7"
           },
           {
             "text": "CZ-7A Y",
             "rect": [
-              60,
-              304,
-              1026,
-              492
+              57,
+              301,
+              1029,
+              495
             ],
             "key": "serial_prefix_7A"
           },
           {
             "text": "CZ-8 Y",
             "rect": [
-              60,
-              560,
-              856,
-              748
+              57,
+              557,
+              859,
+              751
             ],
             "key": "serial_prefix_8"
           },
           {
             "text": "0",
             "rect": [
-              58,
-              864,
-              178,
-              1050
+              55,
+              861,
+              181,
+              1053
             ],
             "key": "serial_digit_0"
           },
           {
             "text": "1",
             "rect": [
-              252,
-              864,
-              320,
-              1048
+              249,
+              861,
+              323,
+              1051
             ],
             "key": "serial_digit_1"
           },
@@ -1862,70 +1864,70 @@
           {
             "text": "3",
             "rect": [
-              588,
-              864,
-              706,
-              1050
+              585,
+              861,
+              709,
+              1053
             ],
             "key": "serial_digit_3"
           },
           {
             "text": "4",
             "rect": [
-              756,
-              864,
-              882,
-              1048
+              753,
+              861,
+              885,
+              1051
             ],
             "key": "serial_digit_4"
           },
           {
             "text": "5",
             "rect": [
-              938,
-              864,
-              1060,
-              1048
+              935,
+              861,
+              1063,
+              1051
             ],
             "key": "serial_digit_5"
           },
           {
             "text": "6",
             "rect": [
-              1114,
-              864,
-              1234,
-              1050
+              1111,
+              861,
+              1237,
+              1053
             ],
             "key": "serial_digit_6"
           },
           {
             "text": "7",
             "rect": [
-              1292,
-              864,
-              1410,
-              1046
+              1289,
+              861,
+              1413,
+              1049
             ],
             "key": "serial_digit_7"
           },
           {
             "text": "8",
             "rect": [
-              1466,
-              864,
-              1588,
-              1050
+              1463,
+              861,
+              1591,
+              1053
             ],
             "key": "serial_digit_8"
           },
           {
             "text": "9",
             "rect": [
-              1642,
-              864,
-              1764,
-              1050
+              1639,
+              861,
+              1767,
+              1053
             ],
             "key": "serial_digit_9"
           },
@@ -2058,18 +2060,63 @@
               1924
             ],
             "key": "serial_cn_6"
+          },
+          {
+            "text": "2",
+            "rect": [
+              1813,
+              861,
+              1939,
+              1051
+            ],
+            "key": "serial_digit_2_bold"
           }
         ],
-        "note": "ink_rects 是字形外包框，不等于完整采样格；现有消费者使用兼容的归一化 UV。CZ6A 内部逐字位置额外按旧字形外包框匹配。"
+        "note": "ink_rects 是字形外包框，不等于完整采样格；现有消费者使用兼容的归一化 UV。CZ6A 内部逐字位置额外按旧字形外包框匹配。",
+        "relocated_digit_2": {
+          "old_cell_key": "serial_digit_2",
+          "bold_cell_key": "serial_digit_2_bold",
+          "u_offset": 0.6875,
+          "v_offset": 0,
+          "sample_rect": [
+            1792.0,
+            848.0,
+            1966.0,
+            1064.0
+          ],
+          "note": "Sample rect from translated CZ-7 MU; source top-left pixels. Original 2 reserved for CZ-2F."
+        }
       },
       "layout_references": [
         "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.4/layout.json",
         "local_workspace/KIU_ReTexture/source/assets/Textures/v3.3.0/shared-library.v3.3.0.json"
       ],
-      "native_KSP_tested": true,
+      "native_KSP_tested": false,
       "native_validation_scope": "2026-09-24：KSP 1.12.3 + Deferred，代表性 MU 裁片字形/材质对照，非全部消费者整 Part 验收。",
-      "publication_note": "用户公共贴图库例外授权；仅发布新版本公共资产，Part 绑定仍只在附加包。旧版本不覆盖、不删除。",
-      "user_maintained": true
+      "publication_note": "用户已授权备份后同名更新编号字库，并要求 v3.5.7 公共资产同步进入 KIU；Part 模型和绑定仅随附加包交付。",
+      "user_maintained": true,
+      "revision": "serial-A-cutoff-alpha-repair-v3.5.7",
+      "revision_history": [
+        {
+          "date": "2026-09-26",
+          "authorization": "User reduced lettering from B to A and explicitly approved backup then same-name replacement without extra texture storage.",
+          "previous_sha256": "6664fe3f6fca720af30bd73157f1515b17674ecfe532f4f792db59b73f4a7c87",
+          "sha256": "323a604419ecd368db48b165fae3bb6463d69b497b542736874990c0b1e99e9d",
+          "previous_source": "local_workspace/KIU_ReTexture/source/assets/Textures/v3.5.4/Shared_Serial.v3.5.4.svg",
+          "backup_directory": "local_workspace/KIU_ReTexture/archive/rollback/serial-bold-20260926",
+          "scope": "Only adjustable prefixes and digits in CZ-7 first stage/booster. Original digit 2 and all non-serial sampled regions preserved at every mip; two addon MUs relocate the bold 2.",
+          "validation": "6 paired actual-MU offline albedo/UV renders; 186 serial renderers have >=10px ink padding; 23 non-serial renderers have identical texels at all 12 mips including bilinear footprint. No KSP run."
+        },
+        {
+          "date": "2026-09-26",
+          "authorization": "User authorized the font repair and publication; standing backup-then-same-name replacement for Serial, no extra atlas storage.",
+          "previous_sha256": "323a604419ecd368db48b165fae3bb6463d69b497b542736874990c0b1e99e9d",
+          "sha256": "d92d700ade56586237bf5ca96103762cbb95d066541b9b6f8f824a3632cc4d8a",
+          "backup_directory": "local_workspace/KIU_ReTexture/archive/rollback/v3.5.7-publication",
+          "scope": "27 glyphs and all 12 mip alpha masks; RGB BC3 blocks and approved A-weight design/layout preserved.",
+          "validation": "105 actual-MU offline views; 27 glyphs and 12 mip masks checked; no native KSP run."
+        }
+      ]
     },
     {
       "id": "Shared_ExtraGlyphs_v354",
@@ -2407,6 +2454,74 @@
       "native_KSP_tested": true,
       "native_scope": "Targeted CZ8 livery flight comparison using full stage meshes; see v3.5.5 report.",
       "publication_note": "New versioned reusable asset published by the user-approved public-library exception; Part bindings remain addon-only."
+    },
+    {
+      "id": "CNSA_v357",
+      "name": "中国国家航天局 CNSA 标志（纯蓝无杂色）",
+      "file_name": "Shared_CNSA.v3.5.7.dds",
+      "path": "KIU/Common/KIU_Common_texture/Shared_CNSA.v3.5.7.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_CNSA.v3.5.7",
+      "content": "2048 方形透明 CNSA 标志；纯蓝 (0,142,255)，无红紫杂点。12 层 BC3 mip 的 alpha 数据与 v3.3.1 完全相同，标志轮廓和 UV 不变。",
+      "tags": [
+        "CNSA",
+        "国家航天局",
+        "整流罩",
+        "logo"
+      ],
+      "width": 2048,
+      "height": 2048,
+      "format": "DXT5",
+      "channels": "RGBA",
+      "bytes": 5592560,
+      "sha256": "a0fb1bc0c967306cb4c14177fa54d444e950f034a84df191634f6597d85364fc",
+      "reuse_notes": "透明 Logo，保留原 CNSA UV 与 alpha。配合支持透明裁切的贴花材质使用；不用作法线/金属贴图。",
+      "layout_references": [],
+      "layout_note": null,
+      "source": "local_workspace/KIU_ReTexture/source/tools/repair_v357/assets.py",
+      "consumers": [
+        "KCLV_CZ8_Fairing_1",
+        "KCLV_CZ8_Fairing_Y2"
+      ],
+      "user_maintained": true,
+      "native_KSP_tested": false,
+      "revision": "v3.5.7",
+      "supersedes": "KIU/Common/KIU_Common_texture/Shared_CNSA.v3.3.1.dds",
+      "mips": 12,
+      "validation": "v3.5.7: decoded-asset checks and actual-MU offline albedo/UV/alpha renders; no native KSP validation."
+    },
+    {
+      "id": "CZ6A_FairingMark_v357",
+      "name": "长六甲整流罩红蓝图案（透明背景）",
+      "file_name": "Shared_CZ6A_FairingMark.v3.5.7.png",
+      "path": "KIU/Common/KIU_Common_texture/Shared_CZ6A_FairingMark.v3.5.7.png",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_CZ6A_FairingMark.v3.5.7",
+      "content": "512 方形 RGBA：红色弧形箭头与蓝色竖向图案，透明背景；从原始透明母版按旧版相同裁切和位置恢复，去除白底矩形。",
+      "tags": [
+        "CZ-6A",
+        "长六甲",
+        "整流罩",
+        "红蓝图案"
+      ],
+      "width": 512,
+      "height": 512,
+      "format": "PNG",
+      "channels": "RGBA",
+      "bytes": 125573,
+      "sha256": "79c3fdfdf2aeecccd6f4ea6ba6b979c1296cbe3b439fcf8d055771890c2ed320",
+      "reuse_notes": "必须配合支持 alpha 的 Logo 材质。当前附加包采用 KSP/Alpha/Cutoff、阈值 0.45；原 KSP/Diffuse 不会正确显示透明背景。",
+      "layout_references": [],
+      "layout_note": null,
+      "source": "local_workspace/KIU_ReTexture/source/tools/repair_v357/assets.py",
+      "consumers": [
+        "KCLV_CZ6A_Fairing_Mid"
+      ],
+      "user_maintained": true,
+      "native_KSP_tested": false,
+      "revision": "v3.5.7",
+      "supersedes": "KIU/Common/KIU_Common_texture/Shared_CZ6A_FairingMark.v3.3.0.png",
+      "source_master": "local_workspace/KIU_ReTexture/source/assets/Textures/v3.3.0/LogoMasters/CZ6A_FairingMark_HD.v3.3.0.png",
+      "source_master_sha256": "902f4de19fdaa10d25075409204af9136bcc7390ddb39fd3856f7d652419e9be",
+      "validation": "v3.5.7: decoded-asset checks and actual-MU offline albedo/UV/alpha renders; no native KSP validation."
     }
   ],
   "retired_assets": [
