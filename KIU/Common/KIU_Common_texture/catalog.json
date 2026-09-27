@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "library": "KIU_Common_texture",
-  "updated_at": "2026-09-26",
+  "updated_at": "2026-09-27",
   "path_base": "repository root",
   "game_data_directory": "GameData/KIU/Common/KIU_Common_texture",
   "description": "跨 Part 公共贴图内容索引。制作贴图前必须先读本文件，按内容搜索并检查可复用素材。",
@@ -553,7 +553,8 @@
         "KCLV_CZ6_Interstage2-3",
         "KCLV_CZ7A_Stage_2",
         "KCLV_CZ8A_Stage_2",
-        "KCLV_CZ12B_LandingLeg"
+        "KCLV_CZ12B_LandingLeg",
+        "KCLV_CZ7_Stage_2"
       ],
       "user_maintained": true,
       "deployment_note": "CZ335 v1.0.2 uses the user-confirmed nested KIU/Common runtime path; older frozen releases retain their historical paths.",
