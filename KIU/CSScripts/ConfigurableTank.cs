@@ -52,6 +52,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     private Transform lower,upper,body,template;
     private Vector3 originalLower,originalUpper;
     private bool initialized;
+    private bool rendererRefreshPending;
     private float modelScale=1;
     private float appliedDown,appliedUp;
     private readonly List<GameObject> copies=new List<GameObject>();
@@ -116,6 +117,10 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     }
     public void LateUpdate()
     {
+        if(rendererRefreshPending) {
+            rendererRefreshPending=false;
+            RefreshRenderers();
+        }
         // FloatEdit supplies a slider and single-step buttons. Hide its extra
         // interval-jump pair so both remaining arrow buttons adjust exactly one.
         UI_FloatEdit ui=Fields["extensionCount"].uiControlEditor as UI_FloatEdit;
@@ -129,6 +134,8 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         yield return null;
         UpdateCapacity(segments);
         RefreshAerodynamics();
+        // Part and other modules may initialize their renderer lists after OnStart.
+        rendererRefreshPending=true;
     }
     public void InitializeModel()
     {
@@ -212,7 +219,13 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         if(tn!=null){tn.position=new Vector3(tn.position.x,newTop,tn.position.z);tn.originalPosition=tn.position;}
         lower.localPosition=originalLower-Vector3.up*down;
         upper.localPosition=originalUpper+Vector3.up*up;
-        foreach(GameObject old in copies) { old.SetActive(false);Destroy(old); }
+        foreach(GameObject old in copies) {
+            if(old==null)continue;
+            old.SetActive(false);
+            // Destroy is deferred. Remove retired meshes from model searches now.
+            old.transform.SetParent(null,false);
+            Destroy(old);
+        }
         copies.Clear();
         for(int i=0;i<count;i++) {
             bool below=(i%2)==0;int index=i/2;
@@ -229,6 +242,34 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         UpdateTankSpec(count);
         extensionCount=count;
         Events["AddExtension"].active=false;Events["RemoveExtension"].active=false;
+        InvalidateRendererCaches();
+        rendererRefreshPending=true;
+    }
+    private void InvalidateRendererCaches()
+    {
+        // Consumers such as Vessel Viewer use these lists, not the scene hierarchy.
+        part.ResetModelRenderersCache();
+        part.ResetModelMeshRenderersCache();
+        part.ResetModelSkinnedMeshRenderersCache();
+    }
+    private void RefreshRenderers()
+    {
+        if(part==null || (!HighLogic.LoadedSceneIsEditor && !HighLogic.LoadedSceneIsFlight))return;
+        InvalidateRendererCaches();
+        var renderers=new List<Renderer>(part.FindModelComponents<Renderer>());
+        renderers.RemoveAll(r=>r==null || !r.gameObject.activeInHierarchy || r.GetComponentInParent<Part>()!=part);
+        KSPUtil.RemoveNonHighlightableRenderers(renderers);
+        // The rim-highlight list and the outline Highlighter have separate caches.
+        part.HighlightRenderer=renderers;
+        part.RefreshHighlighter();
+        if(part.highlighter!=null) {
+            bool highlighted=part.HighlightActive,recursive=part.RecurseHighlight;
+            // Highlight skips unchanged colors, so reapply an active selection to
+            // new renderers without toggling any attached parts' highlight state.
+            part.SetHighlight(false,false);
+            if(highlighted)part.SetHighlight(true,false);
+            part.RecurseHighlight=recursive;
+        }
     }
     private PartModule FuelModule()
     {
