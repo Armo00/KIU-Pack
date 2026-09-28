@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "library": "KIU_Common_texture",
-  "updated_at": "2026-09-27",
+  "updated_at": "2026-09-28",
   "path_base": "repository root",
   "game_data_directory": "GameData/KIU/Common/KIU_Common_texture",
   "description": "跨 Part 公共贴图内容索引。制作贴图前必须先读本文件，按内容搜索并检查可复用素材。",
@@ -2523,6 +2523,72 @@
       "source_master": "local_workspace/KIU_ReTexture/source/assets/Textures/v3.3.0/LogoMasters/CZ6A_FairingMark_HD.v3.3.0.png",
       "source_master_sha256": "902f4de19fdaa10d25075409204af9136bcc7390ddb39fd3856f7d652419e9be",
       "validation": "v3.5.7: decoded-asset checks and actual-MU offline albedo/UV/alpha renders; no native KSP validation."
+    },
+    {
+      "id": "PaintedTankEndRibs",
+      "name": "窄带浅加强筋（RGB切线法线）",
+      "file_name": "Shared_PaintedTank_EndRibs_Normal_RGB.v1.0.0.png",
+      "path": "KIU/Common/KIU_Common_texture/Shared_PaintedTank_EndRibs_Normal_RGB.v1.0.0.png",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_PaintedTank_EndRibs_Normal_RGB.v1.0.0",
+      "content": "中性蓝底，U方向平铺16条圆角纵向浅加强筋；有效带位于V=0.05556到0.23333，其余为平法线。不含颜色、徽标或文字。",
+      "width": 1024,
+      "height": 1024,
+      "format": "PNG",
+      "channels": "RGB normal, opaque",
+      "bytes": 69508,
+      "sha256": "2da8700813e92fe7ee3c9d5770c9f580f594d585505f0363472b985e7e0f4bfe",
+      "tags": [
+        "normal",
+        "baked",
+        "painted tank",
+        "加强筋",
+        "窄带"
+      ],
+      "reuse_notes": "Blender Cycles selected-to-active实体高模烘焙。MU texture.type=1；输入为RGB法线，禁止作为AG预打包法线再次转换。U每圈重复8次时有128条筋；V按0.9米映射得到0.16米窄带，2.8毫米烘焙浮雕。顶部反转V时须同步切线手性。",
+      "layout_references": [
+        "local_workspace/CZ-335_Cryogenic/configurable-20260927/bake.json"
+      ],
+      "source": "local_workspace/CZ-335_Cryogenic/configurable-20260927/source/EndRibs_Bake.blend",
+      "consumers": [],
+      "user_maintained": true,
+      "consumer_binding": "CZ8A uses a 4x4 RGB source placeholder with MU texture.type=0 to preserve its name. MODEL/texture replaces _BumpMap through TextureInfo.normalMap, converting this public RGB bake once. Setting the PNG placeholder to type=1 loses its alias name and leaves the 4x4 normal bound.",
+      "historical_consumers": [
+        "KCLV_CZ8A_Stage_2"
+      ],
+      "superseded_for_CZ8A_by": "KIU/Common/KIU_Common_texture/Shared_PaintedTank_EndRibs_Normal_RGB.v1.1.0"
+    },
+    {
+      "id": "PaintedTankEndRibsStrong",
+      "name": "加长深加强筋（RGB切线法线）",
+      "file_name": "Shared_PaintedTank_EndRibs_Normal_RGB.v1.1.0.png",
+      "path": "KIU/Common/KIU_Common_texture/Shared_PaintedTank_EndRibs_Normal_RGB.v1.1.0.png",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_PaintedTank_EndRibs_Normal_RGB.v1.1.0",
+      "content": "中性蓝底，U方向平铺16条圆角纵向加强筋；有效带为V=0.05556到0.41111，其余为平法线。不含颜色、徽标或文字。长度为v1.0.0的2倍，高模浮雕起伏为8倍。",
+      "width": 1024,
+      "height": 1024,
+      "format": "PNG",
+      "channels": "RGB normal, opaque",
+      "bytes": 232756,
+      "sha256": "bd1eb2a45e51f392eae9e721cf5e720ad885ca332d9758480737142f91f774a0",
+      "tags": [
+        "normal",
+        "baked",
+        "painted tank",
+        "加强筋",
+        "加长",
+        "深起伏"
+      ],
+      "reuse_notes": "Blender Cycles selected-to-active实体高模烘焙，输入为RGB切线法线，禁止当作AG预打包图再次转换。U每圈重复8次得到128条筋；V按0.9米映射得到0.32米筋带；高模浮雕深度22.4毫米。顶部反转V时须同步切线手性。沿用已经实机验证的type=0占位别名与MODEL/_BumpMap normalMap转换链路。",
+      "layout_references": [
+        "local_workspace/CZ-335_Cryogenic/ribs-20260928/bake.json"
+      ],
+      "source": "local_workspace/CZ-335_Cryogenic/ribs-20260928/source/EndRibs_Bake.blend",
+      "consumers": [
+        "KCLV_CZ8A_Stage_2"
+      ],
+      "user_maintained": true,
+      "consumer_binding": "CZ8A uses a 4x4 RGB source placeholder with MU texture.type=0 to preserve its name. MODEL/texture replaces _BumpMap through TextureInfo.normalMap, converting this public RGB bake once. Setting the PNG placeholder to type=1 loses its alias name and leaves the 4x4 normal bound.",
+      "validation": "This v1.1.0 revision was verified offline in Blender and by binding/hash checks. Previous v1.0.0 native KSP validation does not establish v1.1.0 visual acceptance."
     }
   ],
   "retired_assets": [

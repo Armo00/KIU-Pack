@@ -33,6 +33,9 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     [KSPField] public string topNode="top";
     [KSPField]
     public float tankLength;
+    // Optional geometry metadata for consumers such as RP-1 ModuleToolingGeneric.
+    [KSPField] public float baseDiameter;
+    [KSPField] public float tankDiameter;
     [KSPField(guiActiveEditor=true,guiActive=true,guiName="Tank Spec")]
     public string tankSpec;
     [KSPField(guiActiveEditor=true,guiName="Tank mode")]
@@ -43,6 +46,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     [KSPField] public float originFraction = 0f;
     [KSPField] public bool scaleWithModel = false;
     [KSPField] public bool realFuelsVolumeIsUsable = false;
+    [KSPField] public bool notifyB9ModelChanges = false;
     [KSPField] public string extensionLabel = "Extension segments";
     [KSPField] public string specLabel = "Tank Spec";
     [KSPField] public string modeLabel = "Tank mode";
@@ -54,6 +58,9 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     private bool initialized;
     private bool rendererRefreshPending;
     private float modelScale=1;
+    private float authoredScale=1, scaleRatio=1;
+    private bool modulesStarted, scalePending;
+    private PartModule tweakScale;
     private float appliedDown,appliedUp;
     private readonly List<GameObject> copies=new List<GameObject>();
     private readonly List<ResourceSpec> resources=new List<ResourceSpec>();
@@ -94,7 +101,9 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         ConfigureSegmentControl();
         InitializeModel();
         segments=Math.Max(0,Math.Min(maxSegments,segments));
-        ApplyGeometry(segments,false);
+        // Both TweakScale branches finish restoring their model/nodes in OnStart.
+        // Do not give their restore code already-scaled extension nodes.
+        if(tweakScale==null)ApplyGeometry(segments,false);
         // MFT's own OnStart must finish before updating its internal tank list.
         StartCoroutine(AfterModulesStarted());
     }
@@ -117,6 +126,10 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     }
     public void LateUpdate()
     {
+        if(modulesStarted && scalePending) {
+            scalePending=false;
+            SynchronizeScale(HighLogic.LoadedSceneIsEditor);
+        }
         if(rendererRefreshPending) {
             rendererRefreshPending=false;
             RefreshRenderers();
@@ -132,10 +145,20 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     private IEnumerator AfterModulesStarted()
     {
         yield return null;
+        modulesStarted=true;
+        scalePending=false;
+        ReadScale();
+        ApplyGeometry(segments,false,false);
         UpdateCapacity(segments);
+        NotifyModelChanged();
         RefreshAerodynamics();
         // Part and other modules may initialize their renderer lists after OnStart.
         rendererRefreshPending=true;
+        // Editor's initial cost display is built before the deferred restore.
+        // Publish the final capacity/mass/cost after all modules have started.
+        part.UpdateMass();
+        if(HighLogic.LoadedSceneIsEditor&&EditorLogic.fetch!=null&&EditorLogic.fetch.ship!=null)
+            GameEvents.onEditorShipModified.Fire(EditorLogic.fetch.ship);
     }
     public void InitializeModel()
     {
@@ -148,11 +171,58 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         // Authored section roots are at zero; do not inherit an already extended symmetry clone's offsets.
         originalLower=Vector3.zero;originalUpper=Vector3.zero;
         template.gameObject.SetActive(false);
-        modelScale=scaleWithModel ? part.transform.InverseTransformVector(template.parent.TransformVector(Vector3.up)).magnitude : 1f;
+        foreach(PartModule module in part.Modules)if(module.moduleName=="TweakScale")tweakScale=module;
+        // Read the authored model scale from the prefab, never from a scaled clone.
+        Part prefab=part.partInfo==null?null:part.partInfo.partPrefab;
+        Transform reference=prefab==null?null:prefab.FindModelTransform(templateTransform);
+        authoredScale=scaleWithModel
+            ? (reference==null?part.transform.InverseTransformVector(template.parent.TransformVector(Vector3.up)).magnitude
+              :prefab.transform.InverseTransformVector(reference.parent.TransformVector(Vector3.up)).magnitude)
+            :1f;
+        ReadScale();
         foreach(Transform child in template.parent)
             if(child.name.StartsWith("TankExtension_"))copies.Add(child.gameObject);
         initialized=true;
     }
+    private void ReadScale()
+    {
+        scaleRatio=1f;
+        if(tweakScale!=null) {
+            // Rescaled persists a ratio; original TweakScale persists diameter.
+            FieldInfo ratio=tweakScale.GetType().GetField("currentScaleFactor");
+            if(ratio!=null)scaleRatio=Convert.ToSingle(ratio.GetValue(tweakScale));
+            else {
+                FieldInfo current=tweakScale.GetType().GetField("currentScale"),baseline=tweakScale.GetType().GetField("defaultScale");
+                if(current!=null&&baseline!=null) {
+                    float denominator=Convert.ToSingle(baseline.GetValue(tweakScale));
+                    if(denominator>0)scaleRatio=Convert.ToSingle(current.GetValue(tweakScale))/denominator;
+                }
+            }
+        }
+        if(float.IsNaN(scaleRatio)||float.IsInfinity(scaleRatio)||scaleRatio<=0)scaleRatio=1f;
+        modelScale=authoredScale*scaleRatio;
+    }
+    [KSPEvent(guiActive=false,guiActiveEditor=false,active=true)]
+    public void OnPartScaleChanged(BaseEventDetails data)
+    {
+        // Rescaled sends this BEFORE its RF handler, /L AFTER it. Reconcile once
+        // all handlers have completed so RF cannot erase the extension volume.
+        scalePending=true;
+    }
+    private void SynchronizeScale(bool moveAttached)
+    {
+        ReadScale();
+        // TweakScale already moved radial attachments with the model. Only fix
+        // axial nodes which /L restores from the unextended prefab on each scale.
+        ApplyGeometry(segments,moveAttached,false);
+        UpdateCapacity(segments);
+        NotifyModelChanged();
+        RefreshAerodynamics();
+        part.UpdateMass();
+        if(HighLogic.LoadedSceneIsEditor&&EditorLogic.fetch!=null)
+            GameEvents.onEditorShipModified.Fire(EditorLogic.fetch.ship);
+    }
+    private double VolumeScale { get { return (double)scaleRatio*scaleRatio*scaleRatio; } }
     [KSPEvent(guiActiveEditor=false,guiName="Add extension",active=false)]
     public void AddExtension() { SetSegmentCount(segments+1,true); }
     [KSPEvent(guiActiveEditor=false,guiName="Remove extension",active=false)]
@@ -162,9 +232,11 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         if(HighLogic.LoadedSceneIsFlight)return; // No in-flight resizing/refueling.
         count=Math.Max(0,Math.Min(maxSegments,count));
         InitializeModel();
+        ReadScale();
         // Validate/update MFT before committing geometry; missing API must not silently use stock fuel.
         UpdateCapacity(count);
         ApplyGeometry(count,HighLogic.LoadedSceneIsEditor);
+        NotifyModelChanged();
         segments=count;
         extensionCount=count;
         if(symmetry)
@@ -189,6 +261,10 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     }
     public void ApplyGeometry(int count,bool moveAttached)
     {
+        ApplyGeometry(count,moveAttached,true);
+    }
+    private void ApplyGeometry(int count,bool moveAttached,bool moveRadial)
+    {
         InitializeModel();
         int low=LowerCount(count),high=UpperCount(count);
         float down=low*segmentLength,up=high*segmentLength;
@@ -200,7 +276,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         // Classify radial attachments before moving the parent tree. Compare
         // against the current cap locations, not coordinates from another size.
         var radial=new List<KeyValuePair<Part,Vector3>>();
-        if(moveAttached) foreach(Part child in part.children) {
+        if(moveAttached&&moveRadial) foreach(Part child in part.children) {
             if((bn!=null&&bn.attachedPart==child)||(tn!=null&&tn.attachedPart==child))continue;
             float y=part.transform.InverseTransformPoint(child.transform.position).y;
             if(y<(baseBottom+bottomCapHeight-appliedDown)*modelScale)radial.Add(new KeyValuePair<Part,Vector3>(child,bd));
@@ -217,6 +293,15 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         }
         if(bn!=null){bn.position=new Vector3(bn.position.x,newBottom,bn.position.z);bn.originalPosition=bn.position;}
         if(tn!=null){tn.position=new Vector3(tn.position.x,newTop,tn.position.z);tn.originalPosition=tn.position;}
+        // Rescaled has a public cache of unscaled node positions. Keep it in sync
+        // when the length changes; /L has no such API and is corrected above.
+        if(tweakScale!=null) {
+            MethodInfo setNode=tweakScale.GetType().GetMethod("SetUnscaledAttachNodePosition",new[]{typeof(string),typeof(Vector3)});
+            if(setNode!=null) {
+                if(bn!=null)setNode.Invoke(tweakScale,new object[]{bn.id,bn.position/scaleRatio});
+                if(tn!=null)setNode.Invoke(tweakScale,new object[]{tn.id,tn.position/scaleRatio});
+            }
+        }
         lower.localPosition=originalLower-Vector3.up*down;
         upper.localPosition=originalUpper+Vector3.up*up;
         foreach(GameObject old in copies) {
@@ -239,6 +324,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         float center=(-baseHeight*originFraction+(baseHeight+up-down)*.5f)*modelScale;
         part.CoMOffset=new Vector3(0,center,0);part.CoLOffset=part.CoMOffset;part.CoPOffset=part.CoMOffset;
         tankLength=(baseHeight+count*segmentLength)*modelScale;layout=low+" / "+high;
+        tankDiameter=baseDiameter*modelScale;
         UpdateTankSpec(count);
         extensionCount=count;
         Events["AddExtension"].active=false;Events["RemoveExtension"].active=false;
@@ -251,6 +337,15 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         part.ResetModelRenderersCache();
         part.ResetModelMeshRenderersCache();
         part.ResetModelSkinnedMeshRenderersCache();
+    }
+    private void NotifyModelChanged()
+    {
+        if(!notifyB9ModelChanges)return;
+        // B9 material switches must discover newly instantiated extension renderers.
+        // Use the public KSP event; no hard reference to the optional B9 assembly.
+        foreach(PartModule module in part.Modules)
+            if(module.moduleName=="ModuleB9PartSwitch" && module.Events.Contains("OnPartModelChanged"))
+                module.Events["OnPartModelChanged"].Invoke();
     }
     private void RefreshRenderers()
     {
@@ -281,7 +376,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         PartModule mft=FuelModule();
         if(mft!=null) {
             tankMode="RealFuels / MFT";
-            double target=realFuelsBaseVolume+count*realFuelsVolumePerSegment;
+            double target=(realFuelsBaseVolume+count*realFuelsVolumePerSegment)*VolumeScale;
             if(target<=0)throw new InvalidOperationException("Missing realFuels volume cfg");
             MethodInfo method=mft.GetType().GetMethod("ChangeTotalVolume",new Type[]{typeof(double),typeof(bool)});
             if(method==null)throw new NotSupportedException("ModuleFuelTanks.ChangeTotalVolume(double,bool) is required");
@@ -303,7 +398,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
             tankMode="Stock";
             if(resources.Count==0)ReadResources(new ConfigNode());
             foreach(ResourceSpec spec in resources) {
-                double capacity=spec.baseline+count*spec.increment;
+                double capacity=(spec.baseline+count*spec.increment)*VolumeScale;
                 PartResource resource=part.Resources[spec.name];
                 if(resource==null) {
                     ConfigNode node=new ConfigNode("RESOURCE");node.AddValue("name",spec.name);
@@ -320,7 +415,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     private float DryMassForCount(int count)
     {
         bool rf=FuelModule()!=null;
-        return (rf?realFuelsBaseDryMass:baseDryMass)+count*(rf?realFuelsDryMassPerSegment:dryMassPerSegment);
+        return (float)(((rf?realFuelsBaseDryMass:baseDryMass)+count*(rf?realFuelsDryMassPerSegment:dryMassPerSegment))*VolumeScale);
     }
     private void UpdateTankSpec(int count)
     {
@@ -339,8 +434,87 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         return DryMassForCount(segments)-defaultMass;
     }
     public ModifierChangeWhen GetModuleMassChangeWhen() { return ModifierChangeWhen.CONSTANTLY; }
-    public float GetModuleCost(float defaultCost,ModifierStagingSituation sit) { return segments*costPerSegment; }
+    public float GetModuleCost(float defaultCost,ModifierStagingSituation sit)
+    {
+        // Our full-capacity cost follows the same cubic rule as tankage. The /L
+        // cost modifier additionally prices resized resources even with exponent
+        // zero; compensate only that module, leaving RF/B9/inventory costs alone.
+        float scaleCost=0;
+        IPartCostModifier modifier=tweakScale as IPartCostModifier;
+        if(modifier!=null)scaleCost=modifier.GetModuleCost(defaultCost,sit);
+        return (float)((defaultCost+segments*costPerSegment)*VolumeScale-defaultCost)-scaleCost;
+    }
     public ModifierChangeWhen GetModuleCostChangeWhen() { return ModifierChangeWhen.CONSTANTLY; }
     public Vector3 GetModuleSize(Vector3 defaultSize,ModifierStagingSituation sit) { return Vector3.up*(segments*segmentLength*modelScale); }
     public ModifierChangeWhen GetModuleSizeChangeWhen() { return ModifierChangeWhen.CONSTANTLY; }
+}
+
+// /L 2.4.x rejects every B9+MFT combination by module name, including switches
+// that only replace paint. Keep its other checks and its genuine fuel-switch
+// rejection intact. Use the host's optional Harmony 2 via reflection so neither
+// TweakScale nor Harmony becomes a load-time dependency of ConfigurableTank.
+[KSPAddon(KSPAddon.Startup.Instantly,true)]
+public class ConfigurableTankTweakScaleCompatibility : MonoBehaviour
+{
+    public void Awake()
+    {
+        Type writer=null,harmony=null,harmonyMethod=null;
+        foreach(Assembly assembly in AppDomain.CurrentDomain.GetAssemblies()) {
+            if(writer==null)writer=assembly.GetType("TweakScale.PrefabDryCostWriter",false);
+            if(harmony==null)harmony=assembly.GetType("HarmonyLib.Harmony",false);
+            if(harmonyMethod==null)harmonyMethod=assembly.GetType("HarmonyLib.HarmonyMethod",false);
+        }
+        if(writer==null)return; // Rescaled has no such blanket exclusion.
+        if(harmony==null||harmonyMethod==null) {
+            Debug.LogWarning("[ConfigurableTank] Original TweakScale with RF + visual B9 switches requires Harmony 2 (000_Harmony). Other tank modes are unaffected.");
+            return;
+        }
+        try {
+            MethodInfo original=writer.GetMethod("checkForSanity",BindingFlags.Instance|BindingFlags.NonPublic,null,new[]{typeof(Part)},null);
+            if(original==null||original.ReturnType!=typeof(string))return;
+            object instance=Activator.CreateInstance(harmony,new object[]{"KIU.ConfigurableTank.VisualB9"});
+            object postfix=Activator.CreateInstance(harmonyMethod,new object[]{typeof(ConfigurableTankTweakScaleCompatibility).GetMethod("AllowVisualSwitches")});
+            foreach(MethodInfo patch in harmony.GetMethods())if(patch.Name=="Patch") {
+                ParameterInfo[] parameters=patch.GetParameters();
+                if(parameters.Length<3||parameters[0].ParameterType!=typeof(MethodBase))continue;
+                object[] args=new object[parameters.Length];args[0]=original;
+                bool found=false;
+                for(int i=1;i<parameters.Length;i++)if(parameters[i].Name=="postfix"){args[i]=postfix;found=true;}
+                if(!found)continue;
+                patch.Invoke(instance,args);
+                Debug.Log("[ConfigurableTank] Original TweakScale visual-only B9/MFT compatibility installed.");
+                break;
+            }
+        } catch(Exception e) {
+            Debug.LogError("[ConfigurableTank] Could not install optional TweakScale/B9 compatibility: "+e);
+        }
+    }
+    public static void AllowVisualSwitches(Part p,ref string __result)
+    {
+        if(__result==null||!__result.StartsWith("having ModuleB9PartSwitch together ModuleFuelTanks"))return;
+        if(p==null||p.FindModuleImplementing<ConfigurableTank>()==null||p.partInfo==null||p.partInfo.partConfig==null)return;
+        bool found=false;
+        foreach(ConfigNode module in p.partInfo.partConfig.GetNodes("MODULE")) {
+            if(module.GetValue("name")!="ModuleB9PartSwitch")continue;
+            found=true;
+            // Opt in only to material/visibility-only switches. Any B9 capacity,
+            // resource, module, node or balance change keeps /L's rejection.
+            foreach(ConfigNode child in module.nodes)if(child.name!="SUBTYPE")return;
+            foreach(ConfigNode.Value value in module.values) {
+                if(value.name=="baseVolume"&&value.value.Trim()!="0")return;
+                if(Array.IndexOf(new[]{"name","moduleID","switcherDescription","switcherDescriptionPlural","baseVolume",
+                    "affectDragCubes","affectFARVoxels","switchInFlight","uiGroupName","uiGroupDisplayName","advancedTweakablesOnly"},value.name)<0)return;
+            }
+            foreach(ConfigNode subtype in module.GetNodes("SUBTYPE")) {
+                foreach(ConfigNode child in subtype.nodes)if(child.name!="MATERIAL")return;
+                foreach(ConfigNode.Value value in subtype.values)
+                    if(value.name!="name"&&value.name!="title"&&value.name!="descriptionSummary"&&value.name!="descriptionDetail"
+                        &&value.name!="defaultSubtypePriority"&&value.name!="primaryColor"&&value.name!="secondaryColor"&&value.name!="transform")return;
+            }
+        }
+        if(found) {
+            __result=null;
+            Debug.Log("[ConfigurableTank] Allowed visual-only B9 with RF on "+p.partInfo.name+"; ConfigurableTank owns volume/mass/cost.");
+        }
+    }
 }

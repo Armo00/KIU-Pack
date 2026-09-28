@@ -1,6 +1,41 @@
 # CZ-8A · 3.35 米低温上面级
 
-> 当前 logo 已按用户后续要求切换为 `Shared_CASC_Classic.v3.5.3.dds`，两侧 UV 改为完整图幅，保持原来的位置、尺寸与防闪烁处理。公共文件内容未修改。Classic 本次完成离线检查；下文的 Blue 飞行截图与结论属于此前修订。当前预览见 `local_workspace/CZ-335_Cryogenic/surface-fix-20260925/Report.html`。
+## 2026-09-28 ConfigurableTank / TweakScale 联动
+
+燃料箱已恢复 TweakScale 整体缩放，标准直径为 3.35 米。加段与缩放可以任意先后进行；长度、直径和挂点随整体倍率变化，容量、干质量与费用按倍率的三次方变化。缩放也会改变每段的实际长度，不是只改直径。新增段继续支持涂装、Default / Matte Finish、高亮和保存。
+
+保存后重新载入 VAB 会在模块初始化完成后刷新实际总价，包含未完全加注的情况；额外验证了界面读数与游戏计价 API 一致。
+
+需要同时更新 `KIU/Plugins/ConfigurableTank.dll` 和 `KIU/Plugins/ConfigurableTank_TweakScale.cfg`，以及本目录的 TweakScale 适配。只替换 CFG 或只替换 DLL 都不是完整更新。
+
+原版 TweakScale /L 2.4.8.9 与 Rescaled 3.3.2.1 分开验证。原版在 RF + B9 环境下，还需要 `GameData/000_Harmony`：适配器只放行由 ConfigurableTank 管理燃料、B9 仅切换外观的组合。测试使用已有 Harmony 2.2.1、原版官方依赖 KSP Recall 0.5.0.3；Rescaled 不使用这条适配路径。两个 TweakScale 版本不要同时安装。
+
+报告与原始证据：`local_workspace/ConfigurableTank/20260928-tweakscale/Report.html`。以下可调长度修订中“停用 TweakScale”的描述已被本轮取代；保留其历史验收记录。
+
+## 2026-09-28 加强筋加长与加深
+
+按后续要求，上下两圈加强筋轴向长度由 0.16 米改为 0.32 米，高模烘焙起伏由 2.8 毫米改为 22.4 毫米（8 倍）。使用新版公共法线 `Shared_PaintedTank_EndRibs_Normal_RGB.v1.1.0.png`，保持 1024×1024。旧公共资产保留。
+
+本次只更新该公共法线及 CFG 引用，不修改 MU、节点、标准段、质量或插件。已在 Blender 同机位复核并检查引用；没有重新启动 KSP。下文的实机验收记录属于 v1.0.0 法线版本。新版对照见 `local_workspace/CZ-335_Cryogenic/ribs-20260928/Report.html`。
+
+## 2026-09-28 可调长度修订
+
+- 两个底部凸起从约 1.520 米缩短至 0.800 米，改成对称的圆角规则罩体，宽 0.228 米、径向厚度 0.188 米。其余底部小罩、独立引擎支架和 RCS 保持原有位置。
+- 接入 `ConfigurableTank`，默认 0 段，每段 0.5 米，上限 30 段。原始挂点间长度为 8.835 米，直径固定 3.35 米。新增段上下交替分配，奇数段优先放在下方；文字、Classic 标志留在主段，不拉伸或重复。
+- 分段根节点为 `tankBottom`、`tankBody`、`tankTop`、`extensionTemplate`；上下分界轴向坐标为 -2.77323 / 4.31177 米。新增段包括外壁、两条线槽和独立凸碰撞体。每段增加 144 个三角面、3 个 Renderer。
+- 上下各增加一圈轴向宽 0.16 米的浅加强筋带。由 Blender 实体高模烘焙 1024×1024 切线法线，浮雕深度 2.8 毫米；运行模型不增加细筋几何。公共图为 `Shared_PaintedTank_EndRibs_Normal_RGB.v1.0.0.png`。
+- Default／Matte 和中国航天／空白涂装继续可用。CZ8A 配置启用 `notifyB9ModelChanges`，加长后通过 B9 的 `OnPartModelChanged` 事件重建材质绑定；其他 ConfigurableTank 使用者默认不启用此通知。
+- Stock 默认容量及干重、RF 默认可用容积及干重沿用原值。每新增 0.5 米按原值的 `0.5 / 8.835` 增加容量、干重和基础费用：RF 约 +4040.902 L / +0.116802 t，Stock +39.059635 LF / +47.739554 Ox / +0.328507 t，基础费用 +76.400679。均为玩法估算，不是新获得的真实火箭参数。
+- RP-1 使用 `ModuleToolingGeneric` 读取 `ConfigurableTank.tankDiameter/tankLength`，避免延长后仍按固定长度开模。保留原来的工具类别和费用系数；RP-1 生涯行为需在实际 RP-1 环境验收。
+- 与 CZ-10B 的可调长度使用方式一致，燃料箱由 ConfigurableTank 管理，停用该零件的 TweakScale 直径缩放，避免两套模块重复处理模型、挂点和燃料。独立支架、级间段仍提供 TweakScale。
+
+KSP 的 PNG 法线转换可能清空占位贴图名称。`Ref_EndRibs_Normal.png` 是 4×4 的加载占位图，MU 中故意使用 `texture.type = 0` 保留别名；`MODEL/texture` 针对 `_BumpMap` 取公共 RGB 图的 `TextureInfo.normalMap`，实际法线只转换一次。不要把此占位槽改回 type=1，也不要移除占位文件。仅确认槽非空不足以验收，须核查最终绑定为 1024×1024。
+
+当前制作源、烘焙工程、前后对照及验收记录：`local_workspace/CZ-335_Cryogenic/configurable-20260927/Report.html`。下文的旧版外观和测试记录作为历史保留。
+
+最终后台运行 `cz8a-config-03` 通过 Stock / RF 的 22 组长度、容量、质量、材质及保存重载断言；飞行场景中确认 5 段共 15 个新增 Renderer 已登记高亮，两端法线实际绑定为 1024×1024。装配移动和涂装显隐另在 `cz8a-config-02` 校验。测试后恢复 KSP 临时安装并退出，未提交 Git。RP-1 仅完成配置与接口静态检查。
+
+> 当前 logo 为 `Shared_CASC_Classic.v3.5.3.dds`，保持完整图幅、尺寸与 6 毫米防闪烁间距；国旗保持移除。此前 Blue 飞行截图属于历史修订。
 
 
 本目录是这组三个零件的正式运行文件与后续维护入口。直接修改本目录并随 `KIU` 使用，不再生成独立发布包。未经用户明确要求，不执行 Git 提交或推送。
@@ -19,7 +54,7 @@
 
 公共资产直接引用 `KIU/Common/KIU_Common_texture`：
 
-- `Shared_CASC_Blue.v3.5.3.dds`
+- `Shared_CASC_Classic.v3.5.3.dds`
 - `Shared_ChinaFlag.v3.3.1.dds`
 - `Shared_White.v3.3.0.dds`
 - `Shared_ChinaSpaceBold.v3.5.4.dds`
@@ -38,7 +73,7 @@
 | `RealFuels` | 箱内液氢／液氧，支架内联氨；保留已验证的容量与 RCS 参数 |
 | `RO` | 真实尺寸及 `RSSROConfig` 标记 |
 | `RP-1` | 可见性、现代科技节点、按模型尺寸开模、支架 RCS 标签 |
-| `Tweakscale` | 复用 KCLVStack，基准直径统一为 3.35 米 |
+| `Tweakscale` | 三件复用 KCLVStack；燃料箱通过 ConfigurableTank 联动段数、缩放、质量与容量 |
 | `VABO` | 燃料箱、引擎支架、级间分类；复用 `size3_35` |
 | `Waterfall` | 支架 RCS 复用 KIU 的 NewRCS 模板，保留声音并移除重复原版粒子 |
 
