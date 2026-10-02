@@ -1,0 +1,4 @@
+<Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup><TargetFramework>net472</TargetFramework><EnableDefaultCompileItems>false</EnableDefaultCompileItems><LangVersion>8.0</LangVersion><AssemblyName>KIUNetRecovery</AssemblyName><KSPManaged Condition="'$(KSPManaged)' == ''">D:/KSP/KSP_Clean/KSP_x64_Data/Managed</KSPManaged></PropertyGroup>
+ <ItemGroup><Compile Include="CSScripts/NetRecovery/*.cs" /><Reference Include="Assembly-CSharp"><HintPath>$(KSPManaged)/Assembly-CSharp.dll</HintPath><Private>False</Private></Reference><Reference Include="$(KSPManaged)/UnityEngine*.dll"><Private>False</Private></Reference></ItemGroup>
+</Project>
