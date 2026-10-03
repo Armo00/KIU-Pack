@@ -1,35 +1,60 @@
 # Linghangzhe / 领航者
 
-Source/runtime version: 2.6.0-dev. Part: KCLV_Linghangzhe_Recovery_Ship, Utility,
-veryHeavyRocketry. Assets, RecoveryShip, Localization and Compatibility follow
-CZ-10B's per-project layout. Editable sources and native evidence are archived
-in KIU-Model/Linghangzhe; no authoring files or test bridge ship with this Part.
+Runtime: 2.7.0-dev. Editable model source: 2.5.0-dev, unchanged.
+Install the complete KIU directory as GameData/KIU, including
+Plugins/KIUNetRecovery.dll, the current CZ-10B RecoveryHook and Common textures.
+No test bridge or additional demo Parts ship in KIU.
 
-Install the complete KIU directory as GameData/KIU, including Plugins/KIUNetRecovery.dll,
-the current CZ-10B RecoveryHook and Common/KIU_Common_texture. Waterfall remains
-an optional existing engine dependency. No extra demo Parts or copied CZ-10B models.
+Open recovery control with the blue net icon in the stock KSP toolbar.
+While controlling the core, this window can arm/disarm/reset the receiver,
+toggle station keeping or ship SAS, and release a captured core. It reports
+the target, installed hooks, contacts, relative motion, aperture and exact
+last rejection. There is no automatic overlay on the core.
 
-Deploy at sea, enable station keeping, then arm the net from the ship's Part menu
-or action groups. Install and deploy four actual CZ-10B hooks around the core in
-the validated square arrangement. Approach the central +/-12 m in both horizontal
-axes with relative speed <=20 m/s and sufficient tracking time (tested 80 m above
-the cable plane). Motion is limited to +/-20 m rail travel, 12 m/s and 24 m/s^2.
-One YF-100 may burn at <=70% rated thrust at capture, then shuts down after 0.18 s.
-Capture completes only after four contacts within 0.12 s. Station keeping applies
-bounded game forces at the selected sea position; it provides no ship propulsion.
+The receiver may operate on land, in flight or at sea: no water gate.
+Station keeping applies at sea. The 1200 t ship has native SAS and an aggregate
+reaction wheel configured for 300,000 kN m on each axis (equivalent to many
+wheels), up to 100 ElectricCharge/s by configuration, and 100,000 stored EC.
+Existing mods may alter stock resource behavior. This is game tuning.
 
-Captured native joints remain fixed. Original DeployHook/hydraulic animation
-retracts 24 degrees; render roots sink and rebound over 2.6 s. Hook/rope pairing
-and visual progress survive save/reload. Release restores model offsets and uses
-native Undock. Reset/arm again for another attempt. Do not physics-warp an approach.
+Install at least four original-scale CZ-10B hooks around the core and fully
+deploy at least four. The controller chooses four distinct reachable hooks
+for the four cable roles; extra hooks no longer prevent tracking. Cardinal
+and diagonal arrangements are supported. Extra deployed hooks follow the
+24-degree retraction; folded extras stay folded.
 
-1200 t mass, buoyancy and capture limits are game tuning. This is not sea-engineering
-or real rope simulation. Native production validation includes a 9-point central
-grid with the actual RF YF-100 and actual KIU hooks/core, plus cold full-fuel coupling
-and its save/reload/release lifecycle. RF approaches use controlled initial pose,
-velocity, 7% remaining propellant and a one-time settled-fuel initial condition;
-RF's subsequent ullage calculation remains enabled. This does not validate complete
-return guidance, an RCS settling sequence or an RO mission. Arbitrary hook layouts,
-scaling and high rotation require separate checks. Use the original hook scale.
-Existing accepted 2.4/2.5 videos remain reference evidence; 2.6 introduces production
-bindings and controls. Detailed native cases and limits are in the HTML report.
+Approach from above, allowing time for the carriages to reach the hooks.
+Core origin range: 180 m; hook height: 0–140 m above the cables; relative
+downward speed: >0.5 m/s; no time or physics warp. Reset clears target/contact
+history and re-arms immediately. It does not move the core: after a missed
+pass, raise the hooks above the cable plane before descending again.
+
+| Capture setting | Default |
+| --- | --- |
+| Target entry qualification | 15 degrees, 20 m/s |
+| Total hook-relative speed ceiling | 25 m/s |
+| Hook/receiver tilt ceiling | 20 degrees |
+| Transverse mouth tolerance | 1.25 m |
+| First-to-fourth contact retention | 1.5 s |
+| Contact yield stroke | 4 m |
+| Aperture minimum per axis | 5.6 m |
+| Rail bounds | +/-20 m; 12 m/s; nominal 24 m/s² |
+| Predicted central region | +/-12.5 m |
+
+The rail governor preserves a 5.6 x 5.6 m minimum tracking rectangle,
+containing a 5.4 m diameter circle. Clearance and rail boundaries take priority
+over individual carriage goals. Four actual gated contacts remain required.
+One YF-100 may burn at <=70% rated thrust; others must be shut down. Capture
+cuts the engine after 0.18 s. Engine rejection is visible in the window.
+
+Capture merges rigidbody momentum once and makes one native KSP coupling.
+Earlier cable contacts yield visually while awaiting the other hooks.
+After capture, native joints remain fixed while original hook/hydraulic
+animations retract 24 degrees and model roots sink/rebound over 2.6 s.
+Active/extra hook identities and buffer progress survive saves. Release uses
+native Undock and restores models. This is visual compliance, not physical
+rope or cable-tension simulation; it does not certify return guidance.
+
+2.7 corrects the MU handedness/winding export that mirrored ship lettering
+and CASC markings. The archived Blender and shared textures retain their
+original bytes. Validation details/limits are in the local HTML report.

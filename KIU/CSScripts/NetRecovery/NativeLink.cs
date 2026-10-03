@@ -23,5 +23,5 @@ namespace KIU.NetRecovery {
 
 }
  [Serializable] public class CaptureRecord {public string caseName;public double sourceMass,receiverMass,absorbedEnergy,linearMomentumError,angularMomentumError;public float relativeSpeedBefore,relativeSpeedAfter;public float nativePositionJump,nativeAngleJump;public double nativeMomentumChange,nativeAngularChange;public V3 momentumBefore,momentumAfter,angularBefore,angularAfter;public bool fixedReceiver;}
- [Serializable] public class ContactEvidence {public uint craftId;public float time;public string decision;public float[] position;}
+ [Serializable] public class ContactEvidence {public uint craftId;public float time,relativeSpeed,downwardSpeed,throatError,alignment;public int rope,poweredEngines;public string decision,engineReason;public float[] position;}
 }

@@ -93,3 +93,15 @@ Four tracked cable contacts create one native KSP Part connection. MODEL-only
 24-degree hook/yield/rebound presentation preserves fixed physics Part poses.
 The engine gate uses finalThrust/maxThrust, one configured engineID and the ship's
 maxPoweredThrustFraction; this does not certify RF/RO flight or descent guidance.
+
+
+## Linghangzhe recovery 2.7 (2026-10-03)
+The same assembly adds a stock ApplicationLauncher control window, removes
+the water-only gate, supports >=4 installed hooks by selecting four distinct
+reachable contacts, and retains sequential contacts for 1.5 s / 4 m of yield.
+Defaults allow 20-degree tilt / 25 m/s with 1.25 m mouth tolerance, qualifying
+15-degree / 20 m/s entries. A rail governor preserves at least 5.6 m aperture
+per axis. Reset clears target/contact history and re-arms. Additional deployed
+hook animations retain their identities across save/load. No KSPAddon or test
+command/file bridge is included. Configuration includes native ship reaction
+wheels and SAS. The local HTML report records actual native/offline results.

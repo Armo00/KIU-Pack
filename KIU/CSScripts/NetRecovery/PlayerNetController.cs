@@ -10,13 +10,14 @@ namespace KIU.NetRecovery {
   [KSPField(guiActive=true,guiName="#LHZ_NetState")] public string displayedState;
   [KSPField(guiActive=true,guiName="#LHZ_StationState")] public string displayedStation;
   [KSPField(isPersistant=true)] public double stationLat,stationLon;
+  [KSPField] public float maxCaptureSpeed=25,captureThroatRadius=1.25f,maxCaptureTiltDegrees=20,contactRetentionSeconds=1.5f,contactYieldStroke=4,minimumAperture=5.6f;
   public CaptureRecord lastCapture;public List<ContactEvidence> lastContacts=new List<ContactEvidence>();
   const float Plane=62.5f,Gap=5.451439f,Span=22,CenterZ=1.02f;
   LHZReceiverProbe receiverLink;LHZHookProbe lockedHook;Material material;LineRenderer[] ropes;
   Dictionary<Guid,Approach> approaches=new Dictionary<Guid,Approach>();
-  class Approach {public Part[] hooks;public Vector3[] previous;public bool[] hit=new bool[4];public float first=-1;public int[] rope=new int[4];}
+  class Approach {public Part[] hooks;public Vector3[] previous;public CaptureLatch contacts=new CaptureLatch();public int[] rope=new int[4];}
   [KSPEvent(guiActive=true,guiName="#LHZ_Arm")]
-  public void ArmNet(){if(lockedHook!=null)return;InitTracking();ForgetTarget();hookRopePairs="";savedPairs.Clear();lastCapture=null;automatic=true;receiverLink.armed=true;recoveryState="Armed";lastContacts.Clear();DrawNet();foreach(var r in ropes)r.enabled=true;}
+  public void ArmNet(){if(lockedHook!=null)return;if(receiverLink==null)receiverLink=part.FindModuleImplementing<LHZReceiverProbe>();if(receiverLink==null)return;InitTracking();ForgetTarget();ClearFeedback();hookRopePairs="";savedPairs.Clear();lastCapture=null;automatic=true;receiverLink.armed=true;recoveryState="Armed";lastContacts.Clear();DrawNet();foreach(var r in ropes)r.enabled=true;}
   [KSPEvent(guiActive=true,guiName="#LHZ_Disarm")]
   public void DisarmNet(){automatic=false;receiverLink.armed=false;if(lockedHook==null)recoveryState="Ready";ForgetTarget();}
   [KSPEvent(guiActive=true,guiName="#LHZ_Release")]
@@ -26,10 +27,10 @@ namespace KIU.NetRecovery {
    p.Undock(new DockedVesselInfo{name=h.sourceName,vesselType=(VesselType)h.sourceType,rootPartUId=h.sourceRootFlightId});h.linkActive=receiverLink.linkActive=false;h.captureState="Released";lockedHook=null;automatic=false;receiverLink.armed=false;recoveryState="Released";approaches.Clear();DrawNet();
   }
   [KSPEvent(guiActive=true,guiName="#LHZ_Reset")]
-  public void ResetNet(){if(lockedHook!=null)return;DisarmNet();recoveryState="Ready";DrawNet();}
+  public void ResetNet(){if(lockedHook!=null)return;ResetVisualBuffer();ArmNet();}
   [KSPEvent(guiActive=true,guiName="#LHZ_Station")]
   public void ToggleStation(){if(vessel==null)return;stationKeeping=!stationKeeping;if(stationKeeping){stationLat=vessel.latitude;stationLon=vessel.longitude;}}
-  public override void OnStart(StartState start){base.OnStart(start);InitTracking();DrawNet();if(!HighLogic.LoadedSceneIsFlight)return;receiverLink=part.FindModuleImplementing<LHZReceiverProbe>();InitTracking();RestoreLink();if(lockedHook!=null){captureEngines=Subtree(lockedHook.part).SelectMany(p=>p.FindModulesImplementing<ModuleEngines>()).ToArray();ShutdownCapturedEngines();}DrawNet();}
+  public override void OnStart(StartState start){base.OnStart(start);InitTracking();DrawNet();if(!HighLogic.LoadedSceneIsFlight)return;RegisterToolbar();receiverLink=part.FindModuleImplementing<LHZReceiverProbe>();InitTracking();RestoreLink();if(lockedHook!=null){captureEngines=Subtree(lockedHook.part).SelectMany(p=>p.FindModulesImplementing<ModuleEngines>()).ToArray();ShutdownCapturedEngines();}DrawNet();}
   void RestoreLink(){
    if(receiverLink==null||vessel==null)return;
    lockedHook=vessel.parts.Select(p=>p.FindModuleImplementing<LHZHookProbe>()).FirstOrDefault(h=>h!=null&&h.captureState=="Locked"&&h.receiverId==part.persistentId&&h.part.parent==part);
@@ -47,7 +48,7 @@ namespace KIU.NetRecovery {
    if(stationKeeping&&part.partBuoyancy!=null&&part.partBuoyancy.splashed){Vector3 up=(part.transform.position-(Vector3)vessel.mainBody.position).normalized;var target=(Vector3)vessel.mainBody.GetWorldSurfacePosition(stationLat,stationLon,vessel.altitude);var error=Vector3.ProjectOnPlane(target-part.transform.position,up);var velocity=Vector3.ProjectOnPlane((Vector3)vessel.srf_velocity,up);part.rb.AddForce(Vector3.ClampMagnitude(error*80-velocity*400,800),ForceMode.Force);part.rb.AddTorque(Vector3.ClampMagnitude(Vector3.Cross(part.transform.up,up)*20000-part.rb.angularVelocity*12000,20000),ForceMode.Force);}
    if(lockedHook==null&&recoveryState=="Locked")RestoreLink();
    if(lockedHook!=null){if(lockedHook.part==null||lockedHook.part.parent!=part||lockedHook.part.vessel!=vessel){ResetVisualBuffer();lockedHook=null;recoveryState="Failed";automatic=false;receiverLink.linkActive=false;}else{LockJoint(lockedHook.part);return;}}
-   if(!automatic||!receiverLink.armed||TimeWarp.CurrentRateIndex!=0||part.partBuoyancy==null||!part.partBuoyancy.splashed){HomeTracking(Time.fixedDeltaTime);return;}
+   if(!automatic||!receiverLink.armed||TimeWarp.CurrentRateIndex!=0){HomeTracking(Time.fixedDeltaTime);NoticeActiveTarget(!automatic||!receiverLink.armed?"NetDisabled":"Warp");return;}
    TickTracking(Time.fixedDeltaTime);
   }
   static Rigidbody[] Bodies(Vessel v){return v.parts.SelectMany(p=>new[]{p.rb,p.servoRb}).Where(b=>b!=null&&!b.isKinematic).Distinct().ToArray();}
@@ -66,7 +67,7 @@ namespace KIU.NetRecovery {
    if(p.parent!=part||p.vessel!=vessel)throw new Exception("Native net coupling invariant failed");
    lastCapture.nativePositionJump=Vector3.Distance(local,part.transform.InverseTransformPoint(p.transform.position));lastCapture.nativeAngleJump=Quaternion.Angle(rotation,Quaternion.Inverse(part.transform.rotation)*p.transform.rotation);
    var nativeMotion=MotionMath.Merge(bodies.Select(Motion).ToArray());lastCapture.nativeMomentumChange=(nativeMotion.momentum-after.momentum).Length;lastCapture.nativeAngularChange=(nativeMotion.angularMomentum-after.angularMomentum).Length;
-   h.hardConstraint=true;h.captureState="Locked";h.poseSaved=true;var lp=part.transform.InverseTransformPoint(p.transform.position);var q=Quaternion.Inverse(part.transform.rotation)*p.transform.rotation;h.lpx=lp.x;h.lpy=lp.y;h.lpz=lp.z;h.lqx=q.x;h.lqy=q.y;h.lqz=q.z;h.lqw=q.w;lockedHook=h;recoveryState="Locked";automatic=false;bufferActive=true;bufferElapsed=0;PrepareVisualBuffer();LockJoint(p);CapturedEngineSequence(sourceEngines);DrawNet();
+   h.hardConstraint=true;h.captureState="Locked";h.poseSaved=true;var lp=part.transform.InverseTransformPoint(p.transform.position);var q=Quaternion.Inverse(part.transform.rotation)*p.transform.rotation;h.lpx=lp.x;h.lpy=lp.y;h.lpz=lp.z;h.lqx=q.x;h.lqy=q.y;h.lqz=q.z;h.lqw=q.w;lockedHook=h;recoveryState="Locked";automatic=false;feedbackTarget=vessel;feedbackUntil=Time.time+8;feedbackReason="";feedbackContacts=4;bufferActive=true;bufferElapsed=0;PrepareVisualBuffer();LockJoint(p);CapturedEngineSequence(sourceEngines);DrawNet();
   }
   static void LockJoint(Part p){if(p.attachJoint==null)return;foreach(var j in p.attachJoint.joints){j.xMotion=j.yMotion=j.zMotion=ConfigurableJointMotion.Locked;j.angularXMotion=j.angularYMotion=j.angularZMotion=ConfigurableJointMotion.Locked;var d=new JointDrive();j.xDrive=j.yDrive=j.zDrive=j.angularXDrive=j.angularYZDrive=j.slerpDrive=d;}}
   void DrawNet(){
@@ -76,8 +77,10 @@ namespace KIU.NetRecovery {
 
   public void Update(){
    if(!HighLogic.LoadedSceneIsFlight)return;
+   EnsureToolbar();
    string key=recoveryState=="Locked"?"Locked":recoveryState=="Tracking"?"Tracking":recoveryState=="Released"?"Released":recoveryState=="Failed"?"Failed":recoveryState.StartsWith("Rejected")?"Rejected":automatic?"Armed":"Ready";
    displayedState=KSP.Localization.Localizer.Format("#LHZ_State_"+key);
+   displayedReason=ReasonText(lastRejectReason);
    displayedStation=KSP.Localization.Localizer.Format(stationKeeping?"#LHZ_On":"#LHZ_Off");
    bool held=lockedHook!=null;Events["ArmNet"].active=!held&&!automatic;Events["DisarmNet"].active=!held&&automatic;Events["ReleaseStage"].active=held;Events["ResetNet"].active=!held;
   }
@@ -86,6 +89,6 @@ namespace KIU.NetRecovery {
   [KSPAction("#LHZ_Release")] public void ReleaseAction(KSPActionParam p){ReleaseStage();}
   [KSPAction("#LHZ_Station")] public void StationAction(KSPActionParam p){ToggleStation();}
   public override string GetInfo(){return KSP.Localization.Localizer.Format("#LHZ_ModuleInfo");}
-  public void OnDestroy(){ResetVisualBuffer();if(material!=null)UnityEngine.Object.Destroy(material);if(ropes!=null)foreach(var r in ropes)if(r!=null)UnityEngine.Object.Destroy(r.gameObject);}
+  public void OnDestroy(){UnregisterToolbar();ResetVisualBuffer();if(material!=null)UnityEngine.Object.Destroy(material);if(ropes!=null)foreach(var r in ropes)if(r!=null)UnityEngine.Object.Destroy(r.gameObject);}
  }
 }
