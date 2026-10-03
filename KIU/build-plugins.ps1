@@ -1,5 +1,7 @@
 param(
  [string]$ManagedDirectory = 'D:\KSP_Clean\KSP_x64_Data\Managed',
+ [string[]]$AssemblyNames = @(),
+ [switch]$UseFrameworkCompiler,
  [string]$OutputDirectory = (Join-Path $PSScriptRoot 'Plugins'),
  [string]$Roslyn = 'C:\Program Files\dotnet\sdk\8.0.404\Roslyn\bincore\csc.dll'
 )
@@ -11,8 +13,13 @@ $refs = @('mscorlib.dll','System.dll','System.Core.dll') | ForEach-Object { '/re
 $refs += '/reference:' + (Join-Path $ManagedDirectory 'Assembly-CSharp.dll')
 $refs += Get-ChildItem -LiteralPath $ManagedDirectory -Filter 'UnityEngine*.dll' | ForEach-Object { '/reference:' + $_.FullName }
 foreach ($assembly in $manifest.PSObject.Properties) {
+ if ($AssemblyNames.Count -gt 0 -and $assembly.Name -notin $AssemblyNames) { continue }
  $sources = @($assembly.Value | ForEach-Object { Join-Path $PSScriptRoot $_ })
  $target = Join-Path $OutputDirectory ($assembly.Name + '.dll')
- & dotnet $Roslyn /nologo /codepage:65001 /target:library /langversion:8 /nostdlib+ @refs ('/out:' + $target) @sources
+ if ($UseFrameworkCompiler) {
+  & (Join-Path $framework 'csc.exe') /nologo /codepage:65001 /target:library /langversion:5 /nostdlib+ @refs ('/out:' + $target) @sources
+ } else {
+  & dotnet $Roslyn /nologo /codepage:65001 /target:library /langversion:8 /nostdlib+ @refs ('/out:' + $target) @sources
+ }
  if ($LASTEXITCODE -ne 0) { throw ('Compile failed: ' + $assembly.Name) }
 }

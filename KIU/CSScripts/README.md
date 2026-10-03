@@ -82,3 +82,14 @@ shrink markings; zero-height barrels hide them. Surface offset is 1.5 mm by defa
 Mesh/material instances are disposed on destruction. Original mesh/colliders and
 GameDatabase textures are not modified. Tests are in local_workspace/CZ-10B/tests/
 build/2026-09-26-pf-v070. Offline validation only; no KSP session was run.
+
+## Linghangzhe recovery (2026-10-02)
+KIUNetRecovery.dll is an independent production assembly built from NetRecovery/*.cs
+through the shared build manifest. It contains LHZNetController, LHZReceiverProbe
+and LHZHookProbe, with no test KSPAddon, filesystem command bridge or craft IDs.
+Build only this assembly with -AssemblyNames KIUNetRecovery. Actual CZ-10B hooks
+carry the persistent lhzCapture node and LHZHookProbe directly in their part.cfg.
+Four tracked cable contacts create one native KSP Part connection. MODEL-only
+24-degree hook/yield/rebound presentation preserves fixed physics Part poses.
+The engine gate uses finalThrust/maxThrust, one configured engineID and the ship's
+maxPoweredThrustFraction; this does not certify RF/RO flight or descent guidance.

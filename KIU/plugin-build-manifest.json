@@ -12,5 +12,16 @@
   ],
   "CZ10BLaunchErector": [
     "CSScripts/CZ10BLaunchErector.cs"
+  ],
+  "KIUNetRecovery": [
+    "CSScripts/NetRecovery/CaptureGate.cs",
+    "CSScripts/NetRecovery/MotionMath.cs",
+    "CSScripts/NetRecovery/ActiveNetMath.cs",
+    "CSScripts/NetRecovery/PlayerNetController.cs",
+    "CSScripts/NetRecovery/ActiveNetTracking.cs",
+    "CSScripts/NetRecovery/RecoveryBuffer.cs",
+    "CSScripts/NetRecovery/PoweredCapture.cs",
+    "CSScripts/NetRecovery/NativeLink.cs",
+    "CSScripts/NetRecovery/AssemblyInfo.cs"
   ]
 }
