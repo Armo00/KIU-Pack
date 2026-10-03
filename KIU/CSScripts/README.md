@@ -91,8 +91,8 @@ Build only this assembly with -AssemblyNames KIUNetRecovery. Actual CZ-10B hooks
 carry the persistent lhzCapture node and LHZHookProbe directly in their part.cfg.
 Four tracked cable contacts create one native KSP Part connection. MODEL-only
 24-degree hook/yield/rebound presentation preserves fixed physics Part poses.
-The engine gate uses finalThrust/maxThrust, one configured engineID and the ship's
-maxPoweredThrustFraction; this does not certify RF/RO flight or descent guidance.
+Engines do not gate capture. Actual source-engine telemetry and automatic
+shutdown after native capture remain; return guidance is not certified.
 
 
 ## Linghangzhe recovery 2.7 (2026-10-03)
@@ -105,3 +105,14 @@ per axis. Reset clears target/contact history and re-arms. Additional deployed
 hook animations retain their identities across save/load. No KSPAddon or test
 command/file bridge is included. Configuration includes native ship reaction
 wheels and SAS. The local HTML report records actual native/offline results.
+
+## Linghangzhe recovery 2.7.1 (2026-10-03)
+Removes all engine capture gates and migrates obsolete rejection records.
+Carriages use 48 m/s, 144 m/s² and doubled position response. Acquisition checks
+current assigned cable reach instead of extrapolated center bounds; prediction
+is bounded steering only. Waiting rails close to 5.6 m at authored scale 1,
+while tracking follows actual mouths. The toolbar reports measured world-space
+spacing rather than implying every opening is 5.6 m. Editable ship source 2.7.1
+also corrects CASC UV/face direction and increases hull letter height to 1 m.
+CaptureCamera.cs preserves the incoming pilot's camera across native coupling,
+preventing the automatic merged-vessel switch from hiding the visual buffer.

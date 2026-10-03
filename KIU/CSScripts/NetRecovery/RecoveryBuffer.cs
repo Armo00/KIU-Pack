@@ -44,6 +44,7 @@ namespace KIU.NetRecovery {
    animatedExtraHookIds=String.Join(",",extraHookPoses.Select(h=>h.part.persistentId.ToString()).ToArray());
   }
   public void LateUpdate(){
+   TickCaptureCamera();
    if(!HighLogic.LoadedSceneIsFlight||part==null||vessel==null||vessel.packed||lockedHook==null||lockedHook.part==null||lockedHook.part.parent!=part)return;
    PrepareVisualBuffer();if(!bufferActive)return;if(poweredShutdownPending){DrawNet();return;}bufferElapsed=Math.Min(BufferDuration,bufferElapsed+Time.deltaTime);visualSink=Depth(bufferElapsed,targetSink);guideDrop=.20f*Smooth(bufferElapsed/.8f);hookAnimationTime=hookPoses.Average(h=>Mathf.Lerp(1,h.targetTime,Smooth(bufferElapsed/.9f)));
    foreach(var m in modelPoses)if(m.root!=null&&m.part!=null)m.root.localPosition=m.origin+m.part.transform.InverseTransformVector(-part.transform.up*visualSink);

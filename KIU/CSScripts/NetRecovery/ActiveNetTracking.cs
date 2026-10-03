@@ -13,13 +13,13 @@ namespace KIU.NetRecovery {
   RailAxis[] axes;Approach tracked;Vessel trackedVessel;float[] trackingGoals=new float[4];bool trackingEnvelope;
   Dictionary<uint,int> savedPairs=new Dictionary<uint,int>();
   void InitTracking(){
-   if(axes!=null)return;axes=Enumerable.Range(0,4).Select(i=>new RailAxis((i%2==0?-1:1)*Gap)).ToArray();
+   if(axes!=null)return;axes=Enumerable.Range(0,4).Select(i=>new RailAxis((i%2==0?-1:1)*Math.Max(5.4,minimumAperture)/2)).ToArray();
    var f=(railPositions??"").Split(',');if(f.Length==4)for(int i=0;i<4;i++){double n;if(Double.TryParse(f[i],NumberStyles.Float,CultureInfo.InvariantCulture,out n)&&!Double.IsNaN(n)&&Math.Abs(n)<=ActiveNetMath.RailLimit)axes[i].position=n;}
    savedPairs.Clear();foreach(var entry in (hookRopePairs??"").Split(',')){var q=entry.Split(':');uint id;int index;if(q.Length==2&&UInt32.TryParse(q[0],out id)&&Int32.TryParse(q[1],out index)&&index>=0&&index<4&&!savedPairs.ContainsKey(id))savedPairs[id]=index;}
   }
   void SaveRails(){railPositions=String.Join(",",axes.Select(a=>a.position.ToString("R",CultureInfo.InvariantCulture)).ToArray());}
   void ForgetTarget(){tracked=null;trackedVessel=null;trackingEnvelope=false;approaches.Clear();}
-  void HomeTracking(float dt){InitTracking();ForgetTarget();for(int i=0;i<4;i++){trackingGoals[i]=(i%2==0?-1:1)*Gap;axes[i].Step(trackingGoals[i],0,dt,ActiveNetMath.MaxSpeed,ActiveNetMath.MaxAcceleration,ActiveNetMath.RailLimit);}SaveRails();DrawNet();}
+  void HomeTracking(float dt){InitTracking();ForgetTarget();var goals=new double[4];for(int i=0;i<4;i++)goals[i]=trackingGoals[i]=(float)((i%2==0?-1:1)*Math.Max(5.4,minimumAperture)/2);ActiveNetMath.StepRails(axes,goals,new double[4],dt,minimumAperture);SaveRails();DrawNet();}
   Point3 TrackingPoint(Vector3 p){return new Point3(p.x,p.y-Plane,p.z-CenterZ);}
   Point3 Velocity(Part p){var w=p.transform.TransformPoint(Mouth(p));var v=part.transform.InverseTransformVector(p.rb.GetPointVelocity(w)-part.rb.GetPointVelocity(w));return new Point3(v.x,v.y,v.z);}
   int SavedRope(Part p){InitTracking();int r;if(!savedPairs.TryGetValue(p.persistentId,out r))throw new Exception("Persistent hook/rope pair missing for "+p.persistentId);return r;}
@@ -41,30 +41,29 @@ namespace KIU.NetRecovery {
      var open=available.Where(Deployed).ToArray();if(open.Length<4){rejection="Rejected: HookClosed";NoticeTarget(v,"HookClosed");continue;}
      var selected=ActiveNetMath.SelectHooks(open.Select(p=>TrackingPoint(Local(p))).ToArray(),minimumAperture,axes.Select(x=>x.position).ToArray());var hs=selected.Select(i=>open[i]).ToArray();
      var ps=hs.Select(p=>TrackingPoint(Local(p))).ToArray();var vs=hs.Select(Velocity).ToArray();float height=(float)ps.Average(p=>p.y),down=(float)-vs.Average(p=>p.y);if(height<=0||height>140||down<=.5f){NoticeTarget(v,height<=0?"BelowPlane":height>140?"TooHigh":"NotDescending");continue;}
-     var map=new[]{0,1,2,3};if(!ActiveNetMath.Envelope(ps,vs,map)){rejection="Rejected: outside tracking envelope";NoticeTarget(v,"outside tracking envelope");continue;}
+     var map=new[]{0,1,2,3};string envelopeReason=ActiveNetMath.EnvelopeReason(ps,map,captureThroatRadius);if(envelopeReason!=""){rejection="Rejected: "+envelopeReason;NoticeTarget(v,envelopeReason);continue;}
      float eta=height/down;if(eta<best){best=eta;target=v;chosen=new Approach{hooks=hs,previous=hs.Select(Local).ToArray(),rope=map,contacts=new CaptureLatch(contactRetentionSeconds,contactYieldStroke)};}
     }
     if(chosen==null){HomeTracking(dt);recoveryState=rejection;return;}tracked=chosen;trackedVessel=target;recoveryState="Tracking";NoticeTarget(target,"");
    }
-   var a=tracked;var points=a.hooks.Select(p=>TrackingPoint(Local(p))).ToArray();var velocities=a.hooks.Select(Velocity).ToArray();trackingEnvelope=ActiveNetMath.Envelope(points,velocities,a.rope);
-   if(!trackingEnvelope){RejectApproach("outside tracking envelope");HomeTracking(dt);return;}
+   var a=tracked;var points=a.hooks.Select(p=>TrackingPoint(Local(p))).ToArray();var velocities=a.hooks.Select(Velocity).ToArray();string reachReason=ActiveNetMath.EnvelopeReason(points,a.rope,captureThroatRadius);trackingEnvelope=reachReason=="";
+   if(!trackingEnvelope){RejectApproach(reachReason);HomeTracking(dt);return;}
    NoticeTarget(trackedVessel,"");feedbackContacts=a.contacts.Count;
    double[] before=axes.Select(x=>x.position).ToArray();
-   var goals=new double[4];var feeds=new double[4];for(int i=0;i<4;i++){int r=a.rope[i];double eta=a.contacts.hit[i]?0:ActiveNetMath.Eta(points[i].y,-velocities[i].y),lateral=ActiveNetMath.Cross(velocities[i],r),goal=ActiveNetMath.Cross(points[i],r)+lateral*eta;
+   var goals=new double[4];var feeds=new double[4];for(int i=0;i<4;i++){int r=a.rope[i];double goal=ActiveNetMath.Goal(points[i],velocities[i],r,a.contacts.hit[i]);
     feeds[r]=Math.Max(-ActiveNetMath.MaxSpeed,Math.Min(ActiveNetMath.MaxSpeed,(goal-trackingGoals[r])/dt));goals[r]=goal;trackingGoals[r]=(float)goal;}
    ActiveNetMath.StepRails(axes,goals,feeds,dt,minimumAperture);
-   string engineReason=EngineGateReason(trackedVessel);bool engine=engineReason!="";
    for(int i=0;i<4;i++){
     var p=a.hooks[i];var point=Local(p);int r=a.rope[i];var w=p.transform.TransformPoint(Mouth(p));var velocity=p.rb.GetPointVelocity(w)-part.rb.GetPointVelocity(w);
     var d=CaptureGate.Check(Relative(a.previous[i],r,(float)before[r]),Relative(point,r,(float)axes[r].position),Deployed(p),Vector3.Dot(p.transform.up,part.transform.up),-Vector3.Dot(velocity,part.transform.up),Span,captureThroatRadius,maxCaptureSpeed,Math.Cos(maxCaptureTiltDegrees*Math.PI/180));
-    if(d!=GateDecision.NoCrossing){string reason=engine?"EngineActive":velocity.magnitude>maxCaptureSpeed?"TooFast":d.ToString();if(lastContacts.Count>=64)lastContacts.RemoveAt(0);var evidence=new ContactEvidence{craftId=p.craftID,time=Time.time,decision=reason,engineReason=engineReason,rope=r,poweredEngines=PoweredEngines(trackedVessel).Length,relativeSpeed=velocity.magnitude,downwardSpeed=-Vector3.Dot(velocity,part.transform.up),alignment=Vector3.Dot(p.transform.up,part.transform.up),throatError=(float)Math.Abs(Relative(point,r,(float)axes[r].position).z),position=new[]{point.x,point.y,point.z}};lastContacts.Add(evidence);UnityEngine.Debug.Log("[KIUNetRecovery] hook="+p.flightID+" rope="+r+" gate="+reason+" engine="+engineReason+" relativeSpeed="+evidence.relativeSpeed.ToString("F3",CultureInfo.InvariantCulture)+" throatError="+evidence.throatError.ToString("F3",CultureInfo.InvariantCulture));if(reason=="Captured")a.contacts.Record(i,Time.time);else RejectApproach(engine?engineReason:reason);}
+    if(d!=GateDecision.NoCrossing){string reason=velocity.magnitude>maxCaptureSpeed?"TooFast":d.ToString();if(lastContacts.Count>=64)lastContacts.RemoveAt(0);var evidence=new ContactEvidence{craftId=p.craftID,time=Time.time,decision=reason,engineReason="",rope=r,poweredEngines=PoweredEngines(trackedVessel).Length,relativeSpeed=velocity.magnitude,downwardSpeed=-Vector3.Dot(velocity,part.transform.up),alignment=Vector3.Dot(p.transform.up,part.transform.up),throatError=(float)Math.Abs(Relative(point,r,(float)axes[r].position).z),position=new[]{point.x,point.y,point.z}};lastContacts.Add(evidence);UnityEngine.Debug.Log("[KIUNetRecovery] hook="+p.flightID+" rope="+r+" gate="+reason+" relativeSpeed="+evidence.relativeSpeed.ToString("F3",CultureInfo.InvariantCulture)+" throatError="+evidence.throatError.ToString("F3",CultureInfo.InvariantCulture));if(reason=="Captured")a.contacts.Record(i,Time.time);else RejectApproach(reason);}
     a.previous[i]=point;
    }
    feedbackContacts=a.contacts.Count;
    // Every previously accepted contact must still be in its retained throat,
    // stroke and safe speed/attitude when the fourth hook arrives.
    string expired=a.contacts.Expired(Time.time,points.Select(p=>p.y).ToArray());
-   for(int i=0;i<4&&expired==null;i++)if(a.contacts.hit[i]){var p=a.hooks[i];var v=velocities[i];if(!Deployed(p))expired="HookClosed";else if(Vector3.Dot(p.transform.up,part.transform.up)<Math.Cos(maxCaptureTiltDegrees*Math.PI/180))expired="BadOrientation";else if(v.x*v.x+v.y*v.y+v.z*v.z>maxCaptureSpeed*maxCaptureSpeed)expired="TooFast";else if(Math.Abs(ActiveNetMath.Cross(points[i],a.rope[i])-axes[a.rope[i]].position)>captureThroatRadius)expired="OutsideThroat";else if(engine)expired=engineReason;}
+   for(int i=0;i<4&&expired==null;i++)if(a.contacts.hit[i]){var p=a.hooks[i];var v=velocities[i];if(!Deployed(p))expired="HookClosed";else if(Vector3.Dot(p.transform.up,part.transform.up)<Math.Cos(maxCaptureTiltDegrees*Math.PI/180))expired="BadOrientation";else if(v.x*v.x+v.y*v.y+v.z*v.z>maxCaptureSpeed*maxCaptureSpeed)expired="TooFast";else if(Math.Abs(ActiveNetMath.Cross(points[i],a.rope[i])-axes[a.rope[i]].position)>captureThroatRadius)expired="OutsideThroat";}
    if(expired!=null){RejectApproach(expired);ForgetTarget();SaveRails();DrawNet();return;}
    SaveRails();DrawNet();if(a.contacts.Complete){SavePairs(a);Capture(a.hooks[0]);ForgetTarget();return;}
    if(points.All(p=>p.y<=0)){RejectApproach(lastRejectReason==""?"MissedPlane":lastRejectReason);ForgetTarget();DrawNet();}

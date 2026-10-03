@@ -1,6 +1,6 @@
 # Linghangzhe / 领航者
 
-Runtime: 2.7.0-dev. Editable model source: 2.5.0-dev, unchanged.
+Runtime and editable model source: 2.7.1-dev (source baseline 2.5.0-dev).
 Install the complete KIU directory as GameData/KIU, including
 Plugins/KIUNetRecovery.dll, the current CZ-10B RecoveryHook and Common textures.
 No test bridge or additional demo Parts ship in KIU.
@@ -38,16 +38,31 @@ pass, raise the hooks above the cable plane before descending again.
 | First-to-fourth contact retention | 1.5 s |
 | Contact yield stroke | 4 m |
 | Aperture minimum per axis | 5.6 m |
-| Rail bounds | +/-20 m; 12 m/s; nominal 24 m/s² |
-| Predicted central region | +/-12.5 m |
+| Rail bounds | +/-20 m; 48 m/s; nominal 144 m/s² |
+| Acquisition bounds | Current cross-coordinate within +/-21.25 m; along-cable coordinate within +/-22 m |
 
-The rail governor preserves a 5.6 x 5.6 m minimum tracking rectangle,
-containing a 5.4 m diameter circle. Clearance and rail boundaries take priority
-over individual carriage goals. Four actual gated contacts remain required.
-One YF-100 may burn at <=70% rated thrust; others must be shut down. Capture
-cuts the engine after 0.18 s. Engine rejection is visible in the window.
+At rescaleFactor=1, waiting rails close to 5.6 x 5.6 m. This is a minimum,
+not a maximum: while tracking and after capture, cables meet the actual hook
+mouths (about 10.9 m across for the reference deployed diagonal layout).
+The window reports measured world-space spacing. A 5.6 m opening around this
+unchanged layout would miss the mouths. Clearance and rail boundaries take
+priority over individual carriage goals. Four actual gated contacts remain
+required. Engine thrust, count, type and ignition state never reject capture;
+source engines shut down 0.18 s after capture. Obsolete engine/prediction
+rejections in loaded saves are cleared.
+
+Acquisition no longer rejects targets because an extrapolated landing point
+crossed the old +/-12.5 m center bound. It uses each current hook's assigned
+finite cable span and carriage travel, including the 1.25 m mouth tolerance.
+Prediction only steers carriages: lookahead <=1.5 s, lead <=6 m, rail-clamped.
+Actual crossing, speed, tilt and retained contacts still decide capture.
+Carriage speed is 48 m/s (previously 12), acceleration 144 m/s² (previously
+24), with doubled position response. These are visual servo game settings.
 
 Capture merges rigidbody momentum once and makes one native KSP coupling.
+When the pilot controls the incoming core, capture preserves the camera target,
+mode, heading, pitch and distance while KSP selects the merged vessel. A render
+anchor follows the recovered core; it adds no Part, collider or force.
 Earlier cable contacts yield visually while awaiting the other hooks.
 After capture, native joints remain fixed while original hook/hydraulic
 animations retract 24 degrees and model roots sink/rebound over 2.6 s.
@@ -58,3 +73,7 @@ rope or cable-tension simulation; it does not certify return guidance.
 2.7 corrects the MU handedness/winding export that mirrored ship lettering
 and CASC markings. The archived Blender and shared textures retain their
 original bytes. Validation details/limits are in the local HTML report.
+
+2.7.1 additionally corrects the CASC vertical UV direction and the inward
+face normal on one side. Institute hull letters retain their 20 m width and
+increase from 0.72 m to 1.00 m height. Existing shared texture bytes are reused.

@@ -30,7 +30,7 @@ namespace KIU.NetRecovery {
   public void ResetNet(){if(lockedHook!=null)return;ResetVisualBuffer();ArmNet();}
   [KSPEvent(guiActive=true,guiName="#LHZ_Station")]
   public void ToggleStation(){if(vessel==null)return;stationKeeping=!stationKeeping;if(stationKeeping){stationLat=vessel.latitude;stationLon=vessel.longitude;}}
-  public override void OnStart(StartState start){base.OnStart(start);InitTracking();DrawNet();if(!HighLogic.LoadedSceneIsFlight)return;RegisterToolbar();receiverLink=part.FindModuleImplementing<LHZReceiverProbe>();InitTracking();RestoreLink();if(lockedHook!=null){captureEngines=Subtree(lockedHook.part).SelectMany(p=>p.FindModulesImplementing<ModuleEngines>()).ToArray();ShutdownCapturedEngines();}DrawNet();}
+  public override void OnStart(StartState start){base.OnStart(start);ClearObsoleteRejection();InitTracking();DrawNet();if(!HighLogic.LoadedSceneIsFlight)return;RegisterToolbar();receiverLink=part.FindModuleImplementing<LHZReceiverProbe>();InitTracking();RestoreLink();if(lockedHook!=null){captureEngines=Subtree(lockedHook.part).SelectMany(p=>p.FindModulesImplementing<ModuleEngines>()).ToArray();ShutdownCapturedEngines();}DrawNet();}
   void RestoreLink(){
    if(receiverLink==null||vessel==null)return;
    lockedHook=vessel.parts.Select(p=>p.FindModuleImplementing<LHZHookProbe>()).FirstOrDefault(h=>h!=null&&h.captureState=="Locked"&&h.receiverId==part.persistentId&&h.part.parent==part);
@@ -63,7 +63,7 @@ namespace KIU.NetRecovery {
    lastCapture=new CaptureRecord{caseName="player_auto",sourceMass=source.Sum(b=>(double)b.mass),receiverMass=target.Sum(b=>(double)b.mass),relativeSpeedBefore=speed,relativeSpeedAfter=(p.rb.GetPointVelocity(world)-part.rb.GetPointVelocity(world)).magnitude,absorbedEnergy=merge.relativeEnergyBefore-after.relativeEnergyBefore,linearMomentumError=(merge.momentum-after.momentum).Length,angularMomentumError=(merge.angularMomentum-after.angularMomentum).Length,momentumBefore=merge.momentum,momentumAfter=after.momentum,angularBefore=merge.angularMomentum,angularAfter=after.angularMomentum,fixedReceiver=false};
    h.SetAnchor(mouth,p.transform.InverseTransformDirection(-part.transform.up));receiverLink.SetAnchor(part.transform.InverseTransformPoint(world),Vector3.up);h.Node.attachedPart=part;h.Node.attachedPartId=part.flightID;receiverLink.Node.attachedPart=p;receiverLink.Node.attachedPartId=p.flightID;p.attachMode=AttachModes.STACK;
    var local=part.transform.InverseTransformPoint(p.transform.position);var rotation=Quaternion.Inverse(part.transform.rotation)*p.transform.rotation;
-   if(p.vessel.IsAnchored)p.vessel.ResetRBAnchor();bool active=FlightGlobals.ActiveVessel==p.vessel;p.Couple(part);if(active)FlightGlobals.ForceSetActiveVessel(vessel);
+   if(p.vessel.IsAnchored)p.vessel.ResetRBAnchor();bool active=FlightGlobals.ActiveVessel==p.vessel;var cameraView=active?SaveCaptureCamera(p.vessel.rootPart):null;p.Couple(part);if(active){FlightGlobals.ForceSetActiveVessel(vessel);RestoreCaptureCamera(cameraView);}
    if(p.parent!=part||p.vessel!=vessel)throw new Exception("Native net coupling invariant failed");
    lastCapture.nativePositionJump=Vector3.Distance(local,part.transform.InverseTransformPoint(p.transform.position));lastCapture.nativeAngleJump=Quaternion.Angle(rotation,Quaternion.Inverse(part.transform.rotation)*p.transform.rotation);
    var nativeMotion=MotionMath.Merge(bodies.Select(Motion).ToArray());lastCapture.nativeMomentumChange=(nativeMotion.momentum-after.momentum).Length;lastCapture.nativeAngularChange=(nativeMotion.angularMomentum-after.angularMomentum).Length;
@@ -89,6 +89,6 @@ namespace KIU.NetRecovery {
   [KSPAction("#LHZ_Release")] public void ReleaseAction(KSPActionParam p){ReleaseStage();}
   [KSPAction("#LHZ_Station")] public void StationAction(KSPActionParam p){ToggleStation();}
   public override string GetInfo(){return KSP.Localization.Localizer.Format("#LHZ_ModuleInfo");}
-  public void OnDestroy(){UnregisterToolbar();ResetVisualBuffer();if(material!=null)UnityEngine.Object.Destroy(material);if(ropes!=null)foreach(var r in ropes)if(r!=null)UnityEngine.Object.Destroy(r.gameObject);}
+  public void OnDestroy(){UnregisterToolbar();ClearCaptureCamera();ResetVisualBuffer();if(material!=null)UnityEngine.Object.Destroy(material);if(ropes!=null)foreach(var r in ropes)if(r!=null)UnityEngine.Object.Destroy(r.gameObject);}
  }
 }
