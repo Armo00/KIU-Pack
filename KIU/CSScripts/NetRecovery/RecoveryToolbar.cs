@@ -36,6 +36,7 @@ namespace KIU.NetRecovery {
    if(recoveryText==null){recoveryText=new GUIStyle(HighLogic.Skin.label);recoveryText.wordWrap=true;recoveryText.fontSize=16;}
    if(receivers.Count>1){GUILayout.BeginHorizontal();foreach(var ship in receivers.ToArray())if(ship!=null&&ship.vessel!=null&&GUILayout.Button(ship.vessel.vesselName))selectedReceiver=ship;GUILayout.EndHorizontal();}
    GUILayout.Label(Loc("WindowShip")+": "+c.vessel.vesselName,recoveryText);
+   GUILayout.Label(c.heightSpec,recoveryText);
    if(c.vessel.packed){GUILayout.Label(Loc("WindowUnloaded"),recoveryText);GUI.enabled=false;}
    var e=c.FeedbackState();GUILayout.Label(e.text,recoveryText);
    GUILayout.Label(Loc("WindowReason")+": "+(c.lastRejectReason==""?Loc("NoRejection"):ReasonText(c.lastRejectReason)),recoveryText);

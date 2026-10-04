@@ -1,6 +1,6 @@
 # Linghangzhe / 领航者
 
-Runtime: 2.7.2-dev. Editable model source remains 2.7.1-dev (source baseline 2.5.0-dev).
+Runtime and editable model: 2.8.0-dev (source baseline 2.7.1-dev).
 Install the complete KIU directory as GameData/KIU, including
 Plugins/KIUNetRecovery.dll, the current CZ-10B RecoveryHook and Common textures.
 No test bridge or additional demo Parts ship in KIU.
@@ -12,8 +12,8 @@ the target, installed hooks, contacts, relative motion, aperture and exact
 last rejection. There is no automatic overlay on the core.
 
 The receiver may operate on land, in flight or at sea: no water gate.
-Station keeping applies at sea. The 1200 t ship has native SAS and an aggregate
-reaction wheel configured for 300,000 kN m on each axis (equivalent to many
+Station keeping applies at sea. The 25,000 t full-load-equivalent ship has native SAS and an aggregate
+reaction wheel configured for 6,250,000 kN m on each axis (equivalent to many
 wheels), up to 100 ElectricCharge/s by configuration, and 100,000 stored EC.
 Existing mods may alter stock resource behavior. This is game tuning.
 
@@ -21,7 +21,7 @@ Install at least four original-scale CZ-10B hooks around the core and fully
 deploy at least four. The controller chooses four distinct reachable hooks
 for the four cable roles; extra hooks no longer prevent tracking. Cardinal
 and diagonal arrangements are supported. Extra deployed hooks follow the
-24-degree retraction; folded extras stay folded.
+50-degree retraction; folded extras stay folded.
 
 Approach from above, allowing time for the carriages to reach the hooks.
 Core origin range: 180 m; hook height: 0–140 m above the cables; relative
@@ -65,7 +65,7 @@ mode, heading, pitch and distance while KSP selects the merged vessel. A render
 anchor follows the recovered core; it adds no Part, collider or force.
 Earlier cable contacts yield visually while awaiting the other hooks.
 After capture, native joints remain fixed while original hook/hydraulic
-animations retract 24 degrees and model roots sink/rebound over 2.6 s.
+animations retract 50 degrees and model roots sink/rebound over 2.6 s.
 Active/extra hook identities and buffer progress survive saves. Release uses
 native Undock and restores models. This is visual compliance, not physical
 rope or cable-tension simulation; it does not certify return guidance.
@@ -74,7 +74,7 @@ rope or cable-tension simulation; it does not certify return guidance.
 hinge movement before advancing the buffer. The control window reports buffer
 progress, actual retraction, sink and calibration errors; "Replay recovery
 animation" restarts visual compliance without releasing the core. Captured
-2.7.1 saves replay once on load, then retain the new revision when saved.
+Older buffer revisions replay once on load, then retain the new revision when saved.
 Toolbar GameEvents use instance callbacks, and recovered RealFuels engines
 shut down after all PartModules have initialized during save restoration.
 Local native tests reproduce the old suppressed-player failure and verify
@@ -90,3 +90,29 @@ original bytes. Validation details/limits are in the local HTML report.
 2.7.1 additionally corrects the CASC vertical UV direction and the inward
 face normal on one side. Institute hull letters retain their 20 m width and
 increase from 0.72 m to 1.00 m height. Existing shared texture bytes are reused.
+
+2.8.0 uses the published 25,000 metric tonne full-load displacement as the
+complete Part's effective mass. This is not a claim of published lightship mass.
+Source: https://kjj.gz.gov.cn/xwlb/yw/content/post_10693741.html
+Native buoyancy is configured at 1.6666667; no vertical supporting-force plugin.
+The final cable contact center drops 8 m below the armed cable plane; model
+roots sink farther to compensate the rising hook mouths during 50-degree
+retraction. A gentle rebound remains. These are visual animation parameters.
+
+Loaded cable halves now approach each hook with an upward supporting tangent,
+forming a shallow V with at most 0.12 m self-weight bow per half-span. Additional
+length represents visual winch payout, not steel stretching. The two cable
+families stagger their guide heights by 0.6 m to avoid crossing at one height
+in the tested centered arrangement. Dynamic ropes use Unlit/Color because
+KSP/Specular line renderers failed to appear in the local Deferred setup.
+This is a geometric approximation; cable tension, winch braking force and
+elastic energy are not solved. Arbitrary offset/tilt combinations are not
+certified by the centered and offset native inspection cases.
+
+In VAB/SPH, right-click the ship and choose Tower extension segments: an
+integer 0–15, default 0. Each segment adds 1 m at the supported 1:1 scale.
+Actual repeated tower meshes/colliders fill the added length. The upper
+frame, rope carriages, cable plane, tracking reference and top attachment
+node rise together; diagonal stays retain their lower anchorage. Height is
+saved in the craft and game, and is fixed during normal flight operation.
+Total mass remains 25,000 t for all optional game-height variants.

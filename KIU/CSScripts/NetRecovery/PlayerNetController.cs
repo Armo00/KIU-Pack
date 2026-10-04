@@ -12,7 +12,8 @@ namespace KIU.NetRecovery {
   [KSPField(isPersistant=true)] public double stationLat,stationLon;
   [KSPField] public float maxCaptureSpeed=25,captureThroatRadius=1.25f,maxCaptureTiltDegrees=20,contactRetentionSeconds=1.5f,contactYieldStroke=4,minimumAperture=5.6f;
   public CaptureRecord lastCapture;public List<ContactEvidence> lastContacts=new List<ContactEvidence>();
-  const float Plane=62.5f,Gap=5.451439f,Span=22,CenterZ=1.02f;
+  const float BasePlane=62.5f,Gap=5.451439f,Span=22,CenterZ=1.02f;
+  float Plane {get{return CapturePlaneHeight;}}
   LHZReceiverProbe receiverLink;LHZHookProbe lockedHook;Material material;LineRenderer[] ropes;
   Dictionary<Guid,Approach> approaches=new Dictionary<Guid,Approach>();
   class Approach {public Part[] hooks;public Vector3[] previous;public CaptureLatch contacts=new CaptureLatch();public int[] rope=new int[4];}
@@ -30,11 +31,11 @@ namespace KIU.NetRecovery {
   public void ResetNet(){if(lockedHook!=null)return;ResetVisualBuffer();ArmNet();}
   [KSPEvent(guiActive=true,guiName="#LHZ_Station")]
   public void ToggleStation(){if(vessel==null)return;stationKeeping=!stationKeeping;if(stationKeeping){stationLat=vessel.latitude;stationLon=vessel.longitude;}}
-  public override void OnStart(StartState start){base.OnStart(start);ClearObsoleteRejection();InitTracking();DrawNet();if(!HighLogic.LoadedSceneIsFlight)return;receiverLink=part.FindModuleImplementing<LHZReceiverProbe>();InitTracking();RestoreLink();if(lockedHook!=null){captureEngines=Subtree(lockedHook.part).SelectMany(p=>p.FindModulesImplementing<ModuleEngines>()).ToArray();restoreShutdownPending=true;}DrawNet();RegisterToolbar();}
+  public override void OnStart(StartState start){base.OnStart(start);InitializeHeight();ClearObsoleteRejection();InitTracking();DrawNet();if(!HighLogic.LoadedSceneIsFlight)return;receiverLink=part.FindModuleImplementing<LHZReceiverProbe>();InitTracking();RestoreLink();if(lockedHook!=null){captureEngines=Subtree(lockedHook.part).SelectMany(p=>p.FindModulesImplementing<ModuleEngines>()).ToArray();restoreShutdownPending=true;}DrawNet();RegisterToolbar();}
   void RestoreLink(){
    if(receiverLink==null||vessel==null)return;
    lockedHook=vessel.parts.Select(p=>p.FindModuleImplementing<LHZHookProbe>()).FirstOrDefault(h=>h!=null&&h.captureState=="Locked"&&h.receiverId==part.persistentId&&h.part.parent==part);
-   if(lockedHook!=null){recoveryState="Locked";receiverLink.Apply();lockedHook.Apply();LockJoint(lockedHook.part);if(bufferRevision<2){BeginVisualBuffer();Debug.Log("[KIUNetRecovery] restored legacy buffer: replay revision=2");}else if(!bufferActive){bufferActive=true;bufferElapsed=BufferDuration;}}
+   if(lockedHook!=null){recoveryState="Locked";receiverLink.Apply();lockedHook.Apply();LockJoint(lockedHook.part);if(bufferRevision<BufferRevision){BeginVisualBuffer();Debug.Log("[KIUNetRecovery] restored legacy buffer: replay revision=3");}else if(!bufferActive){bufferActive=true;bufferElapsed=BufferDuration;}}
   }
   static Transform Tip(Part p){return p.GetComponentsInChildren<Transform>(true).FirstOrDefault(t=>t.name=="HookTipMarker"&&t.GetComponentInParent<Part>()==p);}
   static Vector3 Mouth(Part p){var t=Tip(p);return p.transform.InverseTransformPoint(t.position)+new Vector3(-.16f,-.12f,0);}
@@ -71,7 +72,7 @@ namespace KIU.NetRecovery {
   }
   static void LockJoint(Part p){if(p.attachJoint==null)return;foreach(var j in p.attachJoint.joints){j.xMotion=j.yMotion=j.zMotion=ConfigurableJointMotion.Locked;j.angularXMotion=j.angularYMotion=j.angularZMotion=ConfigurableJointMotion.Locked;var d=new JointDrive();j.xDrive=j.yDrive=j.zDrive=j.angularXDrive=j.angularYZDrive=j.slerpDrive=d;}}
   void DrawNet(){
-   if(part==null)return;if(ropes==null){var shader=Shader.Find("KSP/Specular")??Shader.Find("Unlit/Color");material=new Material(shader);material.color=new Color(.22f,.22f,.24f);if(material.HasProperty("_MainTex"))material.mainTexture=GameDatabase.Instance.GetTexture("KIU/Common/KIU_Common_texture/Shared_White.v3.3.0",false);ropes=new LineRenderer[4];for(int i=0;i<4;i++){var go=new GameObject("LHZ_PlayerNet_"+i);go.transform.SetParent(part.transform,false);var r=go.AddComponent<LineRenderer>();r.useWorldSpace=false;r.positionCount=33;r.startWidth=r.endWidth=.06f;r.sharedMaterial=material;ropes[i]=r;}}
+   if(part==null)return;if(ropes==null){var shader=Shader.Find("Unlit/Color")??Shader.Find("KSP/Specular");material=new Material(shader);material.color=new Color(.22f,.22f,.24f);if(material.HasProperty("_MainTex"))material.mainTexture=GameDatabase.Instance.GetTexture("KIU/Common/KIU_Common_texture/Shared_White.v3.3.0",false);ropes=new LineRenderer[4];for(int i=0;i<4;i++){var go=new GameObject("LHZ_PlayerNet_"+i);go.transform.SetParent(part.transform,false);var r=go.AddComponent<LineRenderer>();r.useWorldSpace=false;r.positionCount=33;r.startWidth=r.endWidth=.06f;r.numCornerVertices=2;r.numCapVertices=3;r.generateLightingData=true;r.sharedMaterial=material;ropes[i]=r;}}
    DrawBufferedRopes();
   }
 
