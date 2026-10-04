@@ -1,5 +1,10 @@
-0.8.0-beta.4
-Scope: CZ-10B launch erector and CBC four-rod separator.
-Manual separator length: B9 N0..N30; default N1.
-Validated in KSP 1.12.3 on 2026-09-30 using existing KIU DLLs.
-Other CZ-10B assets retain their existing source versions.
+0.8.0-beta.6
+Scope: CZ-10B launch erector CBC support repair and tank-side CBC separator attachment.
+Source: KIU-Model/CZ-10B/versions/v0.8.0-beta.6/CZ10B_LaunchSystems_0.8.0-beta.6.blend
+CBC: outer side triangles removed; fixed heel bearings and paired 30-degree stops added.
+MU: mast and hydraulic BackPrepare/BackRelease tracks share the same 2-second timeline; reviewed poses preserved.
+Separator: attach to S1Tank cbcport/cbcstarboard sockets; top stays free for nose cones.
+Manual separator length: B9 N0..N30; default N1. Match all three tanks and both separators.
+Existing beta.4 CBC craft must reconnect separators to tank side sockets; no automatic craft migration.
+KSP 1.12.3 validation completed 2026-10-05, run cz10-beta6-03, 23 checks passed.
+Existing KIU DLLs and shared textures unchanged. Other CZ-10B assets retain their existing source versions.
