@@ -30,13 +30,13 @@ namespace KIU.NetRecovery {
   public void ResetNet(){if(lockedHook!=null)return;ResetVisualBuffer();ArmNet();}
   [KSPEvent(guiActive=true,guiName="#LHZ_Station")]
   public void ToggleStation(){if(vessel==null)return;stationKeeping=!stationKeeping;if(stationKeeping){stationLat=vessel.latitude;stationLon=vessel.longitude;}}
-  public override void OnStart(StartState start){base.OnStart(start);ClearObsoleteRejection();InitTracking();DrawNet();if(!HighLogic.LoadedSceneIsFlight)return;RegisterToolbar();receiverLink=part.FindModuleImplementing<LHZReceiverProbe>();InitTracking();RestoreLink();if(lockedHook!=null){captureEngines=Subtree(lockedHook.part).SelectMany(p=>p.FindModulesImplementing<ModuleEngines>()).ToArray();ShutdownCapturedEngines();}DrawNet();}
+  public override void OnStart(StartState start){base.OnStart(start);ClearObsoleteRejection();InitTracking();DrawNet();if(!HighLogic.LoadedSceneIsFlight)return;receiverLink=part.FindModuleImplementing<LHZReceiverProbe>();InitTracking();RestoreLink();if(lockedHook!=null){captureEngines=Subtree(lockedHook.part).SelectMany(p=>p.FindModulesImplementing<ModuleEngines>()).ToArray();restoreShutdownPending=true;}DrawNet();RegisterToolbar();}
   void RestoreLink(){
    if(receiverLink==null||vessel==null)return;
    lockedHook=vessel.parts.Select(p=>p.FindModuleImplementing<LHZHookProbe>()).FirstOrDefault(h=>h!=null&&h.captureState=="Locked"&&h.receiverId==part.persistentId&&h.part.parent==part);
-   if(lockedHook!=null){recoveryState="Locked";receiverLink.Apply();lockedHook.Apply();LockJoint(lockedHook.part);if(!bufferActive){bufferActive=true;bufferElapsed=BufferDuration;}}
+   if(lockedHook!=null){recoveryState="Locked";receiverLink.Apply();lockedHook.Apply();LockJoint(lockedHook.part);if(bufferRevision<2){BeginVisualBuffer();Debug.Log("[KIUNetRecovery] restored legacy buffer: replay revision=2");}else if(!bufferActive){bufferActive=true;bufferElapsed=BufferDuration;}}
   }
-  static Transform Tip(Part p){return p.GetComponentsInChildren<Transform>(true).FirstOrDefault(t=>t.name=="HookTipMarker");}
+  static Transform Tip(Part p){return p.GetComponentsInChildren<Transform>(true).FirstOrDefault(t=>t.name=="HookTipMarker"&&t.GetComponentInParent<Part>()==p);}
   static Vector3 Mouth(Part p){var t=Tip(p);return p.transform.InverseTransformPoint(t.position)+new Vector3(-.16f,-.12f,0);}
   static bool Deployed(Part p){var t=Tip(p);if(t==null)return false;var v=p.transform.InverseTransformPoint(t.position);return v.x>4.7f&&v.y<1.8f;}
   Vector3 Local(Part p){return part.transform.InverseTransformPoint(p.transform.TransformPoint(Mouth(p)));}
@@ -67,7 +67,7 @@ namespace KIU.NetRecovery {
    if(p.parent!=part||p.vessel!=vessel)throw new Exception("Native net coupling invariant failed");
    lastCapture.nativePositionJump=Vector3.Distance(local,part.transform.InverseTransformPoint(p.transform.position));lastCapture.nativeAngleJump=Quaternion.Angle(rotation,Quaternion.Inverse(part.transform.rotation)*p.transform.rotation);
    var nativeMotion=MotionMath.Merge(bodies.Select(Motion).ToArray());lastCapture.nativeMomentumChange=(nativeMotion.momentum-after.momentum).Length;lastCapture.nativeAngularChange=(nativeMotion.angularMomentum-after.angularMomentum).Length;
-   h.hardConstraint=true;h.captureState="Locked";h.poseSaved=true;var lp=part.transform.InverseTransformPoint(p.transform.position);var q=Quaternion.Inverse(part.transform.rotation)*p.transform.rotation;h.lpx=lp.x;h.lpy=lp.y;h.lpz=lp.z;h.lqx=q.x;h.lqy=q.y;h.lqz=q.z;h.lqw=q.w;lockedHook=h;recoveryState="Locked";automatic=false;feedbackTarget=vessel;feedbackUntil=Time.time+8;feedbackReason="";feedbackContacts=4;bufferActive=true;bufferElapsed=0;PrepareVisualBuffer();LockJoint(p);CapturedEngineSequence(sourceEngines);DrawNet();
+   h.hardConstraint=true;h.captureState="Locked";h.poseSaved=true;var lp=part.transform.InverseTransformPoint(p.transform.position);var q=Quaternion.Inverse(part.transform.rotation)*p.transform.rotation;h.lpx=lp.x;h.lpy=lp.y;h.lpz=lp.z;h.lqx=q.x;h.lqy=q.y;h.lqz=q.z;h.lqw=q.w;lockedHook=h;recoveryState="Locked";automatic=false;feedbackTarget=vessel;feedbackUntil=Time.time+8;feedbackReason="";feedbackContacts=4;BeginVisualBuffer();LockJoint(p);CapturedEngineSequence(sourceEngines);DrawNet();
   }
   static void LockJoint(Part p){if(p.attachJoint==null)return;foreach(var j in p.attachJoint.joints){j.xMotion=j.yMotion=j.zMotion=ConfigurableJointMotion.Locked;j.angularXMotion=j.angularYMotion=j.angularZMotion=ConfigurableJointMotion.Locked;var d=new JointDrive();j.xDrive=j.yDrive=j.zDrive=j.angularXDrive=j.angularYZDrive=j.slerpDrive=d;}}
   void DrawNet(){
@@ -82,7 +82,7 @@ namespace KIU.NetRecovery {
    displayedState=KSP.Localization.Localizer.Format("#LHZ_State_"+key);
    displayedReason=ReasonText(lastRejectReason);
    displayedStation=KSP.Localization.Localizer.Format(stationKeeping?"#LHZ_On":"#LHZ_Off");
-   bool held=lockedHook!=null;Events["ArmNet"].active=!held&&!automatic;Events["DisarmNet"].active=!held&&automatic;Events["ReleaseStage"].active=held;Events["ResetNet"].active=!held;
+   bool held=lockedHook!=null;Events["ArmNet"].active=!held&&!automatic;Events["DisarmNet"].active=!held&&automatic;Events["ReleaseStage"].active=held;Events["ResetNet"].active=!held;Events["ReplayBuffer"].active=held;
   }
   [KSPAction("#LHZ_Arm")] public void ArmAction(KSPActionParam p){ArmNet();}
   [KSPAction("#LHZ_Disarm")] public void DisarmAction(KSPActionParam p){DisarmNet();}

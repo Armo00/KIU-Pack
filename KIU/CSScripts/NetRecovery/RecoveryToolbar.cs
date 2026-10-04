@@ -9,17 +9,21 @@ namespace KIU.NetRecovery {
   static ApplicationLauncherButton recoveryButton;static Texture2D recoveryIcon;
   static bool recoveryWindowOpen,recoveryUiVisible=true;static LHZNetController selectedReceiver;
   static Rect recoveryWindow=new Rect(24,140,550,300);GUIStyle recoveryText;
+  bool toolbarRegistered;
   static string Loc(string key){return KSP.Localization.Localizer.Format("#LHZ_"+key);}
   static void OpenWindow(){recoveryWindowOpen=true;}
   static void CloseWindow(){recoveryWindowOpen=false;}
   static void HideWindowUi(){recoveryUiVisible=false;}static void ShowWindowUi(){recoveryUiVisible=true;}
-  void RegisterToolbar(){if(!receivers.Contains(this))receivers.Add(this);if(selectedReceiver==null)selectedReceiver=this;GameEvents.onGUIApplicationLauncherReady.Add(EnsureToolbar);GameEvents.onHideUI.Add(HideWindowUi);GameEvents.onShowUI.Add(ShowWindowUi);EnsureToolbar();}
+  // KSP EventVoid records Delegate.Target.GetType(); static callbacks have no target.
+  void LauncherReady(){EnsureToolbar();}
+  void WindowUiHidden(){HideWindowUi();}void WindowUiShown(){ShowWindowUi();}
+  void RegisterToolbar(){if(!receivers.Contains(this))receivers.Add(this);if(selectedReceiver==null)selectedReceiver=this;if(!toolbarRegistered){GameEvents.onGUIApplicationLauncherReady.Add(LauncherReady);GameEvents.onHideUI.Add(WindowUiHidden);GameEvents.onShowUI.Add(WindowUiShown);toolbarRegistered=true;}EnsureToolbar();}
   static void EnsureToolbar(){
    if(recoveryButton!=null||!ApplicationLauncher.Ready||ApplicationLauncher.Instance==null||receivers.Count==0)return;
    if(recoveryIcon==null){recoveryIcon=new Texture2D(32,32,TextureFormat.RGBA32,false);for(int y=0;y<32;y++)for(int x=0;x<32;x++){bool frame=(x==4||x==27)&&y>=4&&y<=27||y==27&&x>=4&&x<=27;bool net=(x==11||x==20)&&y>=8&&y<=24||(y==12||y==20)&&x>=8&&x<=24;recoveryIcon.SetPixel(x,y,frame?Color.white:net?new Color(.25f,.8f,1,1):Color.clear);}recoveryIcon.Apply();}
    recoveryButton=ApplicationLauncher.Instance.AddModApplication(OpenWindow,CloseWindow,null,null,null,null,ApplicationLauncher.AppScenes.FLIGHT|ApplicationLauncher.AppScenes.MAPVIEW,recoveryIcon);
   }
-  void UnregisterToolbar(){GameEvents.onGUIApplicationLauncherReady.Remove(EnsureToolbar);GameEvents.onHideUI.Remove(HideWindowUi);GameEvents.onShowUI.Remove(ShowWindowUi);receivers.Remove(this);if(selectedReceiver==this)selectedReceiver=receivers.FirstOrDefault();if(receivers.Count!=0)return;if(recoveryButton!=null&&ApplicationLauncher.Instance!=null)ApplicationLauncher.Instance.RemoveModApplication(recoveryButton);recoveryButton=null;recoveryWindowOpen=false;if(recoveryIcon!=null)UnityEngine.Object.Destroy(recoveryIcon);recoveryIcon=null;}
+  void UnregisterToolbar(){if(toolbarRegistered){GameEvents.onGUIApplicationLauncherReady.Remove(LauncherReady);GameEvents.onHideUI.Remove(WindowUiHidden);GameEvents.onShowUI.Remove(WindowUiShown);toolbarRegistered=false;}receivers.Remove(this);if(selectedReceiver==this)selectedReceiver=receivers.FirstOrDefault();if(receivers.Count!=0)return;if(recoveryButton!=null&&ApplicationLauncher.Instance!=null)ApplicationLauncher.Instance.RemoveModApplication(recoveryButton);recoveryButton=null;recoveryWindowOpen=false;if(recoveryIcon!=null)UnityEngine.Object.Destroy(recoveryIcon);recoveryIcon=null;}
   public void OpenControlWindow(){selectedReceiver=this;OpenWindow();if(recoveryButton!=null)recoveryButton.SetTrue(false);}
   public bool ToolbarReady(){return recoveryButton!=null;}
   public void OnGUI(){
@@ -42,7 +46,7 @@ namespace KIU.NetRecovery {
    GUI.enabled=!c.vessel.packed;if(GUILayout.Button(Loc("Station")))c.ToggleStation();GUILayout.EndHorizontal();
    GUILayout.Label(Loc("StationState")+": "+Loc(c.stationKeeping?"On":"Off"),recoveryText);
    GUILayout.Label(Loc("SasState")+": "+Loc(c.vessel.ActionGroups[KSPActionGroup.SAS]?"On":"Off"),recoveryText);
-   GUI.enabled=!c.vessel.packed&&held;if(GUILayout.Button(Loc("Release")))c.ReleaseStage();GUI.enabled=true;
+   GUI.enabled=!c.vessel.packed&&held;if(GUILayout.Button(Loc("Release")))c.ReleaseStage();if(GUILayout.Button(Loc("ReplayBuffer")))c.ReplayBuffer();GUI.enabled=true;
    if(GUILayout.Button(Loc("WindowClose"))){CloseWindow();if(recoveryButton!=null)recoveryButton.SetFalse(false);}
    GUI.DragWindow(new Rect(0,0,recoveryWindow.width,25));
   }

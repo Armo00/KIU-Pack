@@ -7,27 +7,45 @@ using UnityEngine;
 namespace KIU.NetRecovery {
  [Serializable] public class BufferEvidence {
   public float elapsed,visualSink,targetSink,guideDrop,hookAnimationTime,maxHookRetractionDegrees,maxRopeContactError;
-  public int visualParts,modelRoots,hooks;public bool active;
+  public int visualParts,modelRoots,hooks,revision;public bool active,prepared;public string error;
   public uint[] hookIds;public float[][] guidePositions;public float[][] mouths,ropeContacts;public float[][][] ropePoints;public float[] ropeOffsets;
  }
  public partial class LHZNetController {
   public const float BufferDuration=2.6f;
   [KSPField(isPersistant=true)] public bool bufferActive;
   [KSPField(isPersistant=true)] public float bufferElapsed;
+  [KSPField(isPersistant=true)] public int bufferRevision;
   [KSPField(isPersistant=true)] public string animatedExtraHookIds="";
   class ModelPose {public Part part;public Transform root;public Vector3 origin;}
   class HookPose {public Part part;public Transform hinge;public Quaternion deployed;public Vector3 throat;public int rope;public float targetTime;}
   class GuidePose {public Transform transform;public Vector3 origin;public int rope;}
   List<ModelPose> modelPoses;List<HookPose> hookPoses,extraHookPoses;List<GuidePose> guidePoses;int visualParts;
   float visualSink,targetSink,guideDrop,hookAnimationTime=1;float[] ropeOffsets=new float[4];
+  string bufferError="";float bufferRetryAt;bool bufferCompletionLogged;
   // A short yield, one gentle rebound, then hold. Parameters are presentation choices.
   static float Smooth(float u){u=Mathf.Clamp01(u);return u*u*(3-2*u);}
   static float Depth(float t,float hold){if(t<.65f)return (hold+.15f)*Smooth(t/.65f);if(t<1.25f)return Mathf.Lerp(hold+.15f,hold-.10f,Smooth((t-.65f)/.6f));if(t<2.1f)return Mathf.Lerp(hold-.10f,hold,Smooth((t-1.25f)/.85f));return hold;}
   static IEnumerable<Part> Subtree(Part p){yield return p;foreach(var c in p.children)foreach(var q in Subtree(c))yield return q;}
   static void SampleHook(Part p,float time){
-   if(p==null)return;foreach(var animation in p.GetComponentsInChildren<Animation>(true)){var st=animation["DeployHook"];if(st==null)continue;st.enabled=true;st.normalizedTime=time;animation.Sample();st.enabled=false;}
-   var module=p.FindModuleImplementing<ModuleAnimateGeneric>();if(module!=null)module.animTime=time;
+   if(p==null)return;time=Mathf.Clamp01(time);bool sampled=false;
+   // Sample the owned clip directly: the legacy mixer may have zero effective
+   // weight or be culled even while its normalized-time field keeps advancing.
+   foreach(var animation in p.GetComponentsInChildren<Animation>(true).Where(a=>a.GetComponentInParent<Part>()==p)){
+    var st=animation["DeployHook"];if(st==null||st.clip==null||st.clip.length<=0)continue;
+    animation.Stop("DeployHook");st.speed=0;st.weight=1;st.normalizedTime=time;st.enabled=false;
+    st.clip.SampleAnimation(animation.gameObject,time*st.clip.length);sampled=true;
+   }
+   if(!sampled)throw new Exception("Owned DeployHook clip missing on hook "+p.persistentId);
+   var module=p.FindModuleImplementing<ModuleAnimateGeneric>();if(module!=null){module.animTime=time;module.animSpeed=0;module.aniState=ModuleAnimateGeneric.animationStates.LOCKED;module.animSwitch=false;}
   }
+  bool TryPrepareVisualBuffer(){
+   if(modelPoses!=null)return true;if(Time.time<bufferRetryAt)return false;
+   try{PrepareVisualBuffer();bufferError="";return modelPoses!=null;}
+   catch(Exception e){modelPoses=null;hookPoses=null;extraHookPoses=null;bufferError=e.Message;bufferRetryAt=Time.time+1;Debug.LogError("[KIUNetRecovery] buffer preparation failed: "+bufferError);return false;}
+  }
+  void BeginVisualBuffer(){bufferActive=true;bufferElapsed=0;bufferRevision=2;bufferError="";bufferRetryAt=0;bufferCompletionLogged=false;TryPrepareVisualBuffer();}
+  [KSPEvent(guiActive=true,guiName="#LHZ_ReplayBuffer")]
+  public void ReplayBuffer(){if(lockedHook==null||vessel==null||vessel.packed)return;ResetVisualBuffer();BeginVisualBuffer();DrawNet();}
   void PrepareVisualBuffer(){
    if(modelPoses!=null||lockedHook==null)return;targetSink=.65f;var recovered=Subtree(lockedHook.part).ToArray();RestorePairs(recovered.Where(p=>p.FindModuleImplementing<LHZHookProbe>()!=null&&Tip(p)!=null).ToArray());modelPoses=new List<ModelPose>();hookPoses=new List<HookPose>();extraHookPoses=new List<HookPose>();visualParts=recovered.Length;
    foreach(var p in recovered){
@@ -35,20 +53,24 @@ namespace KIU.NetRecovery {
     foreach(var t in roots)modelPoses.Add(new ModelPose{part=p,root=t,origin=t.localPosition});
     if(p.FindModuleImplementing<LHZHookProbe>()==null||Tip(p)==null)continue;
     bool selected=savedPairs.ContainsKey(p.persistentId);if(!selected&&!Deployed(p)&&!(animatedExtraHookIds??"").Split(',').Contains(p.persistentId.ToString()))continue;
-    SampleHook(p,1);var hinge=p.GetComponentsInChildren<Transform>(true).FirstOrDefault(t=>t.name=="MainHinge");if(hinge==null)throw new Exception("Recovery-buffer MainHinge missing");
+    SampleHook(p,1);var hinge=p.GetComponentsInChildren<Transform>(true).FirstOrDefault(t=>t.name=="MainHinge"&&t.GetComponentInParent<Part>()==p);if(hinge==null)throw new Exception("Recovery-buffer owned MainHinge missing");
     var h=new HookPose{part=p,hinge=hinge,deployed=hinge.localRotation,throat=hinge.InverseTransformPoint(p.transform.TransformPoint(Mouth(p))),rope=selected?SavedRope(p):-1};var mouth=hinge.TransformPoint(h.throat);float low=0,high=1;
+    SampleHook(p,0);float range=Quaternion.Angle(h.deployed,hinge.localRotation);if(Single.IsNaN(range)||range<23.9f){SampleHook(p,1);throw new Exception("DeployHook calibration did not move owned hinge through 24 degrees on hook "+p.persistentId+"; measured "+range);}
     for(int k=0;k<22;k++){float mid=(low+high)/2;SampleHook(p,mid);if(Quaternion.Angle(h.deployed,hinge.localRotation)>24)low=mid;else high=mid;}
-    h.targetTime=(low+high)/2;SampleHook(p,h.targetTime);targetSink=Math.Max(targetSink,Vector3.Dot(hinge.TransformPoint(h.throat)-mouth,part.transform.up)+.65f);SampleHook(p,1);if(selected)hookPoses.Add(h);else extraHookPoses.Add(h);
+    h.targetTime=(low+high)/2;SampleHook(p,h.targetTime);float angle=Quaternion.Angle(h.deployed,hinge.localRotation);if(Math.Abs(angle-24)>.2f){SampleHook(p,1);throw new Exception("DeployHook 24-degree calibration failed on hook "+p.persistentId+"; measured "+angle);}targetSink=Math.Max(targetSink,Vector3.Dot(hinge.TransformPoint(h.throat)-mouth,part.transform.up)+.65f);SampleHook(p,1);if(selected)hookPoses.Add(h);else extraHookPoses.Add(h);
    }
    if(hookPoses.Count!=4||hookPoses.Select(h=>h.rope).Distinct().Count()!=4)throw new Exception("Recovery-buffer requires four distinct hook/rope pairs");
    animatedExtraHookIds=String.Join(",",extraHookPoses.Select(h=>h.part.persistentId.ToString()).ToArray());
+   Debug.Log("[KIUNetRecovery] buffer prepared revision=2 hooks="+hookPoses.Count+" targetSink="+targetSink+" times="+String.Join(",",hookPoses.Select(h=>h.targetTime.ToString("R",System.Globalization.CultureInfo.InvariantCulture)).ToArray()));
   }
   public void LateUpdate(){
    TickCaptureCamera();
    if(!HighLogic.LoadedSceneIsFlight||part==null||vessel==null||vessel.packed||lockedHook==null||lockedHook.part==null||lockedHook.part.parent!=part)return;
-   PrepareVisualBuffer();if(!bufferActive)return;if(poweredShutdownPending){DrawNet();return;}bufferElapsed=Math.Min(BufferDuration,bufferElapsed+Time.deltaTime);visualSink=Depth(bufferElapsed,targetSink);guideDrop=.20f*Smooth(bufferElapsed/.8f);hookAnimationTime=hookPoses.Average(h=>Mathf.Lerp(1,h.targetTime,Smooth(bufferElapsed/.9f)));
+   if(!TryPrepareVisualBuffer()||!bufferActive)return;if(poweredShutdownPending){DrawNet();return;}bufferElapsed=Math.Min(BufferDuration,bufferElapsed+Time.deltaTime);visualSink=Depth(bufferElapsed,targetSink);guideDrop=.20f*Smooth(bufferElapsed/.8f);hookAnimationTime=hookPoses.Average(h=>Mathf.Lerp(1,h.targetTime,Smooth(bufferElapsed/.9f)));
+   foreach(var h in hookPoses.Concat(extraHookPoses))SampleHook(h.part,Mathf.Lerp(1,h.targetTime,Smooth(bufferElapsed/.9f)));
+   // Clip curves may bind a model root. Apply the common sink after sampling.
    foreach(var m in modelPoses)if(m.root!=null&&m.part!=null)m.root.localPosition=m.origin+m.part.transform.InverseTransformVector(-part.transform.up*visualSink);
-   foreach(var h in hookPoses.Concat(extraHookPoses))SampleHook(h.part,Mathf.Lerp(1,h.targetTime,Smooth(bufferElapsed/.9f)));DrawNet();
+   DrawNet();if(!bufferCompletionLogged&&bufferElapsed>=BufferDuration){bufferCompletionLogged=true;Debug.Log("[KIUNetRecovery] buffer held revision=2 elapsed="+bufferElapsed+" sink="+visualSink+" hookDegrees="+String.Join(",",hookPoses.Select(h=>Quaternion.Angle(h.deployed,h.hinge.localRotation).ToString("F3",System.Globalization.CultureInfo.InvariantCulture)).ToArray()));}
   }
   Vector3 BufferedMouth(HookPose h){return part.transform.InverseTransformPoint(h.hinge.TransformPoint(h.throat));}
   void PrepareGuides(){
@@ -76,13 +98,13 @@ namespace KIU.NetRecovery {
   }
   public BufferEvidence BufferState(){
    var mouths=hookPoses==null?new Vector3[0]:hookPoses.OrderBy(h=>h.rope).Select(BufferedMouth).ToArray();var contacts=ropes==null?new Vector3[0]:ropes.Select(r=>r.GetPosition(16)).ToArray();float error=0;for(int i=0;i<Math.Min(mouths.Length,contacts.Length);i++)error=Math.Max(error,Vector3.Distance(mouths[i],contacts[i]));
-   return new BufferEvidence{hookIds=hookPoses==null?new uint[0]:hookPoses.OrderBy(h=>h.rope).Select(h=>h.part.persistentId).ToArray(),guidePositions=guidePoses==null?new float[0][]:guidePoses.Select(g=>{var p=part.transform.InverseTransformPoint(g.transform.position);return new[]{p.x,p.y,p.z};}).ToArray(),elapsed=bufferElapsed,visualSink=visualSink,targetSink=targetSink,guideDrop=guideDrop,hookAnimationTime=hookAnimationTime,maxHookRetractionDegrees=hookPoses==null?0:hookPoses.Max(h=>Quaternion.Angle(h.deployed,h.hinge.localRotation)),maxRopeContactError=error,visualParts=visualParts,modelRoots=modelPoses==null?0:modelPoses.Count,hooks=mouths.Length,active=bufferActive,mouths=mouths.Select(p=>new[]{p.x,p.y,p.z}).ToArray(),ropeContacts=contacts.Select(p=>new[]{p.x,p.y,p.z}).ToArray(),ropeOffsets=ropeOffsets.ToArray(),ropePoints=ropes==null?new float[0][][]:ropes.Select(r=>Enumerable.Range(0,33).Select(i=>{var p=r.GetPosition(i);return new[]{p.x,p.y,p.z};}).ToArray()).ToArray()};
+   return new BufferEvidence{revision=bufferRevision,prepared=hookPoses!=null&&hookPoses.Count==4,error=bufferError,hookIds=hookPoses==null?new uint[0]:hookPoses.OrderBy(h=>h.rope).Select(h=>h.part.persistentId).ToArray(),guidePositions=guidePoses==null?new float[0][]:guidePoses.Select(g=>{var p=part.transform.InverseTransformPoint(g.transform.position);return new[]{p.x,p.y,p.z};}).ToArray(),elapsed=bufferElapsed,visualSink=visualSink,targetSink=targetSink,guideDrop=guideDrop,hookAnimationTime=hookAnimationTime,maxHookRetractionDegrees=hookPoses==null?0:hookPoses.Max(h=>Quaternion.Angle(h.deployed,h.hinge.localRotation)),maxRopeContactError=error,visualParts=visualParts,modelRoots=modelPoses==null?0:modelPoses.Count,hooks=mouths.Length,active=bufferActive,mouths=mouths.Select(p=>new[]{p.x,p.y,p.z}).ToArray(),ropeContacts=contacts.Select(p=>new[]{p.x,p.y,p.z}).ToArray(),ropeOffsets=ropeOffsets.ToArray(),ropePoints=ropes==null?new float[0][][]:ropes.Select(r=>Enumerable.Range(0,33).Select(i=>{var p=r.GetPosition(i);return new[]{p.x,p.y,p.z};}).ToArray()).ToArray()};
   }
   void ResetVisualBuffer(){
    if(modelPoses!=null)foreach(var m in modelPoses)if(m.root!=null)m.root.localPosition=m.origin;
    if(hookPoses!=null)foreach(var h in hookPoses)SampleHook(h.part,1);
    if(extraHookPoses!=null)foreach(var h in extraHookPoses)SampleHook(h.part,1);
-   modelPoses=null;hookPoses=null;extraHookPoses=null;animatedExtraHookIds="";visualParts=0;visualSink=guideDrop=bufferElapsed=0;hookAnimationTime=1;bufferActive=false;
+   modelPoses=null;hookPoses=null;extraHookPoses=null;animatedExtraHookIds="";visualParts=0;visualSink=guideDrop=bufferElapsed=0;hookAnimationTime=1;bufferActive=false;bufferError="";bufferRetryAt=0;bufferCompletionLogged=false;
   }
  }
 }

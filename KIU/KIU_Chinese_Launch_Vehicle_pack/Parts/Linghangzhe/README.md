@@ -1,6 +1,6 @@
 # Linghangzhe / 领航者
 
-Runtime and editable model source: 2.7.1-dev (source baseline 2.5.0-dev).
+Runtime: 2.7.2-dev. Editable model source remains 2.7.1-dev (source baseline 2.5.0-dev).
 Install the complete KIU directory as GameData/KIU, including
 Plugins/KIUNetRecovery.dll, the current CZ-10B RecoveryHook and Common textures.
 No test bridge or additional demo Parts ship in KIU.
@@ -69,6 +69,19 @@ animations retract 24 degrees and model roots sink/rebound over 2.6 s.
 Active/extra hook identities and buffer progress survive saves. Release uses
 native Undock and restores models. This is visual compliance, not physical
 rope or cable-tension simulation; it does not certify return guidance.
+
+2.7.2 samples each hook's owned DeployHook clip directly and verifies the actual
+hinge movement before advancing the buffer. The control window reports buffer
+progress, actual retraction, sink and calibration errors; "Replay recovery
+animation" restarts visual compliance without releasing the core. Captured
+2.7.1 saves replay once on load, then retain the new revision when saved.
+Toolbar GameEvents use instance callbacks, and recovered RealFuels engines
+shut down after all PartModules have initialized during save restoration.
+Local native tests reproduce the old suppressed-player failure and verify
+normal/core-controlled capture, powered Waterfall capture, replay, legacy
+save recovery, held-save reload and missing-clip diagnostics. A Kerbin derivative
+of the user's interstage-mounted hook assembly also restores all four hooks.
+The user's complete KSP 1.12.5 RSS/Sol environment still needs confirmation.
 
 2.7 corrects the MU handedness/winding export that mirrored ship lettering
 and CASC markings. The archived Blender and shared textures retain their

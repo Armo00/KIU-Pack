@@ -35,7 +35,7 @@ namespace KIU.NetRecovery {
    string state=KSP.Localization.Localizer.Format("#LHZ_State_"+(recoveryState=="Locked"?"Locked":tracked!=null?"Tracking":automatic?"Armed":"Ready"));
    e.text=KSP.Localization.Localizer.Format("#LHZ_HudStatus",state,e.contacts.ToString())+"\n"+KSP.Localization.Localizer.Format("#LHZ_HudMotion",e.height.ToString("F1"),e.downwardSpeed.ToString("F1"),e.relativeSpeed.ToString("F1"),e.tilt.ToString("F1"),maxCaptureSpeed.ToString("F0"))+"\n"+KSP.Localization.Localizer.Format("#LHZ_HudAperture",e.installedHooks.ToString(),e.apertureX.ToString("F2"),e.apertureZ.ToString("F2"));
    e.text+="\n"+KSP.Localization.Localizer.Format("#LHZ_HudEngine",e.poweredEngines.ToString(),e.thrust.ToString("F0"));
-   if(feedbackReason!="")e.text+="\n"+ReasonText(feedbackReason);
+   if(lockedHook!=null){var b=BufferState();e.text+="\n"+KSP.Localization.Localizer.Format("#LHZ_HudBuffer",b.elapsed.ToString("F2"),b.maxHookRetractionDegrees.ToString("F1"),b.visualSink.ToString("F2"),b.prepared?"OK":"pending",b.error);}if(feedbackReason!="")e.text+="\n"+ReasonText(feedbackReason);
    if(lastRejectReason!=""&&lastRejectReason!=feedbackReason)e.text+="\n"+KSP.Localization.Localizer.Format("#LHZ_HudLast",ReasonText(lastRejectReason));
    return e;
   }
