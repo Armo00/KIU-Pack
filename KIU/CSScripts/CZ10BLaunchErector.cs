@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using KSP.Localization;
@@ -21,6 +22,8 @@ public class CZ10BLaunchErector : LaunchClamp
     private Transform[] heightTemplates;
     private Vector3 upperOrigin;
     private int builtSegments = -1;
+    private bool rendererRefreshPending;
+    private bool editorEventsRegistered;
     private Dictionary<int, List<GameObject>> heightPools = new Dictionary<int, List<GameObject>>();
     [KSPField] public float bottomDuration = 2f;
     [KSPField] public float topDuration = 2f;
@@ -59,6 +62,33 @@ public class CZ10BLaunchErector : LaunchClamp
         if (HighLogic.LoadedSceneIsFlight && !wasAttached && !released)
         { released = true; bottomProgress = topProgress = prepareProgress = releaseProgress = 1f; }
         ApplyPose();
+        if (HighLogic.LoadedSceneIsEditor && !editorEventsRegistered)
+        {
+            GameEvents.onEditorPartEvent.Add(OnEditorPartEvent);
+            editorEventsRegistered = true;
+        }
+        // Part and variant modules can build their own renderer lists after OnStart.
+        StartCoroutine(RefreshAfterModulesStarted());
+    }
+
+    private IEnumerator RefreshAfterModulesStarted()
+    {
+        yield return null;
+        rendererRefreshPending = true;
+    }
+
+    private void OnEditorPartEvent(ConstructionEventType eventType, Part changedPart)
+    {
+        // B9 emits PartTweaked after switching geometry, including its symmetry
+        // updates. Rebuild the active list without taking a B9 assembly dependency.
+        if (eventType == ConstructionEventType.PartTweaked && changedPart != null &&
+            (changedPart == part || changedPart.symmetryCounterparts.Contains(part)))
+            rendererRefreshPending = true;
+    }
+
+    public void OnDestroy()
+    {
+        if (editorEventsRegistered) GameEvents.onEditorPartEvent.Remove(OnEditorPartEvent);
     }
 
     public bool InitializeAnimations()
@@ -171,6 +201,35 @@ public class CZ10BLaunchErector : LaunchClamp
         }
         heightUpper.localPosition = upperOrigin + Vector3.up * ((heightSegments - modelHeightSegments) * heightSegmentLength);
         builtSegments = heightSegments;
+        InvalidateRendererCaches();
+        rendererRefreshPending = true;
+    }
+
+    private void InvalidateRendererCaches()
+    {
+        part.ResetModelRenderersCache();
+        part.ResetModelMeshRenderersCache();
+        part.ResetModelSkinnedMeshRenderersCache();
+    }
+
+    private void RefreshRenderers()
+    {
+        InvalidateRendererCaches();
+        var renderers = new List<Renderer>(part.FindModelComponents<Renderer>());
+        renderers.RemoveAll(r => r == null || !r.gameObject.activeInHierarchy || r.GetComponentInParent<Part>() != part);
+        KSPUtil.RemoveNonHighlightableRenderers(renderers);
+        // Rim highlighting and the outline Highlighter keep separate caches.
+        // Exclude retired pooled sections and meshes belonging to attached Parts.
+        part.HighlightRenderer = renderers;
+        part.RefreshHighlighter();
+        if (part.highlighter != null)
+        {
+            bool highlighted = part.HighlightActive, recursive = part.RecurseHighlight;
+            // An unchanged highlight color is otherwise not applied to new bays.
+            part.SetHighlight(false, false);
+            if (highlighted) part.SetHighlight(true, false);
+            part.RecurseHighlight = recursive;
+        }
     }
 
     [KSPEvent(guiActive = true, guiActiveEditor = true, guiName = "#CZ10B_Erector_OpenBottom", active = true)]
@@ -253,7 +312,13 @@ public class CZ10BLaunchErector : LaunchClamp
 
     private void LateUpdate()
     {
-        if (!initialized || (!HighLogic.LoadedSceneIsEditor && !HighLogic.LoadedSceneIsFlight)) return;
+        if (part == null || (!HighLogic.LoadedSceneIsEditor && !HighLogic.LoadedSceneIsFlight)) return;
+        if (rendererRefreshPending)
+        {
+            rendererRefreshPending = false;
+            RefreshRenderers();
+        }
+        if (!initialized) return;
         UI_FloatEdit ui = Fields["heightSelection"].uiControlEditor as UI_FloatEdit;
         UIPartActionFloatEdit item = ui == null ? null : ui.partActionItem as UIPartActionFloatEdit;
         if (item != null) { if (item.incLarge != null) item.incLarge.gameObject.SetActive(false); if (item.decLarge != null) item.decLarge.gameObject.SetActive(false); }
