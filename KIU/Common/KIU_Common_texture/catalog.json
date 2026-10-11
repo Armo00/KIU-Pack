@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "library": "KIU_Common_texture",
-  "updated_at": "2026-10-09",
+  "updated_at": "2026-10-11",
   "path_base": "repository root",
   "game_data_directory": "GameData/KIU/Common/KIU_Common_texture",
   "description": "跨 Part 公共贴图内容索引。制作贴图前必须先读本文件，按内容搜索并检查可复用素材。",
@@ -2633,6 +2633,47 @@
       "consumers": [
         "CZ-16 Blender working draft; no runtime Part binding changed"
       ]
+    },
+    {
+      "id": "LatinBD",
+      "name": "深蓝 B / D 型号后缀字形",
+      "file_name": "Shared_LatinBD.v1.0.0.png",
+      "path": "KIU/Common/KIU_Common_texture/Shared_LatinBD.v1.0.0.png",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_LatinBD.v1.0.0",
+      "content": "透明背景，左格深蓝大写 B，右格深蓝大写 D；Arial Bold 字形，RGB 41/48/90。仅补充公共 Serial 图集中缺少的后缀，C、Z 和数字继续复用 Serial。",
+      "width": 1024,
+      "height": 512,
+      "format": "PNG",
+      "channels": "RGBA",
+      "alpha_semantics": "opacity",
+      "glyph_rects_top_left_pixels": {
+        "B": [
+          129,
+          98,
+          394,
+          413
+        ],
+        "D": [
+          640,
+          98,
+          905,
+          413
+        ]
+      },
+      "tags": [
+        "glyph",
+        "Latin",
+        "B",
+        "D",
+        "型号",
+        "CZ16"
+      ],
+      "consumers": [
+        "CZ16_S1Tank"
+      ],
+      "source": "CZ-16 0.2.2; deterministic rasterization of the same Arial Bold font used in the approved Blender preview",
+      "reuse_notes": "两格，每格 512×512；按字形墨迹矩形取 UV，保留宽高比，使用 alpha cutoff。PNG 标准朝向。",
+      "user_maintained": true
     }
   ],
   "retired_assets": [

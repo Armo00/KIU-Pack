@@ -47,6 +47,27 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     [KSPField] public bool scaleWithModel = false;
     [KSPField] public bool realFuelsVolumeIsUsable = false;
     [KSPField] public bool notifyB9ModelChanges = false;
+    // Optional structure mode. Defaults preserve every existing tank contract.
+    [KSPField] public bool upperOnly = false;
+    [KSPField] public float extensionStart = 0f;
+    [KSPField] public float structuralBayLength = 0f;
+    [KSPField] public bool showResourceMode = true;
+    [KSPField] public bool displayHeightInMeters = false;
+    // Comma-separated authored-zero roots, each with a height-following fraction.
+    // Example: "MidService:0.5". Top service geometry lives below topTransform.
+    [KSPField] public string heightFollowers = "";
+    private readonly List<KeyValuePair<Transform,float>> followers = new List<KeyValuePair<Transform,float>>();
+    private readonly Dictionary<Transform,float> followerSteps = new Dictionary<Transform,float>();
+    // Optional lift in a stacked structure. A target on the connected upper
+    // sections supplies the endpoint; car dimensions remain unscaled.
+    [KSPField] public string linkedLiftSpace = "";
+    [KSPField] public string linkedLiftCar = "";
+    [KSPField] public string linkedLiftTarget = "";
+    [KSPField] public string linkedLiftAnimationName = "";
+    [KSPField] public bool linkedLiftAvailable = false;
+    [KSPField] public float linkedLiftGround = 0f;
+    private float nextLiftCheck;
+
     [KSPField] public string extensionLabel = "Extension segments";
     [KSPField] public string specLabel = "Tank Spec";
     [KSPField] public string modeLabel = "Tank mode";
@@ -97,6 +118,8 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         Fields["layout"].guiName=KSP.Localization.Localizer.Format(layoutLabel);
         Events["AddExtension"].guiName=KSP.Localization.Localizer.Format(addLabel);
         Events["RemoveExtension"].guiName=KSP.Localization.Localizer.Format(removeLabel);
+        Fields["tankMode"].guiActiveEditor=showResourceMode;
+        Fields["layout"].guiActiveEditor=!upperOnly;
         maxSegments=Math.Max(0,maxSegments);
         ConfigureSegmentControl();
         InitializeModel();
@@ -107,25 +130,64 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         // MFT's own OnStart must finish before updating its internal tank list.
         StartCoroutine(AfterModulesStarted());
     }
+    private float ControlValue(int count) { return displayHeightInMeters ? baseHeight+count*segmentLength : count; }
     private void ConfigureSegmentControl()
     {
         UI_FloatEdit ui=Fields["extensionCount"].uiControlEditor as UI_FloatEdit;
         if(ui==null)return;
-        ui.minValue=0;ui.maxValue=maxSegments;
+        ui.minValue=displayHeightInMeters?baseHeight:0;ui.maxValue=ControlValue(maxSegments);
         // One slider interval spans the entire configured range, including its end.
-        ui.incrementLarge=Math.Max(1,maxSegments+1);ui.incrementSmall=1;ui.incrementSlide=1;
+        float step=displayHeightInMeters?segmentLength:1f;
+        ui.incrementLarge=ui.maxValue-ui.minValue+step;ui.incrementSmall=step;ui.incrementSlide=step;
+        if(displayHeightInMeters)Fields["extensionCount"].guiFormat="F1";
         ui.affectSymCounterparts=UI_Scene.None;
         ui.onFieldChanged=OnSegmentControlChanged;
-        extensionCount=Math.Max(0,Math.Min(maxSegments,segments));
+        extensionCount=ControlValue(Math.Max(0,Math.Min(maxSegments,segments)));
     }
     public void OnSegmentControlChanged(BaseField field,object previous)
     {
-        int requested=Mathf.Clamp(Mathf.RoundToInt(extensionCount),0,maxSegments);
+        int requested=Mathf.Clamp(Mathf.RoundToInt(displayHeightInMeters?(extensionCount-baseHeight)/segmentLength:extensionCount),0,maxSegments);
         if(requested!=segments)SetSegmentCount(requested,true);
-        extensionCount=segments;
+        extensionCount=ControlValue(segments);
+    }
+    private void SetLinkedLiftAvailable(Transform car,bool available)
+    {
+        if(linkedLiftAvailable==available && car.gameObject.activeSelf==available)return;
+        linkedLiftAvailable=available;
+        car.gameObject.SetActive(available);
+        foreach(PartModule module in part.Modules) {
+            ModuleAnimateGeneric animation=module as ModuleAnimateGeneric;
+            if(animation==null || string.IsNullOrEmpty(linkedLiftAnimationName) || animation.animationName!=linkedLiftAnimationName)continue;
+            if(animation.Events.Contains("Toggle"))animation.Events["Toggle"].active=available;
+            if(animation.Actions["ToggleAction"]!=null)animation.Actions["ToggleAction"].active=available;
+        }
+        rendererRefreshPending=true;
+    }
+    private void UpdateLinkedLift()
+    {
+        if(string.IsNullOrEmpty(linkedLiftSpace) || Time.unscaledTime<nextLiftCheck)return;
+        nextLiftCheck=Time.unscaledTime+.25f;
+        Transform space=part.FindModelTransform(linkedLiftSpace),car=part.FindModelTransform(linkedLiftCar);
+        if(space==null || car==null)return;
+        Part current=part;Transform target=null;var visited=new HashSet<Part>();
+        while(current!=null && visited.Add(current)) {
+            target=current.FindModelTransform(linkedLiftTarget);
+            if(target!=null)break;
+            AttachNode next=current.FindAttachNode(topNode);
+            current=next==null?null:next.attachedPart;
+        }
+        // A standalone lower tower has no passenger landing. Do not leave its
+        // authored cabin suspended in space, or offer a nonfunctional lift.
+        if(target==null) { SetLinkedLiftAvailable(car,false);return; }
+        float travel=space.parent.InverseTransformPoint(target.position).y-linkedLiftGround;
+        if(travel<=.1f || float.IsNaN(travel) || float.IsInfinity(travel)) { SetLinkedLiftAvailable(car,false);return; }
+        Vector3 stretch=space.localScale;stretch.y=travel;space.localScale=stretch;
+        Vector3 inverse=car.localScale;inverse.y=1f/travel;car.localScale=inverse;
+        SetLinkedLiftAvailable(car,true);
     }
     public void LateUpdate()
     {
+        if(modulesStarted && upperOnly)UpdateLinkedLift();
         if(modulesStarted && scalePending) {
             scalePending=false;
             SynchronizeScale(HighLogic.LoadedSceneIsEditor);
@@ -182,6 +244,24 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         ReadScale();
         foreach(Transform child in template.parent)
             if(child.name.StartsWith("TankExtension_"))copies.Add(child.gameObject);
+        if(upperOnly) {
+            if(structuralBayLength<=0)throw new ArgumentException("upperOnly requires structuralBayLength");
+            foreach(string entry in heightFollowers.Split(',')) {
+                if(string.IsNullOrEmpty(entry.Trim()))continue;
+                string[] values=entry.Trim().Split(':');float fraction;
+                if((values.Length!=2 && values.Length!=3) || !float.TryParse(values[1],NumberStyles.Float,CultureInfo.InvariantCulture,out fraction) || fraction<0 || fraction>1)
+                    throw new ArgumentException("Invalid heightFollowers entry: "+entry);
+                Transform follower=part.FindModelTransform(values[0]);
+                if(follower==null || follower==lower || follower==upper)throw new ArgumentException("Missing or conflicting height follower: "+entry);
+                followers.Add(new KeyValuePair<Transform,float>(follower,fraction));
+                if(values.Length==3) {
+                    float step;
+                    if(!float.TryParse(values[2],NumberStyles.Float,CultureInfo.InvariantCulture,out step) || step<=0)
+                        throw new ArgumentException("Invalid height follower step: "+entry);
+                    followerSteps[follower]=step;
+                }
+            }
+        }
         initialized=true;
     }
     private void ReadScale()
@@ -238,7 +318,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         ApplyGeometry(count,HighLogic.LoadedSceneIsEditor);
         NotifyModelChanged();
         segments=count;
-        extensionCount=count;
+        extensionCount=ControlValue(count);
         if(symmetry)
             foreach(Part other in part.symmetryCounterparts) {
                 ConfigurableTank m=other.FindModuleImplementing<ConfigurableTank>();
@@ -266,7 +346,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     private void ApplyGeometry(int count,bool moveAttached,bool moveRadial)
     {
         InitializeModel();
-        int low=LowerCount(count),high=UpperCount(count);
+        int low=upperOnly?0:LowerCount(count),high=upperOnly?count:UpperCount(count);
         float down=low*segmentLength,up=high*segmentLength;
         float baseBottom=-baseHeight*originFraction,baseTop=baseBottom+baseHeight;
         float newBottom=(baseBottom-down)*modelScale,newTop=(baseTop+up)*modelScale;
@@ -312,7 +392,27 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
             Destroy(old);
         }
         copies.Clear();
-        for(int i=0;i<count;i++) {
+        if(upperOnly) {
+            float total=count*segmentLength;
+            int bays=Mathf.FloorToInt((total+0.0001f)/structuralBayLength);
+            float remainder=Mathf.Max(0,total-bays*structuralBayLength);
+            int needed=bays+(remainder>0.0001f?1:0);
+            for(int i=0;i<needed;i++) {
+                float length=i<bays?structuralBayLength:remainder;
+                GameObject obj=Instantiate(template.gameObject);obj.name="TankExtension_"+i;
+                obj.transform.SetParent(template.parent,false);
+                obj.transform.localRotation=template.localRotation;
+                Vector3 scale=template.localScale;scale.y*=length/structuralBayLength;
+                obj.transform.localScale=scale;
+                obj.transform.localPosition=Vector3.up*(extensionStart+i*structuralBayLength);
+                obj.SetActive(true);copies.Add(obj);
+            }
+            foreach(var follower in followers) {
+                float offset=total*follower.Value,step;
+                if(followerSteps.TryGetValue(follower.Key,out step))offset=Mathf.Ceil((offset-.00001f)/step)*step;
+                follower.Key.localPosition=Vector3.up*offset;
+            }
+        } else for(int i=0;i<count;i++) {
             bool below=(i%2)==0;int index=i/2;
             GameObject obj=Instantiate(template.gameObject);obj.name="TankExtension_"+i;
             obj.transform.SetParent(template.parent,false);obj.transform.localRotation=template.localRotation;
@@ -326,7 +426,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         tankLength=(baseHeight+count*segmentLength)*modelScale;layout=low+" / "+high;
         tankDiameter=baseDiameter*modelScale;
         UpdateTankSpec(count);
-        extensionCount=count;
+        extensionCount=ControlValue(count);
         Events["AddExtension"].active=false;Events["RemoveExtension"].active=false;
         InvalidateRendererCaches();
         rendererRefreshPending=true;
@@ -445,7 +545,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         return (float)((defaultCost+segments*costPerSegment)*VolumeScale-defaultCost)-scaleCost;
     }
     public ModifierChangeWhen GetModuleCostChangeWhen() { return ModifierChangeWhen.CONSTANTLY; }
-    public Vector3 GetModuleSize(Vector3 defaultSize,ModifierStagingSituation sit) { return Vector3.up*(segments*segmentLength*modelScale); }
+    public Vector3 GetModuleSize(Vector3 defaultSize,ModifierStagingSituation sit) { return upperOnly?Vector3.zero:Vector3.up*(segments*segmentLength*modelScale); }
     public ModifierChangeWhen GetModuleSizeChangeWhen() { return ModifierChangeWhen.CONSTANTLY; }
 }
 
