@@ -1,0 +1,3359 @@
+{
+  "version": "3.5.7",
+  "integration_date": "2026-10-11",
+  "source_archive": "KCLV_TextureRepair.v3.5.7_install.zip",
+  "source_archive_sha256": "83bd674b9af4b617aa662bcde46a8ca616af62943ba008f184eb2a3030138d58",
+  "baseline_commit": "a532001a596b9ba77381db6791d12742d34e4f45",
+  "branch": "codex/kclv-textures-v3.5.7",
+  "user_reported_package_native_testing_passed": true,
+  "integration_native_testing_performed": false,
+  "modeling_changes_this_migration": false,
+  "archive_note": "Migration of frozen tested runtime bytes; no Blender or MU authoring changes/new model version.",
+  "required_existing_dependencies": [
+    "ModuleManager",
+    "B9PartSwitch"
+  ],
+  "uninstall_old_addon": "GameData/KIU_CZFamily",
+  "models": 73,
+  "parts": 75,
+  "public_textures": [
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_CASC_Blue.v3.5.3.dds",
+      "sha256": "f334c2046364dc13264ca30c7faa969b92b5cf7bf090de8b4ce8004cf7f76ee8",
+      "bytes": 2796344
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_CASC_Classic.v3.5.3.dds",
+      "sha256": "0f9b4dca1fc9837d02947ec52fe6866860c29d9eee230ce22ac4c4aaa0810b2d",
+      "bytes": 2796344
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_CASC_Teal.v3.5.3.dds",
+      "sha256": "399cbd2b6e606e706518a149c194efa2735440fddef0574143e5ce492ff34830",
+      "bytes": 2796344
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_CheckerPalette.v3.3.0.dds",
+      "sha256": "40ac2d927fbe29ec02ee14f2fb78b0c1315534a24b6da1c8967f61e01ae3dd45",
+      "bytes": 2872
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_ChinaFlag_2F.v3.5.3.dds",
+      "sha256": "e832b68c34fadf596c52c20bf1d8f9120d0ace648ac3e89dad32661c64279ac2",
+      "bytes": 2796344
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_ChinaFlag_Crimson.v3.5.3.dds",
+      "sha256": "ac6b330dab117309c26ee66314f8c0670e2c61a8ba66f3cecbadc006c21eb3f8",
+      "bytes": 2796344
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_ChinaFlag_Red.v3.5.3.dds",
+      "sha256": "2ee286abfb4adef52c378489767b3ee11afa17717da7cc0574b119bcfb1f6550",
+      "bytes": 2796344
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_ChinaSpaceBold.v3.5.4.dds",
+      "sha256": "e24c457fdbc095f99253366c6ad104fc16b37f525b866f36e6fbaa3f988803e9",
+      "bytes": 1398288
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_ChinaSpaceText.v1.0.0.png",
+      "sha256": "009e41630bd16cbb9d348e0ef1ae49d230ad9ef86ce798da0f7b321da3317a3f",
+      "bytes": 10475
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_CMS.v3.3.1.dds",
+      "sha256": "0020e1711bffc95984dd80078a5ebb069ff15e8910104bb439a99a47a5927e15",
+      "bytes": 5592560
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_CNSA.v3.5.7.dds",
+      "sha256": "a0fb1bc0c967306cb4c14177fa54d444e950f034a84df191634f6597d85364fc",
+      "bytes": 5592560
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_CZ6A_FairingMark.v3.5.7.png",
+      "sha256": "79c3fdfdf2aeecccd6f4ea6ba6b979c1296cbe3b439fcf8d055771890c2ed320",
+      "bytes": 125573
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_CZ6Blue.v3.5.0.dds",
+      "sha256": "d62235678b7e2c1b8fe81f3e6fe9896664797b42c69bfee52cbeb22d641f52a2",
+      "bytes": 152
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_ExtraGlyphs.v3.5.4.dds",
+      "sha256": "93463ad5d811771eb7216c97af59ee5630fd4c946d5d8c5eee792d8149c8f1ff",
+      "bytes": 2796368
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_FairingNormal.v3.5.2.png",
+      "sha256": "dda0a360f3dee91694b124667e5bb54de84ee58857aa7e32d5ba1ab0d8d5821f",
+      "bytes": 58375
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2.png",
+      "sha256": "50761dd383077ec328caa7e6882927b1824376c5b890c52caff5a5cd1970148d",
+      "bytes": 78
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_LatinF.v1.0.0.png",
+      "sha256": "bf09addb7e8ae7c1d75056bf6d29c0e84925f185bfb1d3e168e66aa537a4264e",
+      "bytes": 943
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_LM.v3.3.1.dds",
+      "sha256": "06e8cebbd4a2eb3f3d671279659e0b42dc83533047df875464f91b82702d920a",
+      "bytes": 5592560
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_LM_Badge.v3.5.3.dds",
+      "sha256": "b094898088b4a75a3997fe64846eed9870783361fe1815d528da18bfa0788b9f",
+      "bytes": 2796344
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_LM_OpenOrbit.v3.5.3.dds",
+      "sha256": "6946b942e9000e19d66def861107f8b5b08adfbcc5c3411be7a8d51bcddc7aac",
+      "bytes": 2796344
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_LongMarch.v3.3.1.dds",
+      "sha256": "a91d6df17dddb259c7e1257fc9ef6c2f8401284022d09d490d3d0e822de60fae",
+      "bytes": 5592560
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_LongMarch_WhitePaint.v3.5.5.png",
+      "sha256": "9499874bed788635ffb97d92fb8ce4bfe294b74005e3a25146d340468d9e5f71",
+      "bytes": 433407
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_MatteSpec.v1.0.0.png",
+      "sha256": "6fa466e21df6bf014ed03517399a711777f572b1f0be6a561b947790cda9f634",
+      "bytes": 69
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_PlatformSigns.v3.3.0.dds",
+      "sha256": "a2b45b71637dae64a03a30a6e012a3e2da01249ca91022066a99fffe267d5ac5",
+      "bytes": 349672
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_Serial.v3.5.4.dds",
+      "sha256": "d92d700ade56586237bf5ca96103762cbb95d066541b9b6f8f824a3632cc4d8a",
+      "bytes": 5592560
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_UpperStageNormal.v3.5.2.png",
+      "sha256": "e81fc3fa98df10673964b60c14445d169156f2d8f94ff899c1cbf8ac820a685c",
+      "bytes": 63020
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_WenchangBold.v3.5.4.dds",
+      "sha256": "151039f1c8e423abd1919339d830e9dc66bdc3a6a18826f2187b8560fc41e17d",
+      "bytes": 2796432
+    },
+    {
+      "path": "KIU/Common/KIU_Common_texture/Shared_White.v3.3.0.dds",
+      "sha256": "bb9f6098939c5f432afe6e880badbe3f632d75a61941bf9a1ac5696b4cf68489",
+      "bytes": 152
+    }
+  ],
+  "files": [
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Compatibility/TextureRepair/CoverState.v3.5.2.cfg",
+      "bytes": 529,
+      "sha256": "4c6c765832675183af44c5d8c98fbad8553203b911c6541bdb1c1975e47398fc"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Compatibility/TextureRepair/CZ_Family.v3.5.7.cfg",
+      "bytes": 17988,
+      "sha256": "99a455bfd80942b69a03f503aacd64bb201895f42a9546195a64cbe05757dc10"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Compatibility/TextureRepair/FinishControl.v3.5.2.cfg",
+      "bytes": 2230,
+      "sha256": "3614429180d4aa336e07591c9b1e651fbdfa5c3ecfdf3523e0b350071cc00225"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Compatibility/TextureRepair/KCLV_Expansion.v3.5.7.cfg",
+      "bytes": 6118,
+      "sha256": "cf521453baed6e59a054606ed6e096f5b08f75ebfd996f572033b9b941709f21"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Localization/TextureRepair.cfg",
+      "bytes": 954,
+      "sha256": "3da001d30460c2f176822cc3d372ee704e562776bf291fb2599aefb4d6467a76"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Adapter/CZ2F_Adapter.cfg",
+      "bytes": 2472,
+      "sha256": "ebab3647cde785b69554e7d37b464b535e59457ce4ff1011ef08e632f59b4bbb"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/EscapeTower/CZ2F_ET_Lower.cfg",
+      "bytes": 3043,
+      "sha256": "8e6c26513c540c3a30da3cf83af6aa30a2b56a2c75dad09de35d1d9235626703"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/EscapeTower/CZ2F_ET_Upper.cfg",
+      "bytes": 2933,
+      "sha256": "f279a3e0a82eeeced394aad6ed5cc02901f26e5ad7a2a4666977f3ad49419db6"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Fairing/CZ2F_Fairing_Lower.cfg",
+      "bytes": 1478,
+      "sha256": "6bbe083c25cc8c7fa15928edb4b56468074628c40362f1fe65ce5224acf18f11"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Fairing/CZ2F_Fairing_Middle.cfg",
+      "bytes": 3376,
+      "sha256": "788cd447440f358c57be21b6bd37120f42212a62da0de9f6f6f394be568d2d7a"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Fairing/CZ2F_Fairing_Upper.cfg",
+      "bytes": 2034,
+      "sha256": "d0cfc4f5549c1fa2a7b1f30573e2d3a1a4e27406c1993263d86d9d5e69043808"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Fairing/high-altitude_abort_Engine.cfg",
+      "bytes": 2563,
+      "sha256": "285666cb0ab0c4c40f73592fa4adf5b59e0b90cf2c7c27da23b3ce14dc3832b8"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Interstage/CZ2F_Interstage_1-2.cfg",
+      "bytes": 1376,
+      "sha256": "20bb842db00c3ae0b222da39f651e19eaa4f40e3984029c74bc7d212d4c5f98a"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Tanks/CZ2F_S1_Tank.cfg",
+      "bytes": 1360,
+      "sha256": "67b8ca652b74b6be2cc6b5c445d9992ce88f1339c3ebc89c5ff8d5b1f8d82726"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Tanks/CZ2F_S2_Tank.cfg",
+      "bytes": 1388,
+      "sha256": "70d0da910a77b6d7072069532e07a0fb920d5b1c502da5f4bafa9247b86c2461"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Adapter/CZ3B_Payload_Adapter.cfg",
+      "bytes": 1180,
+      "sha256": "73e57603cedfe341c10864a56b69d9c6ae524200893830dc7f4c2e8cc18f8f97"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Command/CZ3B_Instrument_Bay1.cfg",
+      "bytes": 2312,
+      "sha256": "044f33608a9d92573ccdf6aa8a4c599f114ac35e1a8d4da8da3ab2675be4519e"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Command/CZ3B_Instrument_Bay2.cfg",
+      "bytes": 2306,
+      "sha256": "3a60af103d3cc20e76da6c999a688d6662cb34b97cef59d0f51b0a1ebfd60606"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Fairing/CZ3B_4200_Fairing.cfg",
+      "bytes": 2682,
+      "sha256": "08e8b958188220e6f506ef994a8082aee283dd7980e98274922e1ea1830cc6f6"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Interstage/CZ3B_1-2_Interstage.cfg",
+      "bytes": 1089,
+      "sha256": "ea0403d8a139516f77d8e80a487970933016f3c2e956df7d1604b0ef54389fb9"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Interstage/CZ3B_INTERSTAGE_2-3.cfg",
+      "bytes": 1248,
+      "sha256": "6a2e8b24923b75f1ce96b4e93324356e79f7c541ee9d798bc8040315bf97d4ea"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ3B_Booster_Tank.cfg",
+      "bytes": 8870,
+      "sha256": "05374b7300b597fd24dffcb180d0802bb9270a1993453e99800e65b04816bc1f"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ3B_First_Stage_Tank.cfg",
+      "bytes": 1830,
+      "sha256": "db6106aa2b04e1f9949692345ec5ca74d82019d3d62832e4b5b2c737ad94585d"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ3B_S3_Tank.cfg",
+      "bytes": 3942,
+      "sha256": "5b0d23ebe8d506f2699ff2473cf7b00f762014d76dffecccf94fa2bdc5635362"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ3B_Stage_2_Tank.cfg",
+      "bytes": 1636,
+      "sha256": "bde26383e86dd1278e017c2553828eb47393ffe71e0619faa778421144c25e2a"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Adapter/CZ6_Adapter.cfg",
+      "bytes": 1509,
+      "sha256": "f956109cb6a9fc74822584ecaf2d212ab2ed3eede45dbe3e4667db082183ee82"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Fairing/CZ6_PF_26.cfg",
+      "bytes": 1904,
+      "sha256": "ab8fae06e2a1a737aa9bfddf7ad4977746358c1e59c9f1947d558030958e4a2e"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Interstage/CZ-6_Interstage.cfg",
+      "bytes": 2755,
+      "sha256": "254f6ccc130dbbfd6c71324ce64995dd05d26431b379d6e8c6e3f2c6b166351a"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Interstage/CZ-6_Interstage_2-3.cfg",
+      "bytes": 1339,
+      "sha256": "a666169360e521d16ee1eb7d4aecd1a87606527318eb40f912045b6169e233e4"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/shell/CZ-6_Engine_Shell.cfg",
+      "bytes": 995,
+      "sha256": "13d061f2d0896ac1aea6e25c75be5c04654a735c9ea3ab875e9d3e099c708461"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Tanks/CZ-6_1st_Tank.cfg",
+      "bytes": 2350,
+      "sha256": "530428d3fef96beb37d743ad68b0aa80f647b1498ba5390f41be8e0c4ce8df6c"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Tanks/CZ-6_2nd_tank.cfg",
+      "bytes": 1178,
+      "sha256": "8f3d0d2125ef97d9cd238fa3c47c304d208961030a05f5ceb57c49c3e1da3e28"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Tanks/CZ-6_3rd_tank.cfg",
+      "bytes": 2941,
+      "sha256": "7d0268b88fd66a022e8fcb1db38de4441404bae20eb2497d427a08f97b2cd56f"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Adapter/CZ6A_Adapter.cfg",
+      "bytes": 2359,
+      "sha256": "ee1d70c700ff61898bde43b6c4fefa0f9e819d1a91b32a3e40c0cb448c4c0253"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Booster/CZ6A_SRB.cfg",
+      "bytes": 2118,
+      "sha256": "7022e83081db051b53c07067a9cc241c81a05dcb7707dfc47aacc26f4b7872d4"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Fairing/CZ6A_PF_420.cfg",
+      "bytes": 3004,
+      "sha256": "0e650d1a8cfc862aa85f60e7ee4cc1fd6cf53dc52a45c5661436be44651fa11f"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Interstage/CZ6A_Interstage_1-2.cfg",
+      "bytes": 1418,
+      "sha256": "30a0044ca4054ec53982e54530828804cc5fdb300137f3ad3cbea019281b9fd0"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Separator/Separator.cfg",
+      "bytes": 2692,
+      "sha256": "5968d6990ca3023babe40a95d132b7939468bafacce31ca09bbe1b57094c9ce3"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Shell/CZ6A_EngineShell_1st.cfg",
+      "bytes": 1007,
+      "sha256": "60f89b7baffdca5f54d94bbdab511486f65360ff709a75fcaf98f3a255d7d39b"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Tanks/CZ6A_S1_Tank.cfg",
+      "bytes": 1560,
+      "sha256": "32cde8b00516e181d5f2fbbbddb6841ebcd41d60096fc6f6f362b45a561af589"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Tanks/CZ6A_S2_Tank.cfg",
+      "bytes": 2337,
+      "sha256": "2f52292263db3fa52671fd633d1a1a55a07e8d1ee859eb7c24e57f0ef60e5cf2"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Adapter/CZ7_Adapter.cfg",
+      "bytes": 2220,
+      "sha256": "f6b3e0a56256df299b53f27c76007158e5aa2d3f803208e1fe2b8700cf728ae6"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Fairing/CZ7_PF_420.cfg",
+      "bytes": 2143,
+      "sha256": "7bb08e49be7df9644e13c603ddca7b8e95df0d0b10451cc17fb6ce23a4de4653"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Fairing/CZ7_PF_SRB.cfg",
+      "bytes": 2570,
+      "sha256": "cefa28c76a118a3faa6e3170a744cf923bef80e0b62e73af7667eb1ec7b16102"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Interstage/CZ7_Interstage_1-2.cfg",
+      "bytes": 3121,
+      "sha256": "5f791c762ab4fea728f5469a92a4088f084d813fda8f8d66876de2a35a94ec09"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Shell/CZ7_EngineShell_1st.cfg",
+      "bytes": 1040,
+      "sha256": "107e9afc7309bfe3d7638873a4f20b610b0237880fc47adea90bbe2977a8a06b"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Shell/CZ7_EngineShell_Booster.cfg",
+      "bytes": 877,
+      "sha256": "56e7c3cceadef4820bfede1916505fb58370689cd7e31c119ca1c2b1b356be7b"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ7_Booster_Tank.cfg",
+      "bytes": 2931,
+      "sha256": "24e4bd4e6560b9bb039688546f0b6d7cb45d93d6503e4a995af2d034c8402d0a"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ7_S1_Tank.cfg",
+      "bytes": 3318,
+      "sha256": "0b3bd332e904d272c151d01c5e268cf222cc3ff08ecceb5a05e651850959c6cf"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ7_S2_Tank.cfg",
+      "bytes": 6445,
+      "sha256": "61b435d71f5e95863358c364acb3ea80d809d3feabf936835ab029fe8ca928f3"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Command/CZ7A_Instrument_Bay.cfg",
+      "bytes": 2218,
+      "sha256": "bfa52f0c03565ecd2cb47cf857c2bea0518a652b133f30782e810ee246a2318e"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Fairing/CZ7A_PF_420_1000.cfg",
+      "bytes": 1827,
+      "sha256": "0a171fbb0df8d617acb3b3bf0f5e654ec4f0524bc53c00807d78af33c9fe4143"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Fairing/CZ7A_Sgmt_PF_L.cfg",
+      "bytes": 1130,
+      "sha256": "de3b6a1b5016b1316052d57ccfb869e3df822e57314916e9137b17dd61ab6a67"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Fairing/CZ7A_Sgmt_PF_M.cfg",
+      "bytes": 1459,
+      "sha256": "c2059d1f69042a33641d8edfab7be55cd9a28bc44625842cf2017bb85fe7f67a"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Fairing/CZ7A_Sgmt_PF_U.cfg",
+      "bytes": 1814,
+      "sha256": "0735b80ea05f5787e1476df40f619d101c891f392708c70abea79258cf06f539"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/SolidBooster/CZ7A_Booster_SRB.cfg",
+      "bytes": 3183,
+      "sha256": "758c271de9635058b013cf5ae267630e25a308de32a83b7b884ffc1100e4b3dc"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Tanks/CZ7A_S2_Tank.cfg",
+      "bytes": 6590,
+      "sha256": "479c92a042b7500d172a9b59396b99bb7d23d13c49ee7df3af46f614002fbfb8"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-8/Fairing/CZ8_PF_101.cfg",
+      "bytes": 2061,
+      "sha256": "9049b1e82167cf235e6a6219ee17825bbda5d8248f3ef1315da75a0ac95471a6"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-8/Fairing/CZ8_PF_128.cfg",
+      "bytes": 1864,
+      "sha256": "7a21dac72357081431a1adcb22fee54b8ced2d9635bb5ba8c05da5213de65cab"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-8/Interstage/CZ-8_INTERSTAGE.cfg",
+      "bytes": 1234,
+      "sha256": "87010fc3482514a53119a22036fcfbfbe0d0633cbf759802a9d3bc0b57b5789d"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Engines/YF-100/YF_100.cfg",
+      "bytes": 4046,
+      "sha256": "36f535fb6f7b0875b923c6706b090b42e331b1a21c4531744fe9174621c61aab"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Engines/YF-100/YF_100M.cfg",
+      "bytes": 3671,
+      "sha256": "a39b478acc142f6c1f1907d73ade6222a4af0e7c9c703648c7d86076e503d159"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Engines/YF-115/YF-115.cfg",
+      "bytes": 4112,
+      "sha256": "5bd1621e7319eab16d316799062f4b215a8dcbc56955dd960d63b61892b46d67"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Engines/YF-75_Seriese/YF-75.cfg",
+      "bytes": 3559,
+      "sha256": "9115e10b3aee6730e2052797383fc320c51da0eb67188da93a8a281a3ba9d2ea"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/LaunchPads/CZ7LAUNCHPAD/CZ-7_Launch_Pad.cfg",
+      "bytes": 3774,
+      "sha256": "4ccbf10dbe05e0e4888cbd1afe9c86aec4e9953440f2d250974974df333b20c5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/NoseCone/2.25mCone.cfg",
+      "bytes": 1041,
+      "sha256": "3c113411923ef2c03e6ad710da88d6f334437745d6356a68617ff4280a4e48f0"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/NoseCone/2mCone.cfg",
+      "bytes": 911,
+      "sha256": "cfb5767dd298295d367e919de3a50767acfccc2e4960f0ef75b677df920eaab8"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Wing/CZ-7Wing.cfg",
+      "bytes": 1498,
+      "sha256": "e78be74b94bc52b88599613f309820b40f5a56a53332dfb23a77cad2def5f4ed"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Wing/CZ2F_Wing.cfg",
+      "bytes": 863,
+      "sha256": "7107a9d6301527415e0aa4b53dde53e3ae46a09b7de24c3079dad791d96a20ba"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Adapter/YL-1_Adapter.cfg",
+      "bytes": 2127,
+      "sha256": "bb02da46bac3015233cfdbd622291db2b7f663328ad12974263ab19fbc07dcd9"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Booster/YL-1_Booster.cfg",
+      "bytes": 3770,
+      "sha256": "b3406abf210d07eb69154cacf7d9151c9d712c40179d0ffdfa58969eac3d9ae0"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Booster/YL-1_Booster_NoseCone.cfg",
+      "bytes": 796,
+      "sha256": "d14b0cafdd91265492766a5a8fba3564b3cdd8ef40a8f20016ff1802bf97be13"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Booster/YL-1_Booster_Separator.cfg",
+      "bytes": 2378,
+      "sha256": "08fd8c35f7294ca29ad7a4c3abd9f9045f6771e2fd0d1c61e85eb6db809ec281"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Fairing/YL-1_Fairing_4200.cfg",
+      "bytes": 2527,
+      "sha256": "b103cb9d6cde638ae7200969709e62ae8175b1f6b0e128e0736094527ad54857"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Interstage/YL-1_Interstage1-2.cfg",
+      "bytes": 1023,
+      "sha256": "5ee9f9818a9b182e0705aaec6e39c3f1eebe29f35798d6299e9e1599e66bb101"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Interstage/YL-1_Interstage2-3.cfg",
+      "bytes": 1023,
+      "sha256": "d0de5bfb6844e05bf1092c3b661bc66950523213952d519081ebe12a1f84191e"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Stage1/YL-1_Stage_1.cfg",
+      "bytes": 1934,
+      "sha256": "72707a17cfdf13f5bf413b02cb04daff43e39e335873822362cfe7c14d439224"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Stage2/YL-1_Stage2.cfg",
+      "bytes": 1931,
+      "sha256": "a07d1e3056bdff020be2b992af341a9cc7c0594afb3967ee9436bc5e5ed33d30"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Stage3/YL-1_Stage3.cfg",
+      "bytes": 2190,
+      "sha256": "e94de5d0a6c1a6533a55e9ac500d1f7c791a53a1d632bdd41c899aeb741e67ae"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Stage3/YL-1_Stage3_RCS.cfg",
+      "bytes": 1858,
+      "sha256": "485e33d7e83549bbbeb8cd8e4ba6751bf5b707d485c426ce7e7314909c9827d5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Base_CZ-3_Adapter_CZ3BAdapter.v3.3.0.dds",
+      "bytes": 174904,
+      "sha256": "2c601a2b7fc49b93e258297e3435d6b440db16d9c5d2d63bb21aa96844e98992"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Base_CZ-3_Command_CZ3B_YQC2.v3.3.0.dds",
+      "bytes": 174904,
+      "sha256": "ab123c8a62a2e4db1adf306bfd383348116c3e17b16ac02bc7f1a38d5b8b5dce"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Base_CZ-3_Interstage_CZ-3B_INTERSTAGE2-3.v3.3.0.dds",
+      "bytes": 699192,
+      "sha256": "c68f64d10ebd888c903d493f6d70de326c34afc9f8af778c1b99b8cae0cda1c7"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Base_CZ-3_Tanks_CZ-7A_STAGE_3_blank.v3.5.4.dds",
+      "bytes": 2796344,
+      "sha256": "3fabb0fa2e17c148150486e49520a00741848947306bb9058ceccf56d1e05127"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Base_CZ-6A_Adapter_CZ6A_Adapter.v3.3.0.dds",
+      "bytes": 43832,
+      "sha256": "c4d663d76bb55a740575b0583c49b38f9c49dceb0c2df0e509e65652c82af888"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Base_CZ-6A_Booster_CZ-6ABooster.v3.3.0.dds",
+      "bytes": 699192,
+      "sha256": "255d92226b920113d9f6f4afa2461d51c52806933fe1643a1f95fd2d63504c57"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Base_CZ-6A_Separator_CZ-6ABooster.v3.3.0.dds",
+      "bytes": 174904,
+      "sha256": "85f513fdcd54673c3cac3fda68f985c75780535db243d4873a88e75cefa973b3"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Base_CZ-6A_Shell_CZ-6A_Engine_Shell_Map.v3.3.0.dds",
+      "bytes": 699192,
+      "sha256": "234f181c5ed9ceff5d78445dda0744eede033bd43eef987bf1944e780c2042b7"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Base_CZ-7_Adapter_CZ7_Adapter.v3.3.0.dds",
+      "bytes": 699192,
+      "sha256": "33d01c67ac7fee50cf816af52b4c73f51a06f48f583e4f3c125eecfef83367f9"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Base_CZ-7_Fairing_CZ7FAIRING.v3.3.0.dds",
+      "bytes": 699192,
+      "sha256": "148599e141e476d12680393f497b07bddb5cb00b0150a5d6dd3cc524f20c05ec"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Base_CZ-7_Interstage_CZ7Interstage.v3.3.0.dds",
+      "bytes": 174904,
+      "sha256": "b93d922d2979b069edd3daf3d10d02d41a086ff804e3a4202199f220b9918a8c"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Base_CZ-7_Tanks_CZ-7_Stage1_blank.v3.3.0.dds",
+      "bytes": 2796344,
+      "sha256": "c2eaf07a2254e8d663ec42caf73701fdfe8729f1a4f86a67e419685018724934"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Base_CZ-7_Tanks_CZ7_Booster_blank.v3.3.0.dds",
+      "bytes": 699192,
+      "sha256": "371c8125466a7d7614a4ae403dc4b3a40a0d6302f47f7a9e41c2b2800524877e"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Base_CZ-7A_Fairing_CZ7A_Fairing_blank.v3.3.0.dds",
+      "bytes": 699192,
+      "sha256": "d683dbe3d3e47f5b8653fb997c8bda5b40db76f9201830223b532a2113f7b52f"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Base_CZ-7A_Tanks_CZ-7A_Stage2_blank.v3.3.0.dds",
+      "bytes": 2796344,
+      "sha256": "e748dd43a015e068a827ba143a32b387d72902b335881ef2af085f452b84f639"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Base_CZ-8_Fairing_CZ78AIRING1.v3.3.0.dds",
+      "bytes": 699192,
+      "sha256": "784a85c25dbfbd4de491890df919dc1fa1afa651315877f77d046ef98b8e303a"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Base_CZ-8_Fairing_CZ78AIRING2.v3.3.0.dds",
+      "bytes": 699192,
+      "sha256": "fad8a1733a900f653a361085b17fb2b729ddf54f590aef635f06b98f9767bef9"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Base_Engines_YF-100_YF-100.v3.3.0.dds",
+      "bytes": 699192,
+      "sha256": "d244e6edeb780264c86792f27cd983531a0d24e8f95f7e163d5078c329fd3147"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Base_Engines_YF-115_YF-115.v3.3.0.dds",
+      "bytes": 699192,
+      "sha256": "dd628ad8341ed9039c8710c834d6fb24e5306ea85f00fcfcf444abc843382e1e"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Base_Engines_YF-75_Seriese_YF-75_Map.v3.3.0.dds",
+      "bytes": 174904,
+      "sha256": "bcdd8990aae4c72b4f86fdf4c764f412ceb257601c2bebe5a744db3773aef3aa"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Base_LaunchPads_CZ7LAUNCHPAD_CZ-7_Launch_Pad.v3.3.0.dds",
+      "bytes": 2796344,
+      "sha256": "7852cff853d9cf851e090b6978515029f4d36b5d3f3cbb82a805fc25709685c4"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Base_Wing_CZ_7_8_wing.v3.3.0.dds",
+      "bytes": 2872,
+      "sha256": "6afe2d4f117ec8bf6ca129167402ecadf0323f1d09bf5136a6d22e854a894132"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Body_CZ-2F_Adapter_Adapter.v3.5.0.dds",
+      "bytes": 43832,
+      "sha256": "707bfba45c16d18618c3c91287a24c9c93b7eca8080ce049fa1bbde880fb1cae"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Body_CZ-2F_EscapeTower_fairings_tower.v3.5.0.dds",
+      "bytes": 699192,
+      "sha256": "9e11ac9cda0e5fddee195d643a0f6d43a2b49b5f3b49b5a3dd04b7a21901b260"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Body_CZ-3_Interstage_CZ3B_1-2_Interstage.v3.5.2.dds",
+      "bytes": 699192,
+      "sha256": "8e17099b070d9fef43a6e6ede7da1fd68b4fd7204ea814cea48226a280148a2d"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Body_CZ-6_Fairing_CZ-6_Fairing.v3.5.0.dds",
+      "bytes": 174904,
+      "sha256": "f49c0444ff235a1281096ca1f64aa89aeb0c2bf3136843be2fd5a1b397ceb813"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Body_CZ-6_Interstage_CZ-6_interstage.v3.5.0.dds",
+      "bytes": 174904,
+      "sha256": "74eab6dacb60944f1ff558513d30b0f568cc188996ada0ea9a693e0dcc59837d"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Body_CZ-6_shell_CZ-6_Engine_Shell.v3.5.0.dds",
+      "bytes": 174904,
+      "sha256": "839af668c899c8dabe06bad52f636cc679722a05ca43365350f8c1e002c73b08"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Body_CZ-6_Tanks_CZ-6_1st_Tank.v3.5.0.dds",
+      "bytes": 174904,
+      "sha256": "ce18439f12d430f5f899b24c0aa2c34422759835b2b890bfa6055fe541280412"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Body_CZ-6_Tanks_CZ-6_2nd_tank.v3.5.0.dds",
+      "bytes": 174904,
+      "sha256": "055ad13d209567ce60117ab1146c29de88e4fe7a15f8849e787f4d60af3eafcf"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Body_CZ-6_Tanks_CZ-6_3rd_tank.v3.5.0.dds",
+      "bytes": 174904,
+      "sha256": "b0298910f812bf2e3fa1872f668f0135d6502783f728fad02220daf1d82dc193"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Body_CZ2F_interstage.v3.5.2.dds",
+      "bytes": 174904,
+      "sha256": "c3cde38d009b569399c5c28a7154492df4d02be01b5357a0bb78e81704ee68e0"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Body_CZ2F_stage_1-2.v3.5.2.dds",
+      "bytes": 2796344,
+      "sha256": "a17b9b7b1175ac8684c68850b1aa6807be257ac58f4e89a82426753e4c72708d"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Body_CZ3Booster.v3.5.0.dds",
+      "bytes": 699192,
+      "sha256": "bfcf77dde1dbb5baccfae68db7d7d6060f4015d1eb2909bcda4e14413076f7a1"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Body_CZ3Fairing.v3.5.0.dds",
+      "bytes": 699192,
+      "sha256": "58863cdf30356a66d891ef6147a8a1e404191868764c35bbdb73a2420b886142"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Body_CZ3Stage1.v3.5.0.dds",
+      "bytes": 699192,
+      "sha256": "d264490b91154ccc8530402744bed0186a34f5620022deedecec7b81e3d58ff5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Body_CZ3Stage2.v3.5.0.dds",
+      "bytes": 699192,
+      "sha256": "fed18b71ef5ab2143a5a5513ff5f2df3cef691b985b616cb2848c4bd9f319062"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Body_YL-1_Stage1_YL-1_Stage_1.v3.5.0.dds",
+      "bytes": 699192,
+      "sha256": "73e3217394fba2aa39ed97f087c45288e04829b32b5f63495ae925b1a001252f"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Body_YL-1_Stage2_YL-1_Stage_2_3.v3.5.0.dds",
+      "bytes": 699192,
+      "sha256": "83dc7f7db50f9bb94088df1eb4e9bd5b32c7a7047b025c221a3567a3fe0830a4"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Body_YL1Booster.v3.5.0.dds",
+      "bytes": 699192,
+      "sha256": "bcbe9a10a8a034bd7158a6fddca7d0b8b44082973b5b93edd9ffe84ebbd35f59"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Body_YL1Fairing.v3.5.0.dds",
+      "bytes": 699192,
+      "sha256": "c6103833594884ea7f4fe6dab1e6f59610523aec330d56a235347d995705d78b"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/End_CZ6A_Interstage_M0.v3.5.3.dds",
+      "bytes": 2796344,
+      "sha256": "994e0f5243cc5669b81fa47c1ac061987bf46a5d937caf98a7ce72c40e3cf1a9"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/End_CZ6A_Interstage_M1.v3.5.3.dds",
+      "bytes": 699192,
+      "sha256": "7d08fd1e9a8636a06fc0dd127cd034938052de90acf758baa5bc69e7eb2bdee4"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/End_YL1_Stage3.v3.5.3.dds",
+      "bytes": 2796344,
+      "sha256": "a2690c08c57ec118c1ec2c86b64fa1efd47c8f6c88c1f7e384fb54d765d8a4ff"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ-6_Tanks_CZ-6_1st_Tank_0.v3.5.0.dds",
+      "bytes": 349704,
+      "sha256": "c3bfca531f626c41a783730b081ccb2c466af82a5792bb908829e1739951a499"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ-6_Tanks_CZ-6_1st_Tank_1.v3.5.0.dds",
+      "bytes": 349704,
+      "sha256": "dad9553280e6c6f32d2d18b59ae74378d10557e885048bc72e062fa19601f037"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ-6_Tanks_CZ-6_1st_Tank_2.v3.5.0.dds",
+      "bytes": 349704,
+      "sha256": "e05710c7f58cd26c023369009d695769927d9c94198db43fbb03b8ffbf51b1dd"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ-6_Tanks_CZ-6_1st_Tank_3.v3.5.0.dds",
+      "bytes": 349704,
+      "sha256": "f78a262535eb58b2209261114b688d0309776ccc3c5efc3161efb516b61d8138"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ-6_Tanks_CZ-6_2nd_tank_0.v3.5.0.dds",
+      "bytes": 699208,
+      "sha256": "214bc6150f8d63c3db8da75ff32b19c852278c2b9e8f4988c1f801e68b1aa149"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ-6_Tanks_CZ-6_2nd_tank_1.v3.5.0.dds",
+      "bytes": 699208,
+      "sha256": "6da59daf44fa223495777ea3e04fb1c28e0c95c09a9e97576a4f1a6afd35b56a"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ3Booster_1_0.v3.5.0.dds",
+      "bytes": 174984,
+      "sha256": "962f09da82de747ab490f65b226c43e504ef310afab03c7ed3f84e456cdd6178"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ3Booster_1_1.v3.5.0.dds",
+      "bytes": 174984,
+      "sha256": "f8ac0ce389a7eab30ad93fc2dbb2319bba7e78281fcc699775ebe4f4f3342934"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ3Booster_2_0.v3.5.0.dds",
+      "bytes": 174984,
+      "sha256": "9fcaeb859a4d0bb797c8c47149cfd06a951ee4f20cae94f095d919868912ad85"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ3Booster_2_1.v3.5.0.dds",
+      "bytes": 174984,
+      "sha256": "72f963c3abf79d2f6d46f5c5798b76c82cd5d2829d3938dbfa373e2b3c77afe2"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ3Booster_2_2.v3.5.0.dds",
+      "bytes": 174984,
+      "sha256": "ce7b4103de48a41c1cdd7bc26a6ea06cc3392327a8d8c131a387fd1339811a94"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ3Booster_2_3.v3.5.0.dds",
+      "bytes": 43832,
+      "sha256": "f1ecc849031db19bb8df452cf702aa85db4f72c16c17e3f270e52688a1ecfbc5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ3Booster_2_4.v3.5.0.dds",
+      "bytes": 43832,
+      "sha256": "2f8bdfa0476211265199a03201957e776d049a54bf3eec49caf31c073e8c66ff"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ3Booster_3_0.v3.5.0.dds",
+      "bytes": 174984,
+      "sha256": "b644ec2b7bad3a10284879b614bf076af475c0a6288b6fb02a53fdc9bc0d42df"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ3Booster_3_1.v3.5.0.dds",
+      "bytes": 174984,
+      "sha256": "06b8440916043983241eeea1050fe0a3cf24c89f7f20926c90fa9d91569f87a8"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ3Booster_3_2.v3.5.0.dds",
+      "bytes": 43832,
+      "sha256": "b485adc5807c4a068e6e17e30ea7c3d2c19b1aa98f290e8f82925c6b802ad3a9"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ3Booster_3_3.v3.5.0.dds",
+      "bytes": 43832,
+      "sha256": "d2d211c57438ca143934e4b983998c70979ab70219e7267db8bdd2b4d03017d7"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ3Fairing_0_0.v3.5.0.dds",
+      "bytes": 1398248,
+      "sha256": "fdfa80c52301a702176beb85716cabfc6a3d2274a0ae842535d12fa1a38161eb"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ3Fairing_1_0.v3.5.0.dds",
+      "bytes": 1398248,
+      "sha256": "594af2a01363f40eb558063655554a4a64adc941535cb91eafac5ea91ca34627"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ3Fairing_2_0.v3.5.0.dds",
+      "bytes": 1398248,
+      "sha256": "a4d6831ad15c2c0388758f339d2f0ff5f27322b9ac4f38d249b6841eb2abb2aa"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ3Stage1_0_0.v3.5.0.dds",
+      "bytes": 1398248,
+      "sha256": "429cd65ad7c0313f2a8d44e13fd5586e3399f2d44bfa848c704de1454401dacb"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ3Stage1_1_0.v3.5.0.dds",
+      "bytes": 1398248,
+      "sha256": "a10c466df09ce4ca5b5ee36827ce2efb8ea0d2c16fdacf76673322f35b6af46f"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ3Stage2_0_0.v3.5.0.dds",
+      "bytes": 699208,
+      "sha256": "4fd4a0c30bcf1c23c8126833ee6f123b8ccf73030863e443ed8d59bc4196af42"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ3Stage2_1_0.v3.5.0.dds",
+      "bytes": 699208,
+      "sha256": "820f188c803fbec97e6da76a210e61f6abb469181f4a40091ad68d872ac1c4cb"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ7A_Fairing_Blank.v3.4.0.dds",
+      "bytes": 174920,
+      "sha256": "abd4bdde15c442e418392883ed6afbea8a80171687e9c657fd1768523b050ea7"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ7A_Fairing_Standard.v3.4.0.dds",
+      "bytes": 174920,
+      "sha256": "bccaac9ada53d9fea3b83e6fcdb8fafad48eae8fd5f494d13e77009fe679cff3"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ7A_FairingUpper_Standard.v3.4.0.dds",
+      "bytes": 174920,
+      "sha256": "ed056b67021f29bb1f3f73f0de4fd0cb70fd78fb0cb749ca0a5a9059b396ef79"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ7A_Stage2_Blank.v3.4.0.dds",
+      "bytes": 699208,
+      "sha256": "18266386aeda2f58957a18ddd02a6d82bf178170e4101ae6d4ead01c30ef1b2b"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_CZ7A_Stage2_Standard.v3.5.3.dds",
+      "bytes": 699208,
+      "sha256": "452916dec6bbfb13d0df0559a20ad2d4863b5eeec4fa6956c348e67d18bbd475"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_YL-1_Stage2_YL-1_Stage_2_3_0.v3.5.0.dds",
+      "bytes": 1398248,
+      "sha256": "bc4d495c6854ffd8f870f18103dabc5a18f4ce21248323bf5af1842ffab4afdd"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_YL1Booster_1_0.v3.5.0.dds",
+      "bytes": 699208,
+      "sha256": "b7ccc2406ead82eb989d17ec00779770a50c6256f3913cf7d0f93231f6e34871"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_YL1Booster_2_0.v3.5.0.dds",
+      "bytes": 699208,
+      "sha256": "1f8efb0aa6e94d754ba2cdbadf42c5033e500e165ba9219a408beb4801c2332f"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_YL1Booster_3_0.v3.5.0.dds",
+      "bytes": 699208,
+      "sha256": "1953b3398e0642e4c555dee83d2af8ae4618687e9546194a5e9e3cb649e71f03"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_YL1Fairing_0_0.v3.5.0.dds",
+      "bytes": 699192,
+      "sha256": "9d685b1ef17fecd016ee2fca9e482f14a32f8b944265838384f124a312cf0355"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Local_YL1Fairing_1_0.v3.5.0.dds",
+      "bytes": 699192,
+      "sha256": "b820aaa5d4a3e9d5913750745ae48d6bbbb26fa9482b7561c1cc62bb1b1ab922"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-2F_Adapter_CZ2F_Adapter.v3.5.2.mu",
+      "bytes": 233226,
+      "sha256": "3758d63524ea61715351183d30394ffb62aa0e2ea5fdc2a19d72b0b28f530629"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-2F_EscapeTower_CZ2F_ET_Lower.v3.5.2.mu",
+      "bytes": 465361,
+      "sha256": "b6edd8f82451cb84ce1cf14e744d34b2443e77e397915041eca29b8bf983ee76"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-2F_EscapeTower_CZ2F_ETUpper.v3.5.2.mu",
+      "bytes": 781668,
+      "sha256": "f412cb89ee1a1c0975cab787304cef34821e1ae3886c2551c0950e947cb15c34"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-2F_Fairing_CZ2F_Fairing_Down.v3.5.2.mu",
+      "bytes": 674208,
+      "sha256": "fa3784dfcd4f1ba4659da6388fd8051b88bf4b5dccf091786b0d4998f95957bf"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-2F_Fairing_CZ2F_Fairing_Mid.v3.5.2.mu",
+      "bytes": 1556177,
+      "sha256": "46e19f81f74f97bc27cafc196093953f03f39f724d2244aa4d33b46461b56a61"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-2F_Fairing_CZ2F_Fairing_Upper.v3.5.2.mu",
+      "bytes": 27065,
+      "sha256": "a002b41dc96a07c7275f2228cf6e1bafec73c945607a8c1ebcc94d490e0fdb05"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-2F_Fairing_high-altitude_abort_Engine.v3.5.2.mu",
+      "bytes": 74342,
+      "sha256": "f98529c5bcb3de380debb7f1f5f9d813fbdbfad386f9ededc010117c7f672d23"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-2F_Interstage_CZ-2F_Interstage.v3.5.2.mu",
+      "bytes": 1046184,
+      "sha256": "fdf0ac8e88c8466bb0cf44a2e1d6c77920b5b635b39fed7d402f1691f3c22907"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-2F_Tanks_CZ-2F_Stage_1.v3.5.2.mu",
+      "bytes": 943689,
+      "sha256": "ef9ba6fdc95aac2a84be87833d43eb9c18b7f7fee6683e55163ef2f1f9227e72"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-2F_Tanks_CZ2F_2nd_Tank.v3.5.2.mu",
+      "bytes": 153617,
+      "sha256": "f99cc683ea5d13a0f09347afd5abcafd8bf37fffd1231f37cefce83c9ee8e9d9"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-3_Adapter_CZ3BADAPTER.v3.5.2.mu",
+      "bytes": 46691,
+      "sha256": "4cb837c2fb8391341120712a44e26995a4a33c2083a5ebc270a258cdc228d866"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-3_Command_CZ3B_YQC1.v3.5.2.mu",
+      "bytes": 260549,
+      "sha256": "ac6642d5dca8093d59df180abbbada1d55a816bd65c7ffd52ecc9c6a896624f4"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-3_Command_CZ3B_YQC2.v3.5.2.mu",
+      "bytes": 287816,
+      "sha256": "62f4d99208979134f6e546885cbe8f48b43d913cde01e6c4717e186e2e2af230"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-3_Fairing_CZ3B_4200_Fairing.v3.5.2.mu",
+      "bytes": 90824,
+      "sha256": "9f6e1c7b703ebe012d94a39cfa3c1ca06c5830d4cb8c8cc433cb8799d183422e"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-3_Interstage_CZ-3B_2-3_INTERSTAGE.v3.5.2.mu",
+      "bytes": 154819,
+      "sha256": "4e4321a8de549488945d85246f3266a4e11ce0d0617b83fdd8496c0d3b53effc"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-3_Interstage_CZ3B_1-2_Interstage.v3.5.2.mu",
+      "bytes": 148125,
+      "sha256": "4ca14aa0361f1cb5cbc7e540d4ab5d92416c058a05ffb1898e7517e9a6cc1c09"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-3_Tanks_CZ3B_Booster_Tank.v3.5.2.mu",
+      "bytes": 547076,
+      "sha256": "520745373688fee9e1781ab1942564a8eda5fddc9fdfd4b06e5feda78e3ed8ed"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-3_Tanks_CZ3B_First_Stage_Tank.v3.5.2.mu",
+      "bytes": 483380,
+      "sha256": "8475b5b872cbcc3e38ef972219a5740bfa9c1b35fc1b1ce7701a3960d03cb4f8"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-3_Tanks_CZ3B_Stage_2_Tank.v3.5.2.mu",
+      "bytes": 467883,
+      "sha256": "0feb1f41cfef0c9243c59637015cad4f10594640eb8f42e71e8b9c03920f9dc9"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-3_Tanks_CZ3BSTAGE3.v3.5.4.mu",
+      "bytes": 1035571,
+      "sha256": "c0457c19b4f5fc15429bedb8740afa8f16a5a3d35ed974afd386cb10a4672863"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6_Fairing_CZ-6_Fairing_2_6.v3.5.2.mu",
+      "bytes": 101168,
+      "sha256": "966fe6a34a998a9da047e663e5389eb6d1d30fe32a51b582c1afc0ee20905860"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6_Interstage_CZ-6_Interstage.v3.5.2.mu",
+      "bytes": 90553,
+      "sha256": "b576dea37103f172baf14ea8dfa4684d502c00a72edeb35f6bbd4f9f5baba080"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6_Interstage_CZ-6_Interstage_2-3.v3.5.2.mu",
+      "bytes": 81372,
+      "sha256": "64008a970d78ef8610b9b01c291f82399de9ff78701a18767ca2b020d4161ae3"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6_shell_CZ-6_Engine_Shell.v3.5.2.mu",
+      "bytes": 632685,
+      "sha256": "965fc7082d039e3e53fbe3b958d67acd28d68b6f015247093db304e65d776e17"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6_Tanks_CZ-6_1st_Tank.v3.5.3.mu",
+      "bytes": 607596,
+      "sha256": "0ebd68256cb205dfaed9b889e9946b0f1aa7bc5d1b5d0811c4dcf1d93202f0ea"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6_Tanks_CZ-6_2nd_Tank.v3.5.2.mu",
+      "bytes": 81260,
+      "sha256": "246b24c2f4b176867cba96f6c6d7ebaee9660d4ebf0a87d4a66be7735d6c0348"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6_Tanks_CZ-6_3rd_tank.v3.5.2.mu",
+      "bytes": 320194,
+      "sha256": "cebe6fafd467f4198f9798ca7dc6339083c0f6b1eca1dbacad3fd9617f44a566"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6A_Adapter_CZ6A_Adapter.v3.5.2.mu",
+      "bytes": 357183,
+      "sha256": "53b1ac2a143a1ff2030c542b4d90e464e5551203cb77047e9af9d5409b183ec6"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6A_Booster_CZ6A_Booster.v3.5.2.mu",
+      "bytes": 201115,
+      "sha256": "d03fdb6e4d0d320717f196871d572beed21ed87a642db722939864e17fc48d89"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6A_Fairing_CZ6AFairing.v3.5.7.mu",
+      "bytes": 122871,
+      "sha256": "bace7eac9e02db9b27156523bc100dbb266c7754d2b5a10e6d1c8098bbf9cedf"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6A_Interstage_CZ-6A_Interstage.v3.5.3.mu",
+      "bytes": 446523,
+      "sha256": "182fe0338cb4fdcdfbddf9ac2adeb50453584800f4782bc59f2d0eeb9f4f6c9b"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6A_Separator_CZ-6ASeparator.v3.5.2.mu",
+      "bytes": 201446,
+      "sha256": "54d89a427424e7bee38fe6a63ab6e88c8e4d4e6e37fefa00a0f4d5940284377f"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6A_Shell_CZ-6AFirst_Stage_Engine_Shell.v3.5.2.mu",
+      "bytes": 514567,
+      "sha256": "6aa31ad78ae58ef331ed0ffc7ae4282042d3fc6186ec6b97f26e8929c5cd7c9b"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6A_Tanks_CZ-6AFirst_Stage.v3.5.3.mu",
+      "bytes": 677112,
+      "sha256": "8ba1a6d5fa35aa63806beda33e26e6074e787b090a6bf93838a7c8960e4ca95f"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6A_Tanks_CZ-6AStage2.v3.5.2.mu",
+      "bytes": 724894,
+      "sha256": "380601b9698925f014d1567876b971f64864909a22829b1501decd61ea4b8421"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7_Adapter_CZ7ADAPTER.v3.5.2.mu",
+      "bytes": 127698,
+      "sha256": "fd320bb140af219cedef98d0548056126910b829bfa7c320edd55f6de8fe9f66"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7_Fairing_CZ7FAIRING.v3.5.2.mu",
+      "bytes": 141500,
+      "sha256": "bcd96857be66804e83d4648b961e975ba4e65c8cde5fbda17c9803d764de4c2c"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7_Fairing_CZ7FAIRINGSB.v3.5.2.mu",
+      "bytes": 173243,
+      "sha256": "239849ef9167c76e1f3969decd9bd4342843736601f52410573498ac7a292996"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7_Interstage_CZ7INTERSTAGE.v3.5.2.mu",
+      "bytes": 359024,
+      "sha256": "a8adeca939bfc556c47531e0fe91f85a68d687f3f0fc87b13d4f110fcbe92b45"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7_Tanks_CZ7ABOOSTERSB.v3.5.2.mu",
+      "bytes": 268663,
+      "sha256": "3336ce22273abd013edc9e05aa3e19fc601f8e57838508fed7181057be8af5b6"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7_Tanks_CZ7BOOSTER.v3.5.7.mu",
+      "bytes": 947673,
+      "sha256": "30f4e9d595f680757f5cd772b2c90f6990cf07cf3ec84c7f928491e1e06c434e"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7_Tanks_CZ7BOOSTERES.v3.5.5.mu",
+      "bytes": 331176,
+      "sha256": "49033ee6722847cd98878f10ddb983ec0adfa5a3b794471db81eeb4b104d1537"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7_Tanks_CZ7STAGE1.v3.5.7.mu",
+      "bytes": 1760893,
+      "sha256": "e95322fd100652888eadb05d54587b0e55c8cb8195d00a0c190295671db2c368"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7_Tanks_CZ7STAGE1ES.v3.5.2.mu",
+      "bytes": 517645,
+      "sha256": "895ba77723db7706029ab3e4bdc3eaa834715fe42d529b8ead847c4fd953bf4a"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7_Tanks_CZ7STAGE2.v3.5.3.mu",
+      "bytes": 1220124,
+      "sha256": "847976a6fb53ddecb06a154bb7354353b499730fe09aed771d96ba14ce093240"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7A_Command_CZ7AYQC.v3.5.2.mu",
+      "bytes": 209876,
+      "sha256": "d22a60ac91d06928a2500108ad293d031e49153316a10dcab69a344cd18948b0"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7A_Fairing_CZ7AFAIRING420x1000.v3.5.2.mu",
+      "bytes": 236532,
+      "sha256": "6647d2ee92017836885b2eca3d0e81c358aaebe7e2e65aecb2cb1f5af825cd3f"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7A_Fairing_CZ7AFDZLZS.v3.5.2.mu",
+      "bytes": 90275,
+      "sha256": "ba2e76e8bbdb133dde63fd4e88b3eafd6ac5e8e0562897747c932d3b11d50668"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7A_Fairing_CZ7AFDZLZX.v3.5.2.mu",
+      "bytes": 171041,
+      "sha256": "0456bc09a62f81620a591979dfdbdd4a4387be9b6da36653dd1045ddbbdef0f0"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7A_Fairing_CZ7AFDZLZZ.v3.5.2.mu",
+      "bytes": 149854,
+      "sha256": "d102bdb74dfe78996a6d4cb20fb07e7e68b863344bdbf8adc7d1777b916b86b7"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7A_Tanks_CZ7ASTAGE2.v3.5.3.mu",
+      "bytes": 1200517,
+      "sha256": "b02b313b654f9c0e86961a4f963c00ef4d4b86478d48eab0f4f0310855645885"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-8_Fairing_CZ8FAIRING1.v3.5.2.mu",
+      "bytes": 115022,
+      "sha256": "cb962898562448a03ceba241b1ab91e6ca515aeecb1d856d6e6d5f18e955c58c"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-8_Fairing_CZ8FAIRINGY2.v3.5.2.mu",
+      "bytes": 135132,
+      "sha256": "8a36bbc26d3d36325d9b3ca3d964f66db250a71f9d3ba0d8494e6af150d205a9"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_Engines_YF-100_YF_100.v3.5.2.mu",
+      "bytes": 3029365,
+      "sha256": "09ffa93fd4e545fdef630ad859c0d028dad2a7ecaf0ed1804b102080f0d4f82c"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_Engines_YF-100_YF_100M.v3.5.2.mu",
+      "bytes": 3003812,
+      "sha256": "b0474e9b74ee00cbc24bfbf447b8545d3908983de2ff7952b3708182b5c75c2d"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_Engines_YF-115_YF-115.v3.5.2.mu",
+      "bytes": 4976249,
+      "sha256": "b1bc9009dae8237ae9b4fe94b0e6b6a521e037155022c8a90063078ad092c656"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_Engines_YF-75_Seriese_YF-75.v3.5.2.mu",
+      "bytes": 743761,
+      "sha256": "fe5791da0ea72ab0ee73a35134f554f643876bc39d943f10370ffaae803b67b0"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_LaunchPads_CZ7LAUNCHPAD_CZ-7_Launch_Pad.v3.5.2.mu",
+      "bytes": 4677252,
+      "sha256": "0433b88259d0a93dad9606dfd3bc8f3d415ce0c7f1deaf9427ce3721cb4bfb59"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_NoseCone_2_25mCone.v3.5.2.mu",
+      "bytes": 60250,
+      "sha256": "f902ee3696f4395d111690293c2ea334ff5538ed9f678d36e9c89707b001854b"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_NoseCone_2mCone.v3.5.2.mu",
+      "bytes": 112974,
+      "sha256": "94978601f4cfcac31f0dac6b4b81bba55e953604d17bb895c1ba38e4221dbaf5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_Wing_CZ2F_Wing.v3.5.2.mu",
+      "bytes": 44086,
+      "sha256": "e540bb286b0420857880c29fd66bf83ba6a3f14906ce4d81801789c430d540ba"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_Wing_CZ_7_8Wing.v3.5.2.mu",
+      "bytes": 18717,
+      "sha256": "1b0783554aba68a4fa9f0bcd7ec02165bbc1fcc2b52d9b06703459739b162075"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_YL-1_Booster_YL-1_Booster.v3.5.5.mu",
+      "bytes": 344637,
+      "sha256": "79e51c8a70c513be348dc86202f4bfd96907308ab7114e90561ceb6fa2411e24"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_YL-1_Booster_YL-1_Booster_NoseCone.v3.5.5.mu",
+      "bytes": 68024,
+      "sha256": "53b29251496cc4a77234930159a613ebe70fb31a02675a476a3d879c4a8408d5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_YL-1_Booster_YL-1_Booster_Separator.v3.5.5.mu",
+      "bytes": 120808,
+      "sha256": "a9e53405b433f4c759e588f538e4758053a63c3ecee2253482123e8875e77d7e"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_YL-1_Fairing_YL-1_Fairing_4200.v3.5.2.mu",
+      "bytes": 176811,
+      "sha256": "d86029f55013e2c49198f1f09c82d2f2d725f4c6a67467f624f1ccf81dbaf3af"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_YL-1_Stage1_YL-1_Stage_1.v3.5.5.mu",
+      "bytes": 363799,
+      "sha256": "b47cebd6dfd0e854f2b9c659a210b4e25b0e86a64d6e917d1995e8c93ba8097d"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_YL-1_Stage2_YL-1_Adapter.v3.5.2.mu",
+      "bytes": 106090,
+      "sha256": "768a04dc3a9770893f9e3d5fef22ec5d4f3c65f1993f7ac78fe543870eb22e22"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_YL-1_Stage2_YL-1_Interstage1-2.v3.5.5.mu",
+      "bytes": 62445,
+      "sha256": "bfb97a1c3307b2fe00bb6e3baa8b88a8a23fd1267a93427bd82fa639ff01ea05"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_YL-1_Stage2_YL-1_Interstage2-3.v3.5.5.mu",
+      "bytes": 62108,
+      "sha256": "e3ad0a9465240aaf61bd3d78d83b434e4e56a820727a1e5b3cca3cfe1ed52487"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_YL-1_Stage2_YL-1_Stage2.v3.5.5.mu",
+      "bytes": 245354,
+      "sha256": "d582cd6efc2cc02e75eae3760b295de04b290cc4e6fe75699726a044b91dea28"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_YL-1_Stage2_YL-1_Stage3.v3.5.5.mu",
+      "bytes": 459543,
+      "sha256": "2b9629e4bb4f201e2e9841fb7713461a62e57dfc09ba3b6bd5da65ac2caf2a84"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_YL-1_Stage2_YL-1_Stage3_RCS.v3.5.5.mu",
+      "bytes": 394789,
+      "sha256": "b978726fdbb94d1447a4053c66e8f53a13a3c36a50bb1ec7f0706f5f8c5da41f"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Normal_CZ-3_Adapter_CZ3BAdapter_Norm.v3.5.2.png",
+      "bytes": 82125,
+      "sha256": "d74474555421e3cc498962b5b1987bd24a4d2ffe4cc80ece0a6f88190ee6d326"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Normal_CZ-3_Interstage_CZ-3B_INTERSTAGE2-3_Norm.v3.5.2.png",
+      "bytes": 198700,
+      "sha256": "45ecf159888eee26073cff50bc58d2a18884ad0511386a304f1f473ed3293d55"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Normal_CZ-3_Tanks_CZ-3B_STAGE_3_Norm.v3.5.2.png",
+      "bytes": 138424,
+      "sha256": "870a27901457fdde4375db8ab84b6300dae0938942e18f9c59537b1c77f55e6a"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Normal_CZ-6A_Booster_CZ-6ABooster_Norm.v3.5.2.png",
+      "bytes": 380533,
+      "sha256": "26d3ac61774f266b69b7aa995503d36ddbd7f39bc54a6b9b4795a1a187f90e96"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Normal_CZ-6A_Shell_6A_Engine_Shell_NORM.v3.5.2.png",
+      "bytes": 835653,
+      "sha256": "1bd89339bc57c8891e2a20c90d1d8bd3943cf0eb22f86b994b43adb791cbf3e3"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Normal_CZ-7_Adapter_CZ7_Adapter_Norm.v3.5.2.png",
+      "bytes": 20364,
+      "sha256": "0fd1a5285810b4704351c7bab867039cdf7df1c5585d0abbe1f671abed6ddb57"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Normal_CZ-7_Tanks_CZ7_Booster_Norm.v3.5.2.png",
+      "bytes": 23764,
+      "sha256": "a07a2accfae831b01c6872fa5d7bdef2445779bab5e30426c95bc9c01cdab6c1"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Normal_CZ-7A_Command_CZ7A_YQC_Norm.v3.5.2.png",
+      "bytes": 8927,
+      "sha256": "68561becd9dd28d9b24106f969f678fecd1dea7308344ee16cb4fa840b13c6d0"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Normal_Engines_YF-100_YF-100_Norm.v3.5.2.png",
+      "bytes": 344102,
+      "sha256": "30158d81664e5fdd9beab28c80d3b5f01884b2b32f928dbcac797a6584037d4f"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Normal_Engines_YF-75_Seriese_YF-75_Norm.v3.5.2.png",
+      "bytes": 297615,
+      "sha256": "208a9eedeabcb5fb5deb4a1a98120c925db4a2385e7cf872e2f8f23f7fd90712"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Normal_LaunchPads_CZ7LAUNCHPAD_CZ-7_Launch_Pad_flag_Words_Norm.v3.5.2.png",
+      "bytes": 72483,
+      "sha256": "f3a25f238afec19d1dd1083438d2ea76362035420154bf438976253eaa5db30e"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Normal_LaunchPads_CZ7LAUNCHPAD_CZ-7_Launch_Pad_Norm.v3.5.2.png",
+      "bytes": 171907,
+      "sha256": "ffba8d8a86d241f96630caba5bc9eb095eacd010ed37422a0abd6eece66ddb5a"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_CASC.v3.4.1.png",
+      "bytes": 77,
+      "sha256": "29f7cfecca75c1fb12dace8e1a99b33f293a4d0cc7e8377edf0f7051291b8fa7"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_CASC.v3.5.2.png",
+      "bytes": 78,
+      "sha256": "508e92238640e05034d4f6ac7d906a3288e82dbe047b7e8f55ff4d993a7523ef"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_CASC_Blue.v3.5.3.png",
+      "bytes": 77,
+      "sha256": "29f7cfecca75c1fb12dace8e1a99b33f293a4d0cc7e8377edf0f7051291b8fa7"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_CASC_Classic.v3.5.3.png",
+      "bytes": 77,
+      "sha256": "29f7cfecca75c1fb12dace8e1a99b33f293a4d0cc7e8377edf0f7051291b8fa7"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_CASC_Teal.v3.5.3.png",
+      "bytes": 77,
+      "sha256": "29f7cfecca75c1fb12dace8e1a99b33f293a4d0cc7e8377edf0f7051291b8fa7"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_CheckerPalette.v3.4.1.png",
+      "bytes": 77,
+      "sha256": "29f7cfecca75c1fb12dace8e1a99b33f293a4d0cc7e8377edf0f7051291b8fa7"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_ChinaFlag.v3.4.1.png",
+      "bytes": 77,
+      "sha256": "29f7cfecca75c1fb12dace8e1a99b33f293a4d0cc7e8377edf0f7051291b8fa7"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_ChinaSpaceBold.v3.5.3.png",
+      "bytes": 77,
+      "sha256": "29f7cfecca75c1fb12dace8e1a99b33f293a4d0cc7e8377edf0f7051291b8fa7"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_ChinaSpaceBold.v3.5.4.png",
+      "bytes": 76,
+      "sha256": "a029de3045cf7782514446f7967c353218a564b474730b3186b4823232f9459f"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_CMS.v3.4.1.png",
+      "bytes": 77,
+      "sha256": "29f7cfecca75c1fb12dace8e1a99b33f293a4d0cc7e8377edf0f7051291b8fa7"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_CNSA.v3.4.1.png",
+      "bytes": 77,
+      "sha256": "29f7cfecca75c1fb12dace8e1a99b33f293a4d0cc7e8377edf0f7051291b8fa7"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_CZ6A_FairingMark.v3.4.1.png",
+      "bytes": 77,
+      "sha256": "29f7cfecca75c1fb12dace8e1a99b33f293a4d0cc7e8377edf0f7051291b8fa7"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_CZ6Blue.v3.5.0.png",
+      "bytes": 78,
+      "sha256": "9ef55f8bb836259afeac4504aedc4643e3c1a58155e61d3a57d975a05fac886c"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_ExtraGlyphs.v3.4.1.png",
+      "bytes": 77,
+      "sha256": "29f7cfecca75c1fb12dace8e1a99b33f293a4d0cc7e8377edf0f7051291b8fa7"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_ExtraGlyphs.v3.5.2.png",
+      "bytes": 78,
+      "sha256": "508e92238640e05034d4f6ac7d906a3288e82dbe047b7e8f55ff4d993a7523ef"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_FairingNormal.v3.4.1.png",
+      "bytes": 78,
+      "sha256": "50761dd383077ec328caa7e6882927b1824376c5b890c52caff5a5cd1970148d"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_FlatNormal.v3.4.1.png",
+      "bytes": 78,
+      "sha256": "50761dd383077ec328caa7e6882927b1824376c5b890c52caff5a5cd1970148d"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_LatinF.v3.5.2.png",
+      "bytes": 78,
+      "sha256": "508e92238640e05034d4f6ac7d906a3288e82dbe047b7e8f55ff4d993a7523ef"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_LM.v3.4.1.png",
+      "bytes": 77,
+      "sha256": "29f7cfecca75c1fb12dace8e1a99b33f293a4d0cc7e8377edf0f7051291b8fa7"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_LM.v3.5.2.png",
+      "bytes": 78,
+      "sha256": "508e92238640e05034d4f6ac7d906a3288e82dbe047b7e8f55ff4d993a7523ef"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_LongMarch.v3.4.1.png",
+      "bytes": 77,
+      "sha256": "29f7cfecca75c1fb12dace8e1a99b33f293a4d0cc7e8377edf0f7051291b8fa7"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_PlatformSigns.v3.4.1.png",
+      "bytes": 77,
+      "sha256": "29f7cfecca75c1fb12dace8e1a99b33f293a4d0cc7e8377edf0f7051291b8fa7"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_Serial.v3.4.1.png",
+      "bytes": 77,
+      "sha256": "29f7cfecca75c1fb12dace8e1a99b33f293a4d0cc7e8377edf0f7051291b8fa7"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_Serial.v3.5.2.png",
+      "bytes": 78,
+      "sha256": "508e92238640e05034d4f6ac7d906a3288e82dbe047b7e8f55ff4d993a7523ef"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_UpperStageNormal.v3.4.1.png",
+      "bytes": 78,
+      "sha256": "50761dd383077ec328caa7e6882927b1824376c5b890c52caff5a5cd1970148d"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_WenchangBold.v3.5.3.png",
+      "bytes": 77,
+      "sha256": "29f7cfecca75c1fb12dace8e1a99b33f293a4d0cc7e8377edf0f7051291b8fa7"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Ref_White.v3.4.1.png",
+      "bytes": 78,
+      "sha256": "508e92238640e05034d4f6ac7d906a3288e82dbe047b7e8f55ff4d993a7523ef"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Structure_CZ-3_Fairing_CZ3B_4_2m_Fairing_Norm.v3.5.2.png",
+      "bytes": 443385,
+      "sha256": "5d2c28282fd533731572495bb758067d2e7a850a85a57699340f7c01857c9eed"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Structure_CZ-3_Interstage_CZ3B_1-2_Interstage_Norm.v3.5.2.png",
+      "bytes": 68794,
+      "sha256": "39d1d14b22a89bcdaab977d9c5e4e4087122004b0508258af46edc4a7655d80a"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Structure_CZ-3_Tanks_CZ-3B_Booster_Tank_Norm.v3.5.2.png",
+      "bytes": 1342294,
+      "sha256": "ba3a08c837426f8a32c555760440fe5b27e9e11047f3f2ca1374f8048688dbe1"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Structure_CZ-3_Tanks_CZ3B_First_Stage_Tank_Norm.v3.5.2.png",
+      "bytes": 567760,
+      "sha256": "949cedbb021cdc1f711bb29d99fc922065af07f07df0e3c4f466a12243e3879f"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Structure_CZ-3_Tanks_CZ3B_Stage_2_Tank_Norm.v3.5.2.png",
+      "bytes": 666146,
+      "sha256": "1f2c2bdc0338e15a06d6b26896a20adc957e21dbd92a930e8c1333ebc40f4280"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Structure_CZ-6_Tanks_CZ6_3rd.v3.5.2.png",
+      "bytes": 5992895,
+      "sha256": "41feeacc7e85392598687dea451be4997e91e43eaa5426a13c2fb180268fe79f"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Structure_YL-1_Booster_YL-1_Booster_Norm.v3.5.2.png",
+      "bytes": 1198099,
+      "sha256": "ee50eaeac6b87c6c86a7dca61c6dc05b60647ff8472da2aa61a432fdf72c567e"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Structure_YL-1_Fairing_YL-1_Fairing_Norm.v3.5.2.png",
+      "bytes": 107418,
+      "sha256": "def7f90b1c79ab9fd947d67c81a6ba4d6882d449282853330d41455ab8691a56"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Structure_YL-1_Stage1_YL-1_Stage_1_Norm.v3.5.2.png",
+      "bytes": 1107235,
+      "sha256": "a6703c69e2321234cc0160ec64f1345ab35299c5cb8435e66f39e4f37fe9b325"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Structure_YL-1_Stage2_YL-1_Stage_2_3_Norm.v3.5.2.png",
+      "bytes": 1279921,
+      "sha256": "ab6775914d3e58cc2e3111515b3466051d39207d03f5db960b1b83cb96566cbc"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Surface_CZ-3_Tanks_CZ3BSTAGE3_CZ_3B_M0.v3.5.4.dds",
+      "bytes": 2796344,
+      "sha256": "b7def32a804ae0096fa1f01c97f21897d627a131e14b6c557f14d6b963d3d139"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Surface_CZ-3_Tanks_CZ3BSTAGE3_CZ_3B_M1.v3.3.2.dds",
+      "bytes": 2796344,
+      "sha256": "9292bf877aaad7f4109eb6a5462b3df899523249b539304682cf909c076ffbb3"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Surface_CZ-3_Tanks_CZ3BSTAGE3_CZ_7A_blank_M0.v3.5.4.dds",
+      "bytes": 2796344,
+      "sha256": "18067d8a7a329683de2a01bb0387ef31c4cc73c91a731efec8e7e3fc76ec6e2c"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Surface_CZ-3_Tanks_CZ3BSTAGE3_CZ_7A_M0.v3.5.4.dds",
+      "bytes": 2796344,
+      "sha256": "7b35d395da245b1a33079b95c25c3f3a325974bb390ed752351bcfc3af3cc774"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Surface_CZ-3_Tanks_CZ3BSTAGE3_CZ_7A_M1.v3.5.4.dds",
+      "bytes": 2796344,
+      "sha256": "0c6bc7bce1c288fc0dfa89aa872f53b93ad987bddf3cfaf19bad99370e6204fa"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Surface_CZ-3_Tanks_CZ3BSTAGE3_CZ_8_M1.v3.5.4.dds",
+      "bytes": 2796344,
+      "sha256": "ec9e48900c73daeea41450c77068b3dea67ecb1cd6fa93b25f800ec5b3678cdd"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Surface_CZ-6A_Fairing_CZ6AFairing_Static_M0.v3.3.2.dds",
+      "bytes": 699192,
+      "sha256": "fa093fd64fa381e096d0fb18d9b4e2560712a94ae5e4be0171005a83afb9447b"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Surface_CZ-6A_Interstage_CZ-6A_Interstage_Static_M0.v3.3.2.dds",
+      "bytes": 699192,
+      "sha256": "0e7d9be2007eb0f6765016404e93d586d0d7866d48ff20d2ac2a90ab92969529"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Surface_CZ-6A_Tanks_CZ-6AFirst_Stage_Static_M0.v3.3.2.dds",
+      "bytes": 699192,
+      "sha256": "784ed8af6726077b41061ee4f074e1f7daac925c4683e8e1fdf690e8206348f2"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Surface_CZ-6A_Tanks_CZ-6AStage2_Static_M0.v3.3.2.dds",
+      "bytes": 699192,
+      "sha256": "53a4d442e97e920e07efabc4366db31ce702a8ca7b59ad738f65df255dc08c3d"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Surface_CZ-7_Fairing_CZ7FAIRING_Static_M0.v3.3.2.dds",
+      "bytes": 699192,
+      "sha256": "5a0575b9112ebef59949edc717e00f4f142d55904b67df78d564b453a2047128"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Surface_CZ-7_Tanks_CZ7BOOSTERES_Static_M0.v3.3.2.dds",
+      "bytes": 699192,
+      "sha256": "287ea13c400f296b5fe6d04db48285c366ba103d1adc5adc794ee3d35c933935"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Surface_CZ-7_Tanks_CZ7BOOSTERES_Static_M1.v3.3.2.dds",
+      "bytes": 699192,
+      "sha256": "e866e2885e7cab7c9b7f276c66a63f0577547a37d93a63dbc917868926275604"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Surface_CZ-7_Tanks_CZ7STAGE2_Static_M0.v3.3.2.dds",
+      "bytes": 2796344,
+      "sha256": "49ece7dd326a6427e0d52801f48c2e5871ebe9fafc494de1adf64a1a151cfcbb"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Surface_CZ-7_Tanks_CZ7STAGE2_Static_M1.v3.3.2.dds",
+      "bytes": 2796344,
+      "sha256": "5a8bcd50b55057f9a2e3bacb73bd98c2559a3d31c086a98c44e1d73b7c6861e6"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Surface_CZ-7A_Command_CZ7AYQC_CZ_7A_M0.v3.3.2.dds",
+      "bytes": 174904,
+      "sha256": "5886ccf4c0a380719fa95d841b5473dc3fca498c179884a2c78eb38a4bf97e42"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Surface_CZ-7A_Fairing_CZ7AFAIRING420x1000_CZ_7A_blank_M0.v3.3.2.dds",
+      "bytes": 699192,
+      "sha256": "e6630894ae3a9b4ea6fc8e34c228450ae65bd351bd55af97f1331a8bd03a42c9"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Surface_CZ-7A_Tanks_CZ7ASTAGE2_CZ_7A_blank_M1.v3.3.2.dds",
+      "bytes": 2796344,
+      "sha256": "18074efa097dfe6100a634dbe671e13f2f2402b5ecc649c82a0f2613bfec6ffe"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Surface_CZ-8_Fairing_CZ8FAIRING1_Static_M0.v3.3.2.dds",
+      "bytes": 699192,
+      "sha256": "b6fa75c9be7dc40db4863f984c07562ee28edbb8b39686df9f334a4c7275191a"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Surface_CZ-8_Fairing_CZ8FAIRINGY2_Static_M0.v3.3.2.dds",
+      "bytes": 699192,
+      "sha256": "173b3510af8af117c7326d81ce620b241aec1448604db8b30ecd68c3b6414340"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Surface_CZ7A_Instrument_Blank.v3.5.3.dds",
+      "bytes": 174904,
+      "sha256": "501a1191c3ed0a83783ac2f798b2b085e2decbb08f3fa6914387644b19f025e6"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Surface_LaunchPads_CZ7LAUNCHPAD_CZ-7_Launch_Pad_Static_M1.v3.3.2.dds",
+      "bytes": 152,
+      "sha256": "ddcfedadc647d9b9c823b716800a67c0c805a5ff1ee76703ffaf9448d64c61b7"
+    },
+    {
+      "path": "KIU/Plugins/KIUSeparationFuel.dll",
+      "bytes": 5120,
+      "sha256": "9e80de4d17888ba39d4ad823e40721574ddb1e45b9aa80bea17ef742db90d85d"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Compatibility/TextureRepair/000_Registration.cfg",
+      "bytes": 298,
+      "sha256": "92197df484a376205fcbd6631e2c3b2b1daf4d5726a9b407d0bb82bf8005af62"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/README.md",
+      "bytes": 2038,
+      "sha256": "72bb3cbbe15f25336eeb241b3b7b001ab450f4e756a5c3a931bfeac47af827e5"
+    }
+  ],
+  "retired": [
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Adapter/CZ2F_Adapter.mu",
+      "bytes": 233185,
+      "sha256": "f13b9160c6075abd647b8e291dfb8611b34d4fd33dd02f2d1849207807610d0b"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/EscapeTower/CZ2F_ETUpper.mu",
+      "bytes": 781623,
+      "sha256": "6b37040d609fb1011a2f70b5fe26c4425d8c8b66ca011373fe4c792dab9e3c31"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/EscapeTower/CZ2F_ET_Lower.mu",
+      "bytes": 465316,
+      "sha256": "4ae70a02a7e8aef64ee3f9194db217407c91e4138db75515c46b00ef0678b37e"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Fairing/CZ2F_Fairing_Down.mu",
+      "bytes": 637499,
+      "sha256": "f9ab53ec4cedbaf7faec1b351f1acc06976103e84b0698357b2efa370b789225"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Fairing/CZ2F_Fairing_Mid.mu",
+      "bytes": 1556107,
+      "sha256": "085b92a9a739a7616f03b59e0201aa3b11dae81e60d3f055d860b3e3b78d8188"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Fairing/CZ2F_Fairing_Upper.mu",
+      "bytes": 27020,
+      "sha256": "490c9fef0b984aeddb9415a9f07186abc618c69187bc47d1a48c03a7f81df898"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Fairing/high-altitude_abort_Engine.mu",
+      "bytes": 74297,
+      "sha256": "4578c1199318b42e40a7fb13188025897663485e4122d7b8f39967381d84c9ca"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Interstage/CZ-2F_Interstage.mu",
+      "bytes": 955385,
+      "sha256": "9fb771c923e170a0ea1e0c789f3d36b33c98e4fc03a804b5dd10a1d67b24f020"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Tanks/CZ-2F_Stage_1.mu",
+      "bytes": 920807,
+      "sha256": "c1464aedbf1e2c65d9383208210cec739163c637d8e14e6ea815f35aff6b2fba"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Tanks/CZ2F_2nd_Tank.mu",
+      "bytes": 133333,
+      "sha256": "ff158cdb350f58596eb62efce6a0c95faf02d400325d5fc514637cb952210b1b"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Adapter/CZ3BADAPTER.mu",
+      "bytes": 46639,
+      "sha256": "e2c92dd2b71bacf79ece5da6450a9ff134202720c0667941695f29d75b89ebd0"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Command/CZ3B_YQC1.mu",
+      "bytes": 260509,
+      "sha256": "562ce00cf8a923260170019e278575315801ea2ba0c4c0bbf60b65d58c05a855"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Command/CZ3B_YQC2.mu",
+      "bytes": 287776,
+      "sha256": "3f8c2483795aa948977b3657439827503ce8909d3a956724815aabe1cbaf3cad"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Fairing/CZ3B_4200_Fairing.mu",
+      "bytes": 74989,
+      "sha256": "dc642f4f6c58a41874fc173658c2ebceb2c349ca44d79132a274fbe22367d82d"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Interstage/CZ-3B_2-3_INTERSTAGE.mu",
+      "bytes": 154761,
+      "sha256": "85375890e75165e45129322de97d4ce9eabac868ff23c387710d2c02a906b506"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Interstage/CZ3B_1-2_Interstage.mu",
+      "bytes": 144000,
+      "sha256": "a8cd6eb8f70c61b104111d299e73816fffc364601996fd34a0dd40f788d01272"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ3BSTAGE3.mu",
+      "bytes": 997458,
+      "sha256": "cee478ad23bd9db4e7ccb1751988953269f49c4fd5898d611aaacf18eebe6019"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ3B_Booster_Tank.mu",
+      "bytes": 504643,
+      "sha256": "365da76bf6661ac84b36a58cccb866175f91e9dbde44e1ce262dabaa1c977f63"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ3B_First_Stage_Tank.mu",
+      "bytes": 446180,
+      "sha256": "9b5b091928582d2fdbc9e4772320050b29ecc27c924673aad79df6f849d04b1f"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ3B_Stage_2_Tank.mu",
+      "bytes": 449953,
+      "sha256": "2645d250cf7e548adaf2ca2bb698daf1ebda6e8780e6e2674a46cb4a3005cd3c"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Fairing/CZ-6_Fairing_2_6.mu",
+      "bytes": 99486,
+      "sha256": "339990acc0324a54c2ef54620c5aab6128d044dfbb32308940849072068de1ca"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Interstage/CZ-6_Interstage.mu",
+      "bytes": 90526,
+      "sha256": "7297ec158254da5244a973debb3f72e0eb6f7df7f6e8f2202f85a6852ab7f2c5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Interstage/CZ-6_Interstage_2-3.mu",
+      "bytes": 81380,
+      "sha256": "27343588c4508a4fdf9578645c5fa5bda3165ffdf7269de8ae608da2102b2ab3"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Tanks/CZ-6_1st_Tank.mu",
+      "bytes": 580613,
+      "sha256": "25898f8648c992e6cad5b15c701fa23ad639cf1ffbef492ac4fd64a20222de0c"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Tanks/CZ-6_2nd_Tank.mu",
+      "bytes": 57618,
+      "sha256": "b93a6b31761196addfd8664158e215a3f654896ab25860f0a5a69bbfbe6b8565"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Tanks/CZ-6_3rd_tank.mu",
+      "bytes": 320128,
+      "sha256": "acc78ba8d65a23a495b748253fc0f9531f93cedb63615440cbd1574d69104540"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/shell/CZ-6_Engine_Shell.mu",
+      "bytes": 632647,
+      "sha256": "038378abe001a019aadeaff82c84dcf424b08805d00b6e34c1379c9c70970e95"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Adapter/CZ6A_Adapter.mu",
+      "bytes": 357142,
+      "sha256": "70c1f51776e734c713224e89e900524a72b2ff670ff2ae1734007eb3a6cefa05"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Booster/CZ6A_Booster.mu",
+      "bytes": 178343,
+      "sha256": "c29fd8db9359616aa4b6f987c2a81fd4c64c97e94cbbf2b3a0be969f764e996e"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Fairing/CZ6AFairing.mu",
+      "bytes": 117950,
+      "sha256": "5f6ff2c66d8be21dd7001d39165aa9d0a8e004c888faccf0c6c0e66220fa81b7"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Interstage/CZ-6A_Interstage.mu",
+      "bytes": 231298,
+      "sha256": "1d9b4d83f8182144a87139a5660aefe0caa4792c1c04325a1c9c0efe9aeadeee"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Separator/CZ-6ASeparator.mu",
+      "bytes": 199278,
+      "sha256": "efc6af414fd0fc7c2f02dc6d27b02822bfb57ee9aca03f3c1cb2df3aad5a81e0"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Shell/CZ-6AFirst_Stage_Engine_Shell.mu",
+      "bytes": 514502,
+      "sha256": "1c713e683b7e4bfda2a703bf87fb2d0036d68bc6563f887b95fea5c56d284f39"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Tanks/CZ-6AFirst_Stage.mu",
+      "bytes": 635957,
+      "sha256": "c01534bb7b19ab130546748bc26318a3a06b0d77d4e2c771d8e6ef0bb260afc6"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Tanks/CZ-6AStage2.mu",
+      "bytes": 721954,
+      "sha256": "35a5ea0439dd76bfeb522e7de5b03bec525285f03586f645c10514b2d15a6d3e"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Adapter/CZ7ADAPTER.mu",
+      "bytes": 127646,
+      "sha256": "99b18ab34451bd95104f2fba627b70101a6c689f3ec4a5d58afc11f2e717d378"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Fairing/CZ7FAIRING.mu",
+      "bytes": 136262,
+      "sha256": "215c0bd9f28e88a5af57bd085b6997af656e84c7e8ab20f2025ff342f9dfb7a5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Fairing/CZ7FAIRINGSB.mu",
+      "bytes": 173179,
+      "sha256": "8c9c567fe3f598308b046b038729e0a664cdd82d80b6a3c4073bbea13e57bb5f"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Interstage/CZ7INTERSTAGE.mu",
+      "bytes": 358981,
+      "sha256": "ba92029eb01d99e18d684cc52a05f5cc00c516021dc1af4d83c18b50bc28ca9e"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ7ABOOSTERSB.mu",
+      "bytes": 268619,
+      "sha256": "c129d34be1d1460f5700dc8767ed6cf4075e83195eb435273ed8fe4d6ab6a114"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ7BOOSTER.mu",
+      "bytes": 549070,
+      "sha256": "5e77a72a0b0e0458562738406c01bcb812ad44373b9a6f87039c894250b74c1f"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ7BOOSTERES.mu",
+      "bytes": 331299,
+      "sha256": "4b13cbab7433195abdaa23536011ffc8945b95683fbf3b129b71aae3bce106b2"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ7STAGE1.mu",
+      "bytes": 1103566,
+      "sha256": "47620437583b5f93ad70378bf9d10fff1af5ad46c7f658df905af76730f26d80"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ7STAGE1ES.mu",
+      "bytes": 517601,
+      "sha256": "59e5787dd5071672d35cfecfd59ac25e3c3f37156d8ddfa8b0a7b99852dc821c"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ7STAGE2.mu",
+      "bytes": 1208292,
+      "sha256": "a0f2758e3a56c8672f0b8d96458f193e2f14bd8e3d80314bbc4f80aec5154be7"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Command/CZ7AYQC.mu",
+      "bytes": 209467,
+      "sha256": "9dafe1e1e0e3b01293de8e417d45067854a004a95138eeafbeed07378ddd26b2"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Fairing/CZ7AFAIRING420x1000.mu",
+      "bytes": 215182,
+      "sha256": "44dfd513659a7840351e4b38dffbfe3f9055d6b708dfb01061a6cbd39e4fda6e"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Fairing/CZ7AFDZLZS.mu",
+      "bytes": 63331,
+      "sha256": "92bf0cb52fdcfa688dd7fc4ee152a125f8dbd9fb4f91f7a900b9144efae7ba58"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Fairing/CZ7AFDZLZX.mu",
+      "bytes": 171003,
+      "sha256": "9d9913284c3a7f435418f51e3755d27c50145b0e2aaa47b3c2b09bb4de79d8ad"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Fairing/CZ7AFDZLZZ.mu",
+      "bytes": 149816,
+      "sha256": "4a0139ce0d2ea3f1f7651b0f5eba4fcba092034edabe3781076a7a87cb2afab5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Tanks/CZ7ASTAGE2.mu",
+      "bytes": 1146855,
+      "sha256": "73bf922ac225f53b590a86559e9225270faf247c274523801b74e7cb94a9a630"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-8/Fairing/CZ8FAIRING1.mu",
+      "bytes": 110087,
+      "sha256": "81072522a98d1a550463fa4c1f493c9d495e41cf6798c0084bd7bc2df410fa77"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-8/Fairing/CZ8FAIRINGY2.mu",
+      "bytes": 129740,
+      "sha256": "a4b6b44009403bdd657500578528fbcd5a9cc8e2ddcea9ebff1bd4df694a9c87"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Engines/YF-100/YF_100.mu",
+      "bytes": 3029309,
+      "sha256": "502187930433eeb460a8fd67addf12755819ebb6d69849d2bddecbe7d85ab183"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Engines/YF-100/YF_100M.mu",
+      "bytes": 3003756,
+      "sha256": "86686b64e1fe1b6960475df78cb46f966eee9655a737fb918ef885ed60b3f357"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Engines/YF-115/YF-115.mu",
+      "bytes": 4976207,
+      "sha256": "b4f8d9d60c7f84e8d64a373cda18cb13d22a799ee0cb376b49d0d238983c2644"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Engines/YF-75_Seriese/YF-75.mu",
+      "bytes": 743691,
+      "sha256": "722cd8bf972c14ae085e05d9110bb715d02314e25bf234395e3d8ec1d8acafd2"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/LaunchPads/CZ7LAUNCHPAD/CZ-7_Launch_Pad.mu",
+      "bytes": 4670583,
+      "sha256": "b69718df0376620feddeadcaf11ff3aec9c384035cbd0890b1da4ee3aef01e73"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/NoseCone/2_25mCone.mu",
+      "bytes": 60228,
+      "sha256": "afeb33346bffdc38f7c57a3553c819835660721967beb1a992a3088f7182a237"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/NoseCone/2mCone.mu",
+      "bytes": 112952,
+      "sha256": "690a6f309f6f02242a3f94d639ce62300f9d2b4fc6b3f24322ed535706c58fe8"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Wing/CZ2F_Wing.mu",
+      "bytes": 44054,
+      "sha256": "b821aeb2d38e87dc2785d1a1976c291907858bbe5bd7fff07ccd633d647eab78"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Wing/CZ_7_8Wing.mu",
+      "bytes": 18685,
+      "sha256": "66acdbcc428ef25058b505847e9f81212f11891046c85f16ebcb8a6095f7766f"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Booster/YL-1_Booster.mu",
+      "bytes": 215367,
+      "sha256": "f4776342275266ea349ace7e4093996df3bb498cd64b28a18fd087dd6246f31b"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Booster/YL-1_Booster_NoseCone.mu",
+      "bytes": 67984,
+      "sha256": "ddb822d3ee5a2bf5468d1adc380806eb0148fbb61bfd488ccfbc2517577d36d9"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Booster/YL-1_Booster_Separator.mu",
+      "bytes": 120768,
+      "sha256": "375900ed19a08c64d61eb0f388d0dbff19dec8a0d5f4ce02d6dcccd3cef34cf4"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Fairing/YL-1_Fairing_4200.mu",
+      "bytes": 149834,
+      "sha256": "e36fc3e42a6e4ce48b72dc605bfe1f03dbda11a5987baf50c454655c5055f207"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Stage1/YL-1_Stage_1.mu",
+      "bytes": 363746,
+      "sha256": "7d30aab11645630eff9440ac8aa737d9ac2339cd5c31547c6146f5bb7dbd33db"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Stage2/YL-1_Adapter.mu",
+      "bytes": 106037,
+      "sha256": "f8179e20ed0fb81adda2faba5924fc03b19e37c4633f806a39fc44959301f106"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Stage2/YL-1_Interstage1-2.mu",
+      "bytes": 62392,
+      "sha256": "c04d376d862a3cc419dda3a6d210db8bcbffe2c90b6fc03e3b559df1664c647d"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Stage2/YL-1_Interstage2-3.mu",
+      "bytes": 62055,
+      "sha256": "9c952a9e7f790b13a2539ec8f2a03c7e387096f5d16eeb0720725a96b4c3765d"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Stage2/YL-1_Stage2.mu",
+      "bytes": 226547,
+      "sha256": "f056d20bd92519db8f0cb661d2d8b889978a6ae604c9bdcd6d5402ad6bd7e5f9"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Stage2/YL-1_Stage3.mu",
+      "bytes": 307891,
+      "sha256": "f154ead63b1c2eafd23ae70a863b611fa9fac1940c692b0a956a41ba6b6c4119"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Stage2/YL-1_Stage3_RCS.mu",
+      "bytes": 394736,
+      "sha256": "4d3c8c75086c279dcc16653738b5f47e2b74e47aecf93a2bc8ceaaacc37c8eab"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Adapter/CZ3BAdapter.dds",
+      "bytes": 174904,
+      "sha256": "2c601a2b7fc49b93e258297e3435d6b440db16d9c5d2d63bb21aa96844e98992"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Adapter/CZ3BAdapter_Norm.png",
+      "bytes": 105969,
+      "sha256": "d82230d6e3418c77deb869ed52a4ac61c5fefd9ed030794b3cffabd470b24a58"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Command/CZ3B_YQC2.dds",
+      "bytes": 174904,
+      "sha256": "ab123c8a62a2e4db1adf306bfd383348116c3e17b16ac02bc7f1a38d5b8b5dce"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Command/Normal.png",
+      "bytes": 20544,
+      "sha256": "129070c9ceb558e2490a641283206e1c867be0d06d227a11bda3247833f1ebf5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Interstage/CZ-3B_INTERSTAGE2-3_Norm.png",
+      "bytes": 253723,
+      "sha256": "ab5ea1cf0d466af99e2adf4d21bb7e398ef4957044453491b17c6c807aaa2b67"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ-3B_STAGE_3_Norm.png",
+      "bytes": 203535,
+      "sha256": "d697c74a7ec5894416271e3e94c33303b2c28f855ce46a7da6e524fbc99187b0"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ-3_STAGE_3.dds",
+      "bytes": 2796344,
+      "sha256": "93691709e80f4b600ce5553283f81708e7f4f87571a1f7db9f67bc71226b4ab6"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ-7A_STAGE_3.dds",
+      "bytes": 2796344,
+      "sha256": "5cb8bf92af399e53db3bcd2ca218ef3e5d0588dca40130928c560ce32b055e07"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ-7A_STAGE_3_blank.dds",
+      "bytes": 5592560,
+      "sha256": "17090af10c32b58a806c8a528114ab79e1b090a65600bd4d7b036d73a1ca4e99"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ-8_STAGE_2.dds",
+      "bytes": 2796344,
+      "sha256": "4635604d1b7c823819301b3e997b27a06ff10e4d1ec1aa2e576d7c92de7ec5fa"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Adapter/CZ6A_Adapter.dds",
+      "bytes": 2796344,
+      "sha256": "aa5d52884003ad2872a68e05d4155737929fb6c8eb1becb81f81de7a8dda2d2e"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Adapter/Normal.png",
+      "bytes": 20544,
+      "sha256": "129070c9ceb558e2490a641283206e1c867be0d06d227a11bda3247833f1ebf5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Booster/CZ-6ABooster.dds",
+      "bytes": 2796344,
+      "sha256": "c932c4046b26afefc537f9f01d7028fc10ec1244dfe5c144c691f2046a94a633"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Booster/CZ-6ABooster_Norm.png",
+      "bytes": 598362,
+      "sha256": "41bef6aa20806f84324ec98e052ec8381be95768883d6372ffc7ff0c54eca7df"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Fairing/CZ-6A_Fairing.dds",
+      "bytes": 2796344,
+      "sha256": "68bf979e89487ea6260eb5853a64650cf03a18b51dea207c8588eda82e9b77e9"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Fairing/Normal.png",
+      "bytes": 20544,
+      "sha256": "129070c9ceb558e2490a641283206e1c867be0d06d227a11bda3247833f1ebf5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Interstage/6A_Interstage_S.dds",
+      "bytes": 699192,
+      "sha256": "7d08fd1e9a8636a06fc0dd127cd034938052de90acf758baa5bc69e7eb2bdee4"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Interstage/CZ-6AFirst_Stage.dds",
+      "bytes": 2796344,
+      "sha256": "994e0f5243cc5669b81fa47c1ac061987bf46a5d937caf98a7ce72c40e3cf1a9"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Interstage/Normal.png",
+      "bytes": 20544,
+      "sha256": "129070c9ceb558e2490a641283206e1c867be0d06d227a11bda3247833f1ebf5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Separator/CZ-6ABooster.dds",
+      "bytes": 2796344,
+      "sha256": "ed3a5bf9ed0c40e42e23d3e9c449e4be6d0c7cf58251dcae405571f8698e0cba"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Separator/Normal.png",
+      "bytes": 20544,
+      "sha256": "129070c9ceb558e2490a641283206e1c867be0d06d227a11bda3247833f1ebf5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Shell/6A_Engine_Shell_NORM.png",
+      "bytes": 1350093,
+      "sha256": "4c59b1dabf129bb71130858b0ba93de3cc37802bbb406ce405a95b274b3976c9"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Shell/CZ-6A_Engine_Shell_Map.dds",
+      "bytes": 2796344,
+      "sha256": "4b42049ba8d3055f45e880e3d412bc2b87b4d07709c70096a0ede8b4e7465a45"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Shell/Normal.png",
+      "bytes": 20544,
+      "sha256": "129070c9ceb558e2490a641283206e1c867be0d06d227a11bda3247833f1ebf5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Tanks/CZ-6AFirst_Stage.dds",
+      "bytes": 2796344,
+      "sha256": "c6f1eb8b76ba5d1b3683d21d591fdb20b5ef60267f5d9bec98cf314d99c037be"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Tanks/CZ-6AStage2.dds",
+      "bytes": 2796344,
+      "sha256": "75839729f32c0ce115d0b7b494fb2cc4f93b521f56abce34711ce97d6b957740"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Tanks/Normal.png",
+      "bytes": 20544,
+      "sha256": "129070c9ceb558e2490a641283206e1c867be0d06d227a11bda3247833f1ebf5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Adapter/CZ7_Adapter.dds",
+      "bytes": 699192,
+      "sha256": "33d01c67ac7fee50cf816af52b4c73f51a06f48f583e4f3c125eecfef83367f9"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Adapter/CZ7_Adapter_Norm.png",
+      "bytes": 41554,
+      "sha256": "2c4b5e26194c979bc4e2a0d67ac4980eb10b014d7f5866d2f9da621d3704e30d"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Fairing/CZ7FAIRING.dds",
+      "bytes": 699192,
+      "sha256": "148599e141e476d12680393f497b07bddb5cb00b0150a5d6dd3cc524f20c05ec"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Fairing/CZ7FAIRING_Norm.png",
+      "bytes": 79890,
+      "sha256": "9e6152b8b0e676144476a7a723bc607f5128b54256707e4cc9a06ebd320c479d"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Interstage/CZ7Interstage.dds",
+      "bytes": 174904,
+      "sha256": "b93d922d2979b069edd3daf3d10d02d41a086ff804e3a4202199f220b9918a8c"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Interstage/Normal.png",
+      "bytes": 20544,
+      "sha256": "129070c9ceb558e2490a641283206e1c867be0d06d227a11bda3247833f1ebf5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ-7A_Stage1.dds",
+      "bytes": 2796344,
+      "sha256": "ef61c776a11f65def224758d5cef30142c0ace3069583f8bff8c4ddc15e7ef75"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ-7A_Stage1_blank.dds",
+      "bytes": 5592560,
+      "sha256": "e238f4849998a47ae10a5e3d8887b7d08e8bb8d7b2b72904245db882e3fceb34"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ-7_Stage1.dds",
+      "bytes": 2796344,
+      "sha256": "92bbacfb2ce1d441b85a1ae62556c8f5619fb00272c331f5c256bd1d72b4ded4"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ-7_Stage1_blank.dds",
+      "bytes": 5592560,
+      "sha256": "cbef9e29cffe14c721e01a4cbb013e81509cbd5175bdda3be93e4f95aa294b30"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ-7_Stage2.dds",
+      "bytes": 2796344,
+      "sha256": "6188e742b220778fff9dc39d4c69f4ba180cb226ffea43e4e738221e0cb780b4"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ-7_Stage2_Norm.png",
+      "bytes": 84200,
+      "sha256": "3ab84114be0ad1b1949d3197530846aef8b409bc9ffeba9091f21285324d6c41"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ-7_Stage2_blank.dds",
+      "bytes": 5592560,
+      "sha256": "079da1dfc91c104a2b9a478f3b02c75bfa6302f74284c372272293896a330068"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ-8_Stage1.dds",
+      "bytes": 2796344,
+      "sha256": "93f9bd43705f199a4d8baf5e7478321d56d412475956f9ea9c65d2bdc3233c31"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ-8_Stage1_Y2.dds",
+      "bytes": 2796344,
+      "sha256": "73792e1fc0f9157a09838db30e6a8a45d118e7ed3725aa029589e1c007532792"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ7_Booster.dds",
+      "bytes": 699192,
+      "sha256": "a07487dccfdada678bab27e42798c2d89c0dbfb1210aa87e02e7e0e4ed891367"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ7_Booster_Norm.png",
+      "bytes": 39728,
+      "sha256": "b8a124f6dde6d157a1285c4f42fe319390d97a7d077458bee84c4ec8a468bad1"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ7_Booster_blank.dds",
+      "bytes": 1398256,
+      "sha256": "26911dbe2c44997c7a85a347c72addf74ba75258a7d7b4fb97f0250ffb0323ab"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ8_Booster.dds",
+      "bytes": 699192,
+      "sha256": "3b67d79f29dd3b52d91f0edc0396ec588c2e7b6d23c7cc5b943ab10a0740c51f"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/Normal.png",
+      "bytes": 20544,
+      "sha256": "129070c9ceb558e2490a641283206e1c867be0d06d227a11bda3247833f1ebf5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Command/CZ7A_Instrument_Bay_blank.dds",
+      "bytes": 349680,
+      "sha256": "e7403c15dece45a32fa136cd599fb534a6d30d6ef4e74fa0cade19665ccf12ce"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Command/CZ7A_YQC.dds",
+      "bytes": 174904,
+      "sha256": "2d84a792c5d36adbb02fb248011a02bf01b3d46e794f2aa7c26cc8797c90a7ad"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Command/CZ7A_YQC_Norm.png",
+      "bytes": 15865,
+      "sha256": "0ab2be9679b701e6e22972e0643716fef913d5892eb2da4b57752b47eb24504c"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Fairing/CZ7AFDFAIRINGUP.dds",
+      "bytes": 699192,
+      "sha256": "4a32d223864640fafc8b4e45e469d56a8cc9db82d9a121505eaa21dce79b0564"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Fairing/CZ7A_Fairing_blank.dds",
+      "bytes": 1398256,
+      "sha256": "299770d595ee372502a56f0f9146daade9892489e77d1734c2418967fb20784d"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Fairing/CZ7FAIRING_Norm.png",
+      "bytes": 79890,
+      "sha256": "9e6152b8b0e676144476a7a723bc607f5128b54256707e4cc9a06ebd320c479d"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Tanks/CZ-7A_Stage2.dds",
+      "bytes": 2796344,
+      "sha256": "7f774936c26da065969f5024db5c8c439a965a395b0927bc5654407fb8454ba6"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Tanks/CZ-7A_Stage2_Norm.png",
+      "bytes": 84200,
+      "sha256": "3ab84114be0ad1b1949d3197530846aef8b409bc9ffeba9091f21285324d6c41"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Tanks/CZ-7A_Stage2_blank.dds",
+      "bytes": 5592560,
+      "sha256": "3293ebabbe6e1469f20b20f6b5f86283185f1abf7e47b8a1f2c73fd0623b7845"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-8/Fairing/CZ78AIRING1.dds",
+      "bytes": 699192,
+      "sha256": "784a85c25dbfbd4de491890df919dc1fa1afa651315877f77d046ef98b8e303a"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-8/Fairing/CZ78AIRING2.dds",
+      "bytes": 699192,
+      "sha256": "fad8a1733a900f653a361085b17fb2b729ddf54f590aef635f06b98f9767bef9"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-8/Fairing/CZ8Y2FAIRING_Norm.png",
+      "bytes": 79890,
+      "sha256": "9e6152b8b0e676144476a7a723bc607f5128b54256707e4cc9a06ebd320c479d"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Engines/YF-100/YF-100.dds",
+      "bytes": 699192,
+      "sha256": "d244e6edeb780264c86792f27cd983531a0d24e8f95f7e163d5078c329fd3147"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Engines/YF-100/YF-100_Norm.png",
+      "bytes": 548087,
+      "sha256": "465466593e3e7d9baeaae00300a9ff6ae0ef8d745156931f19d9d165126eff9d"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Engines/YF-115/Normal.png",
+      "bytes": 20544,
+      "sha256": "129070c9ceb558e2490a641283206e1c867be0d06d227a11bda3247833f1ebf5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Engines/YF-115/YF-115.dds",
+      "bytes": 2796344,
+      "sha256": "9336af3d53d9cd41d2f36e6788201c2af8717f6447e0312ee5138885c777c6b6"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Engines/YF-75_Seriese/YF-75_Map.dds",
+      "bytes": 174904,
+      "sha256": "bcdd8990aae4c72b4f86fdf4c764f412ceb257601c2bebe5a744db3773aef3aa"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Engines/YF-75_Seriese/YF-75_Norm.png",
+      "bytes": 369903,
+      "sha256": "26fd133ed5af7b27d288f7aea53752a34d930810ebb149ec5f9315c41ecdf56c"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/LaunchPads/CZ7LAUNCHPAD/CZ-7_Launch_Pad.dds",
+      "bytes": 2796344,
+      "sha256": "7852cff853d9cf851e090b6978515029f4d36b5d3f3cbb82a805fc25709685c4"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/LaunchPads/CZ7LAUNCHPAD/CZ-7_Launch_Pad_Norm.png",
+      "bytes": 269330,
+      "sha256": "066ea8b37b9f23ae2683bf3c85fe383747530660e7a9612b7917de736800b22e"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/LaunchPads/CZ7LAUNCHPAD/CZ-7_Launch_Pad_flag_Words.dds",
+      "bytes": 699192,
+      "sha256": "cfe799d368fb1589b128f1abe7234312b3db28a21a3ec10d9ed7312406a13423"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/LaunchPads/CZ7LAUNCHPAD/CZ-7_Launch_Pad_flag_Words_Norm.png",
+      "bytes": 85086,
+      "sha256": "2213c0089fcc76403146f574dfd6a7b2d2cb8c5398f02512b29f6f9ab3e86d06"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/NoseCone/2_25mCone.dds",
+      "bytes": 43832,
+      "sha256": "25b6d6d273bdd631ebb75b145377cfb7da588b51b9681edbe096c7b0bc2d8a5d"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/NoseCone/Normal.png",
+      "bytes": 20544,
+      "sha256": "129070c9ceb558e2490a641283206e1c867be0d06d227a11bda3247833f1ebf5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Wing/CZ_7_8_wing.dds",
+      "bytes": 699192,
+      "sha256": "dfcd90a6821374a33de1cbdbe88587bf707be19c376ba1fceb0baca6703790cc"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Wing/Normal.png",
+      "bytes": 20544,
+      "sha256": "129070c9ceb558e2490a641283206e1c867be0d06d227a11bda3247833f1ebf5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Adapter/Adapter.dds",
+      "bytes": 2796344,
+      "sha256": "41c57479be5b2a4d7963818aa07a714c06bc382794dd827e6b801d82850ded08"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Adapter/Normal.png",
+      "bytes": 20544,
+      "sha256": "129070c9ceb558e2490a641283206e1c867be0d06d227a11bda3247833f1ebf5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/EscapeTower/Normal.png",
+      "bytes": 20544,
+      "sha256": "129070c9ceb558e2490a641283206e1c867be0d06d227a11bda3247833f1ebf5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Fairing/Normal.png",
+      "bytes": 20544,
+      "sha256": "129070c9ceb558e2490a641283206e1c867be0d06d227a11bda3247833f1ebf5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Interstage/Normal.png",
+      "bytes": 20544,
+      "sha256": "129070c9ceb558e2490a641283206e1c867be0d06d227a11bda3247833f1ebf5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Interstage/stage_1-2.dds",
+      "bytes": 2796344,
+      "sha256": "083fe9723e50a03fb3679594bb0900f334a83b5a27ac362de4ede8337f9125e0"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Tanks/Normal.png",
+      "bytes": 20544,
+      "sha256": "129070c9ceb558e2490a641283206e1c867be0d06d227a11bda3247833f1ebf5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Tanks/stage_1-2.dds",
+      "bytes": 2796344,
+      "sha256": "1b195725aa0d7e963ed1e8c6ba34b908ea417c20c8c87eae2eb1087b7b08dc8f"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Fairing/CZ3B_4.2m_Fairing.dds",
+      "bytes": 2796344,
+      "sha256": "395f790349b4212ae5a830ff793ca226afc81dbd67a4e852ba9577697dd9a8f2"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Fairing/CZ3B_4.2m_Fairing_Beidou.dds",
+      "bytes": 2796344,
+      "sha256": "406db01fca85467fd1478ce20fd97ca5b0c1892f0aafa4233e6d9d7a839c05d3"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Fairing/CZ3B_4.2m_Fairing_Norm.png",
+      "bytes": 600682,
+      "sha256": "4eed81847582dc7c9136416d1c43182ef3fbc643ead9a1eb9e45dd46ccac25ae"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Fairing/CZ3B_4.2m_Fairing_Tanyue.dds",
+      "bytes": 2796344,
+      "sha256": "4dc607b20f4dbbd22a2cee80191e5f845d2bb130e2f8c7ecfed75b1c441684c5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Interstage/CZ3B_1-2_Interstage.dds",
+      "bytes": 699192,
+      "sha256": "72db9a5ca50a9a6817e77251f2b5fb0da6aaac6249ed9782bb8e4f9b1ae5f92e"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Interstage/CZ3B_1-2_Interstage_Norm.png",
+      "bytes": 92422,
+      "sha256": "f28fb7838f36dcd3f97f802a84320bc99bfce6b07555d15d9415a7cc61024979"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ-2F_Booster_Tank.dds",
+      "bytes": 2796344,
+      "sha256": "0544e8b54fb56d2f36a95017e3c0f987959094b131ac68dced96e2ac8e469923"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ-3B_Booster_Tank_A.dds",
+      "bytes": 2796344,
+      "sha256": "aab8c4b76652d54f2c74b5d163cf5506580624c9ddfe64dd5a5e430367875541"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ-3B_Booster_Tank_B.dds",
+      "bytes": 2796344,
+      "sha256": "c29f474b3365d32052b53c536f46635f2728889d10e368210fae58a730951f77"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ-3B_Booster_Tank_C.dds",
+      "bytes": 2796344,
+      "sha256": "3d6e0a0c1b2f9a773c0102fc0945bcfd89db2675120dddfcc9a7edd7c7e15bc5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ-3B_Booster_Tank_Norm.png",
+      "bytes": 1754833,
+      "sha256": "0dc4f95ac466bc53a11561919eaf27381798a1fe7a8a5054983b67102643f5eb"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ3B_First_Stage_Tank.dds",
+      "bytes": 2796344,
+      "sha256": "796979d9c631c6976d7f75bfa7199c6d0ebb818685fe30c2a9d66665441a47ec"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ3B_First_Stage_Tank_Norm.png",
+      "bytes": 775150,
+      "sha256": "609460671a5083af6500bef90f49b2134694ceb7c039486d745a948891e0265a"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ3B_First_Stage_Tank_OldVersion.dds",
+      "bytes": 2796344,
+      "sha256": "0856ffb20d24cc0558535da819012f5a666e44cfbdcbb3cfd4e2a21b567f89e5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ3B_Stage2Tank.dds",
+      "bytes": 2796344,
+      "sha256": "9fef203bcf1465f9b5a88a6a338ca1273b203d3d2686c313c9159363e9aef3b5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ3B_Stage_2_Tank_Norm.png",
+      "bytes": 874751,
+      "sha256": "44ff002820cb80562566605c063ba9b9acae5be207f10579f4fa640f91367c59"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ3C_Stage2Tank.dds",
+      "bytes": 2796344,
+      "sha256": "f242d11f4fa54685a3d8e65b9293872bce34cea21b39c119fcf375d4bedf439a"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Fairing/CZ-6 Fairing.dds",
+      "bytes": 2796344,
+      "sha256": "399dc23760d548fbf5d4fe253306316a9adf4edf67e14b4947fbc37c419479ab"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Fairing/Normal.png",
+      "bytes": 20544,
+      "sha256": "129070c9ceb558e2490a641283206e1c867be0d06d227a11bda3247833f1ebf5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Interstage/CZ-6 interstage 2-3.dds",
+      "bytes": 2796344,
+      "sha256": "8276603a12320bde799365954121cc8f2d39d941866e7f990d743f8ffa086eb3"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Interstage/CZ-6 interstage 2-3_Normal.png",
+      "bytes": 20544,
+      "sha256": "129070c9ceb558e2490a641283206e1c867be0d06d227a11bda3247833f1ebf5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Interstage/CZ-6_interstage.dds",
+      "bytes": 2796344,
+      "sha256": "0b4dbfd3a46ea4256e0aaed7b371d84e7e73dc009386b4701c3e5c7e5cc5d6f4"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Interstage/CZ-6_interstage_Normal.png",
+      "bytes": 20544,
+      "sha256": "129070c9ceb558e2490a641283206e1c867be0d06d227a11bda3247833f1ebf5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Tanks/CZ-6 1st Tank.dds",
+      "bytes": 2796344,
+      "sha256": "c0e63f306da83cdc3153586052178dfbf47921b01a64396b12b620928a99cbec"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Tanks/CZ-6_2nd_tank.dds",
+      "bytes": 2796344,
+      "sha256": "195e4d212d03c45653f257f29a854018849b1376a480ba6bb8578325b8aa2e34"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Tanks/CZ-6_3rd_tank.dds",
+      "bytes": 699192,
+      "sha256": "a634c7681bffc2f20159c11913de0d99a525be1f9c7d8c49721525f60c78c922"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Tanks/CZ6_3rd.png",
+      "bytes": 7198360,
+      "sha256": "fca5616702a3672934276e51f7858d6d79bbf6ba391b42c8494a27cf3908d23b"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Tanks/Normal.png",
+      "bytes": 20544,
+      "sha256": "129070c9ceb558e2490a641283206e1c867be0d06d227a11bda3247833f1ebf5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Tanks/Shell.dds",
+      "bytes": 2796344,
+      "sha256": "9b2e7fe0017752038b9ed4832daea9cd88c43c0657404fb39448963c320648bb"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/shell/CZ-6_Engine_Shell.dds",
+      "bytes": 699192,
+      "sha256": "5c1d9393d041998d71abfc6a3e7931a4512f84066a44eee37cfce536279f059d"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/shell/Normal.png",
+      "bytes": 20544,
+      "sha256": "129070c9ceb558e2490a641283206e1c867be0d06d227a11bda3247833f1ebf5"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Booster/YL-1_Booster.dds",
+      "bytes": 2796344,
+      "sha256": "2f272444f523ed1b0253f0506a30fbd1f6f067676f96ff069e7bbbde9c42d6ef"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Booster/YL-1_Booster_1.dds",
+      "bytes": 2796344,
+      "sha256": "4f0cc0bd4a2c2305bfe7ef5ffd73774c2eb1fbf9ca8b6c75f807dc53561281a8"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Booster/YL-1_Booster_2.dds",
+      "bytes": 2796344,
+      "sha256": "e279de574e05397f6a0a913ed23b03dd1a2905d80212c29209970b8eb07835da"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Booster/YL-1_Booster_3.dds",
+      "bytes": 2796344,
+      "sha256": "b9992bf29f1036b703ed213a812c57c34b3b9107e81e7009133ba25819b6ed20"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Booster/YL-1_Booster_Norm.png",
+      "bytes": 1506243,
+      "sha256": "45f41e58a60c990f355cf22b00b1835b53addf56a20698e268b4c1efa96c54d8"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Fairing/YL-1_Fairing_DFKJ.dds",
+      "bytes": 2796344,
+      "sha256": "57bf0ca051c78eca703aa92c2c7d8105e71d36b532b6ae8ff693c197efae2638"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Fairing/YL-1_Fairing_GQ.dds",
+      "bytes": 2796344,
+      "sha256": "e9949cae97eaa802ac173111509a34451e6617d489b4167ccad902a622a32ee3"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Fairing/YL-1_Fairing_Norm.png",
+      "bytes": 201983,
+      "sha256": "5261b8dd66d3a6de5e12f9a8fb3ac787381a9bf301a828132e76f13979f22e52"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Stage1/YL-1_Stage_1.dds",
+      "bytes": 2796344,
+      "sha256": "ce8c22a378f11b029e43d34ca2f46b2259b2cafec4225070567311dba88991e4"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Stage1/YL-1_Stage_1_Norm.png",
+      "bytes": 1452634,
+      "sha256": "c4559f3bf05405adb09904f7a43e6ebfe83d28d0ea176128e46268bdf107a086"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Stage2/YL-1_Stage_2_3.dds",
+      "bytes": 2796344,
+      "sha256": "a2690c08c57ec118c1ec2c86b64fa1efd47c8f6c88c1f7e384fb54d765d8a4ff"
+    },
+    {
+      "path": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Stage2/YL-1_Stage_2_3_Norm.png",
+      "bytes": 1642686,
+      "sha256": "bff1f239d65fa4e601e889e4b91e42721d4335d41fc20c01b207ac46924c4922"
+    }
+  ],
+  "model_bindings": [
+    {
+      "part": "KCLV_CZ3_Adapter",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Adapter/CZ3BADAPTER",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-3_Adapter_CZ3BADAPTER.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-3_Adapter_CZ3BADAPTER.v3.5.2",
+      "texture_remaps": []
+    },
+    {
+      "part": "KCLV_CZ3_Instrument_Bay_1",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Command/CZ3B_YQC1",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-3_Command_CZ3B_YQC1.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-3_Command_CZ3B_YQC1.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_CZ3_Instrument_Bay_2",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Command/CZ3B_YQC2",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-3_Command_CZ3B_YQC2.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-3_Command_CZ3B_YQC2.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_CZ3_interstage_2-3",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Interstage/CZ-3B_2-3_INTERSTAGE",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-3_Interstage_CZ-3B_2-3_INTERSTAGE.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-3_Interstage_CZ-3B_2-3_INTERSTAGE.v3.5.2",
+      "texture_remaps": []
+    },
+    {
+      "part": "KCLV_CZ8_interstage",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Interstage/CZ-3B_2-3_INTERSTAGE",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-3_Interstage_CZ-3B_2-3_INTERSTAGE.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-3_Interstage_CZ-3B_2-3_INTERSTAGE.v3.5.2",
+      "texture_remaps": []
+    },
+    {
+      "part": "KCLV_CZ3_STAGE3",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ3BSTAGE3",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-3_Tanks_CZ3BSTAGE3.v3.5.4",
+      "package": "KIU_CZFamily/Assets/Model_CZ-3_Tanks_CZ3BSTAGE3.v3.5.4",
+      "texture_remaps": [
+        "Ref_CASC_Classic.v3.5.3, KIU/Common/KIU_Common_texture/Shared_CASC_Classic.v3.5.3",
+        "Ref_CASC_Teal.v3.5.3, KIU/Common/KIU_Common_texture/Shared_CASC_Teal.v3.5.3",
+        "Ref_ChinaSpaceBold.v3.5.4, KIU/Common/KIU_Common_texture/Shared_ChinaSpaceBold.v3.5.4"
+      ]
+    },
+    {
+      "part": "KCLV_CZ6_Adapter",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Adapter/CZ6A_Adapter",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6A_Adapter_CZ6A_Adapter.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-6A_Adapter_CZ6A_Adapter.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_CZ6A_Adapter",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Adapter/CZ6A_Adapter",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6A_Adapter_CZ6A_Adapter.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-6A_Adapter_CZ6A_Adapter.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_CZ6A_Booster",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Booster/CZ6A_Booster",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6A_Booster_CZ6A_Booster.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-6A_Booster_CZ6A_Booster.v3.5.2",
+      "texture_remaps": [
+        "Ref_CheckerPalette.v3.4.1, KIU/Common/KIU_Common_texture/Shared_CheckerPalette.v3.3.0"
+      ]
+    },
+    {
+      "part": "KCLV_CZ6A_Fairing_Mid",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Fairing/CZ6AFairing",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6A_Fairing_CZ6AFairing.v3.5.7",
+      "package": "KIU_CZFamily/Assets/Model_CZ-6A_Fairing_CZ6AFairing.v3.5.7",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2",
+        "Ref_ChinaFlag.v3.4.1, KIU/Common/KIU_Common_texture/Shared_ChinaFlag_Crimson.v3.5.3",
+        "Ref_CZ6A_FairingMark.v3.4.1, KIU/Common/KIU_Common_texture/Shared_CZ6A_FairingMark.v3.5.7"
+      ]
+    },
+    {
+      "part": "KCLV_CZ6A_Interstage",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Interstage/CZ-6A_Interstage",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6A_Interstage_CZ-6A_Interstage.v3.5.3",
+      "package": "KIU_CZFamily/Assets/Model_CZ-6A_Interstage_CZ-6A_Interstage.v3.5.3",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2",
+        "Ref_White.v3.4.1, KIU/Common/KIU_Common_texture/Shared_White.v3.3.0",
+        "Ref_ExtraGlyphs.v3.4.1, KIU/Common/KIU_Common_texture/Shared_ExtraGlyphs.v3.5.4"
+      ]
+    },
+    {
+      "part": "KCLV_CZ6A_Booster_Separator",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Separator/CZ-6ASeparator",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6A_Separator_CZ-6ASeparator.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-6A_Separator_CZ-6ASeparator.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2",
+        "Ref_CheckerPalette.v3.4.1, KIU/Common/KIU_Common_texture/Shared_CheckerPalette.v3.3.0"
+      ]
+    },
+    {
+      "part": "KCLV_CZ6A_Engine_Shell",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Shell/CZ-6AFirst_Stage_Engine_Shell",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6A_Shell_CZ-6AFirst_Stage_Engine_Shell.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-6A_Shell_CZ-6AFirst_Stage_Engine_Shell.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_CZ6A_stage1",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Tanks/CZ-6AFirst_Stage",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6A_Tanks_CZ-6AFirst_Stage.v3.5.3",
+      "package": "KIU_CZFamily/Assets/Model_CZ-6A_Tanks_CZ-6AFirst_Stage.v3.5.3",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2",
+        "Ref_CheckerPalette.v3.4.1, KIU/Common/KIU_Common_texture/Shared_CheckerPalette.v3.3.0",
+        "Ref_CASC.v3.4.1, KIU/Common/KIU_Common_texture/Shared_CASC_Teal.v3.5.3",
+        "Ref_ChinaSpaceBold.v3.5.3, KIU/Common/KIU_Common_texture/Shared_ChinaSpaceBold.v3.5.4"
+      ]
+    },
+    {
+      "part": "KCLV_CZ6A_stage2",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6A/Tanks/CZ-6AStage2",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6A_Tanks_CZ-6AStage2.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-6A_Tanks_CZ-6AStage2.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2",
+        "Ref_LM.v3.4.1, KIU/Common/KIU_Common_texture/Shared_LM_OpenOrbit.v3.5.3"
+      ]
+    },
+    {
+      "part": "KCLV_CZ7_Adapter",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Adapter/CZ7ADAPTER",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7_Adapter_CZ7ADAPTER.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-7_Adapter_CZ7ADAPTER.v3.5.2",
+      "texture_remaps": []
+    },
+    {
+      "part": "KCLV_CZ7_Fairing",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Fairing/CZ7FAIRING",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7_Fairing_CZ7FAIRING.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-7_Fairing_CZ7FAIRING.v3.5.2",
+      "texture_remaps": [
+        "Ref_FairingNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FairingNormal.v3.5.2",
+        "Ref_ChinaFlag.v3.4.1, KIU/Common/KIU_Common_texture/Shared_ChinaFlag_Red.v3.5.3",
+        "Ref_CMS.v3.4.1, KIU/Common/KIU_Common_texture/Shared_CMS.v3.3.1"
+      ]
+    },
+    {
+      "part": "KCLV_CZ7_Fairing_Solid_Booster",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Fairing/CZ7FAIRINGSB",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7_Fairing_CZ7FAIRINGSB.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-7_Fairing_CZ7FAIRINGSB.v3.5.2",
+      "texture_remaps": [
+        "Ref_FairingNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FairingNormal.v3.5.2",
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_CZ7_Interstage1-2",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Interstage/CZ7INTERSTAGE",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7_Interstage_CZ7INTERSTAGE.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-7_Interstage_CZ7INTERSTAGE.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_CZ7A_Booster_Solid_Booster",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ7ABOOSTERSB",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7_Tanks_CZ7ABOOSTERSB.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-7_Tanks_CZ7ABOOSTERSB.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_CZ7_booster",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ7BOOSTER",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7_Tanks_CZ7BOOSTER.v3.5.7",
+      "package": "KIU_CZFamily/Assets/Model_CZ-7_Tanks_CZ7BOOSTER.v3.5.7",
+      "texture_remaps": [
+        "Ref_Serial.v3.4.1, KIU/Common/KIU_Common_texture/Shared_Serial.v3.5.4"
+      ]
+    },
+    {
+      "part": "KCLV_CZ7_Engine_Shell",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ7BOOSTERES",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7_Tanks_CZ7BOOSTERES.v3.5.5",
+      "package": "KIU_CZFamily/Assets/Model_CZ-7_Tanks_CZ7BOOSTERES.v3.5.5",
+      "texture_remaps": []
+    },
+    {
+      "part": "KCLV_CZ7_Stage_1",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ7STAGE1",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7_Tanks_CZ7STAGE1.v3.5.7",
+      "package": "KIU_CZFamily/Assets/Model_CZ-7_Tanks_CZ7STAGE1.v3.5.7",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2",
+        "Ref_Serial.v3.4.1, KIU/Common/KIU_Common_texture/Shared_Serial.v3.5.4",
+        "Ref_LM.v3.4.1, KIU/Common/KIU_Common_texture/Shared_LM.v3.3.1",
+        "Ref_LongMarch.v3.4.1, KIU/Common/KIU_Common_texture/Shared_LongMarch_WhitePaint.v3.5.5",
+        "Ref_WenchangBold.v3.5.3, KIU/Common/KIU_Common_texture/Shared_WenchangBold.v3.5.4"
+      ]
+    },
+    {
+      "part": "KCLV_CZ7_Engine_Shell_1st",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ7STAGE1ES",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7_Tanks_CZ7STAGE1ES.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-7_Tanks_CZ7STAGE1ES.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_CZ7_Stage_2",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7/Tanks/CZ7STAGE2",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7_Tanks_CZ7STAGE2.v3.5.3",
+      "package": "KIU_CZFamily/Assets/Model_CZ-7_Tanks_CZ7STAGE2.v3.5.3",
+      "texture_remaps": [
+        "Ref_UpperStageNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_UpperStageNormal.v3.5.2",
+        "Ref_CASC.v3.4.1, KIU/Common/KIU_Common_texture/Shared_CASC_Teal.v3.5.3",
+        "Ref_ChinaSpaceBold.v3.5.3, KIU/Common/KIU_Common_texture/Shared_ChinaSpaceBold.v3.5.4"
+      ]
+    },
+    {
+      "part": "KCLV_CZ7A_Instrument_Bay",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Command/CZ7AYQC",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7A_Command_CZ7AYQC.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-7A_Command_CZ7AYQC.v3.5.2",
+      "texture_remaps": []
+    },
+    {
+      "part": "KCLV_CZ7A_FAIRING_420x1000",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Fairing/CZ7AFAIRING420x1000",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7A_Fairing_CZ7AFAIRING420x1000.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-7A_Fairing_CZ7AFAIRING420x1000.v3.5.2",
+      "texture_remaps": [
+        "Ref_FairingNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FairingNormal.v3.5.2",
+        "Ref_ChinaFlag.v3.4.1, KIU/Common/KIU_Common_texture/Shared_ChinaFlag_Red.v3.5.3"
+      ]
+    },
+    {
+      "part": "KCLV_CZ7A_SGFairing_Upper",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Fairing/CZ7AFDZLZS",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7A_Fairing_CZ7AFDZLZS.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-7A_Fairing_CZ7AFDZLZS.v3.5.2",
+      "texture_remaps": [
+        "Ref_FairingNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FairingNormal.v3.5.2",
+        "Ref_ChinaFlag.v3.4.1, KIU/Common/KIU_Common_texture/Shared_ChinaFlag_Red.v3.5.3"
+      ]
+    },
+    {
+      "part": "KCLV_CZ7A_SGFairing_Lower",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Fairing/CZ7AFDZLZX",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7A_Fairing_CZ7AFDZLZX.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-7A_Fairing_CZ7AFDZLZX.v3.5.2",
+      "texture_remaps": [
+        "Ref_FairingNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FairingNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_CZ7A_SGFairing_Middle",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Fairing/CZ7AFDZLZZ",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7A_Fairing_CZ7AFDZLZZ.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-7A_Fairing_CZ7AFDZLZZ.v3.5.2",
+      "texture_remaps": [
+        "Ref_FairingNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FairingNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_CZ7A_Stage_2",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-7A/Tanks/CZ7ASTAGE2",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-7A_Tanks_CZ7ASTAGE2.v3.5.3",
+      "package": "KIU_CZFamily/Assets/Model_CZ-7A_Tanks_CZ7ASTAGE2.v3.5.3",
+      "texture_remaps": [
+        "Ref_UpperStageNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_UpperStageNormal.v3.5.2",
+        "Ref_LM.v3.4.1, KIU/Common/KIU_Common_texture/Shared_LM.v3.3.1",
+        "Ref_White.v3.4.1, KIU/Common/KIU_Common_texture/Shared_White.v3.3.0",
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_CZ8_Fairing_1",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-8/Fairing/CZ8FAIRING1",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-8_Fairing_CZ8FAIRING1.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-8_Fairing_CZ8FAIRING1.v3.5.2",
+      "texture_remaps": [
+        "Ref_FairingNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FairingNormal.v3.5.2",
+        "Ref_ChinaFlag.v3.4.1, KIU/Common/KIU_Common_texture/Shared_ChinaFlag_Red.v3.5.3",
+        "Ref_CNSA.v3.4.1, KIU/Common/KIU_Common_texture/Shared_CNSA.v3.5.7"
+      ]
+    },
+    {
+      "part": "KCLV_CZ8_Fairing_Y2",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-8/Fairing/CZ8FAIRINGY2",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-8_Fairing_CZ8FAIRINGY2.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-8_Fairing_CZ8FAIRINGY2.v3.5.2",
+      "texture_remaps": [
+        "Ref_FairingNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FairingNormal.v3.5.2",
+        "Ref_ChinaFlag.v3.4.1, KIU/Common/KIU_Common_texture/Shared_ChinaFlag_Red.v3.5.3",
+        "Ref_CNSA.v3.4.1, KIU/Common/KIU_Common_texture/Shared_CNSA.v3.5.7"
+      ]
+    },
+    {
+      "part": "KCLV_YF100",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Engines/YF-100/YF_100",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_Engines_YF-100_YF_100.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_Engines_YF-100_YF_100.v3.5.2",
+      "texture_remaps": []
+    },
+    {
+      "part": "KCLV_YF100M",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Engines/YF-100/YF_100M",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_Engines_YF-100_YF_100M.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_Engines_YF-100_YF_100M.v3.5.2",
+      "texture_remaps": []
+    },
+    {
+      "part": "KCLV_YF115",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Engines/YF-115/YF-115",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_Engines_YF-115_YF-115.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_Engines_YF-115_YF-115.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_YF75",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Engines/YF-75_Seriese/YF-75",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_Engines_YF-75_Seriese_YF-75.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_Engines_YF-75_Seriese_YF-75.v3.5.2",
+      "texture_remaps": []
+    },
+    {
+      "part": "KCLV_CZ7_Launch_Platform",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/LaunchPads/CZ7LAUNCHPAD/CZ-7_Launch_Pad",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_LaunchPads_CZ7LAUNCHPAD_CZ-7_Launch_Pad.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_LaunchPads_CZ7LAUNCHPAD_CZ-7_Launch_Pad.v3.5.2",
+      "texture_remaps": [
+        "Ref_ChinaFlag.v3.4.1, KIU/Common/KIU_Common_texture/Shared_ChinaFlag_Red.v3.5.3",
+        "Ref_PlatformSigns.v3.4.1, KIU/Common/KIU_Common_texture/Shared_PlatformSigns.v3.3.0"
+      ]
+    },
+    {
+      "part": "KCLV_2.25m_NoseCone",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/NoseCone/2_25mCone",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_NoseCone_2_25mCone.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_NoseCone_2_25mCone.v3.5.2",
+      "texture_remaps": [
+        "Ref_White.v3.4.1, KIU/Common/KIU_Common_texture/Shared_White.v3.3.0",
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_2m_NoseCone",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/NoseCone/2mCone",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_NoseCone_2mCone.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_NoseCone_2mCone.v3.5.2",
+      "texture_remaps": [
+        "Ref_White.v3.4.1, KIU/Common/KIU_Common_texture/Shared_White.v3.3.0",
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_CZ2F_Wing",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Wing/CZ2F_Wing",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_Wing_CZ2F_Wing.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_Wing_CZ2F_Wing.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_CZ7_8_Wing",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/Wing/CZ_7_8Wing",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_Wing_CZ_7_8Wing.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_Wing_CZ_7_8Wing.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_CZ2F_Adapter",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Adapter/CZ2F_Adapter",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-2F_Adapter_CZ2F_Adapter.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-2F_Adapter_CZ2F_Adapter.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_CZ2F_Escape_tower_Upper",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/EscapeTower/CZ2F_ETUpper",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-2F_EscapeTower_CZ2F_ETUpper.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-2F_EscapeTower_CZ2F_ETUpper.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_CZ2F_Escape_tower",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/EscapeTower/CZ2F_ET_Lower",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-2F_EscapeTower_CZ2F_ET_Lower.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-2F_EscapeTower_CZ2F_ET_Lower.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_CZ2F_Fairing_Down",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Fairing/CZ2F_Fairing_Down",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-2F_Fairing_CZ2F_Fairing_Down.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-2F_Fairing_CZ2F_Fairing_Down.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2",
+        "Ref_ChinaFlag.v3.4.1, KIU/Common/KIU_Common_texture/Shared_ChinaFlag_2F.v3.5.3",
+        "Ref_CMS.v3.4.1, KIU/Common/KIU_Common_texture/Shared_CMS.v3.3.1"
+      ]
+    },
+    {
+      "part": "KCLV_CZ2F_Fairing_Mid",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Fairing/CZ2F_Fairing_Mid",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-2F_Fairing_CZ2F_Fairing_Mid.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-2F_Fairing_CZ2F_Fairing_Mid.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2",
+        "Ref_White.v3.4.1, KIU/Common/KIU_Common_texture/Shared_White.v3.3.0"
+      ]
+    },
+    {
+      "part": "KCLV_CZ2F_Fairing_Upper",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Fairing/CZ2F_Fairing_Upper",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-2F_Fairing_CZ2F_Fairing_Upper.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-2F_Fairing_CZ2F_Fairing_Upper.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_CZ2F_high_altitude_abort_Engine",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Fairing/high-altitude_abort_Engine",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-2F_Fairing_high-altitude_abort_Engine.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-2F_Fairing_high-altitude_abort_Engine.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_CZ2F_interstage",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Interstage/CZ-2F_Interstage",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-2F_Interstage_CZ-2F_Interstage.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-2F_Interstage_CZ-2F_Interstage.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2",
+        "Ref_ExtraGlyphs.v3.5.2, KIU/Common/KIU_Common_texture/Shared_ExtraGlyphs.v3.5.4"
+      ]
+    },
+    {
+      "part": "KCLV_CZ2F_stage1",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Tanks/CZ-2F_Stage_1",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-2F_Tanks_CZ-2F_Stage_1.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-2F_Tanks_CZ-2F_Stage_1.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2",
+        "Ref_LM.v3.5.2, KIU/Common/KIU_Common_texture/Shared_LM_Badge.v3.5.3",
+        "Ref_Serial.v3.5.2, KIU/Common/KIU_Common_texture/Shared_Serial.v3.5.4",
+        "Ref_LatinF.v3.5.2, KIU/Common/KIU_Common_texture/Shared_LatinF.v1.0.0"
+      ]
+    },
+    {
+      "part": "KCLV_CZ2F_stage2",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-2F/Tanks/CZ2F_2nd_Tank",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-2F_Tanks_CZ2F_2nd_Tank.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-2F_Tanks_CZ2F_2nd_Tank.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2",
+        "Ref_CASC.v3.5.2, KIU/Common/KIU_Common_texture/Shared_CASC_Blue.v3.5.3",
+        "Ref_ExtraGlyphs.v3.5.2, KIU/Common/KIU_Common_texture/Shared_ExtraGlyphs.v3.5.4"
+      ]
+    },
+    {
+      "part": "KCLV_CZ3B_FAIRING_4200",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Fairing/CZ3B_4200_Fairing",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-3_Fairing_CZ3B_4200_Fairing.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-3_Fairing_CZ3B_4200_Fairing.v3.5.2",
+      "texture_remaps": [
+        "Ref_ChinaFlag.v3.4.1, KIU/Common/KIU_Common_texture/Shared_ChinaFlag_Red.v3.5.3"
+      ]
+    },
+    {
+      "part": "KCLV_CZ3_interstage_1-2",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Interstage/CZ3B_1-2_Interstage",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-3_Interstage_CZ3B_1-2_Interstage.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-3_Interstage_CZ3B_1-2_Interstage.v3.5.2",
+      "texture_remaps": [
+        "Ref_LM.v3.4.1, KIU/Common/KIU_Common_texture/Shared_LM.v3.3.1"
+      ]
+    },
+    {
+      "part": "KCLV_CZ3_BOOSTER_TANK",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ3B_Booster_Tank",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-3_Tanks_CZ3B_Booster_Tank.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-3_Tanks_CZ3B_Booster_Tank.v3.5.2",
+      "texture_remaps": [
+        "Ref_White.v3.4.1, KIU/Common/KIU_Common_texture/Shared_White.v3.3.0"
+      ]
+    },
+    {
+      "part": "KCLV_CZ3B_First_Stage_Tank",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ3B_First_Stage_Tank",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-3_Tanks_CZ3B_First_Stage_Tank.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-3_Tanks_CZ3B_First_Stage_Tank.v3.5.2",
+      "texture_remaps": []
+    },
+    {
+      "part": "KCLV_CZ3B_Second_Stage_Tank",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-3/Tanks/CZ3B_Stage_2_Tank",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-3_Tanks_CZ3B_Stage_2_Tank.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-3_Tanks_CZ3B_Stage_2_Tank.v3.5.2",
+      "texture_remaps": []
+    },
+    {
+      "part": "KCLV_CZ6_Fairing_2.6m",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Fairing/CZ-6_Fairing_2_6",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6_Fairing_CZ-6_Fairing_2_6.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-6_Fairing_CZ-6_Fairing_2_6.v3.5.2",
+      "texture_remaps": [
+        "Ref_ChinaFlag.v3.4.1, KIU/Common/KIU_Common_texture/Shared_ChinaFlag_Red.v3.5.3"
+      ]
+    },
+    {
+      "part": "KCLV_CZ6_Interstage",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Interstage/CZ-6_Interstage",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6_Interstage_CZ-6_Interstage.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-6_Interstage_CZ-6_Interstage.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_CZ6_Interstage2-3",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Interstage/CZ-6_Interstage_2-3",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6_Interstage_CZ-6_Interstage_2-3.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-6_Interstage_CZ-6_Interstage_2-3.v3.5.2",
+      "texture_remaps": [
+        "Ref_White.v3.4.1, KIU/Common/KIU_Common_texture/Shared_White.v3.3.0",
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_CZ6_stage1",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Tanks/CZ-6_1st_Tank",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6_Tanks_CZ-6_1st_Tank.v3.5.3",
+      "package": "KIU_CZFamily/Assets/Model_CZ-6_Tanks_CZ-6_1st_Tank.v3.5.3",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2",
+        "Ref_CZ6Blue.v3.5.0, KIU/Common/KIU_Common_texture/Shared_CZ6Blue.v3.5.0",
+        "Ref_CASC_Blue.v3.5.3, KIU/Common/KIU_Common_texture/Shared_CASC_Blue.v3.5.3"
+      ]
+    },
+    {
+      "part": "KCLV_CZ6_stage2",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Tanks/CZ-6_2nd_Tank",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6_Tanks_CZ-6_2nd_Tank.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-6_Tanks_CZ-6_2nd_Tank.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_CZ6_stage3",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/Tanks/CZ-6_3rd_tank",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6_Tanks_CZ-6_3rd_tank.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-6_Tanks_CZ-6_3rd_tank.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_CZ6_Engine_Shell",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-6/shell/CZ-6_Engine_Shell",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_CZ-6_shell_CZ-6_Engine_Shell.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_CZ-6_shell_CZ-6_Engine_Shell.v3.5.2",
+      "texture_remaps": [
+        "Ref_FlatNormal.v3.4.1, KIU/Common/KIU_Common_texture/Shared_FlatNormal.v3.5.2"
+      ]
+    },
+    {
+      "part": "KCLV_YL-1_Booster",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Booster/YL-1_Booster",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_YL-1_Booster_YL-1_Booster.v3.5.5",
+      "package": "KIU_CZFamily/Assets/Model_YL-1_Booster_YL-1_Booster.v3.5.5",
+      "texture_remaps": []
+    },
+    {
+      "part": "KCLV_YL-1_Booster_NoseCone",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Booster/YL-1_Booster_NoseCone",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_YL-1_Booster_YL-1_Booster_NoseCone.v3.5.5",
+      "package": "KIU_CZFamily/Assets/Model_YL-1_Booster_YL-1_Booster_NoseCone.v3.5.5",
+      "texture_remaps": []
+    },
+    {
+      "part": "KCLV_YL-1_Booster_Separator",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Booster/YL-1_Booster_Separator",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_YL-1_Booster_YL-1_Booster_Separator.v3.5.5",
+      "package": "KIU_CZFamily/Assets/Model_YL-1_Booster_YL-1_Booster_Separator.v3.5.5",
+      "texture_remaps": []
+    },
+    {
+      "part": "KCLV_YL-1_Fairing_4200",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Fairing/YL-1_Fairing_4200",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_YL-1_Fairing_YL-1_Fairing_4200.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_YL-1_Fairing_YL-1_Fairing_4200.v3.5.2",
+      "texture_remaps": [
+        "Ref_ChinaFlag.v3.4.1, KIU/Common/KIU_Common_texture/Shared_ChinaFlag_Red.v3.5.3"
+      ]
+    },
+    {
+      "part": "KCLV_YL-1_Stage1",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Stage1/YL-1_Stage_1",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_YL-1_Stage1_YL-1_Stage_1.v3.5.5",
+      "package": "KIU_CZFamily/Assets/Model_YL-1_Stage1_YL-1_Stage_1.v3.5.5",
+      "texture_remaps": []
+    },
+    {
+      "part": "KCLV_YL-1_Adapter",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Stage2/YL-1_Adapter",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_YL-1_Stage2_YL-1_Adapter.v3.5.2",
+      "package": "KIU_CZFamily/Assets/Model_YL-1_Stage2_YL-1_Adapter.v3.5.2",
+      "texture_remaps": []
+    },
+    {
+      "part": "KCLV_YL-1_Interstage1-2",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Stage2/YL-1_Interstage1-2",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_YL-1_Stage2_YL-1_Interstage1-2.v3.5.5",
+      "package": "KIU_CZFamily/Assets/Model_YL-1_Stage2_YL-1_Interstage1-2.v3.5.5",
+      "texture_remaps": []
+    },
+    {
+      "part": "KCLV_YL-1_Interstage2-3",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Stage2/YL-1_Interstage2-3",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_YL-1_Stage2_YL-1_Interstage2-3.v3.5.5",
+      "package": "KIU_CZFamily/Assets/Model_YL-1_Stage2_YL-1_Interstage2-3.v3.5.5",
+      "texture_remaps": []
+    },
+    {
+      "part": "KCLV_YL-1_Stage2",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Stage2/YL-1_Stage2",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_YL-1_Stage2_YL-1_Stage2.v3.5.5",
+      "package": "KIU_CZFamily/Assets/Model_YL-1_Stage2_YL-1_Stage2.v3.5.5",
+      "texture_remaps": []
+    },
+    {
+      "part": "KCLV_YL-1_Stage3",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Stage2/YL-1_Stage3",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_YL-1_Stage2_YL-1_Stage3.v3.5.5",
+      "package": "KIU_CZFamily/Assets/Model_YL-1_Stage2_YL-1_Stage3.v3.5.5",
+      "texture_remaps": []
+    },
+    {
+      "part": "KCLV_YL-1_Stage3_RCS",
+      "old": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/YL-1/Stage2/YL-1_Stage3_RCS",
+      "new": "KIU/KIU_Chinese_Launch_Vehicle_pack/Texture/Model_YL-1_Stage2_YL-1_Stage3_RCS.v3.5.5",
+      "package": "KIU_CZFamily/Assets/Model_YL-1_Stage2_YL-1_Stage3_RCS.v3.5.5",
+      "texture_remaps": []
+    }
+  ]
+}
