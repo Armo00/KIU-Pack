@@ -93,6 +93,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     {
         base.OnLoad(node);
         ReadResources(node);
+        ReadServiceHeights(node);
     }
     private void ReadResources(ConfigNode node)
     {
@@ -123,6 +124,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         maxSegments=Math.Max(0,maxSegments);
         ConfigureSegmentControl();
         InitializeModel();
+        ConfigureStructureControls();
         segments=Math.Max(0,Math.Min(maxSegments,segments));
         // Both TweakScale branches finish restoring their model/nodes in OnStart.
         // Do not give their restore code already-scaled extension nodes.
@@ -137,15 +139,17 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         if(ui==null)return;
         ui.minValue=displayHeightInMeters?baseHeight:0;ui.maxValue=ControlValue(maxSegments);
         // One slider interval spans the entire configured range, including its end.
-        float step=displayHeightInMeters?segmentLength:1f;
-        ui.incrementLarge=ui.maxValue-ui.minValue+step;ui.incrementSmall=step;ui.incrementSlide=step;
-        if(displayHeightInMeters)Fields["extensionCount"].guiFormat="F1";
+        float step=upperOnly && selectableHeightStep ? HeightIncrement : displayHeightInMeters?segmentLength:1f;
+        ui.incrementLarge=upperOnly && selectableHeightStep ? 0 : ui.maxValue-ui.minValue+step;ui.incrementSmall=step;ui.incrementSlide=step;
+        if(displayHeightInMeters){Fields["extensionCount"].guiFormat="F1";ui.sigFigs=1;ui.useSI=false;ui.unit=" m";}
+        if(upperOnly && selectableHeightStep)ui.incrementSlide=0;
         ui.affectSymCounterparts=UI_Scene.None;
         ui.onFieldChanged=OnSegmentControlChanged;
         extensionCount=ControlValue(Math.Max(0,Math.Min(maxSegments,segments)));
     }
     public void OnSegmentControlChanged(BaseField field,object previous)
     {
+        if(upperOnly && selectableHeightStep)extensionCount=SnapHeight("extensionCount",extensionCount);
         int requested=Mathf.Clamp(Mathf.RoundToInt(displayHeightInMeters?(extensionCount-baseHeight)/segmentLength:extensionCount),0,maxSegments);
         if(requested!=segments)SetSegmentCount(requested,true);
         extensionCount=ControlValue(segments);
@@ -196,6 +200,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
             rendererRefreshPending=false;
             RefreshRenderers();
         }
+        UpdateServiceVisibility();
         // FloatEdit supplies a slider and single-step buttons. Hide its extra
         // interval-jump pair so both remaining arrow buttons adjust exactly one.
         UI_FloatEdit ui=Fields["extensionCount"].uiControlEditor as UI_FloatEdit;
@@ -203,6 +208,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         if(item==null)return;
         if(item.incLarge!=null)item.incLarge.gameObject.SetActive(false);
         if(item.decLarge!=null)item.decLarge.gameObject.SetActive(false);
+        if(upperOnly && selectableHeightStep)LayoutHeightWidget("extensionCount",item);
     }
     private IEnumerator AfterModulesStarted()
     {
@@ -420,6 +426,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
             obj.transform.localPosition=Vector3.up*(below?baseBottom+bottomCapHeight-(index+1)*segmentLength:baseBottom+bottomCapHeight+mainBodyHeight+index*segmentLength);
             obj.SetActive(true);copies.Add(obj);
         }
+        ApplyServiceHeights(baseHeight+count*segmentLength,moveAttached);
         appliedDown=down;appliedUp=up;
         float center=(-baseHeight*originFraction+(baseHeight+up-down)*.5f)*modelScale;
         part.CoMOffset=new Vector3(0,center,0);part.CoLOffset=part.CoMOffset;part.CoPOffset=part.CoMOffset;
@@ -546,7 +553,180 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     }
     public ModifierChangeWhen GetModuleCostChangeWhen() { return ModifierChangeWhen.CONSTANTLY; }
     public Vector3 GetModuleSize(Vector3 defaultSize,ModifierStagingSituation sit) { return upperOnly?Vector3.zero:Vector3.up*(segments*segmentLength*modelScale); }
-    public ModifierChangeWhen GetModuleSizeChangeWhen() { return ModifierChangeWhen.CONSTANTLY; }
+    public ModifierChangeWhen GetModuleSizeChangeWhen() { return ModifierChangeWhen.CONSTANTLY; }    // Optional tower controls. Tank configs opt out by default.
+    [KSPField] public bool selectableHeightStep = false;
+    [KSPField(isPersistant=true, guiActiveEditor=false, guiName="调节粒度")]
+    [UI_ChooseOption(scene=UI_Scene.Editor,options=new string[]{"0.1","0.5","1"}, display=new string[]{"0.1 m","0.5 m","1 m"})]
+    public string heightStep = "0.1";
+    [KSPField(isPersistant=true, guiActiveEditor=false, guiName="Service 1",guiFormat="F1")]
+    [UI_FloatEdit(scene=UI_Scene.Editor,minValue=0,maxValue=200,incrementLarge=0,incrementSmall=.1f,incrementSlide=.1f,sigFigs=5,unit="m")]
+    public float serviceHeight0 = -1f;
+    [KSPField(isPersistant=true, guiActiveEditor=false, guiName="Service 2",guiFormat="F1")]
+    [UI_FloatEdit(scene=UI_Scene.Editor,minValue=0,maxValue=200,incrementLarge=0,incrementSmall=.1f,incrementSlide=.1f,sigFigs=5,unit="m")]
+    public float serviceHeight1 = -1f;
+    [KSPField(isPersistant=true, guiActiveEditor=false, guiName="Service 3",guiFormat="F1")]
+    [UI_FloatEdit(scene=UI_Scene.Editor,minValue=0,maxValue=200,incrementLarge=0,incrementSmall=.1f,incrementSlide=.1f,sigFigs=5,unit="m")]
+    public float serviceHeight2 = -1f;
+    [KSPField] public string heightRails = "";
+    private class ServiceHeightSpec {
+        public int slot,below=-1;
+        public string rootName,optionName,label;
+        public float authored,minimum,topMargin,gap;
+        public Transform root,option;
+        public string FieldName { get { return "serviceHeight"+slot; } }
+    }
+    private readonly List<ServiceHeightSpec> serviceHeights=new List<ServiceHeightSpec>();
+    private readonly List<Transform> serviceRails=new List<Transform>();
+    private bool servicesReady;
+    private float nextServiceCheck;
+    private readonly Dictionary<string,float> heightAnchors=new Dictionary<string,float>();
+    private readonly Dictionary<string,UIPartActionFloatEdit> heightWidgets=new Dictionary<string,UIPartActionFloatEdit>();
+    private float SnapHeight(string name,float value) {
+        float anchor; if(!heightAnchors.TryGetValue(name,out anchor))anchor=0;
+        return Mathf.Round((anchor+Mathf.Round((value-anchor)/HeightIncrement)*HeightIncrement)*10f)/10f;
+    }
+    private void ResetHeightAnchors() {
+        heightAnchors["extensionCount"]=ControlValue(segments);
+        foreach(var s in serviceHeights)heightAnchors[s.FieldName]=GetServiceHeight(s);
+        heightWidgets.Clear();
+    }
+    private void LayoutHeightWidget(string name,UIPartActionFloatEdit item) {
+        if(item==null)return;
+        item.incLarge.gameObject.SetActive(false);item.decLarge.gameObject.SetActive(false);
+        item.incSmall.gameObject.SetActive(true);item.decSmall.gameObject.SetActive(true);
+        item.incSmall.transform.localPosition=item.incLarge.transform.localPosition;
+        item.decSmall.transform.localPosition=item.decLarge.transform.localPosition;
+        item.slider.GetComponent<RectTransform>().sizeDelta=new Vector2(-44,0);
+        UIPartActionFloatEdit previous;
+        if(heightWidgets.TryGetValue(name,out previous)&&previous==item)return;
+        heightWidgets[name]=item;
+        item.incSmall.onToggle.RemoveAllListeners();item.decSmall.onToggle.RemoveAllListeners();
+        item.incSmall.onToggle.AddListener(()=>StepHeight(name,1));
+        item.decSmall.onToggle.AddListener(()=>StepHeight(name,-1));
+    }
+    private void StepHeight(string name,int direction) {
+        float old=Convert.ToSingle(Fields[name].GetValue(this));
+        Fields[name].SetValue(Mathf.Round((old+direction*HeightIncrement)*10f)/10f,this);
+        if(name=="extensionCount")OnSegmentControlChanged(Fields[name],old);else OnServiceHeightChanged(Fields[name],old);
+        heightWidgets.Clear();MonoUtilities.RefreshContextWindows(part);
+    }
+    private float HeightIncrement { get { return heightStep=="1"?1f:heightStep=="0.5"?.5f:.1f; } }
+    private void ReadServiceHeights(ConfigNode node) {
+        ConfigNode[] specs=node.GetNodes("SERVICE_HEIGHT");
+        if(specs.Length==0 && part!=null && part.partInfo!=null && part.partInfo.partConfig!=null)
+            foreach(ConfigNode module in part.partInfo.partConfig.GetNodes("MODULE"))
+                if(module.GetValue("name")==GetType().Name){specs=module.GetNodes("SERVICE_HEIGHT");break;}
+        serviceHeights.Clear();
+        foreach(ConfigNode n in specs) {
+            var s=new ServiceHeightSpec();
+            n.TryGetValue("slot",ref s.slot);n.TryGetValue("authoredHeight",ref s.authored);
+            n.TryGetValue("minimum",ref s.minimum);n.TryGetValue("topMargin",ref s.topMargin);
+            n.TryGetValue("aboveSlot",ref s.below);n.TryGetValue("separation",ref s.gap);
+            s.rootName=n.GetValue("transform");s.optionName=n.GetValue("installedTransform");s.label=n.GetValue("label");
+            if(s.slot<0||s.slot>2||s.minimum<0||s.topMargin<0||string.IsNullOrEmpty(s.rootName)||serviceHeights.Exists(v=>v.slot==s.slot))
+                throw new ArgumentException("Invalid SERVICE_HEIGHT configuration");
+            serviceHeights.Add(s);
+        }
+        serviceHeights.Sort((a,b)=>a.slot.CompareTo(b.slot));
+    }
+    private void ConfigureStructureControls() {
+        bool enabled=upperOnly && selectableHeightStep;
+        Fields["heightStep"].guiActiveEditor=enabled;
+        UI_ChooseOption choice=Fields["heightStep"].uiControlEditor as UI_ChooseOption;
+        if(choice!=null){choice.scene=enabled?UI_Scene.Editor:UI_Scene.None;choice.affectSymCounterparts=UI_Scene.None;choice.onFieldChanged=OnHeightStepChanged;}
+        for(int i=0;i<3;i++)SetServiceFieldVisible(Fields["serviceHeight"+i],false);
+        if(heightStep!="0.1"&&heightStep!="0.5"&&heightStep!="1")heightStep="0.1";
+        if(!enabled)return;
+        foreach(var s in serviceHeights) {
+            s.root=part.FindModelTransform(s.rootName);s.option=part.FindModelTransform(s.optionName);
+            if(s.root==null||s.option==null)throw new InvalidOperationException("Missing service height root: "+s.rootName);
+            Fields[s.FieldName].guiName=s.label;
+            if(GetServiceHeight(s)<0)SetServiceHeight(s,s.authored);
+            UI_FloatEdit ui=Fields[s.FieldName].uiControlEditor as UI_FloatEdit;
+            if(ui!=null){ui.affectSymCounterparts=UI_Scene.None;ui.onFieldChanged=OnServiceHeightChanged;}
+        }
+        foreach(string name in heightRails.Split(','))if(!string.IsNullOrEmpty(name.Trim())) {
+            Transform rail=part.FindModelTransform(name.Trim());
+            if(rail==null)throw new InvalidOperationException("Missing service rail: "+name);
+            serviceRails.Add(rail);
+        }
+        servicesReady=true;
+        ApplyServiceHeights(baseHeight+segments*segmentLength,false);
+        ResetHeightAnchors();
+    }
+    private float GetServiceHeight(ServiceHeightSpec s){return Convert.ToSingle(Fields[s.FieldName].GetValue(this));}
+    private void SetServiceHeight(ServiceHeightSpec s,float value){Fields[s.FieldName].SetValue(value,this);}
+    private void OnHeightStepChanged(BaseField field,object previous) {
+        ResetHeightAnchors();
+        ConfigureSegmentControl();
+        ConfigureServiceUI(baseHeight+segments*segmentLength);
+        heightWidgets.Clear();MonoUtilities.RefreshContextWindows(part);
+        if(HighLogic.LoadedSceneIsEditor && EditorLogic.fetch!=null)GameEvents.onEditorShipModified.Fire(EditorLogic.fetch.ship);
+    }
+    private void ServiceBounds(ServiceHeightSpec s,float height,out float min,out float max) {
+        min=s.minimum;max=Mathf.Max(min,height-s.topMargin);
+        if(s.below>=0){var b=serviceHeights.Find(x=>x.slot==s.below);if(b!=null)min=Mathf.Max(min,GetServiceHeight(b)+s.gap);}
+        foreach(var above in serviceHeights)if(above.below==s.slot)max=Mathf.Min(max,GetServiceHeight(above)-above.gap);
+        min=Mathf.Min(min,max);
+    }
+    private void ConfigureServiceUI(float height) {
+        if(!servicesReady)return;
+        foreach(var s in serviceHeights) {
+            UI_FloatEdit ui=Fields[s.FieldName].uiControlEditor as UI_FloatEdit;
+            float min,max;ServiceBounds(s,height,out min,out max);
+            if(ui!=null){ui.minValue=min;ui.maxValue=max;ui.incrementLarge=0;ui.incrementSmall=HeightIncrement;ui.incrementSlide=0;ui.sigFigs=1;ui.useSI=false;ui.unit=" m";}
+            SetServiceFieldVisible(Fields[s.FieldName],s.option.gameObject.activeInHierarchy);
+        }
+    }
+    private void OnServiceHeightChanged(BaseField field,object previous) {
+        if(!HighLogic.LoadedSceneIsEditor || !servicesReady)return;
+        var s=serviceHeights.Find(x=>x.FieldName==field.name);if(s==null)return;
+        float min,max;ServiceBounds(s,baseHeight+segments*segmentLength,out min,out max);
+        SetServiceHeight(s,Mathf.Clamp(SnapHeight(s.FieldName,GetServiceHeight(s)),min,max));
+        ApplyServiceHeights(baseHeight+segments*segmentLength,false);
+        heightWidgets.Clear();MonoUtilities.RefreshContextWindows(part);
+        if(EditorLogic.fetch!=null)GameEvents.onEditorShipModified.Fire(EditorLogic.fetch.ship);
+    }
+    private void ApplyServiceHeights(float height,bool notifyClamp) {
+        if(!servicesReady)return;
+        bool clamped=false;
+        foreach(var s in serviceHeights) {
+            float old=GetServiceHeight(s),v=Mathf.Clamp(old,s.minimum,Mathf.Max(s.minimum,height-s.topMargin));
+            SetServiceHeight(s,v);clamped|=Mathf.Abs(v-old)>.001f;
+        }
+        // Upper stations retain their bounded height; lower stations move down
+        // only when shortening the tower makes their minimum separation invalid.
+        for(int i=serviceHeights.Count-1;i>=0;i--) {
+            var s=serviceHeights[i];if(s.below<0)continue;
+            var lowerService=serviceHeights.Find(x=>x.slot==s.below);if(lowerService==null)continue;
+            float old=GetServiceHeight(lowerService),v=Mathf.Min(old,GetServiceHeight(s)-s.gap);
+            v=Mathf.Max(lowerService.minimum,v);SetServiceHeight(lowerService,v);clamped|=Mathf.Abs(v-old)>.001f;
+        }
+        foreach(var s in serviceHeights)s.root.localPosition=Vector3.up*(GetServiceHeight(s)-s.authored);
+        foreach(var rail in serviceRails){Vector3 scale=rail.localScale;scale.y=height;rail.localScale=scale;}
+        ConfigureServiceUI(height);
+        if(clamped && notifyClamp && HighLogic.LoadedSceneIsEditor)
+            ScreenMessages.PostScreenMessage("塔段缩短：超出行程的摆臂已限位，请检查接口高度。",4f,ScreenMessageStyle.UPPER_CENTER);
+    }
+    private void UpdateServiceVisibility() {
+        if(!servicesReady || Time.unscaledTime<nextServiceCheck)return;
+        nextServiceCheck=Time.unscaledTime+.25f;bool changed=false;
+        foreach(var s in serviceHeights) {
+            bool visible=s.option.gameObject.activeInHierarchy;
+            if(Fields[s.FieldName].guiActiveEditor!=visible){SetServiceFieldVisible(Fields[s.FieldName],visible);changed=true;}
+            UI_FloatEdit ui=Fields[s.FieldName].uiControlEditor as UI_FloatEdit;
+            UIPartActionFloatEdit item=ui==null?null:ui.partActionItem as UIPartActionFloatEdit;
+            LayoutHeightWidget(s.FieldName,item);
+        }
+        if(changed)MonoUtilities.RefreshContextWindows(part);
+    }
+    private static void SetServiceFieldVisible(BaseField field,bool visible) {
+        field.guiActiveEditor=visible;field.guiActive=false;
+        if(field.uiControlEditor!=null){field.uiControlEditor.scene=visible?UI_Scene.Editor:UI_Scene.None;field.uiControlEditor.controlEnabled=visible;}
+        if(field.uiControlFlight!=null)field.uiControlFlight.scene=UI_Scene.None;
+    }
+
+
 }
 
 // /L 2.4.x rejects every B9+MFT combination by module name, including switches
