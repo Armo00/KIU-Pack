@@ -51,6 +51,14 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     [KSPField] public bool upperOnly = false;
     [KSPField] public float extensionStart = 0f;
     [KSPField] public float structuralBayLength = 0f;
+    [KSPField] public string lastBayHiddenTransforms = "";
+    // Opt-in service-arm release. Ordinary tanks never register staging events.
+    [KSPField] public string launchRetractAnimations = "";
+    [KSPField(isPersistant=true)] public bool launchRetractionRequested;
+    private bool launchEventsRegistered;
+    private bool heightUIRefreshPending;
+    private Vessel launchVessel;
+    private readonly List<Part> launchClamps = new List<Part>();
     [KSPField] public bool showResourceMode = true;
     [KSPField] public bool displayHeightInMeters = false;
     // Comma-separated authored-zero roots, each with a height-following fraction.
@@ -88,6 +96,56 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     private class ResourceSpec { public string name; public double baseline,increment; }
     public static int LowerCount(int count) { return (count+1)/2; }
     public static int UpperCount(int count) { return count/2; }
+
+    private void InitializeLaunchRetraction()
+    {
+        if (string.IsNullOrEmpty(launchRetractAnimations)) return;
+        foreach (PartModule module in part.Modules) {
+            ModuleAnimateGeneric motion=module as ModuleAnimateGeneric;
+            if (motion==null) continue;
+            motion.allowDeployLimit=false;
+            motion.deployPercent=100f;
+            motion.Fields["deployPercent"].guiActive=false;
+            motion.Fields["deployPercent"].guiActiveEditor=false;
+        }
+        if (!HighLogic.LoadedSceneIsFlight || launchEventsRegistered) return;
+        launchVessel=part.vessel;
+        launchClamps.Clear();
+        if (launchVessel!=null)
+            foreach (Part p in launchVessel.parts)
+                foreach (PartModule m in p.Modules)
+                    if (m is LaunchClamp && m.stagingEnabled) { launchClamps.Add(p); break; }
+        GameEvents.onStageActivate.Add(OnLaunchStage);
+        launchEventsRegistered=true;
+    }
+    private void OnLaunchStage(int stage)
+    {
+        if (!HighLogic.LoadedSceneIsFlight || launchRetractionRequested) return;
+        // Staging is global. Only the launch vessel that owns these service arms
+        // may trigger them, including the frame in which its clamp detaches.
+        bool ownsActive=FlightGlobals.ActiveVessel==launchVessel;
+        foreach (Part clamp in launchClamps)
+            if (clamp!=null && clamp.vessel==FlightGlobals.ActiveVessel) ownsActive=true;
+        if (!ownsActive) return;
+        foreach (Part clamp in launchClamps)
+            if (clamp!=null && clamp.inverseStage==stage) { RetractLaunchArms(); return; }
+    }
+    private void RetractLaunchArms()
+    {
+        if (!HighLogic.LoadedSceneIsFlight || string.IsNullOrEmpty(launchRetractAnimations) || launchRetractionRequested) return;
+        launchRetractionRequested=true;
+        foreach (string item in launchRetractAnimations.Split(','))
+            foreach (PartModule module in part.Modules) {
+                ModuleAnimateGeneric motion=module as ModuleAnimateGeneric;
+                if (motion!=null && motion.animationName==item.Trim() && motion.animSwitch) motion.Toggle();
+            }
+        Debug.Log("[ConfigurableTank] Launch service retraction: "+part.partInfo.name);
+    }
+    public override void OnActive() { RetractLaunchArms(); }
+    public void OnDestroy()
+    {
+        if (launchEventsRegistered) GameEvents.onStageActivate.Remove(OnLaunchStage);
+    }
 
     public override void OnLoad(ConfigNode node)
     {
@@ -153,6 +211,21 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         int requested=Mathf.Clamp(Mathf.RoundToInt(displayHeightInMeters?(extensionCount-baseHeight)/segmentLength:extensionCount),0,maxSegments);
         if(requested!=segments)SetSegmentCount(requested,true);
         extensionCount=ControlValue(segments);
+        if(upperOnly && selectableHeightStep)QueueHeightUIRefresh();
+    }
+    private void QueueHeightUIRefresh()
+    {
+        if(heightUIRefreshPending || !HighLogic.LoadedSceneIsEditor)return;
+        heightUIRefreshPending=true;
+        StartCoroutine(RefreshHeightUIAfterInput());
+    }
+    private IEnumerator RefreshHeightUIAfterInput()
+    {
+        // Stock FloatEdit writes its raw slider display after onFieldChanged.
+        // Refresh on the next frame so snapped heights and dependent limits win.
+        yield return null;
+        heightUIRefreshPending=false;
+        heightWidgets.Clear();MonoUtilities.RefreshContextWindows(part);
     }
     private void SetLinkedLiftAvailable(Transform car,bool available)
     {
@@ -214,6 +287,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     {
         yield return null;
         modulesStarted=true;
+        InitializeLaunchRetraction();
         scalePending=false;
         ReadScale();
         ApplyGeometry(segments,false,false);
@@ -411,6 +485,12 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
                 Vector3 scale=template.localScale;scale.y*=length/structuralBayLength;
                 obj.transform.localScale=scale;
                 obj.transform.localPosition=Vector3.up*(extensionStart+i*structuralBayLength);
+                // The fixed crown owns its interface floor/header. Earlier full
+                // bays keep theirs; only the final bay suppresses its duplicate.
+                if(i==needed-1 && !string.IsNullOrEmpty(lastBayHiddenTransforms))
+                    foreach(Transform child in obj.GetComponentsInChildren<Transform>(true))
+                        foreach(string name in lastBayHiddenTransforms.Split(','))
+                            if(child.name==name.Trim())child.gameObject.SetActive(false);
                 obj.SetActive(true);copies.Add(obj);
             }
             foreach(var follower in followers) {
@@ -570,10 +650,17 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     [KSPField] public string heightRails = "";
     private class ServiceHeightSpec {
         public int slot,below=-1;
+        public bool relativeToTop;
         public string rootName,optionName,label;
         public float authored,minimum,topMargin,gap;
         public Transform root,option;
+        public readonly List<ServiceHeightFollower> followers=new List<ServiceHeightFollower>();
         public string FieldName { get { return "serviceHeight"+slot; } }
+    }
+    private class ServiceHeightFollower {
+        public string name;
+        public Transform transform;
+        public float positionFactor,positionOffset,scaleFactor,scaleOffset=1;
     }
     private readonly List<ServiceHeightSpec> serviceHeights=new List<ServiceHeightSpec>();
     private readonly List<Transform> serviceRails=new List<Transform>();
@@ -616,15 +703,24 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         if(specs.Length==0 && part!=null && part.partInfo!=null && part.partInfo.partConfig!=null)
             foreach(ConfigNode module in part.partInfo.partConfig.GetNodes("MODULE"))
                 if(module.GetValue("name")==GetType().Name){specs=module.GetNodes("SERVICE_HEIGHT");break;}
+        if(specs.Length==0)return;
         serviceHeights.Clear();
         foreach(ConfigNode n in specs) {
             var s=new ServiceHeightSpec();
             n.TryGetValue("slot",ref s.slot);n.TryGetValue("authoredHeight",ref s.authored);
             n.TryGetValue("minimum",ref s.minimum);n.TryGetValue("topMargin",ref s.topMargin);
             n.TryGetValue("aboveSlot",ref s.below);n.TryGetValue("separation",ref s.gap);
+            n.TryGetValue("relativeToTop",ref s.relativeToTop);
             s.rootName=n.GetValue("transform");s.optionName=n.GetValue("installedTransform");s.label=n.GetValue("label");
             if(s.slot<0||s.slot>2||s.minimum<0||s.topMargin<0||string.IsNullOrEmpty(s.rootName)||serviceHeights.Exists(v=>v.slot==s.slot))
                 throw new ArgumentException("Invalid SERVICE_HEIGHT configuration");
+            foreach(ConfigNode f in n.GetNodes("FOLLOWER")) {
+                var follower=new ServiceHeightFollower();follower.name=f.GetValue("transform");
+                f.TryGetValue("positionFactor",ref follower.positionFactor);f.TryGetValue("positionOffset",ref follower.positionOffset);
+                f.TryGetValue("scaleFactor",ref follower.scaleFactor);f.TryGetValue("scaleOffset",ref follower.scaleOffset);
+                if(string.IsNullOrEmpty(follower.name))throw new ArgumentException("Missing service follower transform");
+                s.followers.Add(follower);
+            }
             serviceHeights.Add(s);
         }
         serviceHeights.Sort((a,b)=>a.slot.CompareTo(b.slot));
@@ -637,11 +733,21 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         for(int i=0;i<3;i++)SetServiceFieldVisible(Fields["serviceHeight"+i],false);
         if(heightStep!="0.1"&&heightStep!="0.5"&&heightStep!="1")heightStep="0.1";
         if(!enabled)return;
+        // KSP does not call OnLoad for every new editor clone. Re-read immutable
+        // prefab config after partInfo exists, preserving craft height values.
+        ReadServiceHeights(new ConfigNode());
+        serviceRails.Clear();
+        if(serviceHeights.Count==0 && !string.IsNullOrEmpty(heightRails))
+            Debug.LogError("[ConfigurableTank] Missing SERVICE_HEIGHT definitions on "+part.name);
         foreach(var s in serviceHeights) {
             s.root=part.FindModelTransform(s.rootName);s.option=part.FindModelTransform(s.optionName);
             if(s.root==null||s.option==null)throw new InvalidOperationException("Missing service height root: "+s.rootName);
             Fields[s.FieldName].guiName=s.label;
-            if(GetServiceHeight(s)<0)SetServiceHeight(s,s.authored);
+            if(GetServiceHeight(s)<0)SetServiceHeight(s,s.authored+(s.relativeToTop?segments*segmentLength:0));
+            foreach(var f in s.followers) {
+                f.transform=part.FindModelTransform(f.name);
+                if(f.transform==null)throw new InvalidOperationException("Missing service height follower: "+f.name);
+            }
             UI_FloatEdit ui=Fields[s.FieldName].uiControlEditor as UI_FloatEdit;
             if(ui!=null){ui.affectSymCounterparts=UI_Scene.None;ui.onFieldChanged=OnServiceHeightChanged;}
         }
@@ -651,6 +757,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
             serviceRails.Add(rail);
         }
         servicesReady=true;
+        Debug.Log("[ConfigurableTank] Service height controls initialized: "+part.name+" count="+serviceHeights.Count);
         ApplyServiceHeights(baseHeight+segments*segmentLength,false);
         ResetHeightAnchors();
     }
@@ -664,7 +771,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         if(HighLogic.LoadedSceneIsEditor && EditorLogic.fetch!=null)GameEvents.onEditorShipModified.Fire(EditorLogic.fetch.ship);
     }
     private void ServiceBounds(ServiceHeightSpec s,float height,out float min,out float max) {
-        min=s.minimum;max=Mathf.Max(min,height-s.topMargin);
+        min=s.minimum+(s.relativeToTop?height-baseHeight:0);max=Mathf.Max(min,height-s.topMargin);
         if(s.below>=0){var b=serviceHeights.Find(x=>x.slot==s.below);if(b!=null)min=Mathf.Max(min,GetServiceHeight(b)+s.gap);}
         foreach(var above in serviceHeights)if(above.below==s.slot)max=Mathf.Min(max,GetServiceHeight(above)-above.gap);
         min=Mathf.Min(min,max);
@@ -686,12 +793,14 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         ApplyServiceHeights(baseHeight+segments*segmentLength,false);
         heightWidgets.Clear();MonoUtilities.RefreshContextWindows(part);
         if(EditorLogic.fetch!=null)GameEvents.onEditorShipModified.Fire(EditorLogic.fetch.ship);
+        QueueHeightUIRefresh();
     }
     private void ApplyServiceHeights(float height,bool notifyClamp) {
         if(!servicesReady)return;
         bool clamped=false;
         foreach(var s in serviceHeights) {
-            float old=GetServiceHeight(s),v=Mathf.Clamp(old,s.minimum,Mathf.Max(s.minimum,height-s.topMargin));
+            float minimum=s.minimum+(s.relativeToTop?height-baseHeight:0);
+            float old=GetServiceHeight(s),v=Mathf.Clamp(old,minimum,Mathf.Max(minimum,height-s.topMargin));
             SetServiceHeight(s,v);clamped|=Mathf.Abs(v-old)>.001f;
         }
         // Upper stations retain their bounded height; lower stations move down
@@ -702,11 +811,18 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
             float old=GetServiceHeight(lowerService),v=Mathf.Min(old,GetServiceHeight(s)-s.gap);
             v=Mathf.Max(lowerService.minimum,v);SetServiceHeight(lowerService,v);clamped|=Mathf.Abs(v-old)>.001f;
         }
-        foreach(var s in serviceHeights)s.root.localPosition=Vector3.up*(GetServiceHeight(s)-s.authored);
+        foreach(var s in serviceHeights) {
+            float relative=GetServiceHeight(s)-(s.relativeToTop?height-baseHeight:0);
+            s.root.localPosition=Vector3.up*(relative-s.authored);
+            foreach(var f in s.followers) {
+                Vector3 p=f.transform.localPosition;p.y=relative*f.positionFactor+f.positionOffset;f.transform.localPosition=p;
+                Vector3 scale=f.transform.localScale;scale.y=Mathf.Max(.001f,relative*f.scaleFactor+f.scaleOffset);f.transform.localScale=scale;
+            }
+        }
         foreach(var rail in serviceRails){Vector3 scale=rail.localScale;scale.y=height;rail.localScale=scale;}
         ConfigureServiceUI(height);
         if(clamped && notifyClamp && HighLogic.LoadedSceneIsEditor)
-            ScreenMessages.PostScreenMessage("塔段缩短：超出行程的摆臂已限位，请检查接口高度。",4f,ScreenMessageStyle.UPPER_CENTER);
+            ScreenMessages.PostScreenMessage("塔段高度改变：超出行程的摆臂已限位，请检查接口高度。",4f,ScreenMessageStyle.UPPER_CENTER);
     }
     private void UpdateServiceVisibility() {
         if(!servicesReady || Time.unscaledTime<nextServiceCheck)return;
