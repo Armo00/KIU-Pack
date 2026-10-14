@@ -18,13 +18,9 @@ public class CZ10BLaunchErector : LaunchClamp
     public float heightSelection = 2;
     [KSPField(guiActiveEditor = true, guiActive = true, guiName = "#CZ10B_Erector_Height")]
     public string heightSpec;
-    private Transform heightUpper, heightTemplate;
-    private Transform[] heightTemplates;
-    private Vector3 upperOrigin;
-    private int builtSegments = -1;
-    private bool rendererRefreshPending;
-    private bool editorEventsRegistered;
-    private Dictionary<int, List<GameObject>> heightPools = new Dictionary<int, List<GameObject>>();
+    private KIUTemplateExtensionPool heightGeometry;
+    private int builtSegments=-1;
+    private bool rendererRefreshPending,editorEventsRegistered;
     [KSPField] public float bottomDuration = 2f;
     [KSPField] public float topDuration = 2f;
     [KSPField] public float prepareDuration = 2f;
@@ -129,108 +125,37 @@ public class CZ10BLaunchErector : LaunchClamp
         return initialized;
     }
 
-    private void InitializeHeight()
-    {
-        if (heightUpper == null)
-        {
-            heightUpper = part.FindModelTransform("HeightAdjustableUpper");
-            heightTemplate = part.FindModelTransform("HeightExtensionTemplate");
-            if (heightUpper == null || heightTemplate == null) return;
-            Transform origin = part.FindModelTransform("HeightUpperOrigin");
-            upperOrigin = origin != null ? origin.localPosition : heightUpper.localPosition;
-            heightTemplates = new Transform[7];
-            heightPools = new Dictionary<int, List<GameObject>>();
-            for (int units = 1; units <= 6; units++)
-            {
-                heightTemplates[units] = units == 1 ? heightTemplate : part.FindModelTransform(units == 6 ? "HeightBayTemplate" : "HeightRemainder" + units);
-                heightPools[units] = new List<GameObject>();
-                // Editor duplication includes inactive pooled bays. Adopt each
-                // geometry type independently, keeping a fixed height origin.
-                for (int i = 0; ; i++)
-                {
-                    Transform existing = heightTemplate.parent.Find("ErectorExtension_" + units + "_" + i);
-                    if (existing == null) break;
-                    heightPools[units].Add(existing.gameObject);
-                }
-            }
+    private void InitializeHeight() {
+        if(heightGeometry==null) {
+            if(part.FindModelTransform("HeightAdjustableUpper")==null||part.FindModelTransform("HeightExtensionTemplate")==null)return;
+            heightGeometry=new KIUTemplateExtensionPool(part,"HeightAdjustableUpper","HeightUpperOrigin",
+                new[]{"HeightExtensionTemplate","HeightRemainder2","HeightRemainder3","HeightRemainder4","HeightRemainder5","HeightBayTemplate"},
+                "ErectorExtension_",modelHeightSegments,Mathf.Max(.01f,heightSegmentLength));
         }
-        maxHeightSegments = Math.Max(0, maxHeightSegments);
-        heightSegmentLength = Mathf.Max(.01f, heightSegmentLength);
-        UI_FloatEdit ui = Fields["heightSelection"].uiControlEditor as UI_FloatEdit;
-        if (ui != null)
-        {
-            ui.minValue = 0; ui.maxValue = maxHeightSegments;
-            ui.incrementLarge = maxHeightSegments + 1; ui.incrementSmall = 1; ui.incrementSlide = 1;
-            ui.affectSymCounterparts = UI_Scene.None; ui.onFieldChanged = OnHeightChanged;
-        }
+        maxHeightSegments=Math.Max(0,maxHeightSegments);heightSegmentLength=Mathf.Max(.01f,heightSegmentLength);
+        var ui=Fields["heightSelection"].uiControlEditor as UI_FloatEdit;
+        if(ui!=null){ui.minValue=0;ui.maxValue=maxHeightSegments;ui.incrementLarge=maxHeightSegments+1;ui.incrementSmall=1;ui.incrementSlide=1;
+            ui.affectSymCounterparts=UI_Scene.None;ui.onFieldChanged=OnHeightChanged;}
         SetHeightSegments(heightSegments);
     }
+
     public void OnHeightChanged(BaseField field, object previous)
     {
         SetHeightSegments(Mathf.RoundToInt(heightSelection));
         if (HighLogic.LoadedSceneIsEditor && EditorLogic.fetch != null)
             GameEvents.onEditorShipModified.Fire(EditorLogic.fetch.ship);
     }
-    public void SetHeightSegments(int count)
-    {
-        heightSegments = Mathf.Clamp(count, 0, maxHeightSegments); heightSelection = heightSegments;
-        heightSpec = (baseTopHeight + heightSegments * heightSegmentLength).ToString("F2") + " m / " + heightSegments + " × " + heightSegmentLength.ToString("F1") + " m";
-        if (heightTemplate == null || heightUpper == null) return;
-        int fullBays = heightSegments / 6, remainder = heightSegments % 6;
-        for (int units = 1; units <= 6; units++)
-        {
-            Transform template = heightTemplates[units];
-            if (template == null) { Debug.LogError("[CZ10B] Missing extension template " + units); continue; }
-            List<GameObject> pool = heightPools[units];
-            int needed = units == 6 ? fullBays : units == remainder ? 1 : 0;
-            for (int i = pool.Count; i < needed; i++)
-            {
-                GameObject copy = UnityEngine.Object.Instantiate(template.gameObject);
-                copy.name = "ErectorExtension_" + units + "_" + i;
-                copy.transform.SetParent(template.parent, false); pool.Add(copy);
-            }
-            template.gameObject.SetActive(false);
-            for (int i = 0; i < pool.Count; i++)
-            {
-                Transform tr = pool[i].transform;
-                int offset = units == 6 ? i * 6 : fullBays * 6;
-                tr.localPosition = template.localPosition + Vector3.up * (offset * heightSegmentLength);
-                tr.localRotation = template.localRotation; tr.localScale = Vector3.one;
-                pool[i].SetActive(i < needed);
-            }
-        }
-        heightUpper.localPosition = upperOrigin + Vector3.up * ((heightSegments - modelHeightSegments) * heightSegmentLength);
-        builtSegments = heightSegments;
-        InvalidateRendererCaches();
-        rendererRefreshPending = true;
+
+    public void SetHeightSegments(int count) {
+        heightSegments=Mathf.Clamp(count,0,maxHeightSegments);heightSelection=heightSegments;
+        heightSpec=(baseTopHeight+heightSegments*heightSegmentLength).ToString("F2")+" m / "+heightSegments+" × "+heightSegmentLength.ToString("F1")+" m";
+        if(heightGeometry==null)return; heightGeometry.Apply(heightSegments);builtSegments=heightSegments;rendererRefreshPending=true;
     }
 
-    private void InvalidateRendererCaches()
-    {
-        part.ResetModelRenderersCache();
-        part.ResetModelMeshRenderersCache();
-        part.ResetModelSkinnedMeshRenderersCache();
-    }
+    private void InvalidateRendererCaches() { KIUModelRenderers.Invalidate(part); }
 
-    private void RefreshRenderers()
-    {
-        InvalidateRendererCaches();
-        var renderers = new List<Renderer>(part.FindModelComponents<Renderer>());
-        renderers.RemoveAll(r => r == null || !r.gameObject.activeInHierarchy || r.GetComponentInParent<Part>() != part);
-        KSPUtil.RemoveNonHighlightableRenderers(renderers);
-        // Rim highlighting and the outline Highlighter keep separate caches.
-        // Exclude retired pooled sections and meshes belonging to attached Parts.
-        part.HighlightRenderer = renderers;
-        part.RefreshHighlighter();
-        if (part.highlighter != null)
-        {
-            bool highlighted = part.HighlightActive, recursive = part.RecurseHighlight;
-            // An unchanged highlight color is otherwise not applied to new bays.
-            part.SetHighlight(false, false);
-            if (highlighted) part.SetHighlight(true, false);
-            part.RecurseHighlight = recursive;
-        }
-    }
+    private void RefreshRenderers() { KIUModelRenderers.Refresh(part); }
+
 
     [KSPEvent(guiActive = true, guiActiveEditor = true, guiName = "#CZ10B_Erector_OpenBottom", active = true)]
     public void OpenBottom() { if (!released) openingBottom = true; }

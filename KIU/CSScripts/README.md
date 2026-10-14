@@ -54,7 +54,7 @@ Rescaled does not require this extra adapter path.
 Native test scripts, exact dependency hashes, operation order tests, attachment,
 symmetry and persistence evidence: `local_workspace/ConfigurableTank/20260928-tweakscale/`.
 
-CZ10BLaunchErector.dll and CZ10BLaunchErector.cs are retained in KIU.
+CZ10BLaunchErector.cs is maintained in TowerControl.dll; the former standalone DLL is retired.
 Grid-fin/fairing custom bridges and the editor node helper are retired.
 Future edits and new shared DLLs are maintained and built here, not in CZ10B.
 
@@ -116,3 +116,36 @@ spacing rather than implying every opening is 5.6 m. Editable ship source 2.7.1
 also corrects CASC UV/face direction and increases hull letter height to 1 m.
 CaptureCamera.cs preserves the incoming pilot's camera across native coupling,
 preventing the automatic merged-vessel switch from hiding the visual buffer.
+
+## Shared dimension, tower and editor-node split (2026-10-14)
+
+ConfigurableTank.dll owns variable model size, attachment movement, rendering
+caches/highlighting, and size-dependent capacity/mass/cost reconciliation. It
+contains reusable KIUModelRenderers and KIUTemplateExtensionPool helpers, plus
+the existing optional TweakScale compatibility. It has no tower service,
+staging, elevator or engine-node hooks.
+
+TowerControl.dll references ConfigurableTank.dll. TowerControl owns tower UI,
+independent service heights, bounds, followers and launch retraction. Existing
+CZ10BLaunchErector keeps its module name, LaunchClamp inheritance, state fields
+and release/animation sequence in this assembly; model construction uses the
+shared extension pool. Do not also install CZ10BLaunchErector.dll.
+
+CZ16 tower Parts compose ConfigurableTank with TowerControl. The generic module
+provides a read-only load snapshot; TowerControl migrates old saved service
+heights, step and retraction state once, then owns them. Dimension changes
+update both Field and actual PAW slider bounds. The 3m service top margin stays.
+
+GroupEngineNodes.dll contains KIUGroupedEngineNodes and its editor hooks,
+independent of the other two assemblies. Parts opt in by module, and the host's
+existing Harmony 2 is required to enable the hook. No Harmony/EEX/test binaries
+are bundled. Never retain an old ConfigurableTank containing duplicate node
+types alongside this assembly.
+
+Build via plugin-build-manifest.json/build-plugins.ps1. Entries support either
+the original source array or sources/references. Dependency assemblies build
+first, including when selecting only TowerControl.
+
+Scoped native evidence and validation limits remain under
+local_workspace/CZ-16/working/feedback023/three_dll and the consolidated report.
+No model archive, runtime commit or push is implied by this integration.

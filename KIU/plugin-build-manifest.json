@@ -8,10 +8,9 @@
     "CSScripts/ModuleProceduralFairingDecal.cs"
   ],
   "ConfigurableTank": [
-    "CSScripts/ConfigurableTank.cs"
-  ],
-  "CZ10BLaunchErector": [
-    "CSScripts/CZ10BLaunchErector.cs"
+    "CSScripts/ConfigurableTank.cs",
+    "CSScripts/KIUModelRenderers.cs",
+    "CSScripts/KIUTemplateExtensionPool.cs"
   ],
   "KIUNetRecovery": [
     "CSScripts/NetRecovery/CaptureGate.cs",
@@ -28,5 +27,17 @@
     "CSScripts/NetRecovery/AssemblyInfo.cs",
     "CSScripts/NetRecovery/CaptureCamera.cs",
     "CSScripts/NetRecovery/HeightCustomization.cs"
+  ],
+  "TowerControl": {
+    "sources": [
+      "CSScripts/TowerControl.cs",
+      "CSScripts/CZ10BLaunchErector.cs"
+    ],
+    "references": [
+      "ConfigurableTank"
+    ]
+  },
+  "GroupEngineNodes": [
+    "CSScripts/KIUGroupedEngineNodes.cs"
   ]
 }
