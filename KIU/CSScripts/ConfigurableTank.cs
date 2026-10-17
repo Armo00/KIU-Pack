@@ -71,6 +71,9 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     public float CurrentModelHeight { get { return baseHeight+segments*segmentLength; } }
     public float MaximumModelHeight { get { return baseHeight+maxSegments*segmentLength; } }
     public bool ModelInitialized { get { return initialized; } }
+    // Consumers moving or switching existing geometry use the same deferred
+    // cache/highlight reconciliation as a dimension change.
+    public void RequestRendererRefresh() { InvalidateRendererCaches();rendererRefreshPending=true; }
     // Generic load snapshot: consumers own interpretation of legacy values.
     public ConfigNode GetLoadedStateSnapshot() { return loadedState==null?null:loadedState.CreateCopy(); }
     private void PublishDimensionsChanged() {

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 // Tower service policy. Generic dimension/capacity/rendering belongs to ConfigurableTank.
 public class TowerControl : PartModule {
-    [KSPField(guiActiveEditor=true,guiName="塔段高度（米）",guiFormat="F1")]
+    [KSPField(guiActiveEditor=true,guiName="#KIU_TowerControl_Height",guiFormat="F1")]
     [UI_FloatEdit(scene=UI_Scene.Editor,minValue=0,maxValue=200,incrementLarge=0,incrementSmall=.1f,incrementSlide=0,sigFigs=1,unit=" m")]
     public float extensionCount;
     [KSPField] public string launchRetractAnimations="";
@@ -15,7 +15,7 @@ public class TowerControl : PartModule {
     [KSPField(isPersistant=true)] public int stateVersion;
     [KSPField(isPersistant=true)] public bool legacyStateMigrated;
     private ConfigurableTank dimensions;
-    private bool heightUIRefreshPending,launchEventsRegistered;
+    private bool heightUIRefreshPending,launchEventsRegistered,synchronizingHeightWidgets;
     private Vessel launchVessel;
     private readonly List<Part> launchClamps=new List<Part>();
     private float baseHeight { get { return dimensions.baseHeight; } }
@@ -26,14 +26,30 @@ public class TowerControl : PartModule {
     private static readonly FieldInfo SliderBlock=typeof(UIPartActionFloatEdit).GetField("blockSliderUpdate",BindingFlags.Public|BindingFlags.NonPublic|BindingFlags.Instance);
     public override void OnLoad(ConfigNode node) {
         base.OnLoad(node);if(!node.HasValue("stateVersion"))stateVersion=0;ReadServiceHeights(node);
+        // A PAW can be constructed before the deferred OnStart coroutine. Do
+        // not expose the -1 "use authored height" sentinel to FloatEdit.Setup,
+        // which clamps and writes it back before service initialization.
+        if(part!=null)dimensions=part.FindModuleImplementing<ConfigurableTank>();
+        InitializeServiceDefaults();
     }
     public override void OnStart(StartState state) {
         base.OnStart(state);dimensions=part.FindModuleImplementing<ConfigurableTank>();
         if(dimensions==null)throw new InvalidOperationException("TowerControl requires ConfigurableTank dimensions");
         dimensions.DimensionsChanged+=OnDimensionsChanged;
         dimensions.showDimensionControls=false;Fields["extensionCount"].guiName=KSP.Localization.Localizer.Format(dimensions.extensionLabel);
+        Fields["heightStep"].guiName=KSP.Localization.Localizer.Format("#KIU_TowerControl_Step");
         dimensions.Fields["extensionCount"].guiActiveEditor=false;
+        ReadServiceHeights(new ConfigNode());InitializeServiceDefaults();
         StartCoroutine(InitializeAfterDimensions());
+    }
+    private void InitializeServiceDefaults() {
+        if(dimensions==null||dimensions.baseHeight<=0||dimensions.segmentLength<=0)return;
+        extensionCount=CurrentHeight;
+        foreach(var s in serviceHeights) {
+            if(GetServiceHeight(s)<0)SetServiceHeight(s,s.authored+(s.relativeToTop?segments*segmentLength:0));
+            UI_FloatEdit ui=Fields[s.FieldName].uiControlEditor as UI_FloatEdit;
+            if(ui!=null){ui.affectSymCounterparts=UI_Scene.None;ui.onFieldChanged=OnServiceHeightChanged;}
+        }
     }
     private IEnumerator InitializeAfterDimensions() {
         yield return null;
@@ -67,9 +83,13 @@ public class TowerControl : PartModule {
         SynchronizeWidget("extensionCount",ui.partActionItem as UIPartActionFloatEdit,ui);
     }
     public void OnSegmentControlChanged(BaseField field,object previous) {
+        if(synchronizingHeightWidgets)return;
         float requestedHeight=SnapHeight("extensionCount",extensionCount);
         int count=Mathf.Clamp(Mathf.RoundToInt((requestedHeight-baseHeight)/segmentLength),0,dimensions.maxSegments);
-        dimensions.SetSegmentCount(count,true);extensionCount=CurrentHeight;
+        // PAW refreshes can echo an unchanged value. Do not rebuild every tower
+        // bay, attachment cache and renderer list for a no-op UI callback.
+        if(count!=segments)dimensions.SetSegmentCount(count,true);extensionCount=CurrentHeight;
+        if(Mathf.Abs(requestedHeight-CurrentHeight)>.001f)heightAnchors["extensionCount"]=CurrentHeight;
         ApplyServiceHeights(CurrentHeight,true);QueueHeightUIRefresh();
     }
     private void QueueHeightUIRefresh() {
@@ -87,7 +107,8 @@ public class TowerControl : PartModule {
         var shown=item.Control as UI_FloatEdit;
         if(shown!=null){shown.minValue=source.minValue;shown.maxValue=source.maxValue;shown.incrementLarge=0;shown.incrementSmall=HeightIncrement;shown.incrementSlide=0;
             if(name=="extensionCount")shown.onFieldChanged=OnSegmentControlChanged;else shown.onFieldChanged=OnServiceHeightChanged;}
-        bool blocked=SliderBlock!=null&&(bool)SliderBlock.GetValue(item);
+        bool blocked=SliderBlock!=null&&(bool)SliderBlock.GetValue(item),wasSynchronizing=synchronizingHeightWidgets;
+        synchronizingHeightWidgets=true;
         if(SliderBlock!=null)SliderBlock.SetValue(item,true);
         try {
             float v=Convert.ToSingle(Fields[name].GetValue(this));
@@ -95,7 +116,7 @@ public class TowerControl : PartModule {
             if(item.fieldValue!=null)item.fieldValue.text=KSPUtil.LocalizeNumber(v,"F1")+" m";
             var plus=item.incSmall==null?null:item.incSmall.GetComponent<Button>();var minus=item.decSmall==null?null:item.decSmall.GetComponent<Button>();
             if(plus!=null)plus.interactable=v<source.maxValue-.0001f;if(minus!=null)minus.interactable=v>source.minValue+.0001f;
-        }finally{if(SliderBlock!=null)SliderBlock.SetValue(item,blocked);}
+        }finally{if(SliderBlock!=null)SliderBlock.SetValue(item,blocked);synchronizingHeightWidgets=wasSynchronizing;}
     }
     public Vector2 GetServiceHeightLimits(int slot) {
         var s=serviceHeights.Find(x=>x.slot==slot);if(s==null)throw new ArgumentOutOfRangeException("slot");
@@ -153,16 +174,16 @@ private void RetractLaunchArms()
         Debug.Log("[TowerControl] Launch service retraction: "+part.partInfo.name);
     }
     [KSPField] public bool selectableHeightStep = true;
-    [KSPField(isPersistant=true, guiActiveEditor=false, guiName="调节粒度")]
+    [KSPField(isPersistant=true, guiActiveEditor=false, guiName="#KIU_TowerControl_Step")]
     [UI_ChooseOption(scene=UI_Scene.Editor,options=new string[]{"0.1","0.5","1"}, display=new string[]{"0.1 m","0.5 m","1 m"})]
     public string heightStep = "0.1";
-    [KSPField(isPersistant=true, guiActiveEditor=false, guiName="Service 1",guiFormat="F1")]
+    [KSPField(isPersistant=true, guiActiveEditor=false, guiName="#KIU_TowerControl_Service1",guiFormat="F1")]
     [UI_FloatEdit(scene=UI_Scene.Editor,minValue=0,maxValue=200,incrementLarge=0,incrementSmall=.1f,incrementSlide=.1f,sigFigs=5,unit="m")]
     public float serviceHeight0 = -1f;
-    [KSPField(isPersistant=true, guiActiveEditor=false, guiName="Service 2",guiFormat="F1")]
+    [KSPField(isPersistant=true, guiActiveEditor=false, guiName="#KIU_TowerControl_Service2",guiFormat="F1")]
     [UI_FloatEdit(scene=UI_Scene.Editor,minValue=0,maxValue=200,incrementLarge=0,incrementSmall=.1f,incrementSlide=.1f,sigFigs=5,unit="m")]
     public float serviceHeight1 = -1f;
-    [KSPField(isPersistant=true, guiActiveEditor=false, guiName="Service 3",guiFormat="F1")]
+    [KSPField(isPersistant=true, guiActiveEditor=false, guiName="#KIU_TowerControl_Service3",guiFormat="F1")]
     [UI_FloatEdit(scene=UI_Scene.Editor,minValue=0,maxValue=200,incrementLarge=0,incrementSmall=.1f,incrementSlide=.1f,sigFigs=5,unit="m")]
     public float serviceHeight2 = -1f;
     [KSPField] public string heightRails = "";
@@ -172,6 +193,7 @@ private void RetractLaunchArms()
         public string rootName,optionName,label;
         public float authored,minimum,topMargin,gap;
         public Transform root,option;
+        public bool visibilityKnown,lastInstalled;
         public readonly List<ServiceHeightFollower> followers=new List<ServiceHeightFollower>();
         public string FieldName { get { return "serviceHeight"+slot; } }
     }
@@ -199,8 +221,8 @@ private void RetractLaunchArms()
         if(item==null)return;
         item.incLarge.gameObject.SetActive(false);item.decLarge.gameObject.SetActive(false);
         item.incSmall.gameObject.SetActive(true);item.decSmall.gameObject.SetActive(true);
-        item.incSmall.transform.localPosition=item.incLarge.transform.localPosition;
-        item.decSmall.transform.localPosition=item.decLarge.transform.localPosition;
+        PositionStepButton(item.incSmall.transform as RectTransform,item.incLarge.transform as RectTransform);
+        PositionStepButton(item.decSmall.transform as RectTransform,item.decLarge.transform as RectTransform);
         item.slider.GetComponent<RectTransform>().sizeDelta=new Vector2(-44,0);
         UIPartActionFloatEdit previous;
         if(heightWidgets.TryGetValue(name,out previous)&&previous==item)return;
@@ -208,6 +230,13 @@ private void RetractLaunchArms()
         item.incSmall.onToggle.RemoveAllListeners();item.decSmall.onToggle.RemoveAllListeners();
         item.incSmall.onToggle.AddListener(()=>StepHeight(name,1));
         item.decSmall.onToggle.AddListener(()=>StepHeight(name,-1));
+    }
+    private static void PositionStepButton(RectTransform button,RectTransform slot) {
+        if(button==null||slot==null)return;
+        // The stock small/large buttons use different anchors. Copying only
+        // localPosition drifts when the PAW lays out or resizes the row again.
+        button.anchorMin=slot.anchorMin;button.anchorMax=slot.anchorMax;button.pivot=slot.pivot;
+        button.sizeDelta=slot.sizeDelta;button.anchoredPosition=slot.anchoredPosition;
     }
     private void StepHeight(string name,int direction) {
         float old=Convert.ToSingle(Fields[name].GetValue(this));
@@ -260,7 +289,7 @@ private void RetractLaunchArms()
         foreach(var s in serviceHeights) {
             s.root=part.FindModelTransform(s.rootName);s.option=part.FindModelTransform(s.optionName);
             if(s.root==null||s.option==null)throw new InvalidOperationException("Missing service height root: "+s.rootName);
-            Fields[s.FieldName].guiName=s.label;
+            Fields[s.FieldName].guiName=KSP.Localization.Localizer.Format(string.IsNullOrEmpty(s.label)?"#KIU_TowerControl_Service"+(s.slot+1):s.label);
             if(GetServiceHeight(s)<0)SetServiceHeight(s,s.authored+(s.relativeToTop?segments*segmentLength:0));
             foreach(var f in s.followers) {
                 f.transform=part.FindModelTransform(f.name);
@@ -301,15 +330,20 @@ private void RetractLaunchArms()
             float min,max;ServiceBounds(s,height,out min,out max);
             if(ui!=null){ui.minValue=min;ui.maxValue=max;ui.incrementLarge=0;ui.incrementSmall=HeightIncrement;ui.incrementSlide=0;ui.sigFigs=1;ui.useSI=false;ui.unit=" m";}
             SetServiceFieldVisible(Fields[s.FieldName],s.option.gameObject.activeInHierarchy);
+            LayoutHeightWidget(s.FieldName,ui==null?null:ui.partActionItem as UIPartActionFloatEdit);
             SynchronizeWidget(s.FieldName,ui==null?null:ui.partActionItem as UIPartActionFloatEdit,ui);
         }
     }
     private void OnServiceHeightChanged(BaseField field,object previous) {
-        if(!HighLogic.LoadedSceneIsEditor || !servicesReady)return;
+        if(!HighLogic.LoadedSceneIsEditor || synchronizingHeightWidgets)return;
+        if(!servicesReady){if(previous!=null)field.SetValue(previous,this);return;}
         var s=serviceHeights.Find(x=>x.FieldName==field.name);if(s==null)return;
         float min,max;ServiceBounds(s,baseHeight+segments*segmentLength,out min,out max);
-        SetServiceHeight(s,Mathf.Clamp(SnapHeight(s.FieldName,GetServiceHeight(s)),min,max));
+        float requested=SnapHeight(s.FieldName,GetServiceHeight(s)),bounded=Mathf.Clamp(requested,min,max);
+        SetServiceHeight(s,bounded);
+        if(Mathf.Abs(requested-bounded)>.001f)heightAnchors[s.FieldName]=bounded;
         ApplyServiceHeights(baseHeight+segments*segmentLength,false);
+        dimensions.RequestRendererRefresh();
         heightWidgets.Clear();MonoUtilities.RefreshContextWindows(part);
         if(EditorLogic.fetch!=null)GameEvents.onEditorShipModified.Fire(EditorLogic.fetch.ship);
         QueueHeightUIRefresh();
@@ -317,6 +351,8 @@ private void RetractLaunchArms()
     private void ApplyServiceHeights(float height,bool notifyClamp) {
         if(!servicesReady)return;
         bool clamped=false;
+        var previousHeights=new Dictionary<string,float>();
+        foreach(var s in serviceHeights)previousHeights[s.FieldName]=GetServiceHeight(s);
         foreach(var s in serviceHeights) {
             float minimum=s.minimum+(s.relativeToTop?height-baseHeight:0);
             float old=GetServiceHeight(s),v=Mathf.Clamp(old,minimum,Mathf.Max(minimum,height-s.topMargin));
@@ -331,6 +367,11 @@ private void RetractLaunchArms()
             v=Mathf.Max(lowerService.minimum,v);SetServiceHeight(lowerService,v);clamped|=Mathf.Abs(v-old)>.001f;
         }
         foreach(var s in serviceHeights) {
+            // A tower limit can end at e.g. 31.1 m with a 1 m selected step.
+            // Continue stepping from that actual clamp point, rather than the
+            // old authored 67.5 m lattice, which otherwise jumps to 32.5 m.
+            if(Mathf.Abs(GetServiceHeight(s)-previousHeights[s.FieldName])>.001f)
+                heightAnchors[s.FieldName]=GetServiceHeight(s);
             float relative=GetServiceHeight(s)-(s.relativeToTop?height-baseHeight:0);
             s.root.localPosition=Vector3.up*(relative-s.authored);
             foreach(var f in s.followers) {
@@ -341,7 +382,7 @@ private void RetractLaunchArms()
         foreach(var rail in serviceRails){Vector3 scale=rail.localScale;scale.y=height;rail.localScale=scale;}
         ConfigureServiceUI(height);
         if(clamped && notifyClamp && HighLogic.LoadedSceneIsEditor)
-            ScreenMessages.PostScreenMessage("塔段高度改变：超出行程的摆臂已限位，请检查接口高度。",4f,ScreenMessageStyle.UPPER_CENTER);
+            ScreenMessages.PostScreenMessage(KSP.Localization.Localizer.Format("#KIU_TowerControl_Clamped"),4f,ScreenMessageStyle.UPPER_CENTER);
     }
     private void UpdateServiceVisibility() {
         if(!servicesReady)return;
@@ -350,13 +391,15 @@ private void RetractLaunchArms()
         nextServiceCheck=Time.unscaledTime+.25f;bool changed=false;
         foreach(var s in serviceHeights) {
             bool visible=s.option.gameObject.activeInHierarchy;
-            if(Fields[s.FieldName].guiActiveEditor!=visible){SetServiceFieldVisible(Fields[s.FieldName],visible);changed=true;}
+            // ConfigureServiceUI already updates BaseField visibility. Track
+            // the option itself so B9 activation still invalidates caches.
+            if(!s.visibilityKnown||s.lastInstalled!=visible){s.visibilityKnown=true;s.lastInstalled=visible;changed=true;}
             UI_FloatEdit ui=Fields[s.FieldName].uiControlEditor as UI_FloatEdit;
             UIPartActionFloatEdit item=ui==null?null:ui.partActionItem as UIPartActionFloatEdit;
             LayoutHeightWidget(s.FieldName,item);
             SynchronizeWidget(s.FieldName,item,ui);
         }
-        if(changed)MonoUtilities.RefreshContextWindows(part);
+        if(changed){dimensions.RequestRendererRefresh();MonoUtilities.RefreshContextWindows(part);}
     }
     private static void SetServiceFieldVisible(BaseField field,bool visible) {
         field.guiActiveEditor=visible;field.guiActive=false;
