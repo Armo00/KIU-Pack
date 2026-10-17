@@ -3,8 +3,8 @@ Scope: CZ-10B launch erector CBC support repair and tank-side CBC separator atta
 Source: KIU-Model/CZ-10B/versions/v0.8.0-beta.6/CZ10B_LaunchSystems_0.8.0-beta.6.blend
 CBC: outer side triangles removed; fixed heel bearings and paired 30-degree stops added.
 MU: mast and hydraulic BackPrepare/BackRelease tracks share the same 2-second timeline; reviewed poses preserved.
-Separator: attach to S1Tank cbcport/cbcstarboard sockets; top stays free for nose cones.
+Separator attachment correction 2026-10-17: surface-attach each separator to the center core; attach LB/RB inward cbcport/cbcstarboard socket to separator booster node. Center core CBC sockets are unused. Geometry remains beta.6.
 Manual separator length: B9 N0..N30; default N1. Match all three tanks and both separators.
-Existing beta.4 CBC craft must reconnect separators to tank side sockets; no automatic craft migration.
-KSP 1.12.3 validation completed 2026-10-05, run cz10-beta6-03, 23 checks passed.
-Existing KIU DLLs and shared textures unchanged. Other CZ-10B assets retain their existing source versions.
+Existing stack-attached separator craft must reconnect each separator by surface attachment to the center core. Legacy engine-bay CBC nodes are removed; use the booster tank inward CBC node. No automatic craft migration.
+Historical beta.6 KSP validation: 2026-10-05, run cz10-beta6-03, 23 checks. Corrected surface-attachment validation tracked separately in the current CZ-16/CZ-10B repair report.
+Shared textures unchanged. The 2026-10-17 tower repair updates the existing ConfigurableTank/TowerControl binaries; the CBC separator continues to use the existing KIU separation module. Other CZ-10B assets retain their existing source versions.
