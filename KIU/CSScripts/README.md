@@ -149,3 +149,28 @@ first, including when selecting only TowerControl.
 Scoped native evidence and validation limits remain under
 local_workspace/CZ-16/working/feedback023/three_dll and the consolidated report.
 No model archive, runtime commit or push is implied by this integration.
+
+## Optional per-end tank profiles and extra nodes (2026-10-19)
+
+ConfigurableTank still uses one shared `templateTransform` by default. Optional
+`lowerTemplateTransform` and `upperTemplateTransform` each fall back independently
+to that shared name when empty. This selects template types; initial extension
+count remains controlled by `segments`. Existing CZ-10B configs need no changes.
+
+`extraLowerNodes` / `extraUpperNodes` accept comma-separated existing AttachNode
+IDs. Their position and originalPosition use the prefab zero baseline plus the
+current end offset, including attached-child movement and parent anchoring.
+Retain saved-craft node IDs; KSP splits underscores in `node_stack_*` names.
+
+`useTerminalSurfaceVariants` optionally selects exactly one authored group per
+clone: `surfaceSingle`, `surfaceFirst`, `surfaceMiddle`, or `surfaceLast` (names
+are configurable). Lower-end physical ordering is reversed. Leave this disabled
+for templates without those four groups.
+
+Optional `bodyNormalTransform`, `baseNormalTextureURL` and
+`extendedNormalTextureURL` restore the original body normal when the upper end
+has no extensions and select the extended map otherwise. Both maps use raw
+GameDatabase texture loading, preserving already AG-packed legacy normals.
+
+These options use the existing ConfigurableTank.dll and shared build manifest.
+The current RequestRendererRefresh API and shared highlight fixes are retained.
