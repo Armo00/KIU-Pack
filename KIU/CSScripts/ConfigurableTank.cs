@@ -29,8 +29,22 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     [KSPField] public string topTransform="tankTop";
     [KSPField] public string bodyTransform="tankBody";
     [KSPField] public string templateTransform="extensionTemplate";
+    // Optional authored per-end profiles. Empty keeps the existing shared model.
+    [KSPField] public string lowerTemplateTransform="";
+    [KSPField] public string upperTemplateTransform="";
+    [KSPField] public bool useTerminalSurfaceVariants=false;
+    [KSPField] public string surfaceSingleTransform="surfaceSingle";
+    [KSPField] public string surfaceFirstTransform="surfaceFirst";
+    [KSPField] public string surfaceMiddleTransform="surfaceMiddle";
+    [KSPField] public string surfaceLastTransform="surfaceLast";
+    [KSPField] public string bodyNormalTransform="";
+    [KSPField] public string baseNormalTextureURL="";
+    [KSPField] public string extendedNormalTextureURL="";
     [KSPField] public string bottomNode="bottom";
     [KSPField] public string topNode="top";
+    // Optional additional nodes following the same lower/upper end.
+    [KSPField] public string extraLowerNodes="";
+    [KSPField] public string extraUpperNodes="";
     [KSPField]
     public float tankLength;
     // Optional geometry metadata for consumers such as RP-1 ModuleToolingGeneric.
@@ -81,7 +95,9 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         foreach(Action<ConfigurableTank> handler in changed.GetInvocationList())
             try { handler(this); } catch(Exception e) { Debug.LogError("[ConfigurableTank] Dimension consumer failed: "+e); }
     }
-    private Transform lower,upper,body,template;
+    private Transform lower,upper,body,template,lowerTemplate,upperTemplate;
+    private Renderer bodyNormalRenderer;
+    private Texture originalBodyNormal,extendedBodyNormal;
     private Vector3 originalLower,originalUpper;
     private bool initialized;
     private bool rendererRefreshPending;
@@ -215,15 +231,21 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         if(segmentLength<=0||baseHeight<=0||bottomCapHeight<=0||mainBodyHeight<=0)
             throw new ArgumentException("Invalid modular tank dimensions in cfg");
         lower=part.FindModelTransform(bottomTransform);upper=part.FindModelTransform(topTransform);
-        body=part.FindModelTransform(bodyTransform);template=part.FindModelTransform(templateTransform);
-        if(lower==null||upper==null||body==null||template==null)throw new InvalidOperationException("Missing modular tank model transforms");
+        body=part.FindModelTransform(bodyTransform);
+        lowerTemplate=part.FindModelTransform(string.IsNullOrEmpty(lowerTemplateTransform)?templateTransform:lowerTemplateTransform);
+        upperTemplate=part.FindModelTransform(string.IsNullOrEmpty(upperTemplateTransform)?templateTransform:upperTemplateTransform);
+        template=lowerTemplate;
+        if(lower==null||upper==null||body==null||lowerTemplate==null||upperTemplate==null)throw new InvalidOperationException("Missing modular tank model transforms");
         // Authored section roots are at zero; do not inherit an already extended symmetry clone's offsets.
         originalLower=Vector3.zero;originalUpper=Vector3.zero;
         template.gameObject.SetActive(false);
+        upperTemplate.gameObject.SetActive(false);
+        if(useTerminalSurfaceVariants){ValidateSurfaceVariants(lowerTemplate);if(upperTemplate!=lowerTemplate)ValidateSurfaceVariants(upperTemplate);}
+        InitializeBodyNormal();
         foreach(PartModule module in part.Modules)if(module.moduleName=="TweakScale")tweakScale=module;
         // Read the authored model scale from the prefab, never from a scaled clone.
         Part prefab=part.partInfo==null?null:part.partInfo.partPrefab;
-        Transform reference=prefab==null?null:prefab.FindModelTransform(templateTransform);
+        Transform reference=prefab==null?null:prefab.FindModelTransform(string.IsNullOrEmpty(lowerTemplateTransform)?templateTransform:lowerTemplateTransform);
         authoredScale=scaleWithModel
             ? (reference==null?part.transform.InverseTransformVector(template.parent.TransformVector(Vector3.up)).magnitude
               :prefab.transform.InverseTransformVector(reference.parent.TransformVector(Vector3.up)).magnitude)
@@ -250,6 +272,50 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
             }
         }
         initialized=true;
+    }
+    private void ValidateSurfaceVariants(Transform source)
+    {
+        string[] names={surfaceSingleTransform,surfaceFirstTransform,surfaceMiddleTransform,surfaceLastTransform};
+        for(int i=0;i<names.Length;i++) {
+            if(string.IsNullOrEmpty(names[i]))throw new ArgumentException("Empty terminal surface variant name");
+            for(int j=0;j<i;j++)if(names[i]==names[j])throw new ArgumentException("Terminal surface variant names must be distinct");
+            int matches=0;
+            foreach(Transform child in source.GetComponentsInChildren<Transform>(true))if(child!=source&&child.name==names[i])matches++;
+            if(matches!=1)throw new InvalidOperationException("Template "+source.name+" requires exactly one "+names[i]+" transform; found "+matches);
+        }
+    }
+    private void SelectSurfaceVariant(GameObject instance,int spanIndex,int spanCount)
+    {
+        if(!useTerminalSurfaceVariants)return;
+        string selected=spanCount==1?surfaceSingleTransform:spanIndex==0?surfaceFirstTransform:spanIndex==spanCount-1?surfaceLastTransform:surfaceMiddleTransform;
+        foreach(Transform child in instance.GetComponentsInChildren<Transform>(true))
+            if(child.name==surfaceSingleTransform||child.name==surfaceFirstTransform||child.name==surfaceMiddleTransform||child.name==surfaceLastTransform)
+                child.gameObject.SetActive(child.name==selected);
+    }
+    private void InitializeBodyNormal()
+    {
+        if(string.IsNullOrEmpty(bodyNormalTransform))return;
+        if(string.IsNullOrEmpty(baseNormalTextureURL)||string.IsNullOrEmpty(extendedNormalTextureURL))
+            throw new ArgumentException("Body normal switching requires both baseNormalTextureURL and extendedNormalTextureURL");
+        Transform target=part.FindModelTransform(bodyNormalTransform);
+        bodyNormalRenderer=target==null?null:target.GetComponent<Renderer>();
+        if(bodyNormalRenderer==null)throw new InvalidOperationException("Missing body normal renderer: "+bodyNormalTransform);
+        originalBodyNormal=GameDatabase.Instance.GetTexture(baseNormalTextureURL,false);
+        extendedBodyNormal=GameDatabase.Instance.GetTexture(extendedNormalTextureURL,false);
+        if(originalBodyNormal==null||extendedBodyNormal==null)throw new InvalidOperationException("Missing body normal texture URL");
+        bool found=false;
+        foreach(Material material in bodyNormalRenderer.sharedMaterials)if(material!=null&&material.HasProperty("_BumpMap"))found=true;
+        if(!found)throw new InvalidOperationException("Body normal renderer has no _BumpMap material: "+bodyNormalTransform);
+    }
+    private void ApplyBodyNormal(int upperCount)
+    {
+        if(bodyNormalRenderer==null)return;
+        // Fetch current instances because visual switch modules may refresh their
+        // own material references between geometry changes. The zero/low-only
+        // states always restore the exact original GameDatabase texture.
+        Texture normal=upperCount>0?extendedBodyNormal:originalBodyNormal;
+        foreach(Material material in bodyNormalRenderer.materials)
+            if(material!=null&&material.HasProperty("_BumpMap"))material.SetTexture("_BumpMap",normal);
     }
     private void ReadScale()
     {
@@ -316,6 +382,32 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         if(HighLogic.LoadedSceneIsEditor && EditorLogic.fetch!=null)
             GameEvents.onEditorShipModified.Fire(EditorLogic.fetch.ship);
     }
+    private static bool ListedNode(string ids,AttachNode node)
+    {
+        if(node==null||string.IsNullOrEmpty(ids))return false;
+        foreach(string id in ids.Split(','))if(id.Trim()==node.id)return true;
+        return false;
+    }
+    private void UpdateExtraNodes(string ids,float offset,AttachNode bn,AttachNode tn)
+    {
+        if(string.IsNullOrEmpty(ids))return;
+        Part prefab=part.partInfo==null?null:part.partInfo.partPrefab;
+        if(prefab==null)throw new InvalidOperationException("Extra nodes require a prefab baseline");
+        foreach(string token in ids.Split(',')) {
+            string id=token.Trim();if(id.Length==0)continue;
+            AttachNode node=part.FindAttachNode(id),reference=prefab.FindAttachNode(id);
+            if(node==null||reference==null)throw new InvalidOperationException("Missing configured extra node: "+id);
+            if(node==bn||node==tn)continue;
+            // Absolute prefab-based restoration also repairs saved legacy caches;
+            // never adopt an already extended craft node as a new baseline.
+            Vector3 position=reference.position*scaleRatio;position.y+=offset;
+            node.position=position;node.originalPosition=position;
+            if(tweakScale!=null) {
+                MethodInfo setNode=tweakScale.GetType().GetMethod("SetUnscaledAttachNodePosition",new[]{typeof(string),typeof(Vector3)});
+                if(setNode!=null)setNode.Invoke(tweakScale,new object[]{id,position/scaleRatio});
+            }
+        }
+    }
     private static void MoveTree(Part p,Vector3 delta)
     {
         List<Part> parts=new List<Part>();List<Vector3> positions=new List<Vector3>();
@@ -346,6 +438,9 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         var radial=new List<KeyValuePair<Part,Vector3>>();
         if(moveAttached&&moveRadial) foreach(Part child in part.children) {
             if((bn!=null&&bn.attachedPart==child)||(tn!=null&&tn.attachedPart==child))continue;
+            AttachNode childNode=part.FindAttachNodeByPart(child);
+            if(ListedNode(extraLowerNodes,childNode)){radial.Add(new KeyValuePair<Part,Vector3>(child,bd));continue;}
+            if(ListedNode(extraUpperNodes,childNode)){radial.Add(new KeyValuePair<Part,Vector3>(child,td));continue;}
             float y=part.transform.InverseTransformPoint(child.transform.position).y;
             if(y<(baseBottom+bottomCapHeight-appliedDown)*modelScale)radial.Add(new KeyValuePair<Part,Vector3>(child,bd));
             else if(y>(baseBottom+bottomCapHeight+mainBodyHeight+appliedUp)*modelScale)radial.Add(new KeyValuePair<Part,Vector3>(child,td));
@@ -354,6 +449,11 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
             Vector3 anchor=Vector3.zero;
             if(bn!=null&&bn.attachedPart==part.parent)anchor=bd;
             else if(tn!=null&&tn.attachedPart==part.parent)anchor=td;
+            else if(part.parent!=null) {
+                AttachNode parentNode=part.FindAttachNodeByPart(part.parent);
+                if(ListedNode(extraLowerNodes,parentNode))anchor=bd;
+                else if(ListedNode(extraUpperNodes,parentNode))anchor=td;
+            }
             if(anchor!=Vector3.zero)MoveTree(part,-part.transform.TransformVector(anchor));
             if(bn!=null&&bn.attachedPart!=null&&bn.attachedPart!=part.parent)MoveTree(bn.attachedPart,part.transform.TransformVector(bd));
             if(tn!=null&&tn.attachedPart!=null&&tn.attachedPart!=part.parent)MoveTree(tn.attachedPart,part.transform.TransformVector(td));
@@ -361,6 +461,8 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         }
         if(bn!=null){bn.position=new Vector3(bn.position.x,newBottom,bn.position.z);bn.originalPosition=bn.position;}
         if(tn!=null){tn.position=new Vector3(tn.position.x,newTop,tn.position.z);tn.originalPosition=tn.position;}
+        UpdateExtraNodes(extraLowerNodes,-down*modelScale,bn,tn);
+        UpdateExtraNodes(extraUpperNodes,up*modelScale,bn,tn);
         // Rescaled has a public cache of unscaled node positions. Keep it in sync
         // when the length changes; /L has no such API and is corrected above.
         if(tweakScale!=null) {
@@ -408,12 +510,15 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
             }
         } else for(int i=0;i<count;i++) {
             bool below=(i%2)==0;int index=i/2;
-            GameObject obj=Instantiate(template.gameObject);obj.name="TankExtension_"+i;
-            obj.transform.SetParent(template.parent,false);obj.transform.localRotation=template.localRotation;
+            Transform source=below?lowerTemplate:upperTemplate;
+            GameObject obj=Instantiate(source.gameObject);obj.name="TankExtension_"+i;
+            obj.transform.SetParent(source.parent,false);obj.transform.localRotation=source.localRotation;
             obj.transform.localScale=Vector3.one;
             obj.transform.localPosition=Vector3.up*(below?baseBottom+bottomCapHeight-(index+1)*segmentLength:baseBottom+bottomCapHeight+mainBodyHeight+index*segmentLength);
+            SelectSurfaceVariant(obj,below?low-1-index:index,below?low:high);
             obj.SetActive(true);copies.Add(obj);
         }
+        ApplyBodyNormal(high);
 
         appliedDown=down;appliedUp=up;
         float center=(-baseHeight*originFraction+(baseHeight+up-down)*.5f)*modelScale;
