@@ -1,11 +1,11 @@
-0.8.0-beta.6
-Scope: CZ-10B launch erector CBC support repair and tank-side CBC separator attachment.
-Source: KIU-Model/CZ-10B/versions/v0.8.0-beta.6/CZ10B_LaunchSystems_0.8.0-beta.6.blend
-CBC: outer side triangles removed; fixed heel bearings and paired 30-degree stops added.
-MU: mast and hydraulic BackPrepare/BackRelease tracks share the same 2-second timeline; reviewed poses preserved.
-Separator attachment correction 2026-10-17: surface-attach each separator to the center core; attach LB/RB inward cbcport/cbcstarboard socket to separator booster node. Center core CBC sockets are unused. Geometry remains beta.6.
-Single internal node correction 2026-10-21 supersedes the tank sockets above: all cores use the same tank Part with one fixed centerline cbc node at (0,12.5,0). Separator booster node is (-3.9,8.5,0), preserving 6.4 m core spacing and tank orientation; explicit local +X explosiveDir keeps booster ejection radial. CFG/localization only; no MU or DLL changes. Offline checks only; this single-node arrangement has not been validated in KSP.
-Manual separator length: B9 N0..N30; default N1. Match all three tanks and both separators.
-Existing craft using removed engine-bay CBC nodes or tank cbcport/cbcstarboard nodes must reconnect the separators and booster tanks. Surface-attach separators to the center tank and connect each booster tank internal cbc node to its separator booster node. No automatic craft migration.
-Historical beta.6 KSP validation: 2026-10-05, run cz10-beta6-03, 23 checks. Corrected surface-attachment validation tracked separately in the current CZ-16/CZ-10B repair report.
-Shared textures unchanged. The 2026-10-17 tower repair updates the existing ConfigurableTank/TowerControl binaries; the CBC separator continues to use the existing KIU separation module. Other CZ-10B assets retain their existing source versions.
+0.8.0-beta.7
+Reviewed compact CBC geometry, based on beta.6; native validation completed 2026-10-22.
+Core pitch 5.77509125228034 m; link joint length 0.9289736271821715 m (60% of beta.6).
+Same S1Tank Part and one internal cbc node in every core; separators surface-attach to the center tank.
+Stock ModuleDecouple ejectionForce=20000, explicit radial direction; no moving link colliders or physical pusher stroke.
+Existing PusherAnimatedInterstage triggers Fold: upper links fold down, lower links fold up; 2 s clip including 0.2 s initial hold.
+Inner hold-down latches unlock radially 0.22 m then lower 1.9 m; center 2 and each booster 4 clamps retained.
+Manual N0..N30 separator lengths; existing Standard and LegR7 pad variants retained.
+Final separation acceptance used boosters at 13% remaining propellant. Loaded editor fixtures, save/reload, native staging, short 21-engine ascent and controlled-altitude separation checked.
+Older CBC craft must reconnect booster tanks to updated booster nodes and replace/reselect the platform. No automatic craft migration.
+No release DLL or shared texture changes. No full RSS/RO payload, orbit, recovery or structural qualification.
