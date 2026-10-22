@@ -12,6 +12,7 @@ namespace KIU.NetRecovery {
  }
  public class LHZHookProbe : LinkProbe {
   [KSPField(isPersistant=true)] public bool poseSaved,hardConstraint;
+  [KSPField(isPersistant=true)] public int sourceAttachMode=-1;
   [KSPField(isPersistant=true)] public float lpx,lpy,lpz,lqx,lqy,lqz,lqw=1;
   [KSPField(isPersistant=true)] public string captureState="Idle",sourceName="",receiverName="",sourceGuid="";
   [KSPField(isPersistant=true)] public uint receiverId,sourceRootFlightId,receiverRootFlightId;

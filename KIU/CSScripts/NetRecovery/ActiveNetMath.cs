@@ -7,7 +7,12 @@ namespace KIU.NetRecovery {
   public void Step(double target,double feedForward,double dt,double speed,double acceleration,double limit){
    if(dt<=0||dt>.25||Double.IsNaN(target)||Double.IsInfinity(target))return;
    target=Math.Max(-limit,Math.Min(limit,target));
-   double desired=Math.Max(-speed,Math.Min(speed,feedForward+ActiveNetMath.PositionGain*(target-position)));
+   double error=target-position;
+   // Reserve enough distance to brake under the same acceleration bound.
+   // A gain-only controller reached the hook at full rail speed, then overshot.
+   double stoppingSpeed=Math.Sqrt(acceleration*acceleration*dt*dt+2*acceleration*Math.Abs(error))-acceleration*dt;
+   double relative=Math.Sign(error)*Math.Min(ActiveNetMath.PositionGain*Math.Abs(error),stoppingSpeed);
+   double desired=Math.Max(-speed,Math.Min(speed,feedForward+relative));
    velocity+=Math.Max(-acceleration*dt,Math.Min(acceleration*dt,desired-velocity));
    position+=velocity*dt;
    if(position>limit){position=limit;velocity=Math.Min(0,velocity);}if(position< -limit){position=-limit;velocity=Math.Max(0,velocity);}

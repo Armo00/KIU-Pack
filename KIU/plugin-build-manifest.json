@@ -12,22 +12,32 @@
     "CSScripts/KIUModelRenderers.cs",
     "CSScripts/KIUTemplateExtensionPool.cs"
   ],
-  "KIUNetRecovery": [
-    "CSScripts/NetRecovery/CaptureGate.cs",
-    "CSScripts/NetRecovery/CaptureLatch.cs",
-    "CSScripts/NetRecovery/RecoveryFeedback.cs",
-    "CSScripts/NetRecovery/RecoveryToolbar.cs",
-    "CSScripts/NetRecovery/MotionMath.cs",
-    "CSScripts/NetRecovery/ActiveNetMath.cs",
-    "CSScripts/NetRecovery/PlayerNetController.cs",
-    "CSScripts/NetRecovery/ActiveNetTracking.cs",
-    "CSScripts/NetRecovery/RecoveryBuffer.cs",
-    "CSScripts/NetRecovery/PoweredCapture.cs",
-    "CSScripts/NetRecovery/NativeLink.cs",
-    "CSScripts/NetRecovery/AssemblyInfo.cs",
-    "CSScripts/NetRecovery/CaptureCamera.cs",
-    "CSScripts/NetRecovery/HeightCustomization.cs"
-  ],
+  "KIUNetRecovery": {
+    "sources": [
+      "CSScripts/NetRecovery/CaptureGate.cs",
+      "CSScripts/NetRecovery/CaptureLatch.cs",
+      "CSScripts/NetRecovery/RecoveryFeedback.cs",
+      "CSScripts/NetRecovery/RecoveryToolbar.cs",
+      "CSScripts/NetRecovery/MotionMath.cs",
+      "CSScripts/NetRecovery/ActiveNetMath.cs",
+      "CSScripts/NetRecovery/PlayerNetController.cs",
+      "CSScripts/NetRecovery/ActiveNetTracking.cs",
+      "CSScripts/NetRecovery/RecoveryBuffer.cs",
+      "CSScripts/NetRecovery/PoweredCapture.cs",
+      "CSScripts/NetRecovery/NativeLink.cs",
+      "CSScripts/NetRecovery/AssemblyInfo.cs",
+      "CSScripts/NetRecovery/CaptureCamera.cs",
+      "CSScripts/NetRecovery/HeightCustomization.cs",
+      "CSScripts/NetRecovery/CableGeometry.cs",
+      "CSScripts/NetRecovery/CableVisual.cs",
+      "CSScripts/NetRecovery/RecoveryRelease.cs",
+      "CSScripts/NetRecovery/RecoveryMechanisms.cs",
+      "CSScripts/NetRecovery/StationControl.cs"
+    ],
+    "references": [
+      "ConfigurableTank"
+    ]
+  },
   "TowerControl": {
     "sources": [
       "CSScripts/TowerControl.cs",

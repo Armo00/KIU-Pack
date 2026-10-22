@@ -13,11 +13,10 @@ namespace KIU.NetRecovery {
   public float HeightOffset {get{return heightSegments;}}
   public float CapturePlaneHeight {get{return BasePlane+HeightOffset;}}
   Transform heightUpper,heightTemplate,heightStays;int builtHeight=-1;
-  readonly List<GameObject> heightSections=new List<GameObject>();
+  readonly List<GameObject> heightBatches=new List<GameObject>();readonly List<Mesh> heightMeshes=new List<Mesh>();
   void InitializeHeight(){
    heightUpper=part.FindModelTransform("LHZHeightUpper");heightTemplate=part.FindModelTransform("LHZHeightTemplate");heightStays=part.FindModelTransform("LHZHeightStays");
    if(heightUpper==null||heightTemplate==null||heightStays==null){heightSegments=0;heightSelection=0;Fields["heightSelection"].guiActiveEditor=false;heightSpec="Height model groups missing";Debug.LogError("[KIUNetRecovery] Height model groups missing; extension disabled");return;}
-   heightSections.Clear();for(int i=0;i<15;i++){var t=heightTemplate.parent.Find("LHZHeightSection_"+i);if(t==null)break;heightSections.Add(t.gameObject);}
    var ui=Fields["heightSelection"].uiControlEditor as UI_FloatEdit;if(ui!=null){ui.minValue=0;ui.maxValue=15;ui.incrementLarge=16;ui.incrementSmall=ui.incrementSlide=1;ui.affectSymCounterparts=UI_Scene.None;ui.onFieldChanged=OnHeightChanged;}
    SetHeightSegments(heightSegments);
   }
@@ -29,13 +28,7 @@ namespace KIU.NetRecovery {
    heightSpec=Localizer.Format("#LHZ_HeightValue",heightSegments.ToString(),CapturePlaneHeight.ToString("F1"));
    if(heightUpper==null||heightTemplate==null||heightStays==null)return;
    int before=builtHeight>=0?builtHeight:Mathf.RoundToInt(heightUpper.localPosition.y);
-   for(int i=heightSections.Count;i<heightSegments;i++){
-    var copy=UnityEngine.Object.Instantiate(heightTemplate.gameObject);copy.name="LHZHeightSection_"+i;copy.transform.SetParent(heightTemplate.parent,false);heightSections.Add(copy);
-   }
    heightTemplate.gameObject.SetActive(false);
-   for(int i=0;i<heightSections.Count;i++){
-    var t=heightSections[i].transform;t.localPosition=heightTemplate.localPosition+Vector3.up*i;t.localRotation=heightTemplate.localRotation;t.localScale=Vector3.one;heightSections[i].SetActive(i<heightSegments);
-   }
    // Fixed authoring origins make editor duplication and saved-ship reload
    // idempotent; do not adopt an already raised transform as the new baseline.
    heightUpper.localPosition=Vector3.up*HeightOffset;heightStays.localScale=new Vector3(1,(48+HeightOffset)/48,1);
@@ -43,8 +36,29 @@ namespace KIU.NetRecovery {
    // change after initial restoration should move attached child assemblies.
    float attachedMove=builtHeight>=0?heightSegments-before:0;
    SetHeightNode("top",82+HeightOffset,attachedMove);SetHeightNode("lhzCapture",CapturePlaneHeight,attachedMove);
-   builtHeight=heightSegments;if(ropes!=null)DrawNet();
+   BuildHeightBatches();builtHeight=heightSegments;if(ropes!=null)DrawNet();KIUModelRenderers.Refresh(part);
   }
+  void BuildHeightBatches(){
+   foreach(var g in heightBatches){if(g!=null){g.SetActive(false);UnityEngine.Object.Destroy(g);}}heightBatches.Clear();foreach(var m in heightMeshes)if(m!=null)UnityEngine.Object.Destroy(m);heightMeshes.Clear();
+   foreach(Transform t in heightTemplate.parent)if(t.name.StartsWith("LHZ_HeightCombined_")||t.name.StartsWith("LHZ_HeightCollider_")||t.name.StartsWith("LHZHeightSection_")){t.gameObject.SetActive(false);UnityEngine.Object.Destroy(t.gameObject);}
+   if(heightSegments==0)return;
+   var groups=new Dictionary<Material,List<CombineInstance>>();var sizes=new Dictionary<Material,int>();
+   foreach(var f in heightTemplate.GetComponentsInChildren<MeshFilter>(true)){
+    var renderer=f.GetComponent<MeshRenderer>();if(renderer==null||f.sharedMesh==null)continue;var mat=renderer.sharedMaterial;
+    if(!groups.ContainsKey(mat)){groups[mat]=new List<CombineInstance>();sizes[mat]=0;}
+    for(int i=0;i<heightSegments;i++){
+     if(sizes[mat]+f.sharedMesh.vertexCount>60000&&groups[mat].Count>0){AddHeightBatch(mat,groups[mat]);groups[mat].Clear();sizes[mat]=0;}
+     groups[mat].Add(new CombineInstance{mesh=f.sharedMesh,transform=Matrix4x4.Translate(Vector3.up*i)*heightTemplate.parent.worldToLocalMatrix*f.transform.localToWorldMatrix});sizes[mat]+=f.sharedMesh.vertexCount;
+    }
+   }
+   foreach(var entry in groups)if(entry.Value.Count>0)AddHeightBatch(entry.Key,entry.Value);
+   foreach(var source in heightTemplate.GetComponentsInChildren<BoxCollider>(true)){
+    var obj=new GameObject("LHZ_HeightCollider_"+heightBatches.Count);obj.layer=heightTemplate.gameObject.layer;obj.transform.SetParent(heightTemplate.parent,false);obj.transform.position=source.transform.position;obj.transform.rotation=source.transform.rotation;obj.transform.localScale=source.transform.localScale;
+    var box=obj.AddComponent<BoxCollider>();box.center=source.center+Vector3.up*((heightSegments-1)*.5f);var size=source.size;size.y*=heightSegments;box.size=size;box.sharedMaterial=source.sharedMaterial;heightBatches.Add(obj);
+   }
+  }
+  void AddHeightBatch(Material mat,List<CombineInstance> items){var mesh=new Mesh();mesh.name="LHZ_HeightCombined";mesh.CombineMeshes(items.ToArray(),true,true);heightMeshes.Add(mesh);var obj=new GameObject("LHZ_HeightCombined_"+heightBatches.Count);obj.layer=heightTemplate.gameObject.layer;obj.transform.SetParent(heightTemplate.parent,false);obj.AddComponent<MeshFilter>().sharedMesh=mesh;obj.AddComponent<MeshRenderer>().sharedMaterial=mat;heightBatches.Add(obj);}
+  void DestroyHeightBatches(){foreach(var m in heightMeshes)if(m!=null)UnityEngine.Object.Destroy(m);heightMeshes.Clear();}
   void SetHeightNode(string id,float y,float delta){
    var n=part.FindAttachNode(id);if(n==null)return;
    // A flight capture node is an actual saved native joint anchor.

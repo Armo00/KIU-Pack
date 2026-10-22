@@ -9,7 +9,7 @@ namespace KIU.NetRecovery {
   static ApplicationLauncherButton recoveryButton;static Texture2D recoveryIcon;
   static bool recoveryWindowOpen,recoveryUiVisible=true;static LHZNetController selectedReceiver;
   static Rect recoveryWindow=new Rect(24,140,550,300);GUIStyle recoveryText;
-  bool toolbarRegistered;
+   bool toolbarRegistered;static bool showRecoveryDiagnostics;
   static string Loc(string key){return KSP.Localization.Localizer.Format("#LHZ_"+key);}
   static void OpenWindow(){recoveryWindowOpen=true;}
   static void CloseWindow(){recoveryWindowOpen=false;}
@@ -39,6 +39,10 @@ namespace KIU.NetRecovery {
    GUILayout.Label(c.heightSpec,recoveryText);
    if(c.vessel.packed){GUILayout.Label(Loc("WindowUnloaded"),recoveryText);GUI.enabled=false;}
    var e=c.FeedbackState();GUILayout.Label(e.text,recoveryText);
+    GUILayout.Label(Loc("Target")+": "+e.targetName,recoveryText);
+    GUILayout.Label(KSP.Localization.Localizer.Format("#LHZ_Guidance",e.offsetX.ToString("F1"),e.offsetZ.ToString("F1"),e.eta.ToString("F1")),recoveryText);
+    GUILayout.Label(e.hookText,recoveryText);
+    DrawNetMap(c,e);
    GUILayout.Label(Loc("WindowReason")+": "+(c.lastRejectReason==""?Loc("NoRejection"):ReasonText(c.lastRejectReason)),recoveryText);
    GUILayout.BeginHorizontal();bool held=c.lockedHook!=null;GUI.enabled=!c.vessel.packed&&!held;
    if(GUILayout.Button(Loc(c.automatic?"Disarm":"Arm"))){if(c.automatic)c.DisarmNet();else c.ArmNet();}
@@ -47,9 +51,19 @@ namespace KIU.NetRecovery {
    GUI.enabled=!c.vessel.packed;if(GUILayout.Button(Loc("Station")))c.ToggleStation();GUILayout.EndHorizontal();
    GUILayout.Label(Loc("StationState")+": "+Loc(c.stationKeeping?"On":"Off"),recoveryText);
    GUILayout.Label(Loc("SasState")+": "+Loc(c.vessel.ActionGroups[KSPActionGroup.SAS]?"On":"Off"),recoveryText);
-   GUI.enabled=!c.vessel.packed&&held;if(GUILayout.Button(Loc("Release")))c.ReleaseStage();if(GUILayout.Button(Loc("ReplayBuffer")))c.ReplayBuffer();GUI.enabled=true;
+    GUI.enabled=!c.vessel.packed&&held&&!c.releaseRequested;if(GUILayout.Button(Loc("Release")))c.ReleaseStage();GUI.enabled=true;
+    showRecoveryDiagnostics=GUILayout.Toggle(showRecoveryDiagnostics,Loc("Diagnostics"));
+    if(showRecoveryDiagnostics){GUILayout.Label("mesh updates: "+c.meshUpdates+"; animation samples: "+c.animationSamples+"; crossing gap: "+c.cableGeometry.minimumCrossingGap.ToString("F3")+" m",recoveryText);GUI.enabled=held&&!c.releaseRequested;if(GUILayout.Button(Loc("ReplayBuffer")))c.ReplayBuffer();GUI.enabled=true;}
    if(GUILayout.Button(Loc("WindowClose"))){CloseWindow();if(recoveryButton!=null)recoveryButton.SetFalse(false);}
    GUI.DragWindow(new Rect(0,0,recoveryWindow.width,25));
   }
+   void DrawNetMap(LHZNetController c,RecoveryFeedbackEvidence e){
+    Rect r=GUILayoutUtility.GetRect(210,125);float size=Math.Min(r.width,120);Rect box=new Rect(r.x+(r.width-size)/2,r.y,size,size);Color before=GUI.color;GUI.color=new Color(.05f,.08f,.12f,.9f);GUI.DrawTexture(box,Texture2D.whiteTexture);
+    float scale=size/48;GUI.color=new Color(.3f,.8f,1);
+    for(int i=0;i<4;i++){float offset=(float)c.axes[i].position;Rect line=i<2?new Rect(box.x,box.center.y-offset*scale,size,1):new Rect(box.center.x+offset*scale,box.y,1,size);GUI.DrawTexture(line,Texture2D.whiteTexture);}
+    GUI.color=Color.white;GUI.DrawTexture(new Rect(box.center.x-2,box.center.y-2,4,4),Texture2D.whiteTexture);
+    if(e.hookPositions!=null)for(int i=0;i<e.hookPositions.Length;i++){var p=e.hookPositions[i];GUI.color=i<4&&e.hookContacts[i]?Color.green:Color.yellow;GUI.DrawTexture(new Rect(box.center.x+p[0]*scale-2,box.center.y-p[1]*scale-2,4,4),Texture2D.whiteTexture);}
+    GUI.color=before;
+   }
  }
 }
