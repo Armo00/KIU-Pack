@@ -12,7 +12,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     public int segments;
     [KSPField] public int maxSegments=30;
     [KSPField(guiActiveEditor=true, guiName="Extension segments", guiFormat="F0")]
-    [UI_FloatEdit(minValue=0, maxValue=30, incrementLarge=31, incrementSmall=1, incrementSlide=1)]
+    [UI_FloatEdit(minValue=0, maxValue=30, incrementLarge=0, incrementSmall=1, incrementSlide=0)]
     public float extensionCount;
     [KSPField] public float segmentLength;
     [KSPField] public float baseHeight;
@@ -165,9 +165,11 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         UI_FloatEdit ui=Fields["extensionCount"].uiControlEditor as UI_FloatEdit;
         if(ui==null)return;
         ui.minValue=displayHeightInMeters?baseHeight:0;ui.maxValue=ControlValue(maxSegments);
-        // One slider interval spans the entire configured range, including its end.
+        // FloatEdit uses incrementSmall as its moving slider interval whenever
+        // incrementLarge is nonzero. Zero selects the complete min/max range.
+        // Snap relative to baseHeight in our callback, not to global metre zero.
         float step=displayHeightInMeters?segmentLength:1f;
-        ui.incrementLarge=ui.maxValue-ui.minValue+step;ui.incrementSmall=step;ui.incrementSlide=step;
+        ui.incrementLarge=0;ui.incrementSmall=step;ui.incrementSlide=0;
         if(displayHeightInMeters){Fields["extensionCount"].guiFormat="F1";ui.sigFigs=1;ui.useSI=false;ui.unit=" m";}
 
         ui.affectSymCounterparts=UI_Scene.None;
@@ -176,7 +178,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     }
     public void OnSegmentControlChanged(BaseField field,object previous)
     {
-
+        if(synchronizingSegmentWidget)return;
         int requested=Mathf.Clamp(Mathf.RoundToInt(displayHeightInMeters?(extensionCount-baseHeight)/segmentLength:extensionCount),0,maxSegments);
         if(requested!=segments)SetSegmentCount(requested,true);
         extensionCount=ControlValue(segments);
@@ -197,15 +199,65 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
             RefreshRenderers();
         }
 
-        // FloatEdit supplies a slider and single-step buttons. Hide its extra
-        // interval-jump pair so both remaining arrow buttons adjust exactly one.
+        SynchronizeSegmentWidget();
+    }
+    private UIPartActionFloatEdit segmentWidget;
+    private bool synchronizingSegmentWidget;
+    private static readonly FieldInfo SegmentSliderBlock=typeof(UIPartActionFloatEdit).GetField("blockSliderUpdate",BindingFlags.Instance|BindingFlags.NonPublic);
+    private void SynchronizeSegmentWidget()
+    {
         UI_FloatEdit ui=Fields["extensionCount"].uiControlEditor as UI_FloatEdit;
         UIPartActionFloatEdit item=ui==null?null:ui.partActionItem as UIPartActionFloatEdit;
-        if(item==null)return;
+        if(item==null||item.slider==null)return;
+        // The visible PAW can own a copy of the field's UI descriptor.
+        UI_FloatEdit shown=item.Control as UI_FloatEdit;
+        if(shown!=null) {
+            shown.minValue=ui.minValue;shown.maxValue=ui.maxValue;
+            shown.incrementLarge=0;shown.incrementSmall=ui.incrementSmall;shown.incrementSlide=0;
+            shown.onFieldChanged=OnSegmentControlChanged;shown.affectSymCounterparts=UI_Scene.None;
+        }
+        bool blocked=SegmentSliderBlock!=null&&(bool)SegmentSliderBlock.GetValue(item);
+        synchronizingSegmentWidget=true;
+        if(SegmentSliderBlock!=null)SegmentSliderBlock.SetValue(item,true);
+        try {
+            extensionCount=ControlValue(segments);
+            item.slider.minValue=ui.minValue;item.slider.maxValue=ui.maxValue;
+            item.slider.SetValueWithoutNotify(extensionCount);
+            item.slider.interactable=maxSegments>0;
+            if(item.fieldValue!=null)item.fieldValue.text=KSPUtil.LocalizeNumber(extensionCount,displayHeightInMeters?"F1":"F0")+(displayHeightInMeters?" m":"");
+        } finally {
+            if(SegmentSliderBlock!=null)SegmentSliderBlock.SetValue(item,blocked);
+            synchronizingSegmentWidget=false;
+        }
+        // Stock full-range mode hides all arrows. Restore only our single-step
+        // pair; native FloatEdit arrow snapping is also anchored to zero and
+        // cannot step a fractional base height reliably.
         if(item.incLarge!=null)item.incLarge.gameObject.SetActive(false);
         if(item.decLarge!=null)item.decLarge.gameObject.SetActive(false);
-
+        if(item.incSmall!=null) {
+            item.incSmall.gameObject.SetActive(true);
+            if(item.incLarge!=null)PositionSegmentButton(item.incSmall.transform as RectTransform,item.incLarge.transform as RectTransform);
+            var button=item.incSmall.GetComponent<UnityEngine.UI.Button>();if(button!=null)button.interactable=segments<maxSegments;
+        }
+        if(item.decSmall!=null) {
+            item.decSmall.gameObject.SetActive(true);
+            if(item.decLarge!=null)PositionSegmentButton(item.decSmall.transform as RectTransform,item.decLarge.transform as RectTransform);
+            var button=item.decSmall.GetComponent<UnityEngine.UI.Button>();if(button!=null)button.interactable=segments>0;
+        }
+        item.slider.GetComponent<RectTransform>().sizeDelta=new Vector2(-44,0);
+        if(segmentWidget==item)return;
+        segmentWidget=item;
+        if(item.incSmall!=null){item.incSmall.onToggle.RemoveListener(item.OnTap_incSmall);item.incSmall.onToggle.AddListener(StepSegmentUp);}
+        if(item.decSmall!=null){item.decSmall.onToggle.RemoveListener(item.OnTap_decSmall);item.decSmall.onToggle.AddListener(StepSegmentDown);}
     }
+    private static void PositionSegmentButton(RectTransform button,RectTransform slot)
+    {
+        if(button==null||slot==null)return;
+        button.anchorMin=slot.anchorMin;button.anchorMax=slot.anchorMax;button.pivot=slot.pivot;
+        button.sizeDelta=slot.sizeDelta;button.anchoredPosition=slot.anchoredPosition;
+    }
+    private void StepSegmentUp() { if(segments<maxSegments)SetSegmentCount(segments+1,true); }
+    private void StepSegmentDown() { if(segments>0)SetSegmentCount(segments-1,true); }
     private IEnumerator AfterModulesStarted()
     {
         yield return null;
