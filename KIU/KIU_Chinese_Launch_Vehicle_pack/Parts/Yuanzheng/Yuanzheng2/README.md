@@ -42,10 +42,10 @@ Default / Matte 只切换制造件：顶面硬件、底盖、发动机接口和�
 
 本轮本体 31,678 三角面 / 5 Renderer / 54 碰撞体，支架 8,192 / 1 / 24；每 Renderer 单材质、单 submesh。球罐包络和全部 20 个 RCS 变换保持不变，底盖及新细节已做离线间隙/喷流采样。本轮实际触发了六自由度 12 组 RCS 输入，40 层 Waterfall 在测试并集中全部启用；两种替代 RCS 燃料也实际消耗。双发动机两次点火及关机、顶部手动释放、底部分级和飞行存档重载均已核验。仍不代表完整轨道任务、热流或真实结构强度认证。
 
-中英本地化、Waterfall、RemoteTech 和 VAB Organizer 配置保留；支架归入 payload_adapters，不添加无用途的 RF、RT 或 Waterfall 模块。历史 v0.9/v0.10 实测与报告保持不变。本轮运行资源未提交、未推送。
+中英本地化、Waterfall、RemoteTech 和 VAB Organizer 配置保留；支架归入 payload_adapters，不添加无用途的 RF、RT 或 Waterfall 模块。历史 v0.9/v0.10 实测与报告保持不变。运行资源于2026-10-23按用户统一授权提交0f41ca1并推送。
 
 ## 已保存的示例与来源
 
 `KIU/CraftFiles/Non-RO/KCLV/KIU-Yuanzheng-2 RF.craft` 是本体＋支架＋双 YF-50E；`KIU-Yuanzheng-2 RF Services.craft` 再加两块 OX-4L 和 HG-5。均需 RealFuels，使用 YF-50E_YZ2；没有测试占位载荷。复制到所选存档的 Ships/VAB 后装载，实际载荷接支架 top。两份来自原生保存，已在另一版 TweakScale 中交叉载入；不代表完整 RO/RP-1 方案。
 
-可编辑完整源归档：`KIU-Model/Yuanzheng-2/versions/v0.11.0/Yuanzheng2_v0.11.0.blend`；图像打包，附带独立 MU 导出工具和保留接口的导出配置。测试环境已恢复原有依赖与语言；最新运行资源位于本仓库 KIU，运行 Git 提交和推送均未执行。
+可编辑完整源归档：`KIU-Model/Yuanzheng-2/versions/v0.11.0/Yuanzheng2_v0.11.0.blend`；图像打包，附带独立 MU 导出工具和保留接口的导出配置。模型归档0817f37已于2026-10-23推送。ConfigurableTank本地兼容修复a5e63ee与远端塔段性能修复合并为6a5ea73，重新编译并通过12项保护检查；前文原生验收针对当时DLL，未据合并编译宣称完整重测了远征二号与塔架。测试环境已恢复原有依赖与语言。

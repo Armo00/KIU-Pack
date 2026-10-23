@@ -1,6 +1,6 @@
 # CZ-10B Procedural Fairings collision build
 
-2026-10-23：用户授权直接发布并推送，随后补做 KSP 验证。当前为离线通过、原生待验收。
+2026-10-23：用户授权直接发布并推送，随后补做 KSP 验证。当前已通过本文下方所列定向原生功能检查，完整性能验收仍开放。
 
 这是基于 KSP-RO **ProceduralFairings 6.8.0.0** 的修改版，保留原程序集名称和依赖，不是另一个 KIU DLL，也不是官方 PF 发布。
 
@@ -26,3 +26,9 @@
 
 上游：Alexey Volynskov（e-dog）、rsparkyc、PhineasFreak 和 KSP-RO contributors。
 [源代码 v6.8.0.0](https://github.com/KSP-RO/ProceduralFairings/tree/v6.8.0.0)；上游源码声明 [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)。原作者标记保留；本地修改为可选碰撞生成、对象缓存及清理逻辑。
+
+## 定向 KSP 1.12.3 检查
+
+实际游戏中普通／加长罩形各30个启用碰撞体每半罩；外扩形状回退951，普通载具重载恢复30。编辑器实际保存、飞行加载、屏蔽2→0及两半分级通过；120 km真空测试相对抛离速度约4.8 m/s。参考原版6.8.0.0在相同载具中实际为951个每半罩。
+
+单次端到端分级命令约10.70 s→5.05 s，包含IPC、等待、状态和截图，不能当作独立物理过滤耗时或泛化性能指标。没有覆盖所有曲线、完整铰链运动／ALT拖放或实际大载具的CPU路径采样。更详细范围见 [CZ-10B碰撞更新](../KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-10B/COLLISION_UPDATE.md)。
