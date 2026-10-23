@@ -12,7 +12,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     public int segments;
     [KSPField] public int maxSegments=30;
     [KSPField(guiActiveEditor=true, guiName="Extension segments", guiFormat="F0")]
-    [UI_FloatEdit(minValue=0, maxValue=30, incrementLarge=31, incrementSmall=1, incrementSlide=1)]
+    [UI_FloatEdit(minValue=0, maxValue=30, incrementLarge=0, incrementSmall=1, incrementSlide=0)]
     public float extensionCount;
     [KSPField] public float segmentLength;
     [KSPField] public float baseHeight;
@@ -107,6 +107,16 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     private PartModule tweakScale;
     private float appliedDown,appliedUp;
     private readonly List<GameObject> copies=new List<GameObject>();
+    // Structure mode keeps complete bays alive across 0.1 m height changes.
+    // Ordinary alternating tank extensions retain their existing path.
+    private sealed class StructureBayState {
+        public readonly List<GameObject> endObjects=new List<GameObject>();
+        public readonly List<bool> authoredActive=new List<bool>();
+        public bool roleKnown,last;
+    }
+    private readonly Dictionary<GameObject,StructureBayState> structureBays=new Dictionary<GameObject,StructureBayState>();
+    private bool structureAerodynamicsPending;
+    private float structureAerodynamicsAfter;
     private readonly List<ResourceSpec> resources=new List<ResourceSpec>();
     private class ResourceSpec { public string name; public double baseline,increment; }
     public static int LowerCount(int count) { return (count+1)/2; }
@@ -165,9 +175,11 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         UI_FloatEdit ui=Fields["extensionCount"].uiControlEditor as UI_FloatEdit;
         if(ui==null)return;
         ui.minValue=displayHeightInMeters?baseHeight:0;ui.maxValue=ControlValue(maxSegments);
-        // One slider interval spans the entire configured range, including its end.
+        // FloatEdit uses incrementSmall as its moving slider interval whenever
+        // incrementLarge is nonzero. Zero selects the complete min/max range.
+        // Snap relative to baseHeight in our callback, not to global metre zero.
         float step=displayHeightInMeters?segmentLength:1f;
-        ui.incrementLarge=ui.maxValue-ui.minValue+step;ui.incrementSmall=step;ui.incrementSlide=step;
+        ui.incrementLarge=0;ui.incrementSmall=step;ui.incrementSlide=0;
         if(displayHeightInMeters){Fields["extensionCount"].guiFormat="F1";ui.sigFigs=1;ui.useSI=false;ui.unit=" m";}
 
         ui.affectSymCounterparts=UI_Scene.None;
@@ -176,7 +188,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     }
     public void OnSegmentControlChanged(BaseField field,object previous)
     {
-
+        if(synchronizingSegmentWidget)return;
         int requested=Mathf.Clamp(Mathf.RoundToInt(displayHeightInMeters?(extensionCount-baseHeight)/segmentLength:extensionCount),0,maxSegments);
         if(requested!=segments)SetSegmentCount(requested,true);
         extensionCount=ControlValue(segments);
@@ -197,15 +209,69 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
             RefreshRenderers();
         }
 
-        // FloatEdit supplies a slider and single-step buttons. Hide its extra
-        // interval-jump pair so both remaining arrow buttons adjust exactly one.
+        if(structureAerodynamicsPending && Time.unscaledTime>=structureAerodynamicsAfter) {
+            structureAerodynamicsPending=false;
+            RebuildAerodynamics();
+        }
+        SynchronizeSegmentWidget();
+    }
+    private UIPartActionFloatEdit segmentWidget;
+    private bool synchronizingSegmentWidget;
+    private static readonly FieldInfo SegmentSliderBlock=typeof(UIPartActionFloatEdit).GetField("blockSliderUpdate",BindingFlags.Instance|BindingFlags.NonPublic);
+    private void SynchronizeSegmentWidget()
+    {
         UI_FloatEdit ui=Fields["extensionCount"].uiControlEditor as UI_FloatEdit;
         UIPartActionFloatEdit item=ui==null?null:ui.partActionItem as UIPartActionFloatEdit;
-        if(item==null)return;
+        if(item==null||item.slider==null)return;
+        // The visible PAW can own a copy of the field's UI descriptor.
+        UI_FloatEdit shown=item.Control as UI_FloatEdit;
+        if(shown!=null) {
+            shown.minValue=ui.minValue;shown.maxValue=ui.maxValue;
+            shown.incrementLarge=0;shown.incrementSmall=ui.incrementSmall;shown.incrementSlide=0;
+            shown.onFieldChanged=OnSegmentControlChanged;shown.affectSymCounterparts=UI_Scene.None;
+        }
+        bool blocked=SegmentSliderBlock!=null&&(bool)SegmentSliderBlock.GetValue(item);
+        synchronizingSegmentWidget=true;
+        if(SegmentSliderBlock!=null)SegmentSliderBlock.SetValue(item,true);
+        try {
+            extensionCount=ControlValue(segments);
+            item.slider.minValue=ui.minValue;item.slider.maxValue=ui.maxValue;
+            item.slider.SetValueWithoutNotify(extensionCount);
+            item.slider.interactable=maxSegments>0;
+            if(item.fieldValue!=null)item.fieldValue.text=KSPUtil.LocalizeNumber(extensionCount,displayHeightInMeters?"F1":"F0")+(displayHeightInMeters?" m":"");
+        } finally {
+            if(SegmentSliderBlock!=null)SegmentSliderBlock.SetValue(item,blocked);
+            synchronizingSegmentWidget=false;
+        }
+        // Stock full-range mode hides all arrows. Restore only our single-step
+        // pair; native FloatEdit arrow snapping is also anchored to zero and
+        // cannot step a fractional base height reliably.
         if(item.incLarge!=null)item.incLarge.gameObject.SetActive(false);
         if(item.decLarge!=null)item.decLarge.gameObject.SetActive(false);
-
+        if(item.incSmall!=null) {
+            item.incSmall.gameObject.SetActive(true);
+            if(item.incLarge!=null)PositionSegmentButton(item.incSmall.transform as RectTransform,item.incLarge.transform as RectTransform);
+            var button=item.incSmall.GetComponent<UnityEngine.UI.Button>();if(button!=null)button.interactable=segments<maxSegments;
+        }
+        if(item.decSmall!=null) {
+            item.decSmall.gameObject.SetActive(true);
+            if(item.decLarge!=null)PositionSegmentButton(item.decSmall.transform as RectTransform,item.decLarge.transform as RectTransform);
+            var button=item.decSmall.GetComponent<UnityEngine.UI.Button>();if(button!=null)button.interactable=segments>0;
+        }
+        item.slider.GetComponent<RectTransform>().sizeDelta=new Vector2(-44,0);
+        if(segmentWidget==item)return;
+        segmentWidget=item;
+        if(item.incSmall!=null){item.incSmall.onToggle.RemoveListener(item.OnTap_incSmall);item.incSmall.onToggle.AddListener(StepSegmentUp);}
+        if(item.decSmall!=null){item.decSmall.onToggle.RemoveListener(item.OnTap_decSmall);item.decSmall.onToggle.AddListener(StepSegmentDown);}
     }
+    private static void PositionSegmentButton(RectTransform button,RectTransform slot)
+    {
+        if(button==null||slot==null)return;
+        button.anchorMin=slot.anchorMin;button.anchorMax=slot.anchorMax;button.pivot=slot.pivot;
+        button.sizeDelta=slot.sizeDelta;button.anchoredPosition=slot.anchoredPosition;
+    }
+    private void StepSegmentUp() { if(segments<maxSegments)SetSegmentCount(segments+1,true); }
+    private void StepSegmentDown() { if(segments>0)SetSegmentCount(segments-1,true); }
     private IEnumerator AfterModulesStarted()
     {
         yield return null;
@@ -474,35 +540,14 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         }
         lower.localPosition=originalLower-Vector3.up*down;
         upper.localPosition=originalUpper+Vector3.up*up;
-        foreach(GameObject old in copies) {
-            if(old==null)continue;
-            old.SetActive(false);
-            // Destroy is deferred. Remove retired meshes from model searches now.
-            old.transform.SetParent(null,false);
-            Destroy(old);
+        bool structureTopologyChanged=false;
+        if(!upperOnly) {
+            foreach(GameObject old in copies)RetireExtension(old);
+            copies.Clear();
         }
-        copies.Clear();
         if(upperOnly) {
             float total=count*segmentLength;
-            int bays=Mathf.FloorToInt((total+0.0001f)/structuralBayLength);
-            float remainder=Mathf.Max(0,total-bays*structuralBayLength);
-            int needed=bays+(remainder>0.0001f?1:0);
-            for(int i=0;i<needed;i++) {
-                float length=i<bays?structuralBayLength:remainder;
-                GameObject obj=Instantiate(template.gameObject);obj.name="TankExtension_"+i;
-                obj.transform.SetParent(template.parent,false);
-                obj.transform.localRotation=template.localRotation;
-                Vector3 scale=template.localScale;scale.y*=length/structuralBayLength;
-                obj.transform.localScale=scale;
-                obj.transform.localPosition=Vector3.up*(extensionStart+i*structuralBayLength);
-                // The fixed crown owns its interface floor/header. Earlier full
-                // bays keep theirs; only the final bay suppresses its duplicate.
-                if(i==needed-1 && !string.IsNullOrEmpty(lastBayHiddenTransforms))
-                    foreach(Transform child in obj.GetComponentsInChildren<Transform>(true))
-                        foreach(string name in lastBayHiddenTransforms.Split(','))
-                            if(child.name==name.Trim())child.gameObject.SetActive(false);
-                obj.SetActive(true);copies.Add(obj);
-            }
+            structureTopologyChanged=UpdateStructureBays(total);
             foreach(var follower in followers) {
                 float offset=total*follower.Value,step;
                 if(followerSteps.TryGetValue(follower.Key,out step))offset=Mathf.Ceil((offset-.00001f)/step)*step;
@@ -529,11 +574,83 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         segments=count;
         extensionCount=ControlValue(count);
         Events["AddExtension"].active=false;Events["RemoveExtension"].active=false;
-        InvalidateRendererCaches();
-        rendererRefreshPending=true;
+        // Pose changes update Unity bounds directly; rebuild renderer/highlight
+        // membership only if a bay or its final header changed activation.
+        if(!upperOnly || structureTopologyChanged) {
+            InvalidateRendererCaches();
+            rendererRefreshPending=true;
+        }
         PublishDimensionsChanged();
     }
 
+    private static void RetireExtension(GameObject old) {
+        if(old==null)return;
+        old.SetActive(false);
+        // Destroy is deferred. Retired colliders/renderers must leave part
+        // searches immediately, including multiple adjustments in one frame.
+        old.transform.SetParent(null,false);
+        UnityEngine.Object.Destroy(old);
+    }
+    private StructureBayState CaptureStructureBay(GameObject instance) {
+        var state=new StructureBayState();
+        if(!string.IsNullOrEmpty(lastBayHiddenTransforms)) {
+            var names=new HashSet<string>();
+            foreach(string token in lastBayHiddenTransforms.Split(','))if(token.Trim().Length>0)names.Add(token.Trim());
+            foreach(Transform child in instance.GetComponentsInChildren<Transform>(true)) {
+                if(child==instance.transform || !names.Contains(child.name))continue;
+                string path=child.name;Transform parent=child.parent;
+                while(parent!=instance.transform) { path=parent.name+"/"+path;parent=parent.parent; }
+                Transform authored=template.Find(path);
+                if(authored==null)throw new InvalidOperationException("Missing structure header template: "+path);
+                state.endObjects.Add(child.gameObject);state.authoredActive.Add(authored.gameObject.activeSelf);
+            }
+        }
+        structureBays.Add(instance,state);return state;
+    }
+    private bool UpdateStructureBays(float total) {
+        int full=Mathf.FloorToInt((total+0.0001f)/structuralBayLength);
+        float remainder=Mathf.Max(0,total-full*structuralBayLength);
+        int needed=full+(remainder>0.0001f?1:0);
+        bool changed=false;
+        // Existing VAB symmetry clones can already contain generated bays.
+        // Adopt them in numeric order instead of destroying/recreating them.
+        if(structureBays.Count==0 && copies.Count>1)
+            copies.Sort((a,b)=>StructureBayIndex(a).CompareTo(StructureBayIndex(b)));
+        for(int i=copies.Count-1;i>=needed;i--) {
+            GameObject old=copies[i];if(old!=null)structureBays.Remove(old);
+            RetireExtension(old);copies.RemoveAt(i);changed=true;
+        }
+        for(int i=0;i<needed;i++) {
+            if(i==copies.Count)copies.Add(null);
+            GameObject obj=copies[i];
+            if(obj==null) {
+                obj=Instantiate(template.gameObject);obj.name="TankExtension_"+i;
+                obj.transform.SetParent(template.parent,false);copies[i]=obj;changed=true;
+            }
+            StructureBayState state;
+            if(!structureBays.TryGetValue(obj,out state))state=CaptureStructureBay(obj);
+            bool last=i==needed-1;
+            if(!state.roleKnown || state.last!=last) {
+                for(int j=0;j<state.endObjects.Count;j++) {
+                    bool active=!last && state.authoredActive[j];
+                    if(state.endObjects[j].activeSelf!=active){state.endObjects[j].SetActive(active);changed=true;}
+                }
+                state.roleKnown=true;state.last=last;
+            }
+            float length=i<full?structuralBayLength:remainder;
+            Vector3 scale=template.localScale;scale.y*=length/structuralBayLength;
+            Vector3 position=Vector3.up*(extensionStart+i*structuralBayLength);
+            if(obj.transform.localRotation!=template.localRotation)obj.transform.localRotation=template.localRotation;
+            if(obj.transform.localScale!=scale)obj.transform.localScale=scale;
+            if(obj.transform.localPosition!=position)obj.transform.localPosition=position;
+            if(!obj.activeSelf){obj.SetActive(true);changed=true;}
+        }
+        return changed;
+    }
+    private static int StructureBayIndex(GameObject obj) {
+        int index;
+        return obj!=null && int.TryParse(obj.name.Substring("TankExtension_".Length),out index)?index:int.MaxValue;
+    }
     private void InvalidateRendererCaches() { KIUModelRenderers.Invalidate(part); }
 
     private void NotifyModelChanged()
@@ -604,6 +721,18 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         tankSpec=string.Format(CultureInfo.InvariantCulture,"{0:F1}m/{1:F1}t",(baseHeight+count*segmentLength)*modelScale,DryMassForCount(count));
     }
     private void RefreshAerodynamics()
+    {
+        // Continuous tower dragging must not synchronously render six drag-cube
+        // faces for every 0.1 m tick. Geometry/nodes still update immediately.
+        // Flight initialization and all ordinary tank behavior stay synchronous.
+        if(upperOnly && HighLogic.LoadedSceneIsEditor) {
+            structureAerodynamicsPending=true;
+            structureAerodynamicsAfter=Time.unscaledTime+.15f;
+            return;
+        }
+        RebuildAerodynamics();
+    }
+    private void RebuildAerodynamics()
     {
         if(!HighLogic.LoadedSceneIsEditor && !HighLogic.LoadedSceneIsFlight)return;
         if(SystemInfo.graphicsDeviceType==UnityEngine.Rendering.GraphicsDeviceType.Null)return;
