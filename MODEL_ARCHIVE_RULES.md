@@ -1,5 +1,7 @@
 # 建模源归档规则：KIU-Pack-1 工作流程
 
+**2026-10-22 项目迁出覆盖要求：** CZ-16、从其拆出的 LaunchTower，以及 ReusableLunarLander / Axiom Lander，后续仅由 sibling ArmorPartPack 的 `cz-16`、`launch-tower`、`axiom-lander` 项目管理与归档；不再适用本文的 KIU-Model 归档、基线对齐或自动逐版提交规则。迁移已验证，KIU-Model 两个旧项目目录已移出当前工作树并保留本机恢复副本及 Git 历史。活动源通过 ArmorPartPack 的本机 `project_workspaces` 配置解析，不得用旧归档覆盖未归档活动工作；新仓库的正式归档须遵守用户直接授权规则。其他项目维持各自现行规则。详见 ArmorPartPack 的 `docs/MIGRATION_CZ16_LAUNCHTOWER_AXIOM_20261022.md`。
+
 规则编号：`KIU-MODEL-ARCHIVE`；规则版本：`1.4`；最新修订：2026-10-08。
 
 **2026-10-08 用户确认的覆盖要求：** 遵循 [MODEL_WORKFLOW_PRINCIPLES.md](MODEL_WORKFLOW_PRINCIPLES.md)。未认可方案的反馈修正属于同一工作迭代；不因可审阅或一次局部修改自动升版、出 HTML、归档或提交。完整成果通过审阅，或用户明确要求保留里程碑时才归档。完整版本集中提供 HTML，过程以图片配简短说明为主。
