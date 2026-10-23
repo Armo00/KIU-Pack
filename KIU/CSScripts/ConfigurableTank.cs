@@ -667,36 +667,90 @@ public class ConfigurableTankTweakScaleCompatibility : MonoBehaviour
                 Debug.Log("[ConfigurableTank] Original TweakScale visual-only B9/MFT compatibility installed.");
                 break;
             }
+            // /L's standard scaler restores attachment nodes on its first
+            // editor update only. KSP can reset them after flight OnLoad while
+            // keeping the correctly scaled model and attached-part positions.
+            Type scaleType=writer.Assembly.GetType("TweakScale.TweakScale",false);
+            MethodInfo first=scaleType==null?null:scaleType.GetMethod("UpdateFirst",BindingFlags.Instance|BindingFlags.NonPublic);
+            if(first!=null) {
+                object nodePostfix=Activator.CreateInstance(harmonyMethod,new object[]{typeof(ConfigurableTankTweakScaleCompatibility).GetMethod("RestoreOptedInFlightNodes")});
+                foreach(MethodInfo patch in harmony.GetMethods())if(patch.Name=="Patch") {
+                    ParameterInfo[] parameters=patch.GetParameters();
+                    if(parameters.Length<3||parameters[0].ParameterType!=typeof(MethodBase))continue;
+                    object[] args=new object[parameters.Length];args[0]=first;bool found=false;
+                    for(int i=1;i<parameters.Length;i++)if(parameters[i].Name=="postfix"){args[i]=nodePostfix;found=true;}
+                    if(!found)continue;
+                    patch.Invoke(instance,args);
+                    Debug.Log("[ConfigurableTank] Original TweakScale opted-in flight node restoration installed.");
+                    break;
+                }
+            }
         } catch(Exception e) {
             Debug.LogError("[ConfigurableTank] Could not install optional TweakScale/B9 compatibility: "+e);
+        }
+    }
+    public static void RestoreOptedInFlightNodes(object __instance)
+    {
+        if(!HighLogic.LoadedSceneIsFlight)return;
+        PartModule module=__instance as PartModule;Part p=module==null?null:module.part;
+        if(p==null||p.partInfo==null||p.partInfo.partConfig==null||p.FindModuleImplementing<ConfigurableTank>()!=null)return;
+        ConfigNode config=p.partInfo.partConfig;
+        if(!String.Equals(config.GetValue("KIURestoreScaledNodes"),"true",StringComparison.OrdinalIgnoreCase))return;
+        bool hasB9=false;foreach(ConfigNode m in config.GetNodes("MODULE"))if(m.GetValue("name")=="ModuleB9PartSwitch")hasB9=true;
+        if(hasB9&&!IsVisualOnlyB9(config))return; // Never overwrite a functional node switch.
+        try {
+            FieldInfo scalerField=__instance.GetType().GetField("scaler",BindingFlags.Instance|BindingFlags.Public|BindingFlags.NonPublic);
+            object scaler=scalerField==null?null:scalerField.GetValue(__instance);
+            MethodInfo restore=scaler==null?null:scaler.GetType().GetMethod("MoveAttachmentNodes",BindingFlags.Instance|BindingFlags.NonPublic,null,new[]{typeof(bool),typeof(bool)},null);
+            if(restore==null)return;
+            // Use /L's own absolute-scale node calculation. No part movement,
+            // fuel/mass/cost update, transform rewrite or joint manipulation.
+            restore.Invoke(scaler,new object[]{false,true});
+            Debug.Log("[ConfigurableTank] Restored scaled flight attachment nodes on "+p.partInfo.name);
+        } catch(Exception e) {
+            Debug.LogError("[ConfigurableTank] Could not restore opted-in flight nodes: "+e);
         }
     }
     public static void AllowVisualSwitches(Part p,ref string __result)
     {
         if(__result==null||!__result.StartsWith("having ModuleB9PartSwitch together ModuleFuelTanks"))return;
-        if(p==null||p.FindModuleImplementing<ConfigurableTank>()==null||p.partInfo==null||p.partInfo.partConfig==null)return;
+        if(p==null||p.partInfo==null||p.partInfo.partConfig==null)return;
+        bool configurable=p.FindModuleImplementing<ConfigurableTank>()!=null;
+        // Explicitly opted-in RF tanks can also have purely visual B9 switches.
+        // This does not grant ConfigurableTank's volume/mass/cost handling to them;
+        // RF and TweakScale retain their normal responsibilities on these Parts.
+        bool visualRfOptIn=String.Equals(p.partInfo.partConfig.GetValue("KIUVisualB9RFCompatibility"),"true",StringComparison.OrdinalIgnoreCase);
+        if(!configurable&&!visualRfOptIn)return;
+        if(IsVisualOnlyB9(p.partInfo.partConfig)) {
+            __result=null;
+            Debug.Log("[ConfigurableTank] Allowed visual-only B9 with RF on "+p.partInfo.name+
+                (configurable?"; ConfigurableTank owns volume/mass/cost.":"; explicit visual-RF opt-in; RF/TweakScale own volume/mass/cost."));
+        }
+    }
+    // Keep the configuration guard independent of live Unity objects so the
+    // opt-in cannot accidentally grow into a blanket bypass of /L's checks.
+    internal static bool IsVisualOnlyB9(ConfigNode config)
+    {
+        if(config==null)return false;
         bool found=false;
-        foreach(ConfigNode module in p.partInfo.partConfig.GetNodes("MODULE")) {
+        foreach(ConfigNode module in config.GetNodes("MODULE")) {
             if(module.GetValue("name")!="ModuleB9PartSwitch")continue;
             found=true;
             // Opt in only to material/visibility-only switches. Any B9 capacity,
             // resource, module, node or balance change keeps /L's rejection.
-            foreach(ConfigNode child in module.nodes)if(child.name!="SUBTYPE")return;
+            foreach(ConfigNode child in module.nodes)if(child.name!="SUBTYPE")return false;
             foreach(ConfigNode.Value value in module.values) {
-                if(value.name=="baseVolume"&&value.value.Trim()!="0")return;
+                if(value.name=="baseVolume"&&value.value.Trim()!="0")return false;
                 if(Array.IndexOf(new[]{"name","moduleID","switcherDescription","switcherDescriptionPlural","baseVolume",
-                    "affectDragCubes","affectFARVoxels","switchInFlight","uiGroupName","uiGroupDisplayName","advancedTweakablesOnly"},value.name)<0)return;
+                    "affectDragCubes","affectFARVoxels","switchInFlight","uiGroupName","uiGroupDisplayName","advancedTweakablesOnly"},value.name)<0)return false;
             }
             foreach(ConfigNode subtype in module.GetNodes("SUBTYPE")) {
-                foreach(ConfigNode child in subtype.nodes)if(child.name!="MATERIAL")return;
+                foreach(ConfigNode child in subtype.nodes)if(child.name!="MATERIAL")return false;
                 foreach(ConfigNode.Value value in subtype.values)
                     if(value.name!="name"&&value.name!="title"&&value.name!="descriptionSummary"&&value.name!="descriptionDetail"
-                        &&value.name!="defaultSubtypePriority"&&value.name!="primaryColor"&&value.name!="secondaryColor"&&value.name!="transform")return;
+                        &&value.name!="defaultSubtypePriority"&&value.name!="primaryColor"&&value.name!="secondaryColor"&&value.name!="transform")return false;
             }
         }
-        if(found) {
-            __result=null;
-            Debug.Log("[ConfigurableTank] Allowed visual-only B9 with RF on "+p.partInfo.name+"; ConfigurableTank owns volume/mass/cost.");
-        }
+        return found;
     }
 }

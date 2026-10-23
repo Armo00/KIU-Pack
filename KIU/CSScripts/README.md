@@ -163,3 +163,31 @@ GameDatabase texture loading, preserving already AG-packed legacy normals.
 
 These options use the existing ConfigurableTank.dll and shared build manifest.
 The current RequestRendererRefresh API and shared highlight fixes are retained.
+
+## Visual B9 / RealFuels opt-in (2026-10-22)
+
+Original TweakScale 2.4.x rejects Parts containing both ModuleB9PartSwitch and
+ModuleFuelTanks even when B9 only changes paint. ConfigurableTank's optional
+Harmony 2 compatibility hook also accepts the explicit root Part value
+`KIUVisualB9RFCompatibility = true`. Yuanzheng-2 uses this opt-in without adding
+a ConfigurableTank module: RealFuels and TweakScale retain volume, mass and cost
+ownership. Rescaled does not use this original-TweakScale rejection hook.
+
+The guard checks every B9 switch against a visual-only allowlist. Fuel types,
+nonzero baseVolume, mass/cost changes, node changes, nested modules and unknown
+switch fields keep the original rejection. Other TweakScale sanity failures
+are not cleared. Harmony and TweakScale remain optional reflection-based
+dependencies; no additional runtime DLL is bundled for this opt-in.
+
+Compiled guard checks and the separate native acceptance record are kept in
+`local_workspace/yuanzheng-2/optimization-20261022`. Offline guard tests alone
+do not establish in-game scaling compatibility.
+
+`KIURestoreScaledNodes = true` separately opts fixed-node Parts into the /L
+flight-load repair. After /L's first update, the adapter invokes its own absolute
+attachment-node calculation with `moveParts=false`. This corrects node metadata
+reset by flight loading while leaving the scaled model, child positions, joints,
+resources, mass and costs alone. It does not run in the editor or under Rescaled;
+ConfigurableTank Parts and functional B9 node switches are excluded. Only the
+Yuanzheng-2 body and bracket currently opt in. This is not a global /L patch for
+all mod Parts.
