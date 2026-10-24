@@ -1,4 +1,4 @@
-// Deterministic visual compliance. Native Part poses/joints remain fixed after capture.
+// Deterministic compliance with native Part pose recovery and synchronized hooks.
 // Replay the original DeployHook clip so its hydraulic mechanism stays synchronized.
 using System;
 using System.Collections.Generic;
@@ -11,9 +11,10 @@ namespace KIU.NetRecovery {
   public uint[] hookIds;public float[][] guidePositions;public float[][] mouths,ropeContacts;public float[][][] ropePoints;public float[] ropeOffsets;
   public float[] cableLengths,requiredPayout,supportVerticalFractions;
   public float minimumCrossingGap;public int meshUpdates,animationSamples;public bool releasing;
+  public bool nativePose,poseMoving,nativeJoint;public float coreTiltToSea,modelRootOffset,bodyPoseError,supportAnchorError;public int kinematicBodies,poseUpdates,supportJoints;
  }
  public partial class LHZNetController {
-  public const float BufferDuration=2.6f;public const int BufferRevision=4;
+  public const float BufferDuration=3.2f;public const int BufferRevision=5;
   [KSPField] public float hookRetractionDegrees=50,cableCenterDrop=8,guideDropDistance=.5f;
   [KSPField(isPersistant=true)] public bool bufferActive;
   [KSPField(isPersistant=true)] public float bufferElapsed;
@@ -56,13 +57,14 @@ namespace KIU.NetRecovery {
   bool TryPrepareVisualBuffer(){
    if(modelPoses!=null)return true;if(Time.time<bufferRetryAt)return false;
    try{PrepareVisualBuffer();bufferError="";return modelPoses!=null;}
-   catch(Exception e){modelPoses=null;hookPoses=null;extraHookPoses=null;bufferError=e.Message;bufferRetryAt=Time.time+1;Debug.LogError("[KIUNetRecovery] buffer preparation failed: "+bufferError);return false;}
+   catch(Exception e){ClearNativeRecoveryCache();modelPoses=null;hookPoses=null;extraHookPoses=null;bufferError=e.Message;bufferRetryAt=Time.time+1;Debug.LogError("[KIUNetRecovery] buffer preparation failed: "+bufferError);return false;}
   }
   void BeginVisualBuffer(){bufferActive=true;bufferElapsed=0;bufferRevision=BufferRevision;bufferError="";bufferRetryAt=0;bufferCompletionLogged=false;lastVisualTime=-1;shapeInitialized=false;cableGeometry.ResetOrder();releaseRequested=false;releaseElapsed=0;stabilizeElapsed=0;TryPrepareVisualBuffer();}
   [KSPEvent(guiActive=true,guiName="#LHZ_ReplayBuffer")]
   public void ReplayBuffer(){if(lockedHook==null||vessel==null||vessel.packed)return;ResetVisualBuffer();BeginVisualBuffer();DrawNet();}
   void PrepareVisualBuffer(){
-   if(modelPoses!=null||lockedHook==null)return;targetSink=cableCenterDrop;var recovered=Subtree(lockedHook.part).ToArray();RestorePairs(recovered.Where(p=>p.FindModuleImplementing<LHZHookProbe>()!=null&&Tip(p)!=null).ToArray());modelPoses=new List<ModelPose>();hookPoses=new List<HookPose>();extraHookPoses=new List<HookPose>();visualParts=recovered.Length;
+   if(modelPoses==null&&lockedHook!=null&&((part.rb!=null&&part.rb.isKinematic)||(lockedHook.part.rb!=null&&lockedHook.part.rb.isKinematic)))return;
+   if(modelPoses!=null||lockedHook==null||part.rb==null||lockedHook.part.rb==null||vessel.packed)return;targetSink=cableCenterDrop;var recovered=Subtree(lockedHook.part).ToArray();RestorePairs(recovered.Where(p=>p.FindModuleImplementing<LHZHookProbe>()!=null&&Tip(p)!=null).ToArray());modelPoses=new List<ModelPose>();hookPoses=new List<HookPose>();extraHookPoses=new List<HookPose>();visualParts=recovered.Length;
    foreach(var p in recovered){
     var roots=new HashSet<Transform>();foreach(var r in p.GetComponentsInChildren<Renderer>(true).Where(r=>r.GetComponentInParent<Part>()==p&&(r is MeshRenderer||r is SkinnedMeshRenderer))){var t=r.transform;while(t.parent!=null&&t.parent!=p.transform)t=t.parent;if(t.parent==p.transform)roots.Add(t);}
     foreach(var t in roots)modelPoses.Add(new ModelPose{part=p,root=t,origin=t.localPosition});
@@ -75,24 +77,25 @@ namespace KIU.NetRecovery {
     h.targetTime=(low+high)/2;SampleHook(p,h.targetTime);float angle=Quaternion.Angle(h.deployed,hinge.localRotation);if(Single.IsNaN(angle)||Math.Abs(angle-hookRetractionDegrees)>.2f){SampleHook(p,1);throw new Exception("DeployHook requested-angle calibration failed on hook "+p.persistentId+"; measured "+angle);}h.finalMouth=part.transform.InverseTransformPoint(hinge.TransformPoint(h.throat));h.releaseFrom=Mathf.Lerp(1,h.targetTime,Smooth(bufferElapsed/.9f));targetSink=Math.Max(targetSink,Vector3.Dot(hinge.TransformPoint(h.throat)-mouth,part.transform.up)+cableCenterDrop);SampleHook(p,1);if(selected)hookPoses.Add(h);else extraHookPoses.Add(h);
    }
    if(hookPoses.Count!=4||hookPoses.Select(h=>h.rope).Distinct().Count()!=4)throw new Exception("Recovery-buffer requires four distinct hook/rope pairs");
-   var finalMouths=new Point3[4];foreach(var h in hookPoses)finalMouths[h.rope]=new Point3(h.finalMouth.x,h.finalMouth.y-targetSink,h.finalMouth.z);cableGeometry.ChooseOrder(finalMouths,Plane-guideDropDistance,Span,CenterZ);
+   PrepareNativeRecovery();
+   var finalMouths=new Point3[4];foreach(var h in hookPoses){var p=NativeRecoveryPointAtHold(h.finalMouth);finalMouths[h.rope]=new Point3(p.x,p.y,p.z);}cableGeometry.ChooseOrder(finalMouths,Plane-guideDropDistance,Span,CenterZ);
    animatedExtraHookIds=String.Join(",",extraHookPoses.Select(h=>h.part.persistentId.ToString()).ToArray());
-   Debug.Log("[KIUNetRecovery] buffer prepared revision=4 hooks="+hookPoses.Count+" targetSink="+targetSink);
+   Debug.Log("[KIUNetRecovery] buffer prepared revision="+BufferRevision+" hooks="+hookPoses.Count+" targetSink="+targetSink);
   }
   public void LateUpdate(){
    TickCaptureCamera();
    if(!HighLogic.LoadedSceneIsFlight||part==null||vessel==null||vessel.packed||lockedHook==null||lockedHook.part==null||lockedHook.part.parent!=part)return;
    if(!TryPrepareVisualBuffer()||!bufferActive)return;if(poweredShutdownPending){DrawNet();return;}
    if(releaseRequested){releaseElapsed=Math.Min(1.4f,releaseElapsed+Time.deltaTime);foreach(var h in hookPoses)SamplePose(h,Mathf.Lerp(h.releaseFrom,1,Smooth((releaseElapsed-.45f)/.8f)));foreach(var h in extraHookPoses)SamplePose(h,Mathf.Lerp(h.releaseFrom,1,Smooth((releaseElapsed-.45f)/.8f)));}
-   else{bufferElapsed=Math.Min(BufferDuration,bufferElapsed+Time.deltaTime);visualSink=Depth(bufferElapsed,targetSink);guideDrop=guideDropDistance*Smooth(bufferElapsed/.8f);}
+   else{if(!recoveryPoseNative)bufferElapsed=Math.Min(BufferDuration,bufferElapsed+Time.deltaTime);visualSink=Depth(bufferElapsed,targetSink);guideDrop=guideDropDistance*Smooth(bufferElapsed/.8f);}
    TickRecoveryMechanisms();
-   if(!releaseRequested&&lastVisualTime==bufferElapsed)return;
+   if(!releaseRequested&&lastVisualTime==bufferElapsed){DrawNet();return;}
    lastVisualTime=bufferElapsed;
    if(!releaseRequested){foreach(var h in hookPoses)SamplePose(h,Mathf.Lerp(1,h.targetTime,Smooth(bufferElapsed/.9f)));foreach(var h in extraHookPoses)SamplePose(h,Mathf.Lerp(1,h.targetTime,Smooth(bufferElapsed/.9f)));}
    hookAnimationTime=hookPoses.Average(h=>h.lastTime);
    // Clip curves may bind a model root. Apply the common sink after sampling.
-   foreach(var m in modelPoses)if(m.root!=null&&m.part!=null)m.root.localPosition=m.origin+m.part.transform.InverseTransformVector(-part.transform.up*visualSink);
-   DrawNet();if(!bufferCompletionLogged&&bufferElapsed>=BufferDuration){bufferCompletionLogged=true;Debug.Log("[KIUNetRecovery] buffer held revision=4 elapsed="+bufferElapsed+" sink="+visualSink);}
+   foreach(var m in modelPoses)if(m.root!=null&&m.part!=null)m.root.localPosition=m.origin+(recoveryPoseNative?Vector3.zero:m.part.transform.InverseTransformVector(-part.transform.up*visualSink));
+   DrawNet();if(!bufferCompletionLogged&&bufferElapsed>=BufferDuration){bufferCompletionLogged=true;Debug.Log("[KIUNetRecovery] buffer held revision="+BufferRevision+" elapsed="+bufferElapsed+" sink="+visualSink);}
   }
   Vector3 BufferedMouth(HookPose h){return part.transform.InverseTransformPoint(h.hinge.TransformPoint(h.throat));}
   // A concentrated hook load needs an upward component of tension on both
@@ -129,7 +132,9 @@ namespace KIU.NetRecovery {
   public BufferEvidence BufferState(){
    var mouths=hookPoses==null?new Vector3[0]:hookPoses.OrderBy(h=>h.rope).Select(BufferedMouth).ToArray();var contacts=ropes==null?new Vector3[0]:ropes.Select((r,i)=>r.GetPosition(cableMouthIndices[i])).ToArray();float error=0;for(int i=0;i<Math.Min(mouths.Length,contacts.Length);i++)error=Math.Max(error,Vector3.Distance(mouths[i],contacts[i]));
    var lengths=new float[contacts.Length];var payout=new float[contacts.Length];var support=new float[contacts.Length];for(int i=0;i<contacts.Length;i++){for(int j=1;j<33;j++)lengths[i]+=Vector3.Distance(ropes[i].GetPosition(j-1),ropes[i].GetPosition(j));payout[i]=Math.Max(0,lengths[i]-2*Span);support[i]=(ropes[i].GetPosition(Math.Max(0,cableMouthIndices[i]-1))-contacts[i]).normalized.y+(ropes[i].GetPosition(Math.Min(32,cableMouthIndices[i]+1))-contacts[i]).normalized.y;}
-   return new BufferEvidence{minimumCrossingGap=(float)cableGeometry.minimumCrossingGap,meshUpdates=meshUpdates,animationSamples=animationSamples,releasing=releaseRequested,cableLengths=lengths,requiredPayout=payout,supportVerticalFractions=support,revision=bufferRevision,prepared=hookPoses!=null&&hookPoses.Count==4,error=bufferError,hookIds=hookPoses==null?new uint[0]:hookPoses.OrderBy(h=>h.rope).Select(h=>h.part.persistentId).ToArray(),guidePositions=guidePoses==null?new float[0][]:guidePoses.Select(g=>{var p=part.transform.InverseTransformPoint(g.transform.TransformPoint(g.meshCenter));return new[]{p.x,p.y,p.z};}).ToArray(),elapsed=bufferElapsed,visualSink=visualSink,targetSink=targetSink,guideDrop=guideDrop,hookAnimationTime=hookAnimationTime,maxHookRetractionDegrees=hookPoses==null?0:hookPoses.Max(h=>Quaternion.Angle(h.deployed,h.hinge.localRotation)),maxRopeContactError=error,visualParts=visualParts,modelRoots=modelPoses==null?0:modelPoses.Count,hooks=mouths.Length,active=bufferActive,mouths=mouths.Select(p=>new[]{p.x,p.y,p.z}).ToArray(),ropeContacts=contacts.Select(p=>new[]{p.x,p.y,p.z}).ToArray(),ropeOffsets=ropeOffsets.ToArray(),ropePoints=ropes==null?new float[0][][]:ropes.Select(r=>Enumerable.Range(0,33).Select(i=>{var p=r.GetPosition(i);return new[]{p.x,p.y,p.z};}).ToArray()).ToArray()};
+   return new BufferEvidence{nativePose=recoveryPoseNative,poseMoving=nativePoseMoving,nativeJoint=lockedHook!=null&&lockedHook.part.attachJoint!=null,coreTiltToSea=CoreTiltToSea(),poseUpdates=poseUpdates,supportJoints=recoverySupports.Count(j=>j!=null),supportAnchorError=RecoverySupportAnchorError(),
+    kinematicBodies=recoveryBodies==null?0:recoveryBodies.Count(b=>b.body!=null&&b.body.isKinematic),modelRootOffset=modelPoses==null?0:modelPoses.Where(m=>m.root!=null).Select(m=>Vector3.Distance(m.root.localPosition,m.origin)).DefaultIfEmpty().Max(),bodyPoseError=recoveryBodies==null?0:recoveryBodies.Where(b=>b.body!=null).Select(b=>Vector3.Distance(b.body.position,b.body.transform.position)).DefaultIfEmpty().Max(),
+    minimumCrossingGap=(float)cableGeometry.minimumCrossingGap,meshUpdates=meshUpdates,animationSamples=animationSamples,releasing=releaseRequested,cableLengths=lengths,requiredPayout=payout,supportVerticalFractions=support,revision=bufferRevision,prepared=hookPoses!=null&&hookPoses.Count==4,error=bufferError,hookIds=hookPoses==null?new uint[0]:hookPoses.OrderBy(h=>h.rope).Select(h=>h.part.persistentId).ToArray(),guidePositions=guidePoses==null?new float[0][]:guidePoses.Select(g=>{var p=part.transform.InverseTransformPoint(g.transform.TransformPoint(g.meshCenter));return new[]{p.x,p.y,p.z};}).ToArray(),elapsed=bufferElapsed,visualSink=visualSink,targetSink=targetSink,guideDrop=guideDrop,hookAnimationTime=hookAnimationTime,maxHookRetractionDegrees=hookPoses==null?0:hookPoses.Max(h=>Quaternion.Angle(h.deployed,h.hinge.localRotation)),maxRopeContactError=error,visualParts=visualParts,modelRoots=modelPoses==null?0:modelPoses.Count,hooks=mouths.Length,active=bufferActive,mouths=mouths.Select(p=>new[]{p.x,p.y,p.z}).ToArray(),ropeContacts=contacts.Select(p=>new[]{p.x,p.y,p.z}).ToArray(),ropeOffsets=ropeOffsets.ToArray(),ropePoints=ropes==null?new float[0][][]:ropes.Select(r=>Enumerable.Range(0,33).Select(i=>{var p=r.GetPosition(i);return new[]{p.x,p.y,p.z};}).ToArray()).ToArray()};
   }
   void ResetVisualBuffer(){
    if(modelPoses!=null)foreach(var m in modelPoses)if(m.root!=null)m.root.localPosition=m.origin;
@@ -138,6 +143,7 @@ namespace KIU.NetRecovery {
    ClearVisualBufferState();
   }
   void ClearVisualBufferState(){
+   ClearNativeRecoveryCache();
    releaseRequested=false;releaseElapsed=0;lastVisualTime=-1;shapeInitialized=false;cableGeometry.ResetOrder();stabilizeElapsed=0;ResetRecoveryMechanisms();
    modelPoses=null;hookPoses=null;extraHookPoses=null;animatedExtraHookIds="";visualParts=0;visualSink=guideDrop=bufferElapsed=0;hookAnimationTime=1;bufferActive=false;bufferError="";bufferRetryAt=0;bufferCompletionLogged=false;
   }

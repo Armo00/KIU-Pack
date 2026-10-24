@@ -1,6 +1,8 @@
 # Linghangzhe / 领航者
 
-Runtime and editable model: 2.9.0-dev (source baseline 2.8.0-dev).
+Latest archived editable model: 2.9.0-dev.
+Current working update (2026-10-24): collider optimization and native core
+uprighting based on that archive; not a new archived release.
 Install the complete KIU directory as GameData/KIU, including
 Plugins/KIUNetRecovery.dll, Plugins/ConfigurableTank.dll (shared renderer-cache
 helper), the current CZ-10B RecoveryHook and Common textures.
@@ -67,14 +69,18 @@ When the pilot controls the incoming core, capture preserves the camera target,
 mode, heading, pitch and distance while KSP selects the merged vessel. A render
 anchor follows the recovered core; it adds no Part, collider or force.
 Earlier cable contacts yield visually while awaiting the other hooks.
-After capture, native joints remain fixed while original hook/hydraulic
-animations retract 50 degrees and model roots sink/rebound over 2.6 s.
+After capture, the original hook/hydraulic animations retract 50 degrees while
+a bounded 3.2 s recovery phase moves the complete native core assembly down and
+aligns its axis with local gravity-up, including a small damped return swing.
+Part transforms, rigidbodies, colliders and visible models share that pose.
+At rest, ordinary rigidbody dynamics resume and the native KSP attachment plus
+three fixed supports distribute the load across the four selected hooks.
 Active/extra hook identities and buffer progress survive saves. Release first
 withdraws the steadying lines/cradle and unfolds the hooks, then native Undock
-transfers the visual displacement to the released vessel in one physics
-callback. The original surface attachment mode is preserved through rerooting;
+releases the recovered vessel at its current physical pose without adding the
+sink displacement a second time. The original surface attachment mode is preserved through rerooting;
 cross-vessel stock/KJR constraints are freed before the displacement, including
-constraints awaiting Unity destruction. This is visual compliance; it does not
+constraints awaiting Unity destruction. This is prescribed recovery motion; it does not
 solve cable tension or certify return guidance.
 
 2.7.2 samples each hook's owned DeployHook clip directly and verifies the actual
@@ -103,9 +109,10 @@ complete Part's effective mass. This is not a claim of published lightship mass.
 Source: https://kjj.gz.gov.cn/xwlb/yw/content/post_10693741.html
 Native buoyancy is configured at 0.58; the 2.9.0 scoped native check settled at
 about 5.36 m draft with a recovered test core and without vertical assist.
-The final cable contact center drops 8 m below the armed cable plane; model
-roots sink farther to compensate the rising hook mouths during 50-degree
-retraction. A gentle rebound remains. These are visual animation parameters.
+The final cable contact center drops 8 m below the armed cable plane; the core's
+native displacement accounts for the moving mouths during 50-degree hook
+retraction and uprighting. A gentle rebound remains. The motion is prescribed
+recovery choreography; cable tension and elastic energy are not solved.
 
 2.9.0 uses round shaded cable meshes with fixed ends, hook contacts and four
 unilateral crossover constraints. Small self-weight bow is limited to 0.025 m
@@ -123,7 +130,9 @@ mass/inertia-normalized horizontal and attitude control, with no vertical force.
 In VAB/SPH, right-click the ship and choose Tower extension segments: an
 integer 0–15, default 0. Each segment adds 1 m at the supported 1:1 scale.
 Braced one-meter sections are combined by material into bounded-size meshes;
-four continuous leg colliders fill the added length. The upper
+one continuous BoxCollider per full leg stretches from its unchanged lower
+endpoint to the raised top. The ship has 15 active colliders at every supported
+height; changing height creates no extra leg collider objects. The upper
 frame, rope carriages, cable plane, tracking reference and top attachment
 node rise together; diagonal stays retain their lower anchorage. Height is
 saved in the craft and game, and is fixed during normal flight operation.
@@ -143,3 +152,34 @@ The source export has 136 single-material, single-submesh renderers versus
 193 in 2.8.0, with 182,057 triangles. The compact editable source archive is
 `KIU-Model/Linghangzhe/versions/v2.9.0-dev`; native runs, media and the consolidated
 HTML report remain in the ignored Linghangzhe workspace.
+
+## Collider working update: 2026-10-24
+
+The MU defines 15 boxes instead of 23 (four old definitions were inactive
+extension templates). Active loaded counts change from 19 to 15 at zero
+extension and from 23 to 15 at 1/15 m. In the editor, one active box is a
+trigger and a stock Surface Attach Collider remains inactive in both fixtures;
+flight has 15 solid boxes and no trigger. Visual meshes, UVs, materials,
+textures, hull and the other 10 non-leg boxes are unchanged. All 0–15 m leg
+volumes match the previous envelope; this preserves the central opening.
+
+Repeated height changes, same-height renderer identity, craft reload, two
+core-controlled captures (about 15 degrees / 21.2 m/s and 2 degrees / 20.4 m/s),
+50-degree hook motion, sink/rebound and saved/fresh releases were inspected
+in KSP 1.12.3. No frame-rate improvement is claimed from the collider count.
+The old-MU count fixture uses the current DLL's legacy-template branch.
+
+The initial collider-only candidate retained about 14.8 degrees of core tilt
+after a 15-degree entry. The subsequent working correction replaces that held
+entry pose with native uprighting, calibrates support anchors after restoring
+the held hook clip, and keeps ropes/cradle following actual contact positions.
+
+Final KSP 1.12.3 checks used core-controlled 0, +/-5, +/-10 and +/-15 degree
+entries at offset positions and 0/15 m tower heights. Settled core/model/body
+tilt stayed within about 0.03 degrees in these cases and a 20 s calm-water hold,
+with no residual kinematic bodies. Legacy captures, a save made 0.74 s into
+buffering, held saves, replay, and mid-buffer release were checked. An early
+release preserves the current pose instead of forcing uprighting to finish.
+All observed releases retained 19 core parts with less than 1 mm position jump;
+the fixture freezes the separated core after its short observation interval.
+Sources and exact native evidence remain in the current ignored work iteration.

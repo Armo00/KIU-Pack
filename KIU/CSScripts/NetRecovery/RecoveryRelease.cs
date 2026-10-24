@@ -25,8 +25,9 @@ namespace KIU.NetRecovery {
   }
   void CompleteRelease(){
    if(lockedHook==null)return;var h=lockedHook;var p=h.part;
+   if(nativePoseMoving)FinishNativePoseMotion();
    var recovered=Subtree(p).ToArray();var models=modelPoses==null?new ModelPose[0]:modelPoses.ToArray();
-   var before=models.Select(m=>m.root.position).ToArray();Vector3 move=-part.transform.up*visualSink;
+   var before=models.Select(m=>m.root.position).ToArray();Vector3 move=recoveryPoseNative?Vector3.zero:-part.transform.up*visualSink;
    var all=Bodies(p.vessel);var bodies=all.Where(b=>recovered.Any(q=>q.rb==b||q.servoRb==b)).ToArray();var bodySet=new HashSet<Rigidbody>(bodies);var releasedJoints=new HashSet<ConfigurableJoint>();
    var velocities=bodies.Select(b=>b.velocity+Vector3.Cross(b.angularVelocity,move)).ToArray();var angular=bodies.Select(b=>b.angularVelocity).ToArray();
    h.Node.attachedPart=null;h.Node.attachedPartId=0;receiverLink.Node.attachedPart=null;receiverLink.Node.attachedPartId=0;
@@ -44,7 +45,7 @@ namespace KIU.NetRecovery {
    h.linkActive=receiverLink.linkActive=false;h.hardConstraint=false;h.poseSaved=false;h.captureState="Released";
    foreach(var q in recovered){var a=q.FindModuleImplementing<ModuleAnimateGeneric>();if(q.FindModuleImplementing<LHZHookProbe>()!=null&&a!=null){a.animTime=1;a.animSpeed=0;a.aniState=ModuleAnimateGeneric.animationStates.LOCKED;a.animSwitch=true;}}
    bool keepCoreControl=capturedCamera!=null&&FlightGlobals.ActiveVessel==vessel;
-   lockedHook=null;ClearVisualBufferState();automatic=false;receiverLink.armed=false;recoveryState="Released";approaches.Clear();ClearCaptureCamera();if(keepCoreControl)FlightGlobals.ForceSetActiveVessel(p.vessel);DrawNet();InvalidateFeedback();
+   lockedHook=null;ClearVisualBufferState();recoveryPoseNative=false;automatic=false;receiverLink.armed=false;recoveryState="Released";approaches.Clear();ClearCaptureCamera();if(keepCoreControl)FlightGlobals.ForceSetActiveVessel(p.vessel);DrawNet();InvalidateFeedback();
    Debug.Log("[KIUNetRecovery] continuous release visualJump="+lastReleasePositionJump+" boundaryConstraints="+lastReleaseClearedJoints);
   }
  }

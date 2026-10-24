@@ -9,6 +9,7 @@ namespace KIU.NetRecovery {
   readonly List<Rig> drums=new List<Rig>();readonly List<Rig> cradle=new List<Rig>();
   CableVisual[] steadyLines,feedLines;readonly Vector3[] feedPoints=new Vector3[33];bool mechanismsReady;Part cradleReference;float lastMechanismTime=-1;
   public string stabilizationState="Waiting";
+  Vector3 lastCradleTarget,lastCradleUp;
   void InitializeMechanisms(){
    if(mechanismsReady)return;mechanismsReady=true;
    foreach(var t in part.GetComponentsInChildren<Transform>(true)){
@@ -34,12 +35,14 @@ namespace KIU.NetRecovery {
   void TickRecoveryMechanisms(){
    InitializeMechanisms();if(lockedHook==null||hookPoses==null)return;
    if(!releaseRequested&&bufferElapsed>=BufferDuration)stabilizeElapsed=Math.Min(3,stabilizeElapsed+Time.deltaTime);
-   float time=releaseRequested?-releaseElapsed:stabilizeElapsed;if(lastMechanismTime==time&&bufferElapsed>=BufferDuration)return;lastMechanismTime=time;
+   if(cradleReference==null)cradleReference=Subtree(lockedHook.part).FirstOrDefault(p=>p.partInfo!=null&&p.partInfo.name.Contains("Stage1.Engine.Bay"))??lockedHook.part;
+   Vector3 actualTarget=part.transform.InverseTransformPoint(cradleReference.transform.position)-MechanismCoreOffset;
+   Vector3 actualUp=part.transform.InverseTransformDirection(cradleReference.transform.up).normalized;
+   float time=releaseRequested?-releaseElapsed:stabilizeElapsed;if(lastMechanismTime==time&&bufferElapsed>=BufferDuration&&(actualTarget-lastCradleTarget).sqrMagnitude<1e-6f&&(actualUp-lastCradleUp).sqrMagnitude<1e-8f)return;lastMechanismTime=time;lastCradleTarget=actualTarget;lastCradleUp=actualUp;
    float tether=Smooth(stabilizeElapsed/.8f),travel=Smooth((stabilizeElapsed-.6f)/1.6f),grip=Smooth((stabilizeElapsed-2.1f)/.8f);
    if(releaseRequested){float withdraw=1-Smooth(releaseElapsed/.45f);tether*=withdraw;grip*=withdraw;travel*=withdraw;}
    stabilizationState=releaseRequested?"Releasing":stabilizeElapsed>=2.9f?"Secured":stabilizeElapsed>=.6f?"Cradle":stabilizeElapsed>0?"Tethers":"Buffering";
-   if(cradleReference==null)cradleReference=Subtree(lockedHook.part).FirstOrDefault(p=>p.partInfo!=null&&p.partInfo.name.Contains("Stage1.Engine.Bay"))??lockedHook.part;
-   Vector3 target=part.transform.InverseTransformPoint(cradleReference.transform.position)-Vector3.up*visualSink;
+   Vector3 target=actualTarget;
    if(cradleReference==lockedHook.part)target.y-=24;
    float lift=Mathf.Clamp(target.y+3-12.5f,0,26+HeightOffset);Vector3 center=new Vector3(target.x-15,0,target.z-CenterZ)*travel;
    foreach(var rig in cradle){
@@ -60,7 +63,7 @@ namespace KIU.NetRecovery {
    }
    for(int i=0;i<4;i++){
     var h=hookPoses[i];int role=h.rope;Vector3 anchor=role<2?new Vector3(0,Plane-6,CenterZ+(role==0?-21.5f:21.5f)):new Vector3(role==2?-21.5f:21.5f,Plane-6,CenterZ);
-    Vector3 end=part.transform.InverseTransformPoint(h.part.transform.position)-Vector3.up*visualSink;end=Vector3.Lerp(anchor,end,tether);
+    Vector3 end=part.transform.InverseTransformPoint(h.part.transform.position)-MechanismCoreOffset;end=Vector3.Lerp(anchor,end,tether);
     for(int j=0;j<33;j++){float u=j/32f;tubePoints[i][j]=Vector3.Lerp(anchor,end,u)-Vector3.up*(.16f*4*u*(1-u));}
     steadyLines[i].enabled=tether>.01f;if(steadyLines[i].enabled)steadyLines[i].SetPositions(tubePoints[i],.014f);
    }

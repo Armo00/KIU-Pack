@@ -29,7 +29,7 @@ namespace KIU.NetRecovery {
   void RestoreLink(){
    if(receiverLink==null||vessel==null)return;
    lockedHook=vessel.parts.Select(p=>p.FindModuleImplementing<LHZHookProbe>()).FirstOrDefault(h=>h!=null&&h.captureState=="Locked"&&h.receiverId==part.persistentId&&h.part.parent==part);
-   if(lockedHook!=null){recoveryState="Locked";receiverLink.Apply();lockedHook.Apply();LockJoint(lockedHook.part);if(bufferRevision<BufferRevision){BeginVisualBuffer();Debug.Log("[KIUNetRecovery] restored legacy buffer: replay revision=4");}else if(!bufferActive){bufferActive=true;bufferElapsed=BufferDuration;}}
+   if(lockedHook!=null){recoveryState="Locked";receiverLink.Apply();lockedHook.Apply();LockJoint(lockedHook.part);if(bufferRevision<BufferRevision){recoveryPoseNative=false;BeginVisualBuffer();Debug.Log("[KIUNetRecovery] restored legacy buffer: replay revision="+BufferRevision);}else if(!bufferActive){bufferActive=true;bufferElapsed=BufferDuration;}TryPrepareVisualBuffer();}
   }
   static readonly Dictionary<int,Transform> tipCache=new Dictionary<int,Transform>();
   static Transform Tip(Part p){if(p==null)return null;Transform t;int id=p.GetInstanceID();if(tipCache.TryGetValue(id,out t)&&t!=null)return t;t=p.GetComponentsInChildren<Transform>(true).FirstOrDefault(x=>x.name=="HookTipMarker"&&x.GetComponentInParent<Part>()==p);if(t!=null)tipCache[id]=t;return t;}
@@ -44,7 +44,7 @@ namespace KIU.NetRecovery {
    MaintainStation();
    if(lockedHook==null&&recoveryState=="Locked")RestoreLink();
    if(releaseRequested&&releaseElapsed>=1.4f){CompleteRelease();return;}
-   if(lockedHook!=null){if(lockedHook.part==null||lockedHook.part.parent!=part||lockedHook.part.vessel!=vessel){ResetVisualBuffer();lockedHook=null;recoveryState="Failed";automatic=false;receiverLink.linkActive=false;}else{LockJoint(lockedHook.part);return;}}
+   if(lockedHook!=null){if(lockedHook.part==null||lockedHook.part.parent!=part||lockedHook.part.vessel!=vessel){ResetVisualBuffer();lockedHook=null;recoveryState="Failed";automatic=false;receiverLink.linkActive=false;}else{TickNativeRecovery();if(!nativePoseMoving)LockJoint(lockedHook.part);return;}}
    if(!automatic||!receiverLink.armed||TimeWarp.CurrentRateIndex!=0){HomeTracking(Time.fixedDeltaTime);NoticeActiveTarget(!automatic||!receiverLink.armed?"NetDisabled":"Warp");return;}
    TickTracking(Time.fixedDeltaTime);
   }
@@ -67,9 +67,9 @@ namespace KIU.NetRecovery {
    if(p.parent!=part||p.vessel!=vessel)throw new Exception("Native net coupling invariant failed");
    lastCapture.nativePositionJump=Vector3.Distance(local,part.transform.InverseTransformPoint(p.transform.position));lastCapture.nativeAngleJump=Quaternion.Angle(rotation,Quaternion.Inverse(part.transform.rotation)*p.transform.rotation);
    var nativeMotion=MotionMath.Merge(bodies.Select(Motion).ToArray());lastCapture.nativeMomentumChange=(nativeMotion.momentum-after.momentum).Length;lastCapture.nativeAngularChange=(nativeMotion.angularMomentum-after.angularMomentum).Length;
-   h.hardConstraint=true;h.captureState="Locked";h.poseSaved=true;var lp=part.transform.InverseTransformPoint(p.transform.position);var q=Quaternion.Inverse(part.transform.rotation)*p.transform.rotation;h.lpx=lp.x;h.lpy=lp.y;h.lpz=lp.z;h.lqx=q.x;h.lqy=q.y;h.lqz=q.z;h.lqw=q.w;lockedHook=h;recoveryState="Locked";automatic=false;feedbackTarget=vessel;feedbackUntil=Time.time+8;feedbackReason="";feedbackContacts=4;BeginVisualBuffer();LockJoint(p);CapturedEngineSequence(sourceEngines);DrawNet();
+   h.hardConstraint=true;h.captureState="Locked";h.poseSaved=true;var lp=part.transform.InverseTransformPoint(p.transform.position);var q=Quaternion.Inverse(part.transform.rotation)*p.transform.rotation;h.lpx=lp.x;h.lpy=lp.y;h.lpz=lp.z;h.lqx=q.x;h.lqy=q.y;h.lqz=q.z;h.lqw=q.w;lockedHook=h;recoveryState="Locked";automatic=false;feedbackTarget=vessel;feedbackUntil=Time.time+8;feedbackReason="";feedbackContacts=4;recoveryPoseNative=false;BeginVisualBuffer();LockJoint(p);CapturedEngineSequence(sourceEngines);DrawNet();
   }
-  static void LockJoint(Part p){if(p.attachJoint==null)return;foreach(var j in p.attachJoint.joints){j.xMotion=j.yMotion=j.zMotion=ConfigurableJointMotion.Locked;j.angularXMotion=j.angularYMotion=j.angularZMotion=ConfigurableJointMotion.Locked;var d=new JointDrive();j.xDrive=j.yDrive=j.zDrive=j.angularXDrive=j.angularYZDrive=j.slerpDrive=d;}}
+  static void LockJoint(Part p){if(p.attachJoint==null)return;foreach(var j in p.attachJoint.joints){if(j==null)continue;j.xMotion=j.yMotion=j.zMotion=ConfigurableJointMotion.Locked;j.angularXMotion=j.angularYMotion=j.angularZMotion=ConfigurableJointMotion.Locked;var d=new JointDrive();j.xDrive=j.yDrive=j.zDrive=j.angularXDrive=j.angularYZDrive=j.slerpDrive=d;}}
   void DrawNet(){
    if(part==null)return;
    if(ropes==null){var shader=Shader.Find("KSP/Specular")??Shader.Find("Standard");material=new Material(shader);material.color=new Color(.32f,.35f,.38f);if(material.HasProperty("_MainTex"))material.mainTexture=GameDatabase.Instance.GetTexture("KIU/Common/KIU_Common_texture/Shared_White.v3.3.0",false);if(material.HasProperty("_Shininess"))material.SetFloat("_Shininess",.55f);ropes=new CableVisual[4];for(int i=0;i<4;i++)ropes[i]=new CableVisual(part.transform,"LHZ_PlayerNet_"+i,material);}
