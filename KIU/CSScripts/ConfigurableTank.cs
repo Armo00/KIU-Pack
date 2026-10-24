@@ -6,7 +6,7 @@ using System.Globalization;
 using UnityEngine;
 
 // Generic, cfg-driven stepped tank. No CZ10B dimensions, fuel names or balance values.
-public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier, IPartSizeModifier
+public partial class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier, IPartSizeModifier
 {
     [KSPField(isPersistant=true)]
     public int segments;
@@ -156,7 +156,9 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         Events["AddExtension"].guiName=KSP.Localization.Localizer.Format(addLabel);
         Events["RemoveExtension"].guiName=KSP.Localization.Localizer.Format(removeLabel);
         Fields["tankMode"].guiActiveEditor=showResourceMode;
-        Fields["layout"].guiActiveEditor=!upperOnly;
+        Fields["layout"].guiActiveEditor=showLayout&&!upperOnly;
+        Fields["tankSpec"].guiActiveEditor=showSpec;
+        Fields["tankSpec"].guiActive=showSpec;
         maxSegments=Math.Max(0,maxSegments);
         Fields["extensionCount"].guiActiveEditor=showDimensionControls;
         ConfigureSegmentControl();
@@ -294,6 +296,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     public void InitializeModel()
     {
         if(initialized)return;
+        if(useFixedAnchorSpan) { InitializeFixedAnchorSpan(); return; }
         if(segmentLength<=0||baseHeight<=0||bottomCapHeight<=0||mainBodyHeight<=0)
             throw new ArgumentException("Invalid modular tank dimensions in cfg");
         lower=part.FindModelTransform(bottomTransform);upper=part.FindModelTransform(topTransform);
@@ -492,6 +495,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     private void ApplyGeometry(int count,bool moveAttached,bool moveRadial)
     {
         InitializeModel();
+        if(useFixedAnchorSpan) { ApplyFixedAnchorSpan(count); return; }
         int low=upperOnly?0:LowerCount(count),high=upperOnly?count:UpperCount(count);
         float down=low*segmentLength,up=high*segmentLength;
         float baseBottom=-baseHeight*originFraction,baseTop=baseBottom+baseHeight;
@@ -672,6 +676,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     }
     public void UpdateCapacity(int count)
     {
+        if(useFixedAnchorSpan) { UpdateTankSpec(count); return; }
         PartModule mft=FuelModule();
         if(mft!=null) {
             tankMode="RealFuels / MFT";
@@ -713,7 +718,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
     }
     private float DryMassForCount(int count)
     {
-        bool rf=FuelModule()!=null;
+        bool rf=!useFixedAnchorSpan && FuelModule()!=null;
         return (float)(((rf?realFuelsBaseDryMass:baseDryMass)+count*(rf?realFuelsDryMassPerSegment:dryMassPerSegment))*VolumeScale);
     }
     private void UpdateTankSpec(int count)
@@ -756,7 +761,7 @@ public class ConfigurableTank : PartModule, IPartMassModifier, IPartCostModifier
         return (float)((defaultCost+segments*costPerSegment)*VolumeScale-defaultCost)-scaleCost;
     }
     public ModifierChangeWhen GetModuleCostChangeWhen() { return ModifierChangeWhen.CONSTANTLY; }
-    public Vector3 GetModuleSize(Vector3 defaultSize,ModifierStagingSituation sit) { return upperOnly?Vector3.zero:Vector3.up*(segments*segmentLength*modelScale); }
+    public Vector3 GetModuleSize(Vector3 defaultSize,ModifierStagingSituation sit) { return upperOnly?Vector3.zero:Vector3.up*((segments-(useFixedAnchorSpan?referenceSegments:0))*segmentLength*modelScale); }
     public ModifierChangeWhen GetModuleSizeChangeWhen() { return ModifierChangeWhen.CONSTANTLY; }
 }
 

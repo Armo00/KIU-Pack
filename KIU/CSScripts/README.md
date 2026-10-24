@@ -14,6 +14,39 @@ ConfigurableTank retains its cfg module name. Do not also load an older
 CZ10BModules.dll containing ConfigurableTank. CZ10B must use the split version.
 These two shared capabilities must not be bundled again with CZ10B.
 
+## Fixed-anchor structural span (2026-10-24)
+
+`ConfigurableTankSpan.cs` adds the opt-in `useFixedAnchorSpan` mode. Bind three
+distinct sibling transforms with `bottomTransform`, `topTransform` and
+`bodyTransform`. `baseHeight` is their end-group span at zero segments;
+`referenceSegments` is the count already authored in the MU. The authored
+upper-minus-lower local Y must equal `baseHeight + referenceSegments * segmentLength`.
+Ends move by the difference in alternating lower/upper counts, while the middle
+object follows their midpoint and scales only along local Y. Authoring transforms
+are read from the prefab, so clone/reload does not accumulate previous offsets.
+
+This mode does not clone templates, move attachment nodes/attached Parts, change
+CoM, or manage resources. Existing mass/cost reconciliation remains available;
+CBC uses zero per-segment increments. `showLayout` and `showSpec` default true;
+structure Parts may hide these tank-oriented readouts. Existing template-based
+tanks take their original path unless this mode is explicitly enabled.
+
+`ConfigurableTankLengthUpgrade.cs` supports explicit cfg-owned migration rules:
+`CONFIGURABLE_TANK_LENGTH_UPGRADE { part; moduleID; subtypePrefix; maxSegments; }`.
+Only the matched legacy B9 length module is converted to `segments`; another B9
+switch, animation/decoupler state, and attachments are preserved. An explicitly
+saved new count takes precedence. No B9 assembly dependency or Harmony patch is
+introduced. Stock upgrade scripts are supplemented by public editor/proto-part
+load events because current-version files can bypass mod upgrade scripts.
+Editor fallback reads the selected craft without overwriting it, validates its
+identity and Part IDs, then applies the count to the matching controller. The
+proto-part constructor event converts the raw node before module construction;
+the later null-node event is ignored. Saving normally writes the new format.
+
+Native/offline evidence and the consolidated repair report are under
+`local_workspace/CZ-10B/working/cbc_configurable_length_20261024` and
+`local_workspace/CZ-10B/analysis/cbc_length_review_20261024`.
+
 ## ConfigurableTank + TweakScale (2026-09-28)
 
 Ship `Plugins/ConfigurableTank_TweakScale.cfg` together with the DLL. The patch
