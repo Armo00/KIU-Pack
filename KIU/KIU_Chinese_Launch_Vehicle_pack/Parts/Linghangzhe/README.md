@@ -183,3 +183,37 @@ release preserves the current pose instead of forcing uprighting to finish.
 All observed releases retained 19 core parts with less than 1 mm position jump;
 the fixture freezes the separated core after its short observation interval.
 Sources and exact native evidence remain in the current ignored work iteration.
+
+## Mesh optimization 2.9.1-dev: 2026-10-25
+
+Selective tube resampling reduces the default visible authored model from
+178,665 to 131,873 triangles; at 15 m extension it changes from 229,545 to
+166,913. One 1 m template is 2,336 triangles instead of 3,392. The MU contains
+134,209 triangles including that normally inactive template. Existing runtime
+cables add 8,192 triangles when all recovery/auxiliary lines are displayed.
+
+Small rail tubes use four sides, selected minor tubes six, and selected larger
+tubes eight, with smooth side normals and separate cap normals. Original tube
+endpoint planes/centres and oblique extension profiles are retained. Exactly
+duplicated geometry (280 triangles) is removed. No structure member
+is omitted merely because it is small. Font/logo geometry and moving carriage,
+winch and cradle meshes keep their original geometry and functional identities.
+
+The exporter indexes identical position/normal/UV/tangent tuples and limits
+each mesh to 60,000 vertices. Default exported vertices fall from 535,995 to
+218,811; default authored renderers from 133 to 128 (131 in the complete MU).
+All renderers still use one material and one submesh. The MU file decreases
+from 28,426,310 to 12,300,521 bytes. The existing 15 BoxColliders, their endpoint
+markers, all functional transforms, materials/textures, DLL and cfg are retained.
+
+Offline checks reopened the editable source, compared 312 adjoining height
+profiles and 104 repeated-template interfaces, inspected matched whole-ship,
+tower, 15 m extension and underside views, and verified the actual MU for
+degenerate triangles, normal direction, protected mechanism geometry and
+full-attribute equivalence of the indexed export. No new KSP run or frame-time
+comparison was performed for this mesh update; earlier native evidence above
+describes the earlier MU. The editable working source and verification are in
+the ignored `local_workspace/Linghangzhe/modeling/optimization_review_20261025`.
+The accepted editable source and standalone exporter are archived as
+`KIU-Model/Linghangzhe/versions/v2.9.1-dev`; the archive reopens independently
+and exports exactly the current MU. The runtime plugin remains 2.9.0.0.
