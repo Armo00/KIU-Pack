@@ -1,11 +1,8 @@
-0.8.0-beta.7
-Reviewed compact CBC geometry, based on beta.6; native validation completed 2026-10-22.
-Core pitch 5.77509125228034 m; link joint length 0.9289736271821715 m (60% of beta.6).
-Same S1Tank Part and one internal cbc node in every core; separators surface-attach to the center tank.
-Stock ModuleDecouple ejectionForce=20000, explicit radial direction; no moving link colliders or physical pusher stroke.
-Existing PusherAnimatedInterstage triggers Fold: upper links fold down, lower links fold up; 2 s clip including 0.2 s initial hold.
-Inner hold-down latches unlock radially 0.22 m then lower 1.9 m; center 2 and each booster 4 clamps retained.
-Manual N0..N30 separator lengths; existing Standard and LegR7 pad variants retained.
-Final separation acceptance used boosters at 13% remaining propellant. Loaded editor fixtures, save/reload, native staging, short 21-engine ascent and controlled-altitude separation checked.
-Older CBC craft must reconnect booster tanks to updated booster nodes and replace/reselect the platform. No automatic craft migration.
-No release DLL or shared texture changes. No full RSS/RO payload, orbit, recovery or structural qualification.
+1.0.0 working model candidate
+Baseline: archived 0.8.1. New supplied core geometry and all requested model variants.
+CBC authored N1 span 26.77 m; ConfigurableTank baseHeight 25.77 m, N0..N30.
+Booster node Y 8.885 m; same core pitch 5.77509125228034 m.
+Two upper core contact shoes narrowed tangentially to 75% to clear the new raceways.
+Legacy launcher model, clips and collision proxies retained; default heightSegments=5 (50.32 m).
+Whole-model native verification and final source archive remain separately recorded.
+No runtime Git submission or push performed.

@@ -1,0 +1,790 @@
+// Assembly example for 1.0.0 candidate geometry; never modifies an existing user craft
+ship = CZ10B 1.0 Seven Short
+version = 1.12.3
+description = New model assembly. Seven YF100 engines use individual fitted clockings. Standard dimensions; staging may be edited for the mission.
+type = VAB
+size = 18,78,18
+persistentId = 960000
+rot = 0,0,0,1
+missionFlag = Squad/Flags/default
+vesselType = Ship
+PART
+{
+    part = KCLV.CZ-10B.Stage1.Engine.Bay_960000
+    partName = Part
+    persistentId = 960000
+    pos = 0, 4, 0
+    attPos = 0,0,0
+    attPos0 = 0, 4, 0
+    rot = 0, -0, 0, 1
+    attRot = 0,0,0,1
+    attRot0 = 0, -0, 0, 1
+    mir = 1,1,1
+    symMethod = Radial
+    autostrutMode = Off
+    rigidAttachment = False
+    istg = -1
+    dstg = -1
+    sidx = 0
+    sqor = -1
+    sepI = -1
+    attm = 0
+    modCost = 0
+    modMass = 0
+    modSize = 0,0,0
+    link = KCLV.CZ-10B.Stage1.Tank_960001
+    attN = top,KCLV.CZ-10B.Stage1.Tank_960001
+    link = KCLV.CZ-10B.Launch.Erector_960006
+    attN = launchStand,KCLV.CZ-10B.Launch.Erector_960006
+    link = KCLV.YF100_960007
+    attN = engine0,KCLV.YF100_960007
+    link = KCLV.YF100_960008
+    attN = engine1,KCLV.YF100_960008
+    link = KCLV.YF100_960009
+    attN = engine2,KCLV.YF100_960009
+    link = KCLV.YF100_960010
+    attN = engine3,KCLV.YF100_960010
+    link = KCLV.YF100_960011
+    attN = engine4,KCLV.YF100_960011
+    link = KCLV.YF100_960012
+    attN = engine5,KCLV.YF100_960012
+    link = KCLV.YF100_960013
+    attN = engine6,KCLV.YF100_960013
+}
+
+PART
+{
+    part = KCLV.CZ-10B.Stage1.Tank_960001
+    partName = Part
+    persistentId = 960001
+    pos = 0, 9.03000021, 0
+    attPos = 0,0,0
+    attPos0 = 0, 9.03000021, 0
+    rot = 0, -0, 0, 1
+    attRot = 0,0,0,1
+    attRot0 = 0, -0, 0, 1
+    mir = 1,1,1
+    symMethod = Radial
+    autostrutMode = Off
+    rigidAttachment = False
+    istg = -1
+    dstg = -1
+    sidx = 0
+    sqor = -1
+    sepI = -1
+    attm = 0
+    modCost = 0
+    modMass = 0
+    modSize = 0,0,0
+    parent = 0
+    attN = bottom,KCLV.CZ-10B.Stage1.Engine.Bay_960000
+    link = KCLV.CZ-10B.Interstage_960002
+    attN = top,KCLV.CZ-10B.Interstage_960002
+}
+
+PART
+{
+    part = KCLV.CZ-10B.Interstage_960002
+    partName = Part
+    persistentId = 960002
+    pos = 0, 35.79999924, 0
+    attPos = 0,0,0
+    attPos0 = 0, 35.79999924, 0
+    rot = 0, -0, 0, 1
+    attRot = 0,0,0,1
+    attRot0 = 0, -0, 0, 1
+    mir = 1,1,1
+    symMethod = Radial
+    autostrutMode = Off
+    rigidAttachment = False
+    istg = 2
+    dstg = 2
+    sidx = 0
+    sqor = -1
+    sepI = -1
+    attm = 0
+    modCost = 0
+    modMass = 0
+    modSize = 0,0,0
+    parent = 1
+    attN = bottom,KCLV.CZ-10B.Stage1.Tank_960001
+    link = KCLV.CZ-10B.Stage2.Mount_960003
+    attN = top,KCLV.CZ-10B.Stage2.Mount_960003
+    link = KCLV.CZ-10B.Grid.Fin_960017
+    link = KCLV.CZ-10B.Grid.Fin_960018
+    link = KCLV.CZ-10B.Grid.Fin_960019
+    link = KCLV.CZ-10B.Grid.Fin_960020
+    link = KCLV.CZ-10B.Recovery.Hook_960021
+    link = KCLV.CZ-10B.Recovery.Hook_960022
+    link = KCLV.CZ-10B.Recovery.Hook_960023
+    link = KCLV.CZ-10B.Recovery.Hook_960024
+}
+
+PART
+{
+    part = KCLV.CZ-10B.Stage2.Mount_960003
+    partName = Part
+    persistentId = 960003
+    pos = 0, 43.45000076, 0
+    attPos = 0,0,0
+    attPos0 = 0, 43.45000076, 0
+    rot = 0, -0, 0, 1
+    attRot = 0,0,0,1
+    attRot0 = 0, -0, 0, 1
+    mir = 1,1,1
+    symMethod = Radial
+    autostrutMode = Off
+    rigidAttachment = False
+    istg = -1
+    dstg = -1
+    sidx = 0
+    sqor = -1
+    sepI = -1
+    attm = 0
+    modCost = 0
+    modMass = 0
+    modSize = 0,0,0
+    parent = 2
+    attN = bottom,KCLV.CZ-10B.Interstage_960002
+    link = KCLV.CZ-10B.Stage2.Tank_960004
+    attN = top,KCLV.CZ-10B.Stage2.Tank_960004
+    link = KCLV.YF219_960014
+    attN = engine,KCLV.YF219_960014
+}
+
+PART
+{
+    part = KCLV.CZ-10B.Stage2.Tank_960004
+    partName = Part
+    persistentId = 960004
+    pos = 0, 44.40000153, 0
+    attPos = 0,0,0
+    attPos0 = 0, 44.40000153, 0
+    rot = 0, -0, 0, 1
+    attRot = 0,0,0,1
+    attRot0 = 0, -0, 0, 1
+    mir = 1,1,1
+    symMethod = Radial
+    autostrutMode = Off
+    rigidAttachment = False
+    istg = -1
+    dstg = -1
+    sidx = 0
+    sqor = -1
+    sepI = -1
+    attm = 0
+    modCost = 0
+    modMass = 0
+    modSize = 0,0,0
+    parent = 3
+    attN = bottom,KCLV.CZ-10B.Stage2.Mount_960003
+    link = KCLV.CZ-10B.Payload.Adapter_960005
+    attN = top,KCLV.CZ-10B.Payload.Adapter_960005
+}
+
+PART
+{
+    part = KCLV.CZ-10B.Payload.Adapter_960005
+    partName = Part
+    persistentId = 960005
+    pos = 0, 54.95000076, 0
+    attPos = 0,0,0
+    attPos0 = 0, 54.95000076, 0
+    rot = 0, -0, 0, 1
+    attRot = 0,0,0,1
+    attRot0 = 0, -0, 0, 1
+    mir = 1,1,1
+    symMethod = Radial
+    autostrutMode = Off
+    rigidAttachment = False
+    istg = -1
+    dstg = -1
+    sidx = 0
+    sqor = -1
+    sepI = -1
+    attm = 0
+    modCost = 0
+    modMass = 0
+    modSize = 0,0,0
+    parent = 4
+    attN = bottom,KCLV.CZ-10B.Stage2.Tank_960004
+    link = KCLV.CZ-10B.Short.Fairing_960015
+    attN = fairingA,KCLV.CZ-10B.Short.Fairing_960015
+    link = KCLV.CZ-10B.Short.Fairing_960016
+    attN = fairingB,KCLV.CZ-10B.Short.Fairing_960016
+}
+
+PART
+{
+    part = KCLV.CZ-10B.Launch.Erector_960006
+    partName = Part
+    persistentId = 960006
+    pos = 0, 4, 0
+    attPos = 0,0,0
+    attPos0 = 0, 4, 0
+    rot = 0, -0, 0, 1
+    attRot = 0,0,0,1
+    attRot0 = 0, -0, 0, 1
+    mir = 1,1,1
+    symMethod = Radial
+    autostrutMode = Off
+    rigidAttachment = False
+    istg = 3
+    dstg = 3
+    sidx = 0
+    sqor = -1
+    sepI = -1
+    attm = 0
+    modCost = 0
+    modMass = 0
+    modSize = 0,0,0
+    parent = 0
+    attN = rocket,KCLV.CZ-10B.Stage1.Engine.Bay_960000
+    MODULE
+    {
+        name = CZ10BLaunchErector
+        heightSegments = 5
+    }
+}
+
+PART
+{
+    part = KCLV.YF100_960007
+    partName = Part
+    persistentId = 960007
+    pos = 3.629212446e-08, 5.460680154, -2.92842818e-08
+    attPos = 0,0,0
+    attPos0 = 3.629212446e-08, 5.460680154, -2.92842818e-08
+    rot = 0, 0.7071067812, 0, 0.7071067812
+    attRot = 0,0,0,1
+    attRot0 = 0, 0.7071067812, 0, 0.7071067812
+    mir = 1,1,1
+    symMethod = Radial
+    autostrutMode = Off
+    rigidAttachment = False
+    istg = 3
+    dstg = 3
+    sidx = 0
+    sqor = -1
+    sepI = -1
+    attm = 0
+    modCost = 0
+    modMass = 0
+    modSize = 0,0,0
+    parent = 0
+    attN = top,KCLV.CZ-10B.Stage1.Engine.Bay_960000
+}
+
+PART
+{
+    part = KCLV.YF100_960008
+    partName = Part
+    persistentId = 960008
+    pos = 0, 5.460680154, -1.680000018
+    attPos = 0,0,0
+    attPos0 = 0, 5.460680154, -1.680000018
+    rot = 0, 0.5372996083, 0, 0.8433914458
+    attRot = 0,0,0,1
+    attRot0 = 0, 0.5372996083, 0, 0.8433914458
+    mir = 1,1,1
+    symMethod = Radial
+    autostrutMode = Off
+    rigidAttachment = False
+    istg = 3
+    dstg = 3
+    sidx = 0
+    sqor = -1
+    sepI = -1
+    attm = 0
+    modCost = 0
+    modMass = 0
+    modSize = 0,0,0
+    parent = 0
+    attN = top,KCLV.CZ-10B.Stage1.Engine.Bay_960000
+}
+
+PART
+{
+    part = KCLV.YF100_960009
+    partName = Part
+    persistentId = 960009
+    pos = 1.454922655, 5.460680154, -0.8400000514
+    attPos = 0,0,0
+    attPos0 = 1.454922655, 5.460680154, -0.8400000514
+    rot = 0, 0.8870108332, 0, 0.4617486132
+    attRot = 0,0,0,1
+    attRot0 = 0, 0.8870108332, 0, 0.4617486132
+    mir = 1,1,1
+    symMethod = Radial
+    autostrutMode = Off
+    rigidAttachment = False
+    istg = 3
+    dstg = 3
+    sidx = 0
+    sqor = -1
+    sepI = -1
+    attm = 0
+    modCost = 0
+    modMass = 0
+    modSize = 0,0,0
+    parent = 0
+    attN = top,KCLV.CZ-10B.Stage1.Engine.Bay_960000
+}
+
+PART
+{
+    part = KCLV.YF100_960010
+    partName = Part
+    persistentId = 960010
+    pos = 1.454922508, 5.460680154, 0.8399998617
+    attPos = 0,0,0
+    attPos0 = 1.454922508, 5.460680154, 0.8399998617
+    rot = 0, 0.08715574275, 0, 0.9961946981
+    attRot = 0,0,0,1
+    attRot0 = 0, 0.08715574275, 0, 0.9961946981
+    mir = 1,1,1
+    symMethod = Radial
+    autostrutMode = Off
+    rigidAttachment = False
+    istg = 3
+    dstg = 3
+    sidx = 0
+    sqor = -1
+    sepI = -1
+    attm = 0
+    modCost = 0
+    modMass = 0
+    modSize = 0,0,0
+    parent = 0
+    attN = top,KCLV.CZ-10B.Stage1.Engine.Bay_960000
+}
+
+PART
+{
+    part = KCLV.YF100_960011
+    partName = Part
+    persistentId = 960011
+    pos = 0, 5.460680154, 1.680000018
+    attPos = 0,0,0
+    attPos0 = 0, 5.460680154, 1.680000018
+    rot = 0, 0.9990482216, 0, -0.04361938737
+    attRot = 0,0,0,1
+    attRot0 = 0, 0.9990482216, 0, -0.04361938737
+    mir = 1,1,1
+    symMethod = Radial
+    autostrutMode = Off
+    rigidAttachment = False
+    istg = 3
+    dstg = 3
+    sidx = 0
+    sqor = -1
+    sepI = -1
+    attm = 0
+    modCost = 0
+    modMass = 0
+    modSize = 0,0,0
+    parent = 0
+    attN = top,KCLV.CZ-10B.Stage1.Engine.Bay_960000
+}
+
+PART
+{
+    part = KCLV.YF100_960012
+    partName = Part
+    persistentId = 960012
+    pos = -1.454922655, 5.460680154, 0.8400000514
+    attPos = 0,0,0
+    attPos0 = -1.454922655, 5.460680154, 0.8400000514
+    rot = 0, -0.4617486132, 0, 0.8870108332
+    attRot = 0,0,0,1
+    attRot0 = 0, -0.4617486132, 0, 0.8870108332
+    mir = 1,1,1
+    symMethod = Radial
+    autostrutMode = Off
+    rigidAttachment = False
+    istg = 3
+    dstg = 3
+    sidx = 0
+    sqor = -1
+    sepI = -1
+    attm = 0
+    modCost = 0
+    modMass = 0
+    modSize = 0,0,0
+    parent = 0
+    attN = top,KCLV.CZ-10B.Stage1.Engine.Bay_960000
+}
+
+PART
+{
+    part = KCLV.YF100_960013
+    partName = Part
+    persistentId = 960013
+    pos = -1.454922508, 5.460680154, -0.8399998617
+    attPos = 0,0,0
+    attPos0 = -1.454922508, 5.460680154, -0.8399998617
+    rot = 0, 0.9961946981, 0, -0.08715574275
+    attRot = 0,0,0,1
+    attRot0 = 0, 0.9961946981, 0, -0.08715574275
+    mir = 1,1,1
+    symMethod = Radial
+    autostrutMode = Off
+    rigidAttachment = False
+    istg = 3
+    dstg = 3
+    sidx = 0
+    sqor = -1
+    sepI = -1
+    attm = 0
+    modCost = 0
+    modMass = 0
+    modSize = 0,0,0
+    parent = 0
+    attN = top,KCLV.CZ-10B.Stage1.Engine.Bay_960000
+}
+
+PART
+{
+    part = KCLV.YF219_960014
+    partName = Part
+    persistentId = 960014
+    pos = 0, 44.92499924, 0
+    attPos = 0,0,0
+    attPos0 = 0, 44.92499924, 0
+    rot = 0, -0, 0, 1
+    attRot = 0,0,0,1
+    attRot0 = 0, -0, 0, 1
+    mir = 1,1,1
+    symMethod = Radial
+    autostrutMode = Off
+    rigidAttachment = False
+    istg = 2
+    dstg = 2
+    sidx = 0
+    sqor = -1
+    sepI = -1
+    attm = 0
+    modCost = 0
+    modMass = 0
+    modSize = 0,0,0
+    parent = 3
+    attN = top,KCLV.CZ-10B.Stage2.Mount_960003
+}
+
+PART
+{
+    part = KCLV.CZ-10B.Short.Fairing_960015
+    partName = Part
+    persistentId = 960015
+    pos = 0, 55.06999969, 0
+    attPos = 0,0,0
+    attPos0 = 0, 55.06999969, 0
+    rot = 0, -0, 0, 1
+    attRot = 0,0,0,1
+    attRot0 = 0, -0, 0, 1
+    mir = 1,1,1
+    symMethod = Radial
+    autostrutMode = Off
+    rigidAttachment = False
+    istg = 1
+    dstg = 1
+    sidx = 0
+    sqor = -1
+    sepI = -1
+    attm = 0
+    modCost = 0
+    modMass = 0
+    modSize = 0,0,0
+    parent = 5
+    attN = mount,KCLV.CZ-10B.Payload.Adapter_960005
+    sym = KCLV.CZ-10B.Short.Fairing_960016
+    MODULE
+    {
+        name = ModuleB9PartSwitch
+        moduleID = FairingLength
+        currentSubtype = Short
+    }
+}
+
+PART
+{
+    part = KCLV.CZ-10B.Short.Fairing_960016
+    partName = Part
+    persistentId = 960016
+    pos = 0, 55.06999969, 0
+    attPos = 0,0,0
+    attPos0 = 0, 55.06999969, 0
+    rot = 0, -1, 0, 6.123233996e-17
+    attRot = 0,0,0,1
+    attRot0 = 0, -1, 0, 6.123233996e-17
+    mir = 1,1,1
+    symMethod = Radial
+    autostrutMode = Off
+    rigidAttachment = False
+    istg = 1
+    dstg = 1
+    sidx = 0
+    sqor = -1
+    sepI = -1
+    attm = 0
+    modCost = 0
+    modMass = 0
+    modSize = 0,0,0
+    parent = 5
+    attN = mount,KCLV.CZ-10B.Payload.Adapter_960005
+    sym = KCLV.CZ-10B.Short.Fairing_960015
+    MODULE
+    {
+        name = ModuleB9PartSwitch
+        moduleID = FairingLength
+        currentSubtype = Short
+    }
+}
+
+PART
+{
+    part = KCLV.CZ-10B.Grid.Fin_960017
+    partName = Part
+    persistentId = 960017
+    pos = 0, 40.66199875, -2.677999965
+    attPos = 0,0,0
+    attPos0 = 0, 40.66199875, -2.677999965
+    rot = 0, 0.7071067812, 0, 0.7071067812
+    attRot = 0,0,0,1
+    attRot0 = 0, 0.7071067812, 0, 0.7071067812
+    mir = 1,1,1
+    symMethod = Radial
+    autostrutMode = Off
+    rigidAttachment = False
+    istg = -1
+    dstg = -1
+    sidx = 0
+    sqor = -1
+    sepI = -1
+    attm = 1
+    modCost = 0
+    modMass = 0
+    modSize = 0,0,0
+    parent = 2
+    attN = srfAttach,KCLV.CZ-10B.Interstage_960002
+    sym = KCLV.CZ-10B.Grid.Fin_960018
+    sym = KCLV.CZ-10B.Grid.Fin_960019
+    sym = KCLV.CZ-10B.Grid.Fin_960020
+}
+
+PART
+{
+    part = KCLV.CZ-10B.Grid.Fin_960018
+    partName = Part
+    persistentId = 960018
+    pos = 2.677999965, 40.66199875, 0
+    attPos = 0,0,0
+    attPos0 = 2.677999965, 40.66199875, 0
+    rot = 0, -0, 0, 1
+    attRot = 0,0,0,1
+    attRot0 = 0, -0, 0, 1
+    mir = 1,1,1
+    symMethod = Radial
+    autostrutMode = Off
+    rigidAttachment = False
+    istg = -1
+    dstg = -1
+    sidx = 0
+    sqor = -1
+    sepI = -1
+    attm = 1
+    modCost = 0
+    modMass = 0
+    modSize = 0,0,0
+    parent = 2
+    attN = srfAttach,KCLV.CZ-10B.Interstage_960002
+    sym = KCLV.CZ-10B.Grid.Fin_960017
+    sym = KCLV.CZ-10B.Grid.Fin_960019
+    sym = KCLV.CZ-10B.Grid.Fin_960020
+}
+
+PART
+{
+    part = KCLV.CZ-10B.Grid.Fin_960019
+    partName = Part
+    persistentId = 960019
+    pos = 0, 40.66199875, 2.677999965
+    attPos = 0,0,0
+    attPos0 = 0, 40.66199875, 2.677999965
+    rot = 0, -0.7071067812, 0, 0.7071067812
+    attRot = 0,0,0,1
+    attRot0 = 0, -0.7071067812, 0, 0.7071067812
+    mir = 1,1,1
+    symMethod = Radial
+    autostrutMode = Off
+    rigidAttachment = False
+    istg = -1
+    dstg = -1
+    sidx = 0
+    sqor = -1
+    sepI = -1
+    attm = 1
+    modCost = 0
+    modMass = 0
+    modSize = 0,0,0
+    parent = 2
+    attN = srfAttach,KCLV.CZ-10B.Interstage_960002
+    sym = KCLV.CZ-10B.Grid.Fin_960017
+    sym = KCLV.CZ-10B.Grid.Fin_960018
+    sym = KCLV.CZ-10B.Grid.Fin_960020
+}
+
+PART
+{
+    part = KCLV.CZ-10B.Grid.Fin_960020
+    partName = Part
+    persistentId = 960020
+    pos = -2.677999965, 40.66199875, 0
+    attPos = 0,0,0
+    attPos0 = -2.677999965, 40.66199875, 0
+    rot = 0, 1, 0, 6.123233996e-17
+    attRot = 0,0,0,1
+    attRot0 = 0, 1, 0, 6.123233996e-17
+    mir = 1,1,1
+    symMethod = Radial
+    autostrutMode = Off
+    rigidAttachment = False
+    istg = -1
+    dstg = -1
+    sidx = 0
+    sqor = -1
+    sepI = -1
+    attm = 1
+    modCost = 0
+    modMass = 0
+    modSize = 0,0,0
+    parent = 2
+    attN = srfAttach,KCLV.CZ-10B.Interstage_960002
+    sym = KCLV.CZ-10B.Grid.Fin_960017
+    sym = KCLV.CZ-10B.Grid.Fin_960018
+    sym = KCLV.CZ-10B.Grid.Fin_960019
+}
+
+PART
+{
+    part = KCLV.CZ-10B.Recovery.Hook_960021
+    partName = Part
+    persistentId = 960021
+    pos = -1.838477564, 36.34999847, -1.838477564
+    attPos = 0,0,0
+    attPos0 = -1.838477564, 36.34999847, -1.838477564
+    rot = 0, 0.9238795325, 0, 0.3826834324
+    attRot = 0,0,0,1
+    attRot0 = 0, 0.9238795325, 0, 0.3826834324
+    mir = 1,1,1
+    symMethod = Radial
+    autostrutMode = Off
+    rigidAttachment = False
+    istg = -1
+    dstg = -1
+    sidx = 0
+    sqor = -1
+    sepI = -1
+    attm = 1
+    modCost = 0
+    modMass = 0
+    modSize = 0,0,0
+    parent = 2
+    attN = srfAttach,KCLV.CZ-10B.Interstage_960002
+    sym = KCLV.CZ-10B.Recovery.Hook_960022
+    sym = KCLV.CZ-10B.Recovery.Hook_960023
+    sym = KCLV.CZ-10B.Recovery.Hook_960024
+}
+
+PART
+{
+    part = KCLV.CZ-10B.Recovery.Hook_960022
+    partName = Part
+    persistentId = 960022
+    pos = 1.838477564, 36.34999847, -1.838477564
+    attPos = 0,0,0
+    attPos0 = 1.838477564, 36.34999847, -1.838477564
+    rot = 0, 0.3826834324, 0, 0.9238795325
+    attRot = 0,0,0,1
+    attRot0 = 0, 0.3826834324, 0, 0.9238795325
+    mir = 1,1,1
+    symMethod = Radial
+    autostrutMode = Off
+    rigidAttachment = False
+    istg = -1
+    dstg = -1
+    sidx = 0
+    sqor = -1
+    sepI = -1
+    attm = 1
+    modCost = 0
+    modMass = 0
+    modSize = 0,0,0
+    parent = 2
+    attN = srfAttach,KCLV.CZ-10B.Interstage_960002
+    sym = KCLV.CZ-10B.Recovery.Hook_960021
+    sym = KCLV.CZ-10B.Recovery.Hook_960023
+    sym = KCLV.CZ-10B.Recovery.Hook_960024
+}
+
+PART
+{
+    part = KCLV.CZ-10B.Recovery.Hook_960023
+    partName = Part
+    persistentId = 960023
+    pos = 1.838477564, 36.34999847, 1.838477564
+    attPos = 0,0,0
+    attPos0 = 1.838477564, 36.34999847, 1.838477564
+    rot = 0, -0.3826834324, 0, 0.9238795325
+    attRot = 0,0,0,1
+    attRot0 = 0, -0.3826834324, 0, 0.9238795325
+    mir = 1,1,1
+    symMethod = Radial
+    autostrutMode = Off
+    rigidAttachment = False
+    istg = -1
+    dstg = -1
+    sidx = 0
+    sqor = -1
+    sepI = -1
+    attm = 1
+    modCost = 0
+    modMass = 0
+    modSize = 0,0,0
+    parent = 2
+    attN = srfAttach,KCLV.CZ-10B.Interstage_960002
+    sym = KCLV.CZ-10B.Recovery.Hook_960021
+    sym = KCLV.CZ-10B.Recovery.Hook_960022
+    sym = KCLV.CZ-10B.Recovery.Hook_960024
+}
+
+PART
+{
+    part = KCLV.CZ-10B.Recovery.Hook_960024
+    partName = Part
+    persistentId = 960024
+    pos = -1.838477564, 36.34999847, 1.838477564
+    attPos = 0,0,0
+    attPos0 = -1.838477564, 36.34999847, 1.838477564
+    rot = 0, -0.9238795325, 0, 0.3826834324
+    attRot = 0,0,0,1
+    attRot0 = 0, -0.9238795325, 0, 0.3826834324
+    mir = 1,1,1
+    symMethod = Radial
+    autostrutMode = Off
+    rigidAttachment = False
+    istg = -1
+    dstg = -1
+    sidx = 0
+    sqor = -1
+    sepI = -1
+    attm = 1
+    modCost = 0
+    modMass = 0
+    modSize = 0,0,0
+    parent = 2
+    attN = srfAttach,KCLV.CZ-10B.Interstage_960002
+    sym = KCLV.CZ-10B.Recovery.Hook_960021
+    sym = KCLV.CZ-10B.Recovery.Hook_960022
+    sym = KCLV.CZ-10B.Recovery.Hook_960023
+}

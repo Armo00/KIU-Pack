@@ -1,0 +1,63 @@
+{
+  "modelVersion": "1.0.0",
+  "status": "1.0.0 current progress snapshot: derived SeaLevel and fitted Nine published; offline checks passed; new branch native validation pending",
+  "recorded": "2026-10-26",
+  "baseline": "0.8.1",
+  "baselineSourceArchive": "KIU-Model/CZ-10B/versions/v0.8.1",
+  "baselineSourceArchiveCommit": "9f9747c7d501ef46506de308d637f9205ab8313d",
+  "sources": [
+    {
+      "name": "CZ10B_1.0.0_WORKING.blend",
+      "sha256": "31ebf3658b72bfb7d04bead96830fdbb9ec76e0702d7d36260fb4dc5f42d5706",
+      "archiveName": "CZ10B_1.0.0.blend"
+    },
+    {
+      "name": "CZ10B_1.0.0_Interfaces_WORKING.blend",
+      "sha256": "acc6ed35a5b03ef4da5d7d4f643d902fa987403a899518fd8b0d0e168690cdbd",
+      "archiveName": "CZ10B_Interfaces_1.0.0.blend"
+    }
+  ],
+  "sourceArchive": "KIU-Model/CZ-10B/versions/v1.0.0",
+  "runtimePluginSHA256": "88389c92a5bcb86462dc3768295fe1c7e6ebc827d1bd92b7a7dc33dcf382ed73",
+  "modelReferenceAuditPassed": true,
+  "deferred": [
+    "Native verification of derived SeaLevel / fitted Nine / changed B9 poses",
+    "Final visual and mechanism review",
+    "Current working source archive held at user request"
+  ],
+  "nativeModelReview": "B/C/D: variants, assembly, tank repeat sections/highlight, fairing separation, PF shielding, CBC controlled separation, launcher mechanisms, RCS and corrected visuals. Scope limits are recorded separately.",
+  "surfaceCorrection": "S1 paint projection and shadow casting, long insert seam and S2 alpha-edge correction verified in model review C/D",
+  "requiredExistingKIUPlugins": [
+    "KIU.dll",
+    "ConfigurableTank.dll",
+    "KIUNetRecovery.dll",
+    "TowerControl.dll"
+  ],
+  "modelGeometryAndScopedNativeChecksPassed": false,
+  "engineCompatibility": "Stock original and Rescaled passed on 88389c92; prior RF original/Rescaled evidence retained with identical existing IL and RF-relevant files",
+  "stockFinalVerification": "local_workspace/CZ-10B/working/migration_1.0.0/native/engine_modes/stock-final-verification.json",
+  "sourceArchiveCommit": "e5e863c61df1251fc8dfb97e516f7985207d2d7b",
+  "sourceArchiveLocalCommit": true,
+  "validationScope": "Model migration and necessary compatibility acceptance; not full ascent, strength, RSS/RO performance or sea-recovery qualification.",
+  "reviewState": "User-approved migration scope; agent source/native visual review passed; separate final user visual acceptance not asserted.",
+  "currentWorkingSourceArchived": false,
+  "currentSnapshot": {
+    "source": "local_workspace/CZ-10B/working/migration_1.0.0/models/CZ10B_1.0.0_SL_Derivative_WORKING.blend",
+    "sha256": "68d2b9f233bab96b11db84e0f05846f4886a638d4c99c810b2915f05cdb8e1c4",
+    "sourceArchiveUpdated": false,
+    "userInstruction": "Publish current 1.0.0 progress to KIU, commit and push; do not update KIU-Model; then resume work",
+    "offline": "48 normal-control / six-drop cases, 54 mount contacts, 108 feed joins; original Vacuum and Seven retained",
+    "native": false,
+    "baseNativeEvidence": "Existing model migration C/D and engine compatibility evidence applies to the previous base only",
+    "continuousTankColliderIntegration": "Adapted upstream a07d2e7 configuration to the actual 1.0.0 collider child names; template collider names normalized in both tanks",
+    "runtimeFiles": {
+      "Assets/YF219Switch.mu": "d317167e22d603036817b50162a1fcccca74eb708ca3aa60b388fd2253e7e481",
+      "Assets/EngineSkirtSwitch.mu": "191858c6bd56c31aa4b5678f870fd37b3f99dd20f67235d60a0da5d688f7132d",
+      "Compatibility/B9PartSwitch/B9_YF219.cfg": "ab51214f819f02e9e3ebe9f4a8b00c796aa9292f5662c3fd3c0c67181d888310",
+      "Assets/S1Tank.mu": "60e890bb6c7ce80cb486b8bc176c72eda329f6d168b35239d7863a6ec8ea30ea",
+      "Assets/S2Tank.mu": "1e6438913ce1a0f73038dd93c551cb78d6ed551c741f14c53ac421e84afd864c",
+      "S1Tank/part.cfg": "c1184d8c449dd256e2e8fd47e012e939eb96b19fa9ec971c397518cb138aed6e",
+      "S2Tank/part.cfg": "5971edcd52bd5d81138ee0d588b21c61ee7926643b3fd61536c86678a3fa5496"
+    }
+  }
+}

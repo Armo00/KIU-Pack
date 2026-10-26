@@ -1,0 +1,85 @@
+{
+  "created": [
+    "CZ10B_1.0_Seven_Long.craft",
+    "CZ10B_1.0_Seven_Short.craft"
+  ],
+  "engine_clocking": [
+    {
+      "node": "engine0",
+      "position_unity": [
+        3.629212446133827e-08,
+        5.460680154266358,
+        -2.9284281803610266e-08
+      ],
+      "part_yaw_unity_degrees": 90.0,
+      "node_gap_m": 4.440892098500626e-16
+    },
+    {
+      "node": "engine1",
+      "position_unity": [
+        0.0,
+        5.460680154266358,
+        -1.680000018452495
+      ],
+      "part_yaw_unity_degrees": 65.0,
+      "node_gap_m": 4.440892098500626e-16
+    },
+    {
+      "node": "engine2",
+      "position_unity": [
+        1.454922655440737,
+        5.460680154266358,
+        -0.840000051373096
+      ],
+      "part_yaw_unity_degrees": 125.0,
+      "node_gap_m": 4.440892098500626e-16
+    },
+    {
+      "node": "engine3",
+      "position_unity": [
+        1.4549225079267671,
+        5.460680154266358,
+        0.8399998617122777
+      ],
+      "part_yaw_unity_degrees": 10.0,
+      "node_gap_m": 4.440892098500626e-16
+    },
+    {
+      "node": "engine4",
+      "position_unity": [
+        0.0,
+        5.460680154266358,
+        1.680000018452495
+      ],
+      "part_yaw_unity_degrees": 185.0,
+      "node_gap_m": 4.440892098500626e-16
+    },
+    {
+      "node": "engine5",
+      "position_unity": [
+        -1.454922655440737,
+        5.460680154266358,
+        0.840000051373096
+      ],
+      "part_yaw_unity_degrees": -55.0,
+      "node_gap_m": 4.440892098500626e-16
+    },
+    {
+      "node": "engine6",
+      "position_unity": [
+        -1.4549225079267671,
+        5.460680154266358,
+        -0.8399998617122777
+      ],
+      "part_yaw_unity_degrees": 190.0,
+      "node_gap_m": 4.440892098500626e-16
+    }
+  ],
+  "native": false,
+  "scope": "Assembly and nodes, not ascent-performance certification",
+  "dependencies": [
+    "KIU Common KCLV_RealScalePatch keeps the current YF100 at the fitted full size",
+    "Existing CZ10B launcher and hook runtime dependencies",
+    "B9 selects long fairing in the long example"
+  ]
+}
