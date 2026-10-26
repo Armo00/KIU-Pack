@@ -340,6 +340,7 @@ public partial class ConfigurableTank : PartModule, IPartMassModifier, IPartCost
                 }
             }
         }
+        InitializeContinuousColliders();
         initialized=true;
     }
     private void ValidateSurfaceVariants(Transform source)
@@ -565,8 +566,10 @@ public partial class ConfigurableTank : PartModule, IPartMassModifier, IPartCost
             obj.transform.localScale=Vector3.one;
             obj.transform.localPosition=Vector3.up*(below?baseBottom+bottomCapHeight-(index+1)*segmentLength:baseBottom+bottomCapHeight+mainBodyHeight+index*segmentLength);
             SelectSurfaceVariant(obj,below?low-1-index:index,below?low:high);
+            StripExtensionColliders(obj);
             obj.SetActive(true);copies.Add(obj);
         }
+        UpdateContinuousColliders(down,up);
         ApplyBodyNormal(high);
 
         appliedDown=down;appliedUp=up;
