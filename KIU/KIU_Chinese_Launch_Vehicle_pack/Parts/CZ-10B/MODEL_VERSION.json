@@ -1,7 +1,7 @@
 {
   "modelVersion": "1.0.0",
-  "status": "1.0.0 current progress snapshot: derived SeaLevel and fitted Nine published; offline checks passed; new branch native validation pending",
-  "recorded": "2026-10-26",
+  "status": "1.0.0 axial revision: short SeaLevel thrust crown, raised Nine mounts, 25% nozzle exposure at zero drop; offline passed, native retest pending",
+  "recorded": "2026-10-27",
   "baseline": "0.8.1",
   "baselineSourceArchive": "KIU-Model/CZ-10B/versions/v0.8.1",
   "baselineSourceArchiveCommit": "9f9747c7d501ef46506de308d637f9205ab8313d",
@@ -39,9 +39,27 @@
   "sourceArchiveCommit": "e5e863c61df1251fc8dfb97e516f7985207d2d7b",
   "sourceArchiveLocalCommit": true,
   "validationScope": "Model migration and necessary compatibility acceptance; not full ascent, strength, RSS/RO performance or sea-recovery qualification.",
-  "reviewState": "User-approved migration scope; agent source/native visual review passed; separate final user visual acceptance not asserted.",
+  "reviewState": "Axial geometry and render review completed locally; KSP retest and user visual acceptance pending",
   "currentWorkingSourceArchived": false,
   "currentSnapshot": {
+    "source": "local_workspace/CZ-10B/working/migration_1.0.0/models/CZ10B_1.0.0_SL_Axial_WORKING.blend",
+    "sha256": "552b6364b180a6a29d7d27a19610b2ed66f5799061bdc1017307d8eb769ad605",
+    "sourceArchiveUpdated": false,
+    "offline": "48 normal-control/six-drop cases, 54 mount contacts, 108 feeds, 8 engine-pair cases; original Vacuum and Seven retained",
+    "native": false,
+    "lastPublishedCommit": "038cda5ca3c7a527b85fc8546f53cb610a41b950",
+    "runtimeFiles": {
+      "Assets/YF219Switch.mu": "1c3c722eae1ea3e0f336537406d5afbeac26aff1341fa6c5ffcdf401eb0b9feb",
+      "Assets/EngineSkirtSwitch.mu": "ebff3f93a2717029cd2ba3d6579697f644d42c9b4015e5a67f4039b3a4b47e4f",
+      "Compatibility/B9PartSwitch/B9_YF219.cfg": "5c436e2a2431a01668bdeb0a1442671122a3a33777ea1fb752500b4651159068",
+      "Compatibility/B9PartSwitch/B9_EngineLayout.cfg": "42a47af083ac103666caf007e80d436b0caf9144c518ff2645225011a895509b",
+      "Compatibility/B9PartSwitch/B9_EngineMountHeight.cfg": "c71be8cf215791b8a87276877b95f563f889e01989b6dfa9222a943e8275e6d1",
+      "Localization/en_us.cfg": "485968169bbe4f515c6a776ecad4ef526e5f80525ab3da23ee1d45bb7e5f79b3",
+      "Localization/zh-cn.cfg": "c999da618417056c62c72ffeabc52f41b533fca221e02d6740c14702ef7695fd"
+    },
+    "publicationNote": "Included in this runtime commit; current geometry native retest remains pending"
+  },
+  "previousPublishedSnapshot": {
     "source": "local_workspace/CZ-10B/working/migration_1.0.0/models/CZ10B_1.0.0_SL_Derivative_WORKING.blend",
     "sha256": "68d2b9f233bab96b11db84e0f05846f4886a638d4c99c810b2915f05cdb8e1c4",
     "sourceArchiveUpdated": false,
@@ -59,5 +77,29 @@
       "S1Tank/part.cfg": "c1184d8c449dd256e2e8fd47e012e939eb96b19fa9ec971c397518cb138aed6e",
       "S2Tank/part.cfg": "5971edcd52bd5d81138ee0d588b21c61ee7926643b3fd61536c86678a3fa5496"
     }
+  },
+  "axialRevision": {
+    "engineFrameReduction_m": 0.5,
+    "nineMountRise_m": 0.5826345410346985,
+    "exposure_m": 0.24437499046325684,
+    "exposureFraction": 0.2500000941479384,
+    "nozzleLengthDefinition": "throat to exit; lower thermal fairing aft edge is bay bottom",
+    "existingNineCraft": "Reattach all nine engines; the Nine center uses nineEngine0, while Seven retains engine0.",
+    "performanceChanged": false,
+    "nativeRetested": false,
+    "KIU_Model_updated": false
+  },
+  "previousPostPushWorkingChanges": {
+    "afterCommit": "038cda5ca3c7a527b85fc8546f53cb610a41b950",
+    "changes": [
+      "Corrected lower thermal fairing surface sampling without changing the white shell or engine",
+      "Corrected Nine menu and description to YF-219E"
+    ],
+    "workingSourceSHA256": "ac1e7fc5ab584404c65bdc326c0ecc72af6f52b975b1ec7676b15839056879ed",
+    "bayMU_SHA256": "dc3f1c06ecd42ba3345532afb4d960d1a87d6062d66db30522be0cb2fdfe46a7",
+    "offlineSixHeightChecksPassed": true,
+    "nativeRetested": false,
+    "committed": false,
+    "KIU_Model_updated": false
   }
 }
