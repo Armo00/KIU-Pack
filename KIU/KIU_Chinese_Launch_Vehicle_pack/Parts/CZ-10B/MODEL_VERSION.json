@@ -1,132 +1,98 @@
 {
-  "modelVersion": "1.0.0",
-  "status": "1.0.0 complete: all 16 agreed migration items closed, final source archive reopened, scoped native acceptance passed",
-  "recorded": "2026-10-27",
-  "baseline": "0.8.1",
-  "baselineSourceArchive": "KIU-Model/CZ-10B/versions/v0.8.1",
-  "baselineSourceArchiveCommit": "9f9747c7d501ef46506de308d637f9205ab8313d",
-  "sources": [
+  "project": "CZ-10B",
+  "version": "1.0.1",
+  "status": "1.0.1 requested fixes implemented; final scoped native verification passed",
+  "baseline_runtime_commit": "144914af24e7c5434d514dfc571905d44025752a",
+  "baseline_archive": "CZ-10B/v1.0.0-final",
+  "changes": [
+    "全套Part脏污与材质统一",
+    "二级龙纹与logo边缘清晰度",
+    "整流罩国旗／CHN公共素材",
+    "长整流罩中段风格与接缝",
+    "级间段贴图脏污",
+    "栅格舵多余几何",
+    "一级燃料箱清洁外观",
+    "一级引擎舱深色与底边杂色",
+    "默认装配旋转朝向",
+    "级间RCS尤其沉底喷口",
+    "级间推杆动画／行程／分离力度"
+  ],
+  "working_sources": [
     {
-      "name": "CZ10B_1.0.0-final.blend",
-      "archiveName": "CZ10B_1.0.0-final.blend",
-      "sha256": "4895f7e7930d2eb7f6e5ed09daa8480037018bb646865f072be18285e03f7b9d",
-      "role": "Current YF-219E derivative and fitted Nine bay, plus migration reference scenes"
+      "path": "local_workspace/CZ-10B/working/refinement_1.0.1/models/CZ10B_1.0.1_WORKING.blend",
+      "sha256": "fd38fdf14790479af3942247e3bc0a35fc6ac93d729cd1cb880a407419461993"
     },
     {
-      "name": "CZ10B_Base_1.0.0-final.blend",
-      "archiveName": "sources/CZ10B_Base_1.0.0-final.blend",
-      "sha256": "31ebf3658b72bfb7d04bead96830fdbb9ec76e0702d7d36260fb4dc5f42d5706",
-      "role": "All other migration Parts, original Vacuum/Seven and original animation data"
+      "path": "local_workspace/CZ-10B/working/refinement_1.0.1/models/CZ10B_Base_1.0.1_WORKING.blend",
+      "sha256": "98802a39a32c68bad1fc52855d43cbca5feaae4bf351271152fae5605eb34ed2"
     },
     {
-      "name": "CZ10B_Interfaces_1.0.0-final.blend",
-      "archiveName": "sources/CZ10B_Interfaces_1.0.0-final.blend",
-      "sha256": "acc6ed35a5b03ef4da5d7d4f643d902fa987403a899518fd8b0d0e168690cdbd",
-      "role": "CBC/launch-support assembly and interface editing"
+      "path": "local_workspace/CZ-10B/working/refinement_1.0.1/models/CZ10B_Interfaces_1.0.1_WORKING.blend",
+      "sha256": "836fa4b63504773cfc63a992fc8b2e0d5a4bcf065e4c4ed76e111bde8da18317"
     }
   ],
-  "sourceArchive": "KIU-Model/CZ-10B/versions/v1.0.0-final",
-  "runtimePluginSHA256": "88389c92a5bcb86462dc3768295fe1c7e6ebc827d1bd92b7a7dc33dcf382ed73",
-  "modelReferenceAuditPassed": true,
-  "deferred": [],
-  "nativeModelReview": "B/C/D: variants, assembly, tank repeat sections/highlight, fairing separation, PF shielding, CBC controlled separation, launcher mechanisms, RCS and corrected visuals. Scope limits are recorded separately.",
-  "surfaceCorrection": "S1 paint projection and shadow casting, long insert seam and S2 alpha-edge correction verified in model review C/D",
-  "requiredExistingKIUPlugins": [
-    "KIU.dll",
-    "ConfigurableTank.dll",
-    "KIUNetRecovery.dll",
-    "TowerControl.dll"
-  ],
-  "modelGeometryAndScopedNativeChecksPassed": true,
-  "engineCompatibility": "Stock original and Rescaled passed on 88389c92; prior RF original/Rescaled evidence retained with identical existing IL and RF-relevant files",
-  "stockFinalVerification": "local_workspace/CZ-10B/working/migration_1.0.0/native/engine_modes/stock-final-verification.json",
-  "sourceArchiveCommit": "61320a68178a9ce01f44b077327a634541ad63ed",
-  "sourceArchiveLocalCommit": true,
-  "validationScope": "Model migration and necessary compatibility acceptance; not full ascent, strength, RSS/RO performance or sea-recovery qualification.",
-  "reviewState": "Agent model/render/native review complete within the documented migration scope; user aesthetic acceptance is not asserted",
-  "currentWorkingSourceArchived": true,
-  "currentSnapshot": {
-    "source": "local_workspace/CZ-10B/working/migration_1.0.0/models/CZ10B_1.0.0_SL_Axial_WORKING.blend",
-    "sha256": "4895f7e7930d2eb7f6e5ed09daa8480037018bb646865f072be18285e03f7b9d",
-    "sourceArchiveUpdated": true,
-    "offline": "48 normal-control/six-drop cases, 54 mount contacts, 108 feeds, 8 engine-pair cases; original Vacuum and Seven retained",
-    "native": true,
-    "lastPublishedCommit": "038cda5ca3c7a527b85fc8546f53cb610a41b950",
-    "runtimeFiles": {
-      "Assets/YF219Switch.mu": "1c3c722eae1ea3e0f336537406d5afbeac26aff1341fa6c5ffcdf401eb0b9feb",
-      "Assets/EngineSkirtSwitch.mu": "226aac39755243b8d54cb4a0ebfc85882deb7e779c0bacf02844175b7bc91bee",
-      "Compatibility/B9PartSwitch/B9_YF219.cfg": "5c436e2a2431a01668bdeb0a1442671122a3a33777ea1fb752500b4651159068",
-      "Compatibility/B9PartSwitch/B9_EngineLayout.cfg": "42a47af083ac103666caf007e80d436b0caf9144c518ff2645225011a895509b",
-      "Compatibility/B9PartSwitch/B9_EngineMountHeight.cfg": "c71be8cf215791b8a87276877b95f563f889e01989b6dfa9222a943e8275e6d1",
-      "Localization/en_us.cfg": "485968169bbe4f515c6a776ecad4ef526e5f80525ab3da23ee1d45bb7e5f79b3",
-      "Localization/zh-cn.cfg": "c999da618417056c62c72ffeabc52f41b533fca221e02d6740c14702ef7695fd",
-      "Compatibility/Waterfall/YF219.cfg": "3d8cdab490808dcb6acc7346014f281d7a41d67f6a72f860bd50c0a630dbc890"
-    },
-    "publicationNote": "Final runtime fixes are included in this commit; editable sources are linked by sourceArchiveCommit"
+  "source_archive_status": "No new archive; working sources retained for review. Existing1.0.0 archives unchanged.",
+  "default_orientation": {
+    "rocket_model_unity_y_degrees": 45,
+    "launch_erector_model_unity_y_degrees": 0,
+    "original_stand_and_clamp_roll_preserved": true,
+    "local_frame_exceptions": [
+      "GridFin",
+      "CBCSeparator"
+    ],
+    "existing_crafts": "Use updated examples or realign stored off-axis placements; no automatic save migration."
   },
-  "previousPublishedSnapshot": {
-    "source": "local_workspace/CZ-10B/working/migration_1.0.0/models/CZ10B_1.0.0_SL_Derivative_WORKING.blend",
-    "sha256": "68d2b9f233bab96b11db84e0f05846f4886a638d4c99c810b2915f05cdb8e1c4",
-    "sourceArchiveUpdated": false,
-    "userInstruction": "Publish current 1.0.0 progress to KIU, commit and push; do not update KIU-Model; then resume work",
-    "offline": "48 normal-control / six-drop cases, 54 mount contacts, 108 feed joins; original Vacuum and Seven retained",
-    "native": false,
-    "baseNativeEvidence": "Existing model migration C/D and engine compatibility evidence applies to the previous base only",
-    "continuousTankColliderIntegration": "Adapted upstream a07d2e7 configuration to the actual 1.0.0 collider child names; template collider names normalized in both tanks",
-    "runtimeFiles": {
-      "Assets/YF219Switch.mu": "d317167e22d603036817b50162a1fcccca74eb708ca3aa60b388fd2253e7e481",
-      "Assets/EngineSkirtSwitch.mu": "191858c6bd56c31aa4b5678f870fd37b3f99dd20f67235d60a0da5d688f7132d",
-      "Compatibility/B9PartSwitch/B9_YF219.cfg": "ab51214f819f02e9e3ebe9f4a8b00c796aa9292f5662c3fd3c0c67181d888310",
-      "Assets/S1Tank.mu": "60e890bb6c7ce80cb486b8bc176c72eda329f6d168b35239d7863a6ec8ea30ea",
-      "Assets/S2Tank.mu": "1e6438913ce1a0f73038dd93c551cb78d6ed551c741f14c53ac421e84afd864c",
-      "S1Tank/part.cfg": "c1184d8c449dd256e2e8fd47e012e939eb96b19fa9ec971c397518cb138aed6e",
-      "S2Tank/part.cfg": "5971edcd52bd5d81138ee0d588b21c61ee7926643b3fd61536c86678a3fa5496"
+  "new_public_assets": [
+    "Shared_CHN.v1.0.0.dds",
+    "Shared_ChinaRocketText.v1.0.1.dds"
+  ],
+  "validation_state": {
+    "offline": "passed",
+    "native_latest_candidate": "passed F/G",
+    "native_pending": []
+  },
+  "source_archive": "unchanged; working1.0.1 awaiting review",
+  "previous_native_verification": {
+    "report": "local_workspace/CZ-10B/working/refinement_1.0.1/Report.html",
+    "record": "local_workspace/CZ-10B/working/refinement_1.0.1/checks/final_verification101.json",
+    "separation": {
+      "first_stage_fuel_fraction": 0.13,
+      "second_stage_full": true,
+      "additional_payload_t": 0,
+      "lower_part_count": 18,
+      "upper_part_count": 6,
+      "lower_mass_t": 99.09606170654297,
+      "upper_mass_t": 135.1199188232422,
+      "ejectionForce": 6000,
+      "default_force_percent": 100,
+      "axial_relative_speed_m_s": 1.049388337868301,
+      "magnitude_m_s": 1.0494281869074102,
+      "target_m_s": 1,
+      "fractions": {
+        "KCLV.CZ-10B.Stage1.Tank": {
+          "LqdOxygen": 0.12999974657702237,
+          "Kerosene": 0.12999999523162842
+        },
+        "KCLV.CZ-10B.Stage2.Tank": {
+          "LqdOxygen": 0.999996811366652,
+          "LqdMethane": 0.9999743591384772
+        }
+      },
+      "engines_zero_thrust": true,
+      "run": "cz10b101-candidate-20261027-b",
+      "trace": "abd206cc9c9c49b7a0da7bf25a6a1ddb"
     }
   },
-  "axialRevision": {
-    "engineFrameReduction_m": 0.5,
-    "nineMountRise_m": 0.5826345410346985,
-    "exposure_m": 0.24437499046325684,
-    "exposureFraction": 0.2500000941479384,
-    "nozzleLengthDefinition": "throat to exit; lower thermal fairing aft edge is bay bottom",
-    "existingNineCraft": "Reattach all nine engines; the Nine center uses nineEngine0, while Seven retains engine0.",
-    "performanceChanged": false,
-    "nativeRetested": true,
-    "KIU_Model_updated": true,
-    "thermalCuffHeight_m": 0.05
-  },
-  "previousPostPushWorkingChanges": {
-    "afterCommit": "038cda5ca3c7a527b85fc8546f53cb610a41b950",
-    "changes": [
-      "Corrected lower thermal fairing surface sampling without changing the white shell or engine",
-      "Corrected Nine menu and description to YF-219E"
+  "verification": {
+    "report": "local_workspace/CZ-10B/working/refinement_1.0.1/Report.html",
+    "record": "local_workspace/CZ-10B/working/refinement_1.0.1/checks/native_final101.json",
+    "runs": [
+      "cz10b101-final-20261028-f",
+      "cz10b101-final-20261028-g"
     ],
-    "workingSourceSHA256": "ac1e7fc5ab584404c65bdc326c0ecc72af6f52b975b1ec7676b15839056879ed",
-    "bayMU_SHA256": "dc3f1c06ecd42ba3345532afb4d960d1a87d6062d66db30522be0cb2fdfe46a7",
-    "offlineSixHeightChecksPassed": true,
-    "nativeRetested": false,
-    "committed": false,
-    "KIU_Model_updated": false
+    "scope": "Final runtime resource load, matching shader parameters, default single-core assembly, clamp contact/release/reload, fin and hook regression. Not full ascent/recovery mission certification.",
+    "passed": true
   },
-  "nativeFinalAcceptance": {
-    "recorded": "2026-10-27T07:29:02.903384+00:00",
-    "evidence": "local_workspace/CZ-10B/working/migration_1.0.0/sl_nine_fit/derivative/axial_revision/native/final-verification.json",
-    "six_height_cases": 6,
-    "VABO_modes": 2,
-    "dynamic_cases": 27,
-    "measured_native_pose_geometry_cases": 36,
-    "Waterfall_scale_switch_verified": true,
-    "flight_reload_ignitions_preserved": true,
-    "production_DLL_changed": false,
-    "source_archive_updated": true,
-    "scope": "Controlled 1x RealFuels ground testing and offline measured-pose checks; not complete ascent or vacuum-altitude performance qualification",
-    "final_runtime_fixes": [
-      "Assets/EngineSkirtSwitch.mu",
-      "Compatibility/Waterfall/YF219.cfg"
-    ],
-    "missing_Waterfall_controller_warnings": 0
-  },
-  "sourceArchiveVersion": "1.0.0-final",
-  "sourceArchivePrimaryLocalCommit": "90a8998480c108fecb052ea48f4f902c8593cc4f",
-  "sourceArchiveManifestSHA256": "184bb932baf7a3dfb05c3072cc63b5a52a529741ac79a8947965a482ab6511b2"
+  "offline_feedback_report": "local_workspace/CZ-10B/working/refinement_1.0.1/Report.html",
+  "publication_reference": "See repository Git history for commit and push identity; exact commit is also recorded in local publication/git_20261028."
 }

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "library": "KIU_Common_texture",
-  "updated_at": "2026-10-22",
+  "updated_at": "2026-10-28",
   "path_base": "repository root",
   "game_data_directory": "GameData/KIU/Common/KIU_Common_texture",
   "description": "跨 Part 公共贴图内容索引。制作贴图前必须先读本文件，按内容搜索并检查可复用素材。",
@@ -2742,6 +2742,90 @@
         "scope": "KSP 1.12.3 / Deferred: actual gold and silver renderers use the named 1024-square spec maps and 2048-square AG normal. Viewed game framebuffer; hardware Matte does not replace these foil maps. No other consumer qualification implied.",
         "evidence": "local_workspace/yuanzheng-2/optimization-20261022/native/yz2-opt-tsr-20261022-d-editor.json"
       }
+    },
+    {
+      "id": "CHN",
+      "name": "CHN 深蓝字标",
+      "file_name": "Shared_CHN.v1.0.0.dds",
+      "path": "KIU/Common/KIU_Common_texture/Shared_CHN.v1.0.0.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_CHN.v1.0.0",
+      "content": "透明底、横排深蓝色大写 CHN；完整三个字母，无国旗或其他图案。由 CZ-10B 既有字标原字节移入公共库。",
+      "tags": [
+        "CHN",
+        "中国",
+        "字标",
+        "整流罩",
+        "CZ-10B"
+      ],
+      "width": 512,
+      "height": 256,
+      "format": "DXT5",
+      "channels": "RGBA",
+      "bytes": 174928,
+      "sha256": "fef444aadae8893da4a41d224a2a3d85113724272eaf400d81c08b2131e7edba",
+      "source": "KIU/KIU_Chinese_Launch_Vehicle_pack/Parts/CZ-10B/Assets/pf_cz10_chn.dds",
+      "reuse_notes": "KSP DDS 原始方向；RGB 透明区已填充同色，Alpha 控制字形。可按完整画布 UV 使用，原画布有留白。",
+      "consumers": [
+        "KCLV_CZ-10B_Short_Fairing",
+        "KCLV_CZ-10B_Long_Fairing",
+        "KCLV_CZ-10B_Procedural_Fairing"
+      ]
+    },
+    {
+      "id": "ChinaRocketTextClean101",
+      "name": "中国火箭清洁粗体字库 v1.0.1",
+      "file_name": "Shared_ChinaRocketText.v1.0.1.dds",
+      "path": "KIU/Common/KIU_Common_texture/Shared_ChinaRocketText.v1.0.1.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_ChinaRocketText.v1.0.1",
+      "content": "中、国、火、箭四字横排独立格；沿用中国航天v3.5.4的微软雅黑粗体真实矢量轮廓和RGB46/51/94，无掉漆或附加描边。归一化UV兼容v1.0.0。",
+      "tags": [
+        "中国火箭",
+        "中文",
+        "clean",
+        "bold",
+        "CZ-10B"
+      ],
+      "width": 2048,
+      "height": 1024,
+      "format": "DXT5",
+      "channels": "RGBA",
+      "bytes": 2796368,
+      "sha256": "7d91d5cd1853afd57ba505e2f953fe1127379c2f07ce499072021bdd3a3284ad",
+      "source": "KIU/Common/KIU_Common_texture/Shared_ChinaRocketText.v1.0.1.svg",
+      "reuse_notes": "Alpha为透明度；旧512×256顶左字框按4倍对应新图。DDS为KSP行序，完整mipmap。保留旧v1.0.0以兼容旧消费者。",
+      "glyph_rects_top_left": [
+        [
+          52,
+          240,
+          460,
+          784
+        ],
+        [
+          564,
+          240,
+          972,
+          784
+        ],
+        [
+          1076,
+          240,
+          1484,
+          784
+        ],
+        [
+          1588,
+          240,
+          1996,
+          784
+        ]
+      ],
+      "font_family": "Microsoft YaHei UI",
+      "font_sha256": "4508821b3dffe01f0ef5e5326a3e60df705a44633858811f67b6982dce3f6ee6",
+      "consumers": [
+        "KCLV_CZ-10B_Stage2_Tank"
+      ],
+      "user_maintained": true,
+      "source_sha256": "5bdac0f11dd1f08697fe7ebc8324f62e36391c75eefb29d1db7e974646644c2f"
     }
   ],
   "retired_assets": [
