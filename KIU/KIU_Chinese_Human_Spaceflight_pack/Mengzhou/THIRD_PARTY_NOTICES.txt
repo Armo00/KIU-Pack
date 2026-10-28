@@ -1,0 +1,27 @@
+Mengzhou IVA — external dependencies and derived configuration
+
+Props/Controls.cfg, Props/MFD_*.cfg and Props/Seats.cfg contain configurations derived
+from ASET Consolidated Props Pack by Alexustas, adopted by Stone Blue.
+These derived configuration files are provided under the same Creative Commons
+Attribution-NonCommercial-ShareAlike 3.0 Unported License as ASET Props.
+Changes: private KIU_MZ_* names, explicit external MODEL references, selected
+pages, per-station default pages and refresh rates, and a cabin-light binding.
+Seats.cfg references the original SeatV2 model with a private static PROP name;
+its cockpit-global position animations and sounds are intentionally omitted.
+Seven InternalSeat modules remain owned by the Mengzhou INTERNAL definition.
+The original ASET models, textures, fonts and sounds remain external dependencies.
+
+ASET project / attribution:
+https://forum.kerbalspaceprogram.com/index.php?/topic/211905-1125-181-aset-consolidated-avionics-props-iva-packs/
+License: https://creativecommons.org/licenses/by-nc-sa/3.0/
+
+RasterPropMonitor and FreeIVA are external plugin dependencies; no DLLs are
+included with this IVA. Stock fallback instruments and seven Seat_Passenger chair models are referenced
+through KSP; no stock chair or Kerbal meshes are bundled in the exported MUs.
+Stock Kerbal meshes used during local fit review are excluded from the runtime
+and are only used as external references for local authoring and review.
+
+Spaces/MZWhite.dds is an exact, 152-byte loading alias of the user-maintained
+KIU/Common/KIU_Common_texture/Shared_White.v3.3.0.dds. MODEL texture mappings bind
+it to that public library. It contains no new artwork; the alias is required by
+KSP's model-directory texture loading before remapping.

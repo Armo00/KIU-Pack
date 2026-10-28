@@ -1,0 +1,20 @@
+[#8FDFFFFF]MENGZHOU / RETURN
+[#FFFFFFFF]FLIGHT DATA
+ALT ASL  {0,12:SIP_6.2}m $&$ ALTITUDE
+RAD ALT  {0,12:SIP_6.2}m $&$ ALTITUDEBOTTOM
+SPEED    {0,10:0.0} m/s $&$ SURFSPEED
+VERT SPD {0,10:0.0} m/s $&$ VERTSPEED
+G LOAD   {0,10:0.00} g $&$ GFORCE
+PITCH    {0,10:0.0} deg $&$ PITCH
+ROLL     {0,10:0.0} deg $&$ ROLL
+
+[#8FDFFFFF]RETURN CHECKLIST
+[#FFFFFFFF]1  Crew seated / table stowed
+2  Confirm entry attitude
+3  Monitor altitude and G load
+4  Use parachute PART controls
+5  Confirm landing / recovery
+
+[#FFCC66FF]Checklist is manual guidance.
+[#FFFFFFFF]A: PFD  B: TARGET  C: ORBIT
+G: RESOURCES     R5: CREW
