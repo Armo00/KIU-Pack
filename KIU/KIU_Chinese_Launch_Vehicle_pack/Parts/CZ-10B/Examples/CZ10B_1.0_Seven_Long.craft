@@ -1,4 +1,4 @@
-// CZ-10B 1.0.1 corrected rocket/stand relative roll; original stand roll retained. Fins and external engines use matching ordinary Part rotations.
+// Review9: original launcher roll180 and node-only height; single bay bottom node; canonical surface-mounted hook Part rotations.
 ship = CZ10B 1.0 Seven Long
 version = 1.12.3
 description = New model assembly. Seven YF100 engines use individual fitted clockings. Standard dimensions; staging may be edited for the mission.
@@ -35,7 +35,7 @@ PART
     link = KCLV.CZ-10B.Stage1.Tank_960001
     attN = top,KCLV.CZ-10B.Stage1.Tank_960001
     link = KCLV.CZ-10B.Launch.Erector_960006
-    attN = launchStand,KCLV.CZ-10B.Launch.Erector_960006
+    attN = bottom,KCLV.CZ-10B.Launch.Erector_960006
     link = KCLV.YF100_960007
     attN = engine0,KCLV.YF100_960007
     link = KCLV.YF100_960008
@@ -219,9 +219,9 @@ PART
     part = KCLV.CZ-10B.Launch.Erector_960006
     partName = Part
     persistentId = 960006
-    pos = 0, 4, 0
+    pos = 0, 6.519, 0
     attPos = 0, 0, 0
-    attPos0 = 0, 4, 0
+    attPos0 = 0, 6.519, 0
     rot = 0, -0, 0, 1
     attRot = 0,0,0,1
     attRot0 = 0, -0, 0, 1
@@ -243,7 +243,7 @@ PART
     MODULE
     {
         name = CZ10BLaunchErector
-        heightSegments = 5
+        heightSegments = 0
     }
 }
 
@@ -673,9 +673,9 @@ PART
     pos = -2.599999905, 36.34999847, 0
     attPos = 0, 0, 0
     attPos0 = -2.599999905, 36.34999847, 0
-    rot = 0, 0.9238795325, 0, 0.3826834324
-    attRot = 0,0,0,1
-    attRot0 = 0, 0.9238795325, 0, 0.3826834324
+    rot = 0, 1, 0, 3.65720787e-11
+    attRot = 0, 0.3826834324, 0, 0.9238795325
+    attRot0 = 0, 1, 0, 3.65720787e-11
     mir = 1,1,1
     symMethod = Radial
     autostrutMode = Off
@@ -704,9 +704,9 @@ PART
     pos = 0, 36.34999847, -2.599999905
     attPos = 0, 0, 0
     attPos0 = 0, 36.34999847, -2.599999905
-    rot = 0, 0.3826834324, 0, 0.9238795325
-    attRot = 0,0,0,1
-    attRot0 = 0, 0.3826834324, 0, 0.9238795325
+    rot = 0, 0.7071067812, 0, 0.7071067812
+    attRot = 0, 0.3826834324, 0, 0.9238795325
+    attRot0 = 0, 0.7071067812, 0, 0.7071067812
     mir = 1,1,1
     symMethod = Radial
     autostrutMode = Off
@@ -735,9 +735,9 @@ PART
     pos = 2.599999905, 36.34999847, 0
     attPos = 0, 0, 0
     attPos0 = 2.599999905, 36.34999847, 0
-    rot = 0, -0.3826834324, 0, 0.9238795325
-    attRot = 0,0,0,1
-    attRot0 = 0, -0.3826834324, 0, 0.9238795325
+    rot = 0, -3.65720787e-11, 0, 1
+    attRot = 0, 0.3826834324, 0, 0.9238795325
+    attRot0 = 0, -3.65720787e-11, 0, 1
     mir = 1,1,1
     symMethod = Radial
     autostrutMode = Off
@@ -766,9 +766,9 @@ PART
     pos = 0, 36.34999847, 2.599999905
     attPos = 0, 0, 0
     attPos0 = 0, 36.34999847, 2.599999905
-    rot = 0, -0.9238795325, 0, 0.3826834324
-    attRot = 0,0,0,1
-    attRot0 = 0, -0.9238795325, 0, 0.3826834324
+    rot = 0, -0.7071067812, 0, 0.7071067812
+    attRot = 0, 0.3826834324, 0, 0.9238795325
+    attRot0 = 0, -0.7071067812, 0, 0.7071067812
     mir = 1,1,1
     symMethod = Radial
     autostrutMode = Off

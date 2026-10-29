@@ -1,7 +1,7 @@
 {
   "project": "CZ-10B",
   "version": "1.0.1",
-  "status": "1.0.1 requested fixes implemented; final scoped native verification passed",
+  "status": "1.0.1 user feedback corrections implemented; scoped offline/native A+C checks passed",
   "baseline_runtime_commit": "144914af24e7c5434d514dfc571905d44025752a",
   "baseline_archive": "CZ-10B/v1.0.0-final",
   "changes": [
@@ -20,27 +20,29 @@
   "working_sources": [
     {
       "path": "local_workspace/CZ-10B/working/refinement_1.0.1/models/CZ10B_1.0.1_WORKING.blend",
-      "sha256": "fd38fdf14790479af3942247e3bc0a35fc6ac93d729cd1cb880a407419461993"
+      "sha256": "61c39821883109483fd5609ad9b771afc51274997065c39a17380551cadc2425"
     },
     {
       "path": "local_workspace/CZ-10B/working/refinement_1.0.1/models/CZ10B_Base_1.0.1_WORKING.blend",
-      "sha256": "98802a39a32c68bad1fc52855d43cbca5feaae4bf351271152fae5605eb34ed2"
+      "sha256": "7d4247160fac759e429941fe1f8e838094598ed79d5c869974971aab2b28a404"
     },
     {
       "path": "local_workspace/CZ-10B/working/refinement_1.0.1/models/CZ10B_Interfaces_1.0.1_WORKING.blend",
-      "sha256": "836fa4b63504773cfc63a992fc8b2e0d5a4bcf065e4c4ed76e111bde8da18317"
+      "sha256": "ad8fa76c0bc98669a5f742097edca72d41db72aa21cc4577c12f4854c1a89203"
     }
   ],
   "source_archive_status": "No new archive; working sources retained for review. Existing1.0.0 archives unchanged.",
   "default_orientation": {
     "rocket_model_unity_y_degrees": 45,
-    "launch_erector_model_unity_y_degrees": 0,
-    "original_stand_and_clamp_roll_preserved": true,
+    "launch_erector_model_unity_y_degrees": 180,
+    "original_stand_and_clamp_roll_preserved": false,
     "local_frame_exceptions": [
       "GridFin",
-      "CBCSeparator"
+      "CBCSeparator",
+      "RecoveryHook"
     ],
-    "existing_crafts": "Use updated examples or realign stored off-axis placements; no automatic save migration."
+    "existing_crafts": "Reattach launcher using the single bay bottom node; old launchStand node removed. Reattach old surface hooks or use updated examples.",
+    "launcher_geometry_original_bytes": true
   },
   "new_public_assets": [
     "Shared_CHN.v1.0.0.dds",
@@ -48,7 +50,7 @@
   ],
   "validation_state": {
     "offline": "passed",
-    "native_latest_candidate": "passed F/G",
+    "native_latest_candidate": "passed A for unchanged affected parts; C for final interior-only adapter",
     "native_pending": []
   },
   "source_archive": "unchanged; working1.0.1 awaiting review",
@@ -83,7 +85,9 @@
       "trace": "abd206cc9c9c49b7a0da7bf25a6a1ddb"
     }
   },
-  "verification": {
+  "offline_feedback_report": "local_workspace/CZ-10B/working/refinement_1.0.1/Report.html",
+  "publication_reference": "See repository Git history for commit identity; publication evidence is recorded under local_workspace/CZ-10B/working/refinement_1.0.1/review9_20261028/publication/git_20261029.",
+  "previous_published_101_verification": {
     "report": "local_workspace/CZ-10B/working/refinement_1.0.1/Report.html",
     "record": "local_workspace/CZ-10B/working/refinement_1.0.1/checks/native_final101.json",
     "runs": [
@@ -93,6 +97,25 @@
     "scope": "Final runtime resource load, matching shader parameters, default single-core assembly, clamp contact/release/reload, fin and hook regression. Not full ascent/recovery mission certification.",
     "passed": true
   },
-  "offline_feedback_report": "local_workspace/CZ-10B/working/refinement_1.0.1/Report.html",
-  "publication_reference": "See repository Git history for commit and push identity; exact commit is also recorded in local publication/git_20261028."
+  "feedback_baseline_runtime_commit": "aaec4607fc06e945f843e8bc983b740c22a8a026",
+  "feedback_review9": [
+    "公共国旗 UV 只取有效的 3:2 区域，保留物理高度；长罩国旗和 CHN 上移 6.4 m。",
+    "栅格舵主体改为深灰钛合金材质，保留独立铰链／设备材质。",
+    "长／中／短级间段恢复完整筒壁，使用平面定位角标；不再有定位破口。",
+    "回收钩 MODEL 回到 0°，表面节点采用本地 -X；连杆外移 0.18 m 并保留基座贴合，避免穿入已封闭筒壁。",
+    "发射架恢复原始 MU 字节；仅用 rocket 节点 -2.519 m 调整安装高度。引擎舱仅保留一个通用 bottom 节点。",
+    "发射架默认轴向 roll 为 180°；一级接口整组移动到原始下抱臂位置。默认加高段为 0。",
+    "TQ-12 Waterfall：YF-219EV 为 1.9,1.9,3.5；YF-219E 为 0.9,0.9,1.6。",
+    "新增 B9「Current / Legacy」；Legacy 只保留迁移前内部锥体、加强筋和安装环。移除外筒、外保温边圈及其碰撞体，保留 12 个内部锥体碰撞片。",
+    "海平面喷管 TVC 环仅调整伸入喷管内壁的顶点；外轮廓及真空分支不改。"
+  ],
+  "verification": {
+    "passed": true,
+    "runs": [
+      "cz10b101-review9-20261028-a",
+      "cz10b101-review9-20261029-c"
+    ],
+    "record": "local_workspace/CZ-10B/working/refinement_1.0.1/review9_20261028/checks/native_summary.json",
+    "scope": "Nine feedback corrections; interior-only legacy adapter load/switch/reload and fit; native engine plume scales. No full mission certification."
+  }
 }
