@@ -1,0 +1,20 @@
+[hw][font0][#CEE3F6FF]   PFD    [#CEE3F6FF]|[#CEE3F6FF]   TARGET  [#CEE3F6FF]|[#CEE3F6FF]           [#CEE3F6FF]|[#CEE3F6FF]           [#CEE3F6FF]|[#CEE3F6FF]           [#CEE3F6FF]|[#CEE3F6FF]          [#CEE3F6FF]|[#CEE3F6FF]RESOURCES
+[hw][#00FFFF88]BODY:[#FFFF0088]{0}                                   		$&$ ORBITBODY 
+[hw][#FFFFFF88]VEL:[#FFFF0088]{0:SIP_6.1}m/s  		                                                 	$&$ORBTSPEED 
+[hw][#FFFFFF88]ALT:[#FFFF0088]{0:SIP_6.3}m    		                                                 	$&$ ALTITUDE 
+[hw]{1:"";"                                                                                   ";""}[#{2:"FF00FFFF";"00000000";"00000000"}]«««««««««««¬[@x-98][#FFFFFF88]ApA:[#FFFF0077]{0:SIP_6.1}m     	   	$&$APOAPSIS  ORBITMAKESSENSE  NEXTAPSISTYPE
+[hw]{1:"";"                                                                                   ";""}[#{2:"00000000";"FF00FFFF";"00000000"}]«««««««««««¬[@x-98][#FFFFFF88]PeA:[#FFFF0077]{0:SIP_6.1}m     		$&$PERIAPSIS  ORBITMAKESSENSE NEXTAPSISTYPE
+[hw]{1:"";"                                                                                   ";""}[#FFFFFF88]INC:[#FFFF0077]{0,7:0.000}°     		$&$INCLINATION ORBITMAKESSENSE 
+[hw]{1:"";"                                                                                   ";""}[#FFFFFF88]ECC:[#FFFF0077]{0,7:0.000}      		$&$ECCENTRICITY ORBITMAKESSENSE 
+
+
+
+
+
+
+
+[hw]{3:"";"                                                                                ";""} [#FFFFFF88]              NodeT:[#{0:"FF000088";"00FF0088";"FFFF0088"}]{0:MET+dd:hh:mm:ss.f}[#FFFFFF88] ΔV:[#FFFF0088]{1,8:0.00}[#FFFFFF88] BurnT:[#81BEF788]{4:METhh:mm:ss.f} $&$ MNODETIMESECS  MNODEDV THROTTLE MNODEEXISTS MNODEBURNTIMESECS 
+
+[hw]{1:"";"                                                                                ";""}[#FFFFFF77] ApT: [#{3:"FF00FFFF";"00000000";"00000000"}]ª«««««««««««««¬[@x-128] [#FFFF0077]{0:MET-dd:hh:mm:ss.f}     		                                 [#FFFFFF88]AN:[#{4:"FF00FFFF";"00000000";"00000000"}]ª«««««««««««««¬[@x-248][#FFFF0088]{2:MET-dd:hh:mm:ss.f}        $&$TIMETOAPSECS  ORBITMAKESSENSE TIMETOANEQUATORIAL NEXTAPSISTYPE CUSTOM_ALCOR_NEXT_AN
+[hw]{1:"";"                                                                                ";""}[#FFFFFF77] PeT: [#{4:"00000000";"FF00FFFF";"00000000"}]ª«««««««««««««¬[@x-128] [#FFFF0077]{0:MET-dd:hh:mm:ss.f} [#FFFFFF77]          OP: [#FFFF0077]{3:MET-dd:hh:mm:ss.f}           [#FFFFFF88]DN:[#{5:"FF00FFFF";"00000000";"00000000"}]ª«««««««««««««¬[@x-248][#FFFF0088]{2:MET-dd:hh:mm:ss.f}   		$&$TIMETOPESECS  ORBITMAKESSENSE TIMETODNEQUATORIAL ORBPERIODSECS NEXTAPSISTYPE CUSTOM_ALCOR_NEXT_DN
+[hw][font0][#CEE3F6FF]  RETURN  [#CEE3F6FF]|[#77FF77FF]   ORBIT   [#CEE3F6FF]|[#CEE3F6FF]           [#CEE3F6FF]|[#CEE3F6FF]    LOG    [#CEE3F6FF]|[#CEE3F6FF]    CREW   [#CEE3F6FF]|[#CEE3F6FF]          [#CEE3F6FF]|[#CEE3F6FF]

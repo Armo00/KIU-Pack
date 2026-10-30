@@ -1,6 +1,6 @@
 Mengzhou IVA — external dependencies and derived configuration
 
-Props/Controls.cfg, Props/MFD_*.cfg and Props/Seats.cfg contain configurations derived
+Props/Controls.cfg, Props/Instrumentation.cfg, Props/MFD_*.cfg and Props/Seats.cfg contain configurations derived
 from ASET Consolidated Props Pack by Alexustas, adopted by Stone Blue.
 These derived configuration files are provided under the same Creative Commons
 Attribution-NonCommercial-ShareAlike 3.0 Unported License as ASET Props.
@@ -25,3 +25,14 @@ Spaces/MZWhite.dds is an exact, 152-byte loading alias of the user-maintained
 KIU/Common/KIU_Common_texture/Shared_White.v3.3.0.dds. MODEL texture mappings bind
 it to that public library. It contains no new artwork; the alias is required by
 KSP's model-directory texture loading before remapping.
+
+Working cockpit repair: private capsule warning logic, separate cabin/deck light
+state and panel backlight, and Hydrazine/MonoPropellant resource selection.
+Standard SAS/reference/action-group and guarded stock stage/abort props retain
+their ASET definitions. No generic force-deploy-all parachute control is added.
+
+Props/Pages/MZ_*.txt are ASET page-text derivatives under the same ASET license
+listed above. Their soft-key legends match the nine enabled Mengzhou pages,
+and the PFD master-alarm text uses capsule-specific warning logic. Private
+digital-indicator definitions repair switchable legends and SAS-mode text
+for the installed RPM behavior. Shared ASET files are not modified.

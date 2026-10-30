@@ -1,3 +1,4 @@
+[hw][font0][#CEE3F6FF]   PFD    [#CEE3F6FF]|[#CEE3F6FF]   TARGET  [#CEE3F6FF]|[#CEE3F6FF]           [#CEE3F6FF]|[#CEE3F6FF]           [#CEE3F6FF]|[#CEE3F6FF]           [#CEE3F6FF]|[#CEE3F6FF]          [#CEE3F6FF]|[#CEE3F6FF]RESOURCES
 [#8FDFFFFF]MENGZHOU / RETURN
 [#FFFFFFFF]FLIGHT DATA
 ALT ASL  {0,12:SIP_6.2}m $&$ ALTITUDE
@@ -15,6 +16,5 @@ ROLL     {0,10:0.0} deg $&$ ROLL
 4  Use parachute PART controls
 5  Confirm landing / recovery
 
-[#FFCC66FF]Checklist is manual guidance.
-[#FFFFFFFF]A: PFD  B: TARGET  C: ORBIT
-G: RESOURCES     R5: CREW
+[hw][#FFCC66FF]Manual checklist.
+[hw][font0][#77FF77FF]  RETURN  [#CEE3F6FF]|[#CEE3F6FF]   ORBIT   [#CEE3F6FF]|[#CEE3F6FF]           [#CEE3F6FF]|[#CEE3F6FF]    LOG    [#CEE3F6FF]|[#CEE3F6FF]    CREW   [#CEE3F6FF]|[#CEE3F6FF]          [#CEE3F6FF]|[#CEE3F6FF]
