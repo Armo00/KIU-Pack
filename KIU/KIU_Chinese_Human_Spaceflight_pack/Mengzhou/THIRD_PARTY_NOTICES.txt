@@ -29,10 +29,15 @@ KSP's model-directory texture loading before remapping.
 Working cockpit repair: private capsule warning logic, separate cabin/deck light
 state and panel backlight, and Hydrazine/MonoPropellant resource selection.
 Standard SAS/reference/action-group and guarded stock stage/abort props retain
-their ASET definitions. No generic force-deploy-all parachute control is added.
+their ASET definitions. Parachute deployment is gated by armed and safe-to-deploy state before
+invoking the standard RPM whole-vessel parachute handler.
 
 Props/Pages/MZ_*.txt are ASET page-text derivatives under the same ASET license
 listed above. Their soft-key legends match the nine enabled Mengzhou pages,
 and the PFD master-alarm text uses capsule-specific warning logic. Private
 digital-indicator definitions repair switchable legends and SAS-mode text
 for the installed RPM behavior. Shared ASET files are not modified.
+
+Cockpit redesign 0.4.0-dev: original ASET lighting rotary switches are privately
+rebound to capsule lights. Three-station control layout, owned illuminated
+legends/dividers and linked cabin/deck diffusers. All ASET meshes remain external.

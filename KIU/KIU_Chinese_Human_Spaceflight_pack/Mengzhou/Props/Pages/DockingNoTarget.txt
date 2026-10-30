@@ -1,0 +1,20 @@
+[hw][font0][#CEE3F6FF]   PFD    [#CEE3F6FF]|[#CEE3F6FF]   TARGET  [#CEE3F6FF]|[#CEE3F6FF]           [#CEE3F6FF]|[#CEE3F6FF]   VESSEL  [#CEE3F6FF]|[#CEE3F6FF]   GRAPHS  [#CEE3F6FF]|[#CEE3F6FF]          [#CEE3F6FF]|[#CEE3F6FF]RESOURCES
+[#8FDFFFFF]DOCKING / RELATIVE MOTION
+
+[#FFCC66FF]NO DOCKING PORT SELECTED
+
+[#FFFFFFFF]1  Open TARGET.
+2  Select the target vessel.
+3  Select its docking port.
+
+
+Docking readouts appear after
+a port is selected.
+
+
+RCS PROP {0,12:0.0} $&$ SELECT_KIU_MZ_RCS_AMOUNT
+SAS:{0:"ON";"OFF";"OFF"}   RCS:{1:"ON";"OFF";"OFF"} $&$ SAS RCS
+
+[hw][#CEE3F6FF]Check RCS and reference orientation.
+
+[hw][font0][#CEE3F6FF]  RETURN  [#CEE3F6FF]|[#CEE3F6FF]   ORBIT   [#CEE3F6FF]|[#77FF77FF]    DOCK   [#CEE3F6FF]|[#CEE3F6FF]    LOG    [#CEE3F6FF]|[#CEE3F6FF]    CREW   [#CEE3F6FF]|[#CEE3F6FF] SCIENCE  [#CEE3F6FF]|[#CEE3F6FF]

@@ -1,4 +1,4 @@
-[hw][font0][#CEE3F6FF]   PFD    [#CEE3F6FF]|[#CEE3F6FF]   TARGET  [#CEE3F6FF]|[#CEE3F6FF]           [#CEE3F6FF]|[#CEE3F6FF]           [#CEE3F6FF]|[#CEE3F6FF]           [#CEE3F6FF]|[#CEE3F6FF]          [#CEE3F6FF]|[#CEE3F6FF]RESOURCES
+[hw][font0][#CEE3F6FF]   PFD    [#CEE3F6FF]|[#CEE3F6FF]   TARGET  [#CEE3F6FF]|[#CEE3F6FF]           [#CEE3F6FF]|[#CEE3F6FF]   VESSEL  [#CEE3F6FF]|[#CEE3F6FF]   GRAPHS  [#CEE3F6FF]|[#CEE3F6FF]          [#CEE3F6FF]|[#CEE3F6FF]RESOURCES
   [#FFFFFFFF] BODY: [#FFFF00FF]{0}[#FFFFFFFF] {1} $&$ ORBITBODY SITUATION
   [#FFFFFFFF] ALT: [#FFFF00FF]{0:SIP_8.3}m      [#FFFFFFFF]VEL:[#FFFF00FF]{1:SIP_8.2}m/s  $&$ ALTITUDE ORBTSPEED 
   {2:"";"                                                            ";""}[#FFFFFFFF] ApA:[#{3:"FF00FFFF";"00000000";"00000000"}]ª««««««««««««««¬[@x-256][#FFFF00FF]{0:SIP_8.2}m       [#FFFFFFFF]INC: [#FFFF00FF]{1,7:0.000}° $&$APOAPSIS INCLINATION ORBITMAKESSENSE NEXTAPSISTYPE
@@ -17,4 +17,4 @@
   {1:;"                                        ";""}{0:"";"                                        ";""}   EJECT ANGLE:[#FFFF00FF]{0:0.00}° 				$&$ TARGETBODYEJECTIONANGLE TARGETEXISTS ORBITMAKESSENSE 
   {1:;"                                        ";""}{0:"";"                                        ";""}            AT:[#FFFF00FF]{0:MET-y:ddd:hh:mm:ss} 	$&$ TARGETBODYEJECTIONANGLESECS TARGETEXISTS ORBITMAKESSENSE 
   {1:;"                                        ";""}   ΔV:[#FFFF00FF]{0:SIP_6.2}m/s ({3:SIP_6.2}m/s) $&$ TARGETBODYDELTAV TARGETEXISTS ORBITMAKESSENSE DELTAV 
-[hw][font0][#CEE3F6FF]  RETURN  [#CEE3F6FF]|[#77FF77FF]   ORBIT   [#CEE3F6FF]|[#CEE3F6FF]           [#CEE3F6FF]|[#CEE3F6FF]    LOG    [#CEE3F6FF]|[#CEE3F6FF]    CREW   [#CEE3F6FF]|[#CEE3F6FF]          [#CEE3F6FF]|[#CEE3F6FF]
+[hw][font0][#CEE3F6FF]  RETURN  [#CEE3F6FF]|[#77FF77FF]   ORBIT   [#CEE3F6FF]|[#CEE3F6FF]    DOCK   [#CEE3F6FF]|[#CEE3F6FF]    LOG    [#CEE3F6FF]|[#CEE3F6FF]    CREW   [#CEE3F6FF]|[#CEE3F6FF] SCIENCE  [#CEE3F6FF]|[#CEE3F6FF]
