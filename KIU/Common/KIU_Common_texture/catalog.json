@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "library": "KIU_Common_texture",
-  "updated_at": "2026-10-28",
+  "updated_at": "2026-10-30",
   "path_base": "repository root",
   "game_data_directory": "GameData/KIU/Common/KIU_Common_texture",
   "description": "跨 Part 公共贴图内容索引。制作贴图前必须先读本文件，按内容搜索并检查可复用素材。",
@@ -2827,6 +2827,192 @@
       ],
       "user_maintained": true,
       "source_sha256": "5bdac0f11dd1f08697fe7ebc8324f62e36391c75eefb29d1db7e974646644c2f"
+    },
+    {
+      "id": "CZ10OriginalMark102",
+      "name": "长征十号原版红色10及LONG MARCH标志",
+      "file_name": "Shared_CZ10_OriginalMark.v1.0.2.dds",
+      "path": "KIU/Common/KIU_Common_texture/Shared_CZ10_OriginalMark.v1.0.2.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_CZ10_OriginalMark.v1.0.2",
+      "content": "原始参考模型的红色10：细环、内部留白与星点曲线，包含下方黑色LONG MARCH字样。透明背景，原轮廓重建。",
+      "tags": [
+        "CZ-10B",
+        "原版样式",
+        "2048",
+        "透明贴花",
+        "1.0.2"
+      ],
+      "width": 2048,
+      "height": 2048,
+      "format": "DXT5",
+      "channels": "RGBA",
+      "mip_count": 12,
+      "bytes": 5592560,
+      "sha256": "89342af6a4e4cd22231d27c62c145bd3e7b5ab3dbeca8e4aba138a7b58936d73",
+      "source": "KIU/Common/KIU_Common_texture/Shared_CZ10_OriginalMark.v1.0.2.svg",
+      "source_sha256": "7d271dd3aa135edd1ab5b17e08f6380088d2c8c7b18b6f84b7ee2f65ef078981",
+      "reference_source_file": "CZ-10B - 2 (1).blend",
+      "reference_source_sha256": "9e04552e2074df213985b769f8926706a35cf9f2276b63eac283c85b81d0b088",
+      "reconstruction": "Original paint contour reconstruction with symmetric subpixel smoothing and recursive cubic fit at 1.10 source-pixel tolerance; no font replacement.",
+      "content_rect_normalized_top_left": [
+        0.0361328125,
+        0.03773446455091306,
+        0.9638671875,
+        0.962265535449087
+      ],
+      "reuse_notes": "Alpha为轮廓覆盖，配合KSP/Alpha/Cutoff；DDS按GameData行序保存，完整12级mipmap。矢量源保留，旧公共素材不覆盖。使用图案内容矩形时保持物理宽高比。",
+      "consumers": [
+        "KCLV_CZ-10B_Stage1_Tank"
+      ],
+      "user_maintained": true
+    },
+    {
+      "id": "ChinaRocketOriginalText102",
+      "name": "原版中国火箭／CHINAROCKET文字组合",
+      "file_name": "Shared_ChinaRocket_OriginalText.v1.0.2.dds",
+      "path": "KIU/Common/KIU_Common_texture/Shared_ChinaRocket_OriginalText.v1.0.2.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_ChinaRocket_OriginalText.v1.0.2",
+      "content": "原始参考模型的黑色竖排中国火箭和左侧旋转90度CHINAROCKET；整体字形与相对比例保留，不使用旧版蓝色粗体替代。",
+      "tags": [
+        "CZ-10B",
+        "原版样式",
+        "2048",
+        "透明贴花",
+        "1.0.2"
+      ],
+      "width": 2048,
+      "height": 2048,
+      "format": "DXT5",
+      "channels": "RGBA",
+      "mip_count": 12,
+      "bytes": 5592560,
+      "sha256": "7f023014b4c3a69b19fa34cced949f09e1b9a974f5d5341ed46a03774df22a9a",
+      "source": "KIU/Common/KIU_Common_texture/Shared_ChinaRocket_OriginalText.v1.0.2.svg",
+      "source_sha256": "ee983e19f80d26d022fa66123345b04b79f20b991e12b258aa644a8ffd30d6c8",
+      "reference_source_file": "CZ-10B - 2 (1).blend",
+      "reference_source_sha256": "9e04552e2074df213985b769f8926706a35cf9f2276b63eac283c85b81d0b088",
+      "reconstruction": "Original paint contour reconstruction with symmetric subpixel smoothing and recursive cubic fit at 1.10 source-pixel tolerance; no font replacement.",
+      "content_rect_normalized_top_left": [
+        0.3366209819931897,
+        0.036132812499999944,
+        0.6633790180068104,
+        0.9638671875
+      ],
+      "reuse_notes": "Alpha为轮廓覆盖，配合KSP/Alpha/Cutoff；DDS按GameData行序保存，完整12级mipmap。矢量源保留，旧公共素材不覆盖。使用图案内容矩形时保持物理宽高比。",
+      "consumers": [
+        "KCLV_CZ-10B_Stage2_Tank"
+      ],
+      "user_maintained": true
+    },
+    {
+      "id": "ChinaRocketOriginalEmblem102",
+      "name": "中国火箭原版红色轨道标志",
+      "file_name": "Shared_ChinaRocket_OriginalEmblem.v1.0.2.dds",
+      "path": "KIU/Common/KIU_Common_texture/Shared_ChinaRocket_OriginalEmblem.v1.0.2.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_ChinaRocket_OriginalEmblem.v1.0.2",
+      "content": "原始参考模型二级上部的红色轨道／斜线徽标，独立透明贴花，矢量重建。",
+      "tags": [
+        "CZ-10B",
+        "原版样式",
+        "2048",
+        "透明贴花",
+        "1.0.2"
+      ],
+      "width": 2048,
+      "height": 2048,
+      "format": "DXT5",
+      "channels": "RGBA",
+      "mip_count": 12,
+      "bytes": 5592560,
+      "sha256": "cb6a5c180ff5729a2b7b57fcbcac00847bca15d6559ada53901c7abf62d486c5",
+      "source": "KIU/Common/KIU_Common_texture/Shared_ChinaRocket_OriginalEmblem.v1.0.2.svg",
+      "source_sha256": "ff08b93eb1071621fb43e10a30b42b6aceca3109f90c2075fc844271266b3b6d",
+      "reference_source_file": "CZ-10B - 2 (1).blend",
+      "reference_source_sha256": "9e04552e2074df213985b769f8926706a35cf9f2276b63eac283c85b81d0b088",
+      "reconstruction": "Original paint contour reconstruction with symmetric subpixel smoothing and recursive cubic fit at 1.10 source-pixel tolerance; no font replacement.",
+      "content_rect_normalized_top_left": [
+        0.0361328125,
+        0.18718489912242842,
+        0.9638671875,
+        0.8128151008775716
+      ],
+      "reuse_notes": "Alpha为轮廓覆盖，配合KSP/Alpha/Cutoff；DDS按GameData行序保存，完整12级mipmap。矢量源保留，旧公共素材不覆盖。使用图案内容矩形时保持物理宽高比。",
+      "consumers": [
+        "KCLV_CZ-10B_Stage2_Tank"
+      ],
+      "user_maintained": true
+    },
+    {
+      "id": "CZ10BOriginalDragon102",
+      "name": "CZ-10B原版红龙环绕涂装",
+      "file_name": "Shared_CZ10B_OriginalDragon.v1.0.2.dds",
+      "path": "KIU/Common/KIU_Common_texture/Shared_CZ10B_OriginalDragon.v1.0.2.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_CZ10B_OriginalDragon.v1.0.2",
+      "content": "原始参考模型二级红龙的完整环绕涂装，包括龙头、眼部留白、颈部和卷尾。图案左右边界用于筒体周向接缝，不是两条独立龙。",
+      "tags": [
+        "CZ-10B",
+        "原版样式",
+        "2048",
+        "透明贴花",
+        "1.0.2"
+      ],
+      "width": 2048,
+      "height": 2048,
+      "format": "DXT5",
+      "channels": "RGBA",
+      "mip_count": 12,
+      "bytes": 5592560,
+      "sha256": "fc099c5fbae89a6bd5c3f93b3de793a47854f33ddb002190d571b81d8e99bce6",
+      "source": "KIU/Common/KIU_Common_texture/Shared_CZ10B_OriginalDragon.v1.0.2.svg",
+      "source_sha256": "64a92df090489251097e4cf5135c66d33355441c9dc44170bf5a831caea7e0ba",
+      "reference_source_file": "CZ-10B - 2 (1).blend",
+      "reference_source_sha256": "9e04552e2074df213985b769f8926706a35cf9f2276b63eac283c85b81d0b088",
+      "reconstruction": "Original paint contour reconstruction with symmetric subpixel smoothing and recursive cubic fit at 1.10 source-pixel tolerance; no font replacement.",
+      "content_rect_normalized_top_left": [
+        0.0361328125,
+        0.2655681458962799,
+        0.9638671875,
+        0.73443185410372
+      ],
+      "reuse_notes": "Alpha为轮廓覆盖，配合KSP/Alpha/Cutoff；DDS按GameData行序保存，完整12级mipmap。矢量源保留，旧公共素材不覆盖。使用图案内容矩形时保持物理宽高比。",
+      "consumers": [
+        "KCLV_CZ-10B_Stage2_Tank"
+      ],
+      "user_maintained": true
+    },
+    {
+      "id": "CHNShorter102",
+      "name": "CHN字标／字高缩短版1.0.2",
+      "file_name": "Shared_CHN.v1.0.2.dds",
+      "path": "KIU/Common/KIU_Common_texture/Shared_CHN.v1.0.2.dds",
+      "game_url": "KIU/Common/KIU_Common_texture/Shared_CHN.v1.0.2",
+      "content": "沿用原CHN字形与深蓝颜色，字高缩短15%，字宽及竖直中心不变；透明画布UV与v1.0.0兼容。",
+      "tags": [
+        "CHN",
+        "CZ-10B",
+        "整流罩",
+        "透明贴花"
+      ],
+      "width": 2048,
+      "height": 1024,
+      "format": "DXT5",
+      "channels": "RGBA",
+      "mip_count": 12,
+      "bytes": 2796368,
+      "sha256": "0aa7becb303c622d4b701813ef95b0db5f9b9afc0e22cbd808535c4e31cc68d1",
+      "source": "KIU/Common/KIU_Common_texture/Shared_CHN.v1.0.2.svg",
+      "source_sha256": "af629422fc373688f73b5ff053178f0280461e154cd568aa80e859863907dd84",
+      "original_asset": "KIU/Common/KIU_Common_texture/Shared_CHN.v1.0.0.dds",
+      "original_sha256": "fef444aadae8893da4a41d224a2a3d85113724272eaf400d81c08b2131e7edba",
+      "height_factor": 0.85,
+      "width_factor": 1,
+      "reuse_notes": "Alpha为覆盖；完整画布UV保持兼容，DDS采用GameData行序和完整mipmap。旧公共素材不覆盖。",
+      "consumers": [
+        "KCLV_CZ-10B_Short_Fairing",
+        "KCLV_CZ-10B_Long_Fairing",
+        "KCLV_CZ-10B_Procedural_Fairing"
+      ],
+      "user_maintained": true
     }
   ],
   "retired_assets": [

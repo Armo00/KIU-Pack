@@ -1,7 +1,7 @@
 {
   "project": "CZ-10B",
   "version": "1.0.2",
-  "status": "1.0.2 seven requested changes implemented; scoped offline and native verification passed",
+  "status": "1.0.2 surface restoration with continuous interstage UV and darker metallic grid fins; scoped offline checks passed, latest revision not re-tested in KSP",
   "baseline_runtime_commit": "6753a833df180f216cf64cdb6db97cb8a29845b4",
   "baseline_archive": "CZ-10B/v1.0.0-final",
   "changes": [
@@ -123,12 +123,9 @@
   ],
   "verification": {
     "passed": true,
-    "record": "local_workspace/CZ-10B/working/refinement_1.0.2/checks/native_summary.json",
-    "runs": [
-      "cz10b102-20261029-c (single-engine evidence only)",
-      "cz10b102-20261030-d"
-    ],
-    "scope": "1x RF/B9/Waterfall/TweakScale Rescaled installed: selected model load, single/nine gimbal and short burns, six heights, two engine modes, legacy/fairing fit, default clamps and arm motion/height/reload, old TowerControl path. Not full ascent/CBC/recovery or structural qualification."
+    "stage": "offline",
+    "native_retested": false,
+    "record": "local_workspace/CZ-10B/working/refinement_1.0.2/review/interstage_fin_cleanup_20261030/verified.json"
   },
   "changes_102": [
     "YF-219E 海平面泵后摆版本",
@@ -144,5 +141,265 @@
     "sha256": "fabe899277e437b14b8d5d89f26592f1a473b4db8dcbc26e4578f5e925befdd2",
     "source": "KIU/CSScripts/TowerControl.cs",
     "original_classes_retained": true
+  },
+  "verification_before_reference_restore": {
+    "passed": true,
+    "record": "local_workspace/CZ-10B/working/refinement_1.0.2/checks/native_summary.json",
+    "runs": [
+      "cz10b102-20261029-c (single-engine evidence only)",
+      "cz10b102-20261030-d"
+    ],
+    "scope": "1x RF/B9/Waterfall/TweakScale Rescaled installed: selected model load, single/nine gimbal and short burns, six heights, two engine modes, legacy/fairing fit, default clamps and arm motion/height/reload, old TowerControl path. Not full ascent/CBC/recovery or structural qualification."
+  },
+  "reference_restore_20261030": {
+    "source_baseline_commit": "6d9a8244c030c0ac7f00f004b2729edabef94a79",
+    "shared_graphics": [
+      "KIU/Common/KIU_Common_texture/Shared_CZ10_OriginalMark.v1.0.2",
+      "KIU/Common/KIU_Common_texture/Shared_ChinaRocket_OriginalText.v1.0.2",
+      "KIU/Common/KIU_Common_texture/Shared_ChinaRocket_OriginalEmblem.v1.0.2",
+      "KIU/Common/KIU_Common_texture/Shared_CZ10B_OriginalDragon.v1.0.2",
+      "KIU/Common/KIU_Common_texture/Shared_CHN.v1.0.2"
+    ],
+    "s1_band_z_reference_m": [
+      15.621513102203608,
+      18.28336372040212
+    ],
+    "sea_level_tvc": "A package, two obsolete chamber-to-nozzle black rods removed",
+    "model_version_unchanged": true,
+    "source_recipe": "local_workspace/CZ-10B/working/refinement_1.0.2/tools/build_reference_restore102.py",
+    "editable_graphics": [
+      "KIU/Common/KIU_Common_texture/Shared_CZ10_OriginalMark.v1.0.2.svg",
+      "KIU/Common/KIU_Common_texture/Shared_ChinaRocket_OriginalText.v1.0.2.svg",
+      "KIU/Common/KIU_Common_texture/Shared_ChinaRocket_OriginalEmblem.v1.0.2.svg",
+      "KIU/Common/KIU_Common_texture/Shared_CZ10B_OriginalDragon.v1.0.2.svg",
+      "KIU/Common/KIU_Common_texture/Shared_CHN.v1.0.2.svg"
+    ],
+    "engine_review_source": "local_workspace/CZ-10B/working/refinement_1.0.2/review/reference_restore_20261030/engine_views/YF219E_1.0.2_TVC_A_REVIEW.blend",
+    "model_source_archive_updated": false
+  },
+  "surface_refinement_20261030": {
+    "source_recipe": "local_workspace/CZ-10B/working/refinement_1.0.2/tools/apply_reference_surfaces102.py",
+    "source_albedo_uv_reused": true,
+    "private_surface_maps": [
+      "CZ10B102_Surface_IS_Shell",
+      "CZ10B102_Surface_S1_Parts",
+      "CZ10B102_Surface_S1_Raceways_RW",
+      "CZ10B102_Surface_S2_Bay",
+      "CZ10B102_Surface_S2_Bay_RW",
+      "CZ10B102_Surface_S2_Parts",
+      "CZ10B102_Surface_S2_Parts_RW"
+    ],
+    "private_map_size": [
+      1024,
+      1024
+    ],
+    "scope": [
+      "S1 upper/lower reinforcement",
+      "S2 upper/lower reinforcement",
+      "interstage ribbed areas",
+      "S1/S2 raceway groove contrast",
+      "gridfin specular response",
+      "CHN height -15%"
+    ],
+    "geometry_preserved": true,
+    "gridfin_specular_color": [
+      0.72,
+      0.73,
+      0.74,
+      1
+    ],
+    "gridfin_shininess": 0.7,
+    "closed_interstage_wall": "Dedicated continuous cylindrical UV; generic nearest-face atlas transfer excluded"
+  },
+  "verification_before_interstage_cleanup": {
+    "passed": true,
+    "stage": "offline",
+    "native_retested": false,
+    "record": "local_workspace/CZ-10B/working/refinement_1.0.2/review/reference_restore_20261030/verified.json",
+    "nine_engine_priority_drops_m": [
+      0.3,
+      0.5
+    ]
+  },
+  "interstage_fin_cleanup_20261030": {
+    "root_cause": "Nearest-face UV transfer crossed old atlas islands on the rebuilt closed barrel and stretched obsolete mounting shadows.",
+    "geometry_unchanged": true,
+    "length_variants": [
+      "Long",
+      "Medium",
+      "Short"
+    ],
+    "new_private_map": "CZ10B102_IS_ContinuousWall.dds",
+    "map_size": [
+      1024,
+      1024
+    ],
+    "fin": [
+      {
+        "material": "CZ10B101_metal",
+        "before": {
+          "color": [
+            0.550000011920929,
+            0.5699999928474426,
+            0.5899999737739563,
+            1.0
+          ],
+          "specular": [
+            0.6000000238418579,
+            0.6200000047683716,
+            0.6499999761581421,
+            1.0
+          ],
+          "shininess": 0.5
+        },
+        "after": {
+          "color": [
+            0.28,
+            0.29,
+            0.3,
+            1
+          ],
+          "specular": [
+            0.72,
+            0.73,
+            0.74,
+            1
+          ],
+          "shininess": 0.7
+        }
+      },
+      {
+        "material": "CZ10B101_gridfin",
+        "before": {
+          "color": [
+            0.2199999988079071,
+            0.20999999344348907,
+            0.1899999976158142,
+            1.0
+          ],
+          "specular": [
+            0.6499999761581421,
+            0.6299999952316284,
+            0.5899999737739563,
+            1.0
+          ],
+          "shininess": 0.47999998927116394
+        },
+        "after": {
+          "color": [
+            0.13,
+            0.13,
+            0.125,
+            1
+          ],
+          "specular": [
+            0.72,
+            0.73,
+            0.74,
+            1
+          ],
+          "shininess": 0.7
+        }
+      }
+    ],
+    "source_recipe": "local_workspace/CZ-10B/working/refinement_1.0.2/tools/fix_interstage_fin102.py",
+    "native_retested": false
+  },
+  "s1_text_fit_20261030": {
+    "glyphs": [
+      {
+        "character": "中",
+        "scale_width": 1.4442195576412264,
+        "scale_height": 1.298472771534506,
+        "visible_before_width_m": 0.7833371491751395,
+        "visible_before_height_m": 1.1646570048336518,
+        "visible_target_width_m": 1.1313108310656594,
+        "visible_target_height_m": 1.5122754089534283,
+        "target_z_world": [
+          18.486229933798313,
+          19.99850534275174
+        ],
+        "source_theta": [
+          3.518951927409661,
+          3.971476259835925
+        ],
+        "surface_offset_m": 0.008999884248377499
+      },
+      {
+        "character": "国",
+        "scale_width": 1.3822767159667813,
+        "scale_height": 1.3269672779255235,
+        "visible_before_width_m": 0.8128914523025466,
+        "visible_before_height_m": 1.1164842785042293,
+        "visible_target_width_m": 1.1236409271262315,
+        "visible_target_height_m": 1.4815381038933992,
+        "target_z_world": [
+          16.500600026920438,
+          17.982138130813837
+        ],
+        "source_theta": [
+          3.509748042682347,
+          3.9592044135328397
+        ],
+        "surface_offset_m": 0.008999882050403432
+      },
+      {
+        "character": "航",
+        "scale_width": 1.1706580207422856,
+        "scale_height": 1.2356585090221055,
+        "visible_before_width_m": 1.0253549245401383,
+        "visible_before_height_m": 1.2089367855360162,
+        "visible_target_width_m": 1.200339966520514,
+        "visible_target_height_m": 1.4938330259174109,
+        "target_z_world": [
+          14.508822659030557,
+          16.002655684947968
+        ],
+        "source_theta": [
+          3.4913402732277192,
+          3.971476259835925
+        ],
+        "surface_offset_m": 0.00899988227620108
+      },
+      {
+        "character": "天",
+        "scale_width": 1.1111257284354452,
+        "scale_height": 1.3414950953094285,
+        "visible_before_width_m": 1.0078121192759115,
+        "visible_before_height_m": 1.1181408654971126,
+        "visible_target_width_m": 1.119805975156517,
+        "visible_target_height_m": 1.4999804869294158,
+        "target_z_world": [
+          12.517045291140676,
+          14.017025778070092
+        ],
+        "source_theta": [
+          3.506680081106576,
+          3.9546024711691827
+        ],
+        "surface_offset_m": 0.008999888972756722
+      }
+    ],
+    "common_textures_unchanged": true,
+    "method": "Visible glyph bounds matched individually to the original painted cylinder using decal geometry scaling and reprojection; UV and material unchanged.",
+    "record": "local_workspace/CZ-10B/working/refinement_1.0.2/review/s1_text_fit_20261030/text_fit.json",
+    "native_retested": false
+  },
+  "external_pipe_finish_20261030": {
+    "geometry_unchanged": true,
+    "source": "Original packed CZ-10B model, S1_Pipe/2/3 and S2_Pipe/B with their clamps and brackets",
+    "method": "Original polygon UVs and localized grayscale/specular mapping, same contrast rule as raceways",
+    "private_maps": [
+      "CZ10B102_Pipes_S1_Parts.dds",
+      "CZ10B102_Pipes_S2_Parts.dds"
+    ],
+    "map_size": [
+      1024,
+      1024
+    ],
+    "configurable_templates_updated": true,
+    "common_textures_unchanged": true,
+    "native_retested": false,
+    "record": "local_workspace/CZ-10B/working/refinement_1.0.2/review/pipe_finish_20261030/changes.json"
   }
 }
