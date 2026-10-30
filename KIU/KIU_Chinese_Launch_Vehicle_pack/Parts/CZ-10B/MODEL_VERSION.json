@@ -1,8 +1,8 @@
 {
   "project": "CZ-10B",
-  "version": "1.0.1",
-  "status": "1.0.1 user feedback corrections implemented; scoped offline/native A+C checks passed",
-  "baseline_runtime_commit": "144914af24e7c5434d514dfc571905d44025752a",
+  "version": "1.0.2",
+  "status": "1.0.2 seven requested changes implemented; scoped offline and native verification passed",
+  "baseline_runtime_commit": "6753a833df180f216cf64cdb6db97cb8a29845b4",
   "baseline_archive": "CZ-10B/v1.0.0-final",
   "changes": [
     "全套Part脏污与材质统一",
@@ -19,19 +19,31 @@
   ],
   "working_sources": [
     {
-      "path": "local_workspace/CZ-10B/working/refinement_1.0.1/models/CZ10B_1.0.1_WORKING.blend",
-      "sha256": "61c39821883109483fd5609ad9b771afc51274997065c39a17380551cadc2425"
+      "path": "local_workspace/CZ-10B/working/refinement_1.0.2/models/CZ10B_1.0.2_WORKING.blend",
+      "sha256": "8e3175c035c7bd47bdf950fa92ecf58edb04ceba461abc1423431895c008df16"
     },
     {
-      "path": "local_workspace/CZ-10B/working/refinement_1.0.1/models/CZ10B_Base_1.0.1_WORKING.blend",
-      "sha256": "7d4247160fac759e429941fe1f8e838094598ed79d5c869974971aab2b28a404"
+      "path": "local_workspace/CZ-10B/working/refinement_1.0.2/models/CZ10B_Base_1.0.2_WORKING.blend",
+      "sha256": "e0a70cfeb791b5cd24aa45d5d32253266ab209e81d9199cd8287a220c1f20422"
     },
     {
-      "path": "local_workspace/CZ-10B/working/refinement_1.0.1/models/CZ10B_Interfaces_1.0.1_WORKING.blend",
-      "sha256": "ad8fa76c0bc98669a5f742097edca72d41db72aa21cc4577c12f4854c1a89203"
+      "path": "local_workspace/CZ-10B/working/refinement_1.0.2/models/CZ10B_Interfaces_1.0.2_WORKING.blend",
+      "sha256": "b79ab1e82423ca02b323da3220270c681240deb27e7209ebffe9ea978e70e430"
+    },
+    {
+      "path": "local_workspace/CZ-10B/working/refinement_1.0.2/models/CZ10B_NineBay_1.0.2_WORKING.blend",
+      "sha256": "66d2ec42b1479b205b1a8d39a3e5fafe8647620ab9494338a55920055b07904f"
+    },
+    {
+      "path": "local_workspace/CZ-10B/working/refinement_1.0.2/models/YF219E_PumpAfter_1.0.2_RIG.blend",
+      "sha256": "78fb178914b2e1d36567228ac258847536b376ece3c7633f2d6f4bcec271554f"
+    },
+    {
+      "path": "local_workspace/CZ-10B/working/refinement_1.0.2/models/YF219E_PumpAfter_1.0.2_WORKING.blend",
+      "sha256": "1fedd4501310dc8891d1485e44156ce676fcc280482696001cfdababf3ff2980"
     }
   ],
-  "source_archive_status": "No new archive; working sources retained for review. Existing1.0.0 archives unchanged.",
+  "source_archive_status": "Current editable1.0.2 working sources retained for review;1.0.0-final archive unchanged",
   "default_orientation": {
     "rocket_model_unity_y_degrees": 45,
     "launch_erector_model_unity_y_degrees": 180,
@@ -85,8 +97,8 @@
       "trace": "abd206cc9c9c49b7a0da7bf25a6a1ddb"
     }
   },
-  "offline_feedback_report": "local_workspace/CZ-10B/working/refinement_1.0.1/Report.html",
-  "publication_reference": "See repository Git history for commit identity; publication evidence is recorded under local_workspace/CZ-10B/working/refinement_1.0.1/review9_20261028/publication/git_20261029.",
+  "offline_feedback_report": "local_workspace/CZ-10B/working/refinement_1.0.2/Report.html",
+  "publication_reference": "See repository Git history for runtime commits and publication.",
   "previous_published_101_verification": {
     "report": "local_workspace/CZ-10B/working/refinement_1.0.1/Report.html",
     "record": "local_workspace/CZ-10B/working/refinement_1.0.1/checks/native_final101.json",
@@ -111,11 +123,26 @@
   ],
   "verification": {
     "passed": true,
+    "record": "local_workspace/CZ-10B/working/refinement_1.0.2/checks/native_summary.json",
     "runs": [
-      "cz10b101-review9-20261028-a",
-      "cz10b101-review9-20261029-c"
+      "cz10b102-20261029-c (single-engine evidence only)",
+      "cz10b102-20261030-d"
     ],
-    "record": "local_workspace/CZ-10B/working/refinement_1.0.1/review9_20261028/checks/native_summary.json",
-    "scope": "Nine feedback corrections; interior-only legacy adapter load/switch/reload and fit; native engine plume scales. No full mission certification."
+    "scope": "1x RF/B9/Waterfall/TweakScale Rescaled installed: selected model load, single/nine gimbal and short burns, six heights, two engine modes, legacy/fairing fit, default clamps and arm motion/height/reload, old TowerControl path. Not full ascent/CBC/recovery or structural qualification."
+  },
+  "changes_102": [
+    "YF-219E 海平面泵后摆版本",
+    "Legacy载荷支架与整流罩无缝对接",
+    "底部抱臂默认高度和可调高度",
+    "栅格舵进一步加深为Falcon9钛合金观感",
+    "发射架连接点下移与四夹具承力点对齐",
+    "长罩国旗与CHN移至约60%高度位置",
+    "一级“中国航天”字样横向加宽5%"
+  ],
+  "global_plugin": {
+    "path": "KIU/Plugins/TowerControl.dll",
+    "sha256": "fabe899277e437b14b8d5d89f26592f1a473b4db8dcbc26e4578f5e925befdd2",
+    "source": "KIU/CSScripts/TowerControl.cs",
+    "original_classes_retained": true
   }
 }

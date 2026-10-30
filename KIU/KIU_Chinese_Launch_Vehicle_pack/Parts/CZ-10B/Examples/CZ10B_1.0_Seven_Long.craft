@@ -1,4 +1,4 @@
-// Review9: original launcher roll180 and node-only height; single bay bottom node; canonical surface-mounted hook Part rotations.
+// 1.0.2 original clamp upper bearing alignment; lower arm has independent height control.
 ship = CZ10B 1.0 Seven Long
 version = 1.12.3
 description = New model assembly. Seven YF100 engines use individual fitted clockings. Standard dimensions; staging may be edited for the mission.
@@ -219,9 +219,9 @@ PART
     part = KCLV.CZ-10B.Launch.Erector_960006
     partName = Part
     persistentId = 960006
-    pos = 0, 6.519, 0
+    pos = 0,6.597,0
     attPos = 0, 0, 0
-    attPos0 = 0, 6.519, 0
+    attPos0 = 0,6.597,0
     rot = 0, -0, 0, 1
     attRot = 0,0,0,1
     attRot0 = 0, -0, 0, 1

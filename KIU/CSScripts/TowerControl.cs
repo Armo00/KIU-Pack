@@ -7,6 +7,13 @@ using UnityEngine.UI;
 
 // Tower service policy. Generic dimension/capacity/rendering belongs to ConfigurableTank.
 public class TowerControl : PartModule {
+    // Optional service-arm controls for rigid towers whose extension geometry is
+    // already owned by another PartModule (CZ10BLaunchErector). Existing CZ-16
+    // ConfigurableTank behavior remains the default.
+    [KSPField] public bool serviceHeightOnly = false;
+    [KSPField] public float serviceStructureHeight = 10f;
+    private float HeightPrecision { get { return serviceHeightOnly ? 1000f : 10f; } }
+    private string ServiceFormat { get { return serviceHeightOnly ? "F3" : "F1"; } }
     [KSPField(guiActiveEditor=true,guiName="#KIU_TowerControl_Height",guiFormat="F1")]
     [UI_FloatEdit(scene=UI_Scene.Editor,minValue=0,maxValue=200,incrementLarge=0,incrementSmall=.1f,incrementSlide=0,sigFigs=1,unit=" m")]
     public float extensionCount;
@@ -18,11 +25,11 @@ public class TowerControl : PartModule {
     private bool heightUIRefreshPending,launchEventsRegistered,synchronizingHeightWidgets;
     private Vessel launchVessel;
     private readonly List<Part> launchClamps=new List<Part>();
-    private float baseHeight { get { return dimensions.baseHeight; } }
-    private float segmentLength { get { return dimensions.segmentLength; } }
-    private int segments { get { return dimensions.segments; } }
-    private bool upperOnly { get { return dimensions.upperOnly; } }
-    private float CurrentHeight { get { return dimensions.CurrentModelHeight; } }
+    private float baseHeight { get { return serviceHeightOnly ? serviceStructureHeight : dimensions.baseHeight; } }
+    private float segmentLength { get { return serviceHeightOnly ? .1f : dimensions.segmentLength; } }
+    private int segments { get { return serviceHeightOnly ? 0 : dimensions.segments; } }
+    private bool upperOnly { get { return serviceHeightOnly || dimensions.upperOnly; } }
+    private float CurrentHeight { get { return serviceHeightOnly ? serviceStructureHeight : dimensions.CurrentModelHeight; } }
     private static readonly FieldInfo SliderBlock=typeof(UIPartActionFloatEdit).GetField("blockSliderUpdate",BindingFlags.Public|BindingFlags.NonPublic|BindingFlags.Instance);
     public override void OnLoad(ConfigNode node) {
         base.OnLoad(node);if(!node.HasValue("stateVersion"))stateVersion=0;ReadServiceHeights(node);
@@ -34,16 +41,21 @@ public class TowerControl : PartModule {
     }
     public override void OnStart(StartState state) {
         base.OnStart(state);dimensions=part.FindModuleImplementing<ConfigurableTank>();
-        if(dimensions==null)throw new InvalidOperationException("TowerControl requires ConfigurableTank dimensions");
-        dimensions.DimensionsChanged+=OnDimensionsChanged;
-        dimensions.showDimensionControls=false;Fields["extensionCount"].guiName=KSP.Localization.Localizer.Format(dimensions.extensionLabel);
+        if(!serviceHeightOnly) {
+            if(dimensions==null)throw new InvalidOperationException("TowerControl requires ConfigurableTank dimensions");
+            dimensions.DimensionsChanged+=OnDimensionsChanged;
+            dimensions.showDimensionControls=false;Fields["extensionCount"].guiName=KSP.Localization.Localizer.Format(dimensions.extensionLabel);
+        } else {
+            if(serviceStructureHeight<=0)throw new ArgumentException("Service-only tower height must be positive");
+            SetServiceFieldVisible(Fields["extensionCount"],false);
+        }
         Fields["heightStep"].guiName=KSP.Localization.Localizer.Format("#KIU_TowerControl_Step");
-        dimensions.Fields["extensionCount"].guiActiveEditor=false;
+        if(!serviceHeightOnly)dimensions.Fields["extensionCount"].guiActiveEditor=false;
         ReadServiceHeights(new ConfigNode());InitializeServiceDefaults();
         StartCoroutine(InitializeAfterDimensions());
     }
     private void InitializeServiceDefaults() {
-        if(dimensions==null||dimensions.baseHeight<=0||dimensions.segmentLength<=0)return;
+        if((!serviceHeightOnly && dimensions==null)||baseHeight<=0||segmentLength<=0)return;
         extensionCount=CurrentHeight;
         foreach(var s in serviceHeights) {
             if(GetServiceHeight(s)<0)SetServiceHeight(s,s.authored+(s.relativeToTop?segments*segmentLength:0));
@@ -53,11 +65,12 @@ public class TowerControl : PartModule {
     }
     private IEnumerator InitializeAfterDimensions() {
         yield return null;
-        if(!dimensions.ModelInitialized)dimensions.InitializeModel();
+        if(!serviceHeightOnly && !dimensions.ModelInitialized)dimensions.InitializeModel();
         MigrateLegacyState();ConfigureSegmentControl();ConfigureStructureControls();InitializeLaunchRetraction();
         ApplyServiceHeights(CurrentHeight,false);ResetHeightAnchors();QueueHeightUIRefresh();
     }
     private void MigrateLegacyState() {
+        if(serviceHeightOnly){stateVersion=1;return;}
         if(stateVersion>=1)return;
         var old=dimensions.GetLoadedStateSnapshot();bool migrated=false;
         if(old!=null) {
@@ -76,6 +89,7 @@ public class TowerControl : PartModule {
     }
     private float ControlValue(int count){return baseHeight+count*segmentLength;}
     private void ConfigureSegmentControl() {
+        if(serviceHeightOnly){SetServiceFieldVisible(Fields["extensionCount"],false);return;}
         extensionCount=CurrentHeight;var ui=Fields["extensionCount"].uiControlEditor as UI_FloatEdit;
         if(ui==null)return;ui.minValue=baseHeight;ui.maxValue=dimensions.MaximumModelHeight;
         ui.incrementLarge=0;ui.incrementSmall=HeightIncrement;ui.incrementSlide=0;ui.sigFigs=1;ui.useSI=false;ui.unit=" m";
@@ -83,7 +97,7 @@ public class TowerControl : PartModule {
         SynchronizeWidget("extensionCount",ui.partActionItem as UIPartActionFloatEdit,ui);
     }
     public void OnSegmentControlChanged(BaseField field,object previous) {
-        if(synchronizingHeightWidgets)return;
+        if(serviceHeightOnly || synchronizingHeightWidgets)return;
         float requestedHeight=SnapHeight("extensionCount",extensionCount);
         int count=Mathf.Clamp(Mathf.RoundToInt((requestedHeight-baseHeight)/segmentLength),0,dimensions.maxSegments);
         // PAW refreshes can echo an unchanged value. Do not rebuild every tower
@@ -113,7 +127,7 @@ public class TowerControl : PartModule {
         try {
             float v=Convert.ToSingle(Fields[name].GetValue(this));
             item.slider.minValue=source.minValue;item.slider.maxValue=source.maxValue;item.slider.SetValueWithoutNotify(v);
-            if(item.fieldValue!=null)item.fieldValue.text=KSPUtil.LocalizeNumber(v,"F1")+" m";
+            if(item.fieldValue!=null)item.fieldValue.text=KSPUtil.LocalizeNumber(v,ServiceFormat)+" m";
             var plus=item.incSmall==null?null:item.incSmall.GetComponent<Button>();var minus=item.decSmall==null?null:item.decSmall.GetComponent<Button>();
             if(plus!=null)plus.interactable=v<source.maxValue-.0001f;if(minus!=null)minus.interactable=v>source.minValue+.0001f;
         }finally{if(SliderBlock!=null)SliderBlock.SetValue(item,blocked);synchronizingHeightWidgets=wasSynchronizing;}
@@ -210,7 +224,7 @@ private void RetractLaunchArms()
     private readonly Dictionary<string,UIPartActionFloatEdit> heightWidgets=new Dictionary<string,UIPartActionFloatEdit>();
     private float SnapHeight(string name,float value) {
         float anchor; if(!heightAnchors.TryGetValue(name,out anchor))anchor=0;
-        return Mathf.Round((anchor+Mathf.Round((value-anchor)/HeightIncrement)*HeightIncrement)*10f)/10f;
+        return Mathf.Round((anchor+Mathf.Round((value-anchor)/HeightIncrement)*HeightIncrement)*HeightPrecision)/HeightPrecision;
     }
     private void ResetHeightAnchors() {
         heightAnchors["extensionCount"]=ControlValue(segments);
@@ -240,7 +254,7 @@ private void RetractLaunchArms()
     }
     private void StepHeight(string name,int direction) {
         float old=Convert.ToSingle(Fields[name].GetValue(this));
-        Fields[name].SetValue(Mathf.Round((old+direction*HeightIncrement)*10f)/10f,this);
+        Fields[name].SetValue(Mathf.Round((old+direction*HeightIncrement)*HeightPrecision)/HeightPrecision,this);
         if(name=="extensionCount")OnSegmentControlChanged(Fields[name],old);else OnServiceHeightChanged(Fields[name],old);
         heightWidgets.Clear();MonoUtilities.RefreshContextWindows(part);
     }
@@ -328,7 +342,7 @@ private void RetractLaunchArms()
         foreach(var s in serviceHeights) {
             UI_FloatEdit ui=Fields[s.FieldName].uiControlEditor as UI_FloatEdit;
             float min,max;ServiceBounds(s,height,out min,out max);
-            if(ui!=null){ui.minValue=min;ui.maxValue=max;ui.incrementLarge=0;ui.incrementSmall=HeightIncrement;ui.incrementSlide=0;ui.sigFigs=1;ui.useSI=false;ui.unit=" m";}
+            if(ui!=null){ui.minValue=min;ui.maxValue=max;ui.incrementLarge=0;ui.incrementSmall=HeightIncrement;ui.incrementSlide=0;ui.sigFigs=serviceHeightOnly?3:1;ui.useSI=false;ui.unit=" m";}
             SetServiceFieldVisible(Fields[s.FieldName],s.option.gameObject.activeInHierarchy);
             LayoutHeightWidget(s.FieldName,ui==null?null:ui.partActionItem as UIPartActionFloatEdit);
             SynchronizeWidget(s.FieldName,ui==null?null:ui.partActionItem as UIPartActionFloatEdit,ui);
@@ -343,7 +357,7 @@ private void RetractLaunchArms()
         SetServiceHeight(s,bounded);
         if(Mathf.Abs(requested-bounded)>.001f)heightAnchors[s.FieldName]=bounded;
         ApplyServiceHeights(baseHeight+segments*segmentLength,false);
-        dimensions.RequestRendererRefresh();
+        if(dimensions!=null)dimensions.RequestRendererRefresh();
         heightWidgets.Clear();MonoUtilities.RefreshContextWindows(part);
         if(EditorLogic.fetch!=null)GameEvents.onEditorShipModified.Fire(EditorLogic.fetch.ship);
         QueueHeightUIRefresh();
@@ -399,7 +413,7 @@ private void RetractLaunchArms()
             LayoutHeightWidget(s.FieldName,item);
             SynchronizeWidget(s.FieldName,item,ui);
         }
-        if(changed){dimensions.RequestRendererRefresh();MonoUtilities.RefreshContextWindows(part);}
+        if(changed){if(dimensions!=null)dimensions.RequestRendererRefresh();MonoUtilities.RefreshContextWindows(part);}
     }
     private static void SetServiceFieldVisible(BaseField field,bool visible) {
         field.guiActiveEditor=visible;field.guiActive=false;
