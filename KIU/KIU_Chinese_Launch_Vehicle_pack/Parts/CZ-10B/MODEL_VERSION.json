@@ -401,5 +401,21 @@
     "common_textures_unchanged": true,
     "native_retested": false,
     "record": "local_workspace/CZ-10B/working/refinement_1.0.2/review/pipe_finish_20261030/changes.json"
+  },
+  "yf219_three_modes_20261031": {
+    "mode_order": [
+      "Vacuum",
+      "Stage2Temporary",
+      "SeaLevel"
+    ],
+    "stage2_temporary_label": "二级临时版YF-219",
+    "stage2_temporary_source_sha256": "c66df12c8672742ab838905c8023e031a30ea590977abb12078c52de710db8bf",
+    "stage2_temporary_rf_configuration": "YF-219E",
+    "stage2_temporary_bottom_node_y": -4.425,
+    "existing_modes_geometry_and_performance_unchanged": true,
+    "dll_unchanged": true,
+    "native_retested": false,
+    "verification": "local_workspace/CZ-10B/working/refinement_1.0.2/review/yf219_three_modes_20261031/verified.json",
+    "recipe": "local_workspace/CZ-10B/working/refinement_1.0.2/tools/build_yf219_three_modes102.py"
   }
 }
