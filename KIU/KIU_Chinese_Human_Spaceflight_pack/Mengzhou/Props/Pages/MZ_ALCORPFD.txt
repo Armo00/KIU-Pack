@@ -1,0 +1,20 @@
+[hw][font0][#77FF77FF]   PFD    [#CEE3F6FF]|[#CEE3F6FF]   TARGET  [#CEE3F6FF]|[#CEE3F6FF]           [#CEE3F6FF]|[#CEE3F6FF]   VESSEL  [#CEE3F6FF]|[#CEE3F6FF]   GRAPHS  [#CEE3F6FF]|[#CEE3F6FF]          [#CEE3F6FF]|[#CEE3F6FF]RESOURCES
+ [#FFFF00FF][@y10]{0:SIP_6.1}m                      {1:SIP4}m/s     $&$ ALTITUDE SURFSPEED
+
+[@y-10] [#00FF00FF]               {0,6:000.0}° $&$ HEADING
+ [#FFFF00FF] {0:SIP_6.1}m                      {1:SIP4}m/s     $&$ ORBTSPEED ACCEL
+[#FFFFFFFF][@y8][hw]SPEEDMODE: [/hw][#{0:"1111FF";"FF00FFFF";"FFFF00FF"}]{0:ORB;TGT;SRF}                                  $&$ SPEEDDISPLAYMODE 
+             [font3][#{0:"FF000099";"FF00FF66";"00000000"}] MASTER ALARM [font0]$&$ CUSTOM_KIU_MZ_MASTER_ALARM
+  
+[#00FF00FF] [@x-2]{0,6:000.0}°                        [@x2]{1,6:000.0}° $&$ ROLL PITCH
+
+
+ [@y10]       [font3][#{7:"FFFFFF99";"00000000";"00000000"}]TWR:{7:0.00}[font0]        {1:"";;"                                                           "}[font3][#{1:"00FF0099";"FF00FF99";"00000000"}]{0:">STAB ON<";"";""}[#{2:"FFFF0099";"FFFF0099";"00000000"}]{2:PROGRADE;RETROGRADE;""}[#{3:"FF00FF99";"FF00FF99";"00000000"}]{3:NORMAL + ;NORMAL - ;""}[#{4:"00deff99";"00deff99";"00000000"}]{4:RADIAL + ;RADIAL - ;""}[#{5:"FF00FF99";"FF00FF99";"00000000"}]{5:TGT + ;TGT - ;""}[#{6:"1111FF99";"1111FF99";"00000000"}]{6:MANEUVER +;MANEUVER -;""}            $&$ SASMODESTABILITY SAS SASMODEPROGRADE SASMODENORMAL SASMODERADIAL SASMODETARGET SASMODEMANEUVER TWR
+				 
+                                   [hw] SPEED[/hw][@y8]-
+                                    [hw]MODE
+
+{0:"";"                                        ";""}[#FFFFFF55]-Node in T---ΔV:--- Est.Burn T--THRTL--------------------------- $&$MNODEEXISTS
+{3:"";"[#848484FF]                                                   ";""}[#{0:"FF0000FF";"00FF00FF";"FFFF00FF"}]{0:MET+h:mm:ss.f}[#FFFFFFFF]|[#FFFF00FF]{1,9:0.00}[#FFFFFFFF] | [#81BEF7FF]{4:KDTmm:ss.f}[#FFFFFFFF] | [#FE9A2EFF]{2,5:P0} $&$ MNODETIMESECS  MNODEDV THROTTLE MNODEEXISTS MNODEBURNTIMESECS 
+[hw]R.ALT[/hw]:[#FFFF00FF]{0:SIP_6.3}m  [hw][#FFFFFFFF]H.SPD[/hw]:[#FFFF00FF]{1:SIP_6.3}m/s  [hw][#FFFFFFFF]V.SPD[/hw]:[#{2:00FF00FF;FF0000FF;FFFF00FF}]{2:SIP_6.3}m/s      $&$RADARALTOCEAN  HORZVELOCITY VERTSPEED 
+[hw][font0][#CEE3F6FF]  RETURN  [#CEE3F6FF]|[#CEE3F6FF]   ORBIT   [#CEE3F6FF]|[#CEE3F6FF]    DOCK   [#CEE3F6FF]|[#CEE3F6FF]    LOG    [#CEE3F6FF]|[#CEE3F6FF]    CREW   [#CEE3F6FF]|[#CEE3F6FF] SCIENCE  [#CEE3F6FF]|[#CEE3F6FF]

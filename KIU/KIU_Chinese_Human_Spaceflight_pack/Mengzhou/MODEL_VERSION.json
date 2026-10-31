@@ -1,44 +1,79 @@
 {
   "model_project": "Mengzhou-IVA",
-  "state": "archived_development_milestone",
-  "date": "2026-10-28",
+  "version": "0.4.0-dev",
+  "state": "archived_integrated_cockpit",
+  "date": "2026-10-30",
+  "baseline_runtime_commit": "dc81e1f6ed629eced2b3dffcc8d7cb1ce2a72320",
   "crew": 7,
   "layout": "front 3 / rear 4; seated facing Part TopNode",
   "supported_rescaleFactor": 1.0,
   "internal": "KIU_Mengzhou_IVA",
-  "archive_baseline": {
-    "version": "0.1.0-dev",
-    "source": "KIU-Model/Mengzhou-IVA/versions/v0.1.0-dev/Mengzhou_IVA_0.1.0-dev.blend",
-    "commit": "3721961ceca1408d28b57c828334c5ab7c84bd7a",
-    "unchanged": true
+  "working_source": "local_workspace/Mengzhou_IVA/cockpit_rebuild_20261030/Mengzhou_IVA_COCKPIT_WORKING.blend",
+  "working_source_sha256": "4202ee218b410d81293245888933f5e45e595bdd11e6d0bf1db6e6af280f76c9",
+  "enhanced_instruments_controls_and_fittings": 144,
+  "seat_props": 7,
+  "operator_stations": 3,
+  "console_surfaces": 5,
+  "mfd_outer_width_m": 0.261,
+  "custom_action_groups": 10,
+  "windows": {
+    "count": 2,
+    "registered_to_existing_exterior": true,
+    "exterior_model_and_textures_changed": false,
+    "all_seven_seats_have_both_window_sightlines": true
   },
-  "working_source": "local_workspace/Mengzhou_IVA/rebuild_20261028/Mengzhou_IVA_REBUILD_WORKING.blend",
-  "working_source_sha256": "89739d3c6d802d6e2bc1d8f583d8d7006f29933621c215d0a06609d89559235f",
+  "interior_relayout": {
+    "reason": "Clear the unchanged external port-window sightline",
+    "galley_front_x": -1.42,
+    "galley_z_bounds": [
+      -0.79,
+      -0.15
+    ],
+    "table_translation": [
+      -0.17,
+      0,
+      -0.35
+    ],
+    "seated_transforms_changed": false,
+    "exterior_model_changed": false,
+    "animation_channels_preserved": true
+  },
+  "lights": {
+    "cabin": 3,
+    "deck": 2,
+    "panel_backlight": "shared numeric input drives original ASET and owned legends"
+  },
   "validation": {
-    "offline_contracts": "passed",
-    "serialized_geometry_and_animation": "passed",
-    "readback_visual": "inspected",
+    "source_and_mu_roundtrip": "passed",
+    "crew_and_shell_intersections": 0,
+    "prop_surface_overlaps": 0,
+    "table_clearance_frames": [
+      1,
+      31,
+      60
+    ],
+    "window_sightlines": "passed",
     "native_tested": true,
-    "previous_native_results_apply": false,
-    "evidence": "KIU-Model/Mengzhou-IVA/versions/v0.2.0-dev/verification",
-    "native_acceptance_complete": false,
-    "native_run": "mengzhou-iva-20261028-a",
-    "native_evidence": "KIU-Model/Mengzhou-IVA/versions/v0.2.0-dev/verification/native_validation.json",
-    "pending": [
-      "Table and privacy door click/animation/collision in game: exported animation roundtrip passed, but the installed control API has no generic JSI dummy-switch callback. No new DLL or OS click fallback used.",
-      "Full MFD button/page interaction: the installed rpm_button API is scoped to Axiom. Four default pages render correctly in this run; other page transitions remain untested.",
-      "Actual zero-g movement through the top docking tunnel into the connected cabin. Connection and top door open/close verified; no traversed-transfer claim.",
-      "Native fallback with ASET/RPM absent; validated offline only.",
-      "Rear middle seats 5/6 have substantial front-seat occlusion. This limitation remains documented in the user-authorized publication milestone.",
-      "RPM OnDestroy exceptions seen during scene unload/exit; current evidence does not establish root cause or a clean-log acceptance."
-    ]
+    "native_scope": "bounded stationary-vehicle checks",
+    "native_run": "mengzhou-iva-20261030-e",
+    "native_checks": 113,
+    "full_flight_tested": false,
+    "final_docking_no_target_guard": "offline configuration checks only; added after native capture",
+    "limitations": [
+      "Test fixture was stationary; no full reentry, engine ignition, actual staging, abort, undocking or parachute deployment was performed.",
+      "SAS prograde was correctly unavailable in the initial Surface reference state; a valid in-flight prograde transition was not repeated in this run.",
+      "Vessel, graph and science pages loaded but were not individually activated: the test bridge rejected button_D before input. Flight, return and the custom docking page were exercised.",
+      "After native capture, the docking no-target presentation was changed to a separate TARGETISDOCKINGPORT text branch to remove invalid distance/NaN data; this final presentation guard has offline configuration checks only.",
+      "Offscreen reference images render IVA layers; seated window and parallax screenshots are complete native screen captures. Near-window parallax views are explicitly inspection cameras, not seat positions."
+    ],
+    "archive_reexport": "41 gameplay files byte-identical to the reviewed working version",
+    "archive_reexport_evidence": "KIU-Model/Mengzhou-IVA/versions/v0.4.0-dev/verification/archive_reexport.json"
   },
-  "ksp_deployed": true,
+  "source_archive": "KIU-Model/Mengzhou-IVA/versions/v0.4.0-dev/Mengzhou_IVA_0.4.0-dev.blend",
+  "archive_source_sha256": "f4f59704a0c962c07fd23d9c617823ad7975aba7115b8282174d8c12534a8f1d",
+  "validation_report": "KIU-Model/Mengzhou-IVA/versions/v0.4.0-dev/verification/FINAL_VALIDATION.json",
+  "ksp_deployment_state": "temporary validation deployment restored after exit",
   "archive_created": true,
-  "ksp_deployment_state": "temporary test deployment restored after exit",
-  "version": "0.2.0-dev",
-  "source_archive": "KIU-Model/Mengzhou-IVA/versions/v0.2.0-dev/Mengzhou_IVA_0.2.0-dev.blend",
-  "archive_source_sha256": "156a1d4a28f40d4bb842957731d0d181bb20b56d6323782b5d4a1947186fbc4b",
-  "publication_authorized": "2026-10-28 user requested commit and push",
-  "source_archive_commit": "456f8dbed6b8a266bcd5d25bb1176244e249559a"
+  "publication_authorized": "2026-10-30: user requested push of the reviewed Mengzhou IVA revision",
+  "source_archive_commit": "39993b243d8c1abdb98a56a9599f0500103a688b"
 }

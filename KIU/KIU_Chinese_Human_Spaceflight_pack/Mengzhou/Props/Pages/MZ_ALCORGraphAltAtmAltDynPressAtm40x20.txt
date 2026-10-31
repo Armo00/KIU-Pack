@@ -1,0 +1,20 @@
+[hw][font0][#CEE3F6FF]   PFD    [#CEE3F6FF]|[#CEE3F6FF]   TARGET  [#CEE3F6FF]|[#CEE3F6FF]           [#CEE3F6FF]|[#CEE3F6FF]   VESSEL  [#CEE3F6FF]|[#77FF77FF]   GRAPHS  [#CEE3F6FF]|[#CEE3F6FF]          [#CEE3F6FF]|[#CEE3F6FF]RESOURCES
+[sub][hw][@y-14]125 [/sub][/hw]                                 [#FFFFFFFF][@y0][hw] ALT(ASL)
+                                   [#00FF00FF][@y0][hw] {0:SIP8.2}m $&$ ALTITUDE
+                                   [#FFFFFF44][@y0][hw]    [sup]X1000                                       
+                                   [#FFFFFFFF][@y0][hw] ApA:
+                                   [@y0][#00FFFFFF][hw] {0:SIP8.2}m  $&$  APOAPSIS
+[#FFFFFF22] [@y-146][hw][sub]120 [/sub][/hw]¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥[@y0][#FFFFFF44][hw]    [sup]X1000
+[#FFFFFF22] [@y-134][hw][sub]110 [/sub][/hw]¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥[@y0][#FFFFFFFF][hw] PeA:
+[#FFFFFF22] [@y-122][hw][sub]100 [/sub][/hw]¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥[@y0][#FF8800FF][hw] {0:SIP8.2}m   $&$ PERIAPSIS
+[#FFFFFF22] [@y-110][hw][sub]90  [/sub][/hw]¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥[@y0][#FFFFFF44][hw]    [sup]X1000
+[#FFFFFF22] [@y-98][hw][sub]80  [/sub][/hw]¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥[@y0][#FFFFFFFF][hw] Srf.spd
+[#FFFFFF22] [@y-86][hw][sub]70  [/sub][/hw]¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥[@y0][#FFFF00FF][hw] {0:SIP6.1}m/s $&$ SURFSPEED  
+[#FFFFFF22] [@y-73][hw][sub]60  [/sub][/hw]¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥[@y0][#FFFFFF44][hw]    [sup]X20
+[#FFFFFF22] [@y-61][hw][sub]50  [/sub][/hw]¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥[@y0][#FFFFFFFF][hw] DynPres:
+[#FFFFFF22] [@y-49][hw][sub]40  [/sub][/hw]¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥[@y0][#FF0000FF][hw] {0:SIP8}   $&$ DYNAMICPRESSURE
+[#FFFFFF22] [@y-37][hw][sub]30  [/sub][/hw]¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥[@y0][#FFFFFF44][hw]    [sup]X1 kPa
+[#FFFFFF22] [@y-25][hw][sub]20  [/sub][/hw]¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥[@y0][#{0:"00000000";"FFFFFFFF";"FFFFFFFF"}][hw] Shield $&$ CUSTOM_NOHEATSHIELD
+[#FFFFFF22] [@y-13][hw][sub]10  [/sub][/hw]¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥[@y0][#{1:"00000000";"FF00FFFF";"FF00FFFF"}][hw] {0:SIP4}	$&$	HEATSHIELDTEMPERATURE CUSTOM_NOHEATSHIELD					   
+ 0  [@x-64][@y{0}][#{1:"1010ff33";"00000000";"00000000"}][font2]ATM[font0][#{1:"1010ff55";"00000000";"00000000"}]¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥[@y0][#{2:"00000000";"FFFFFF44";"FFFFFF44"}][hw][sup]    X20 $&$ MAPPED_ATMTOP40X20 ORBITBODYATMOSPHERE CUSTOM_NOHEATSHIELD
+[hw][font0][#CEE3F6FF]  RETURN  [#CEE3F6FF]|[#CEE3F6FF]   ORBIT   [#CEE3F6FF]|[#CEE3F6FF]    DOCK   [#CEE3F6FF]|[#CEE3F6FF]    LOG    [#CEE3F6FF]|[#CEE3F6FF]    CREW   [#CEE3F6FF]|[#CEE3F6FF] SCIENCE  [#CEE3F6FF]|[#CEE3F6FF]
