@@ -417,5 +417,107 @@
     "native_retested": false,
     "verification": "local_workspace/CZ-10B/working/refinement_1.0.2/review/yf219_three_modes_20261031/verified.json",
     "recipe": "local_workspace/CZ-10B/working/refinement_1.0.2/tools/build_yf219_three_modes102.py"
+  },
+  "mechanics_revision_20261031": {
+    "hook_fixed_bracket_restored_from_supplied_model": true,
+    "hook_independent_conformal_standoffs": true,
+    "hook_original_motion_unchanged": true,
+    "baffle_top_lowered_m": 0.04,
+    "outer_seat_flange_max_trim_m": 0.08386369037580288,
+    "engine_nodes_feeds_and_inner_bore_unchanged": true,
+    "pipe_material_domains_restored": true,
+    "pipe_palette_resolution": [
+      1024,
+      1024
+    ],
+    "native_scope": "Hook stow/deploy, bay clearance, S1/S2 pipe materials, S1 extension=3, Nine 0.3/0.5 B9 switching",
+    "evidence": "local_workspace/CZ-10B/working/refinement_1.0.2/review/mechanics_20261031/native_verified.json",
+    "not_full_flight_certification": true
+  },
+  "runtime_appearance_revision_20261031": {
+    "target": "User-approved six-direction KIU render colours",
+    "runtime_mu_and_private_textures_only": true,
+    "graphics_pipeline_unchanged": true,
+    "public_library_unchanged": true,
+    "native_rounds": [
+      "r1",
+      "r2",
+      "r3",
+      "r4",
+      "r5"
+    ],
+    "four_raised_clevis_ears_per_hook": true,
+    "fixed_pivot_axis_and_animation_preserved": true,
+    "normal_binding_verified": true,
+    "evidence": "local_workspace/CZ-10B/working/refinement_1.0.2/review/mechanics_20261031/appearance/runtime_match/r5/validation.json"
+  },
+  "followup_20261031": {
+    "status": "scoped native verification complete; working copy, uncommitted",
+    "hook_lower_spacer_m": 0.02,
+    "hook_previous_lower_spacer_m": 0.18,
+    "four_bearing_ears_retained": true,
+    "pink_cast_removed_from_neutral_materials": true,
+    "private_decal_edge_cleanup": true,
+    "cutout_alpha_scale": 2,
+    "cutout_threshold": 1,
+    "public_texture_library_modified": false,
+    "real_runtime_YF100_scale": 1,
+    "seven_YF100_mount_raise_m": 0.6,
+    "seven_YF100_cone_limit_degrees": 3,
+    "five_degree_fit_passed": false,
+    "engine1_clock_delta_degrees": 5,
+    "new_plugin": "Plugins/CZ10BHeatshieldFollower.dll",
+    "new_plugin_sha256": "0334feb95b8c6c7c7c83cc69dd8877c79ae12274bb227b616028d02059fb7de1",
+    "YF100_geometry_and_performance_unchanged": true,
+    "follower_scope": "Seven attached YF100; restores original 8/16 ranges when inactive; no input or rendering pipeline edits",
+    "native_max_angle_degrees": 3.0000250684885645,
+    "native_follow_error_m": 2.037049232797034e-06,
+    "evidence": "local_workspace/CZ-10B/working/refinement_1.0.2/review/followup_20261031/native_verified.json",
+    "validation_scope": "Held ground fixture, real 1x engine, native positive/negative Pitch/Yaw/Roll and baked skins; not a full ascent or structural-stress qualification",
+    "source_archive_updated": false,
+    "geometry_and_tvc_status": "superseded_by_original_structure_repair_20261101; appearance corrections retained"
+  },
+  "original_hook_restore_20261101": {
+    "source_geometry_restored": true,
+    "added_standoffs_and_reprofiled_ears_removed": true,
+    "outward_180mm_reverted": true,
+    "source_animation_samples_checked": 41,
+    "max_vertex_error_m": 8.374181561521254e-06,
+    "closed_interstage_installation": "Unresolved: original hydraulic cylinder intrudes about 0.155m into the nominal full cylinder. Hook shape retained per user instruction; no new bracket deformation.",
+    "native_retested": false,
+    "engine_bay_original_shape_review": "in_progress; no engine bay runtime changes in this action",
+    "evidence": "local_workspace/CZ-10B/working/refinement_1.0.2/review/original_restore_20261101/hook_restore.json"
+  },
+  "original_structure_repair_20261101": {
+    "status": "native verified working revision, uncommitted",
+    "hook_original_geometry": true,
+    "hook_closed_backlined_recess": true,
+    "engine_bay": "Original baffle,3flexible boots,4rigid collars; rejected added skirt removed",
+    "YF100_scale": 1,
+    "moving_engines": [
+      0,
+      1,
+      4
+    ],
+    "fixed_engines": [
+      2,
+      3,
+      5,
+      6
+    ],
+    "node_y_m": 3.408620714874939,
+    "radial_centers_and_clocking": "Original reference",
+    "TVC_limit_degrees": 3,
+    "five_degree_exterior_passed": false,
+    "source_reference_TVC_limit_degrees": 3,
+    "max_measured_angle_degrees": 2.9999652922065208,
+    "native_follow_max_error_m": 1.8810908601354956e-06,
+    "geometry_repair": "Original inner bores/lower bands locally fitted; source folds/material partitions retained",
+    "ignore_hidden_internal_intersections": "Explicit user requirement",
+    "no_shared_engine_mesh_or_performance_edit": true,
+    "rendering_pipeline_modified": false,
+    "replaces_earlier_seven_donor_shield_design": true,
+    "native_evidence": "local_workspace/CZ-10B/working/refinement_1.0.2/review/original_restore_20261101/implementation_A/r5_native_geometry.json",
+    "source_archive_updated": false
   }
 }
