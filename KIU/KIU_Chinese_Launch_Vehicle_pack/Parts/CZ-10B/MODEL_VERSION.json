@@ -519,5 +519,26 @@
     "replaces_earlier_seven_donor_shield_design": true,
     "native_evidence": "local_workspace/CZ-10B/working/refinement_1.0.2/review/original_restore_20261101/implementation_A/r5_native_geometry.json",
     "source_archive_updated": false
+  },
+  "heatshield_symmetry_fix_20261101": {
+    "baseline_commit": "fe7bc35",
+    "status": "native_verified_uncommitted",
+    "cause": "Absolute engine installation clocking was copied into a partially weighted heatshield bone",
+    "fix": "Apply actual world-space gimbal delta from ModuleGimbal neutral rotation to authored bone rest frame",
+    "activation": "Automatic in editor and flight; no separate bay stage",
+    "geometry_and_textures_changed": false,
+    "runtime_dll_sha256": "21fb55a024c4e90c6f4f0cdde4434afb4b23e8a35f6a06d6c521cca282535de5",
+    "vab_cases": [
+      "center only",
+      "one outer",
+      "sixfold",
+      "sixfold+30",
+      "default clocking",
+      "sixfold-90",
+      "authored",
+      "reload"
+    ],
+    "flight": "neutral before ignition, active3degree pitch/yaw/roll, save/reload, default clocking",
+    "source_archive_updated": false
   }
 }

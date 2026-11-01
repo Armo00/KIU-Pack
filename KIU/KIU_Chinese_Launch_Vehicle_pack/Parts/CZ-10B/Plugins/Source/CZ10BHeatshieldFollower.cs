@@ -19,6 +19,7 @@ public sealed class CZ10BHeatshieldFollower : PartModule
     {
         public string nodeName;
         public Transform bone, source;
+        public ModuleGimbal sourceGimbal;
         public Part engine;
         public bool movable;
         public Vector3 restPosition;
@@ -102,15 +103,48 @@ public sealed class CZ10BHeatshieldFollower : PartModule
     public override void OnStart(StartState state)
     {
         base.OnStart(state);
+        foreach (Slot previous in slots) Restore(previous);
         slots.Clear();
         for (int i = 0; i < 7; i++)
         {
             Transform bone = part.FindModelTransform(bonePrefix + i);
             if (bone == null) continue;
+            // A copied editor assembly can contain a currently posed skin.
+            // The Part prefab retains the authored rest pose in the same
+            // local parent frame; do not make a posed clone the new bind pose.
+            Transform rest = part.partInfo != null && part.partInfo.partPrefab != null
+                ? part.partInfo.partPrefab.FindModelTransform(bonePrefix + i) : null;
             slots.Add(new Slot { nodeName = nodePrefix + i, bone = bone,
                 movable = Array.Exists(movableSlots.Split(','), value => value.Trim() == i.ToString()),
-                restPosition = bone.localPosition, restRotation = bone.localRotation });
+                restPosition = rest == null ? bone.localPosition : rest.localPosition,
+                restRotation = rest == null ? bone.localRotation : rest.localRotation });
         }
+    }
+    private bool TryNeutralRotation(Slot slot, out Quaternion neutral)
+    {
+        neutral = Quaternion.identity;
+        if (slot.source == null || slot.engine == null) return false;
+        ModuleGimbal g = slot.sourceGimbal;
+        if (g == null)
+        {
+            g = slot.engine.FindModulesImplementing<ModuleGimbal>().Find(m => m.gimbalTransformName == engineGimbalName);
+            slot.sourceGimbal = g;
+        }
+        Quaternion local;
+        int index = g == null || g.gimbalTransforms == null ? -1 : g.gimbalTransforms.IndexOf(slot.source);
+        if (index >= 0 && g.initRots != null && index < g.initRots.Count)
+            local = g.initRots[index];
+        else
+        {
+            // During editor attachment the engine's OnStart may run a frame
+            // later. Read the prefab rest orientation, never the live angle.
+            Part prefab = slot.engine.partInfo == null ? null : slot.engine.partInfo.partPrefab;
+            Transform original = prefab == null ? null : prefab.FindModelTransform(engineGimbalName);
+            if (original == null) return false;
+            local = original.localRotation;
+        }
+        neutral = (slot.source.parent == null ? Quaternion.identity : slot.source.parent.rotation) * local;
+        return true;
     }
     public void LateUpdate()
     {
@@ -129,21 +163,28 @@ public sealed class CZ10BHeatshieldFollower : PartModule
         Fields["maxEngineAngle"].guiActiveEditor = visible;
         foreach (Slot slot in slots)
         {
-            if (slot.bone == null) { Restore(slot); slot.engine = null; slot.source = null; continue; }
+            if (slot.bone == null) { Restore(slot); slot.engine = null; slot.source = null; slot.sourceGimbal = null; continue; }
             AttachNode attach = part.FindAttachNode(slot.nodeName);
             Part engine = attach == null ? null : attach.attachedPart;
-            if (engine == part.parent || !slot.bone.gameObject.activeInHierarchy) engine = null;
+            if (!slot.bone.gameObject.activeInHierarchy) engine = null;
             if (engine != slot.engine || (engine != null && slot.source == null))
             {
                 Restore(slot);
                 slot.engine = engine;
                 slot.source = engine == null ? null : engine.FindModelTransform(engineGimbalName);
+                slot.sourceGimbal = null;
+                if (slot.source != null && slot.source.GetComponentInParent<Part>() != engine) slot.source = null;
             }
             Cap(slot);
-            if (slot.source != null && slot.bone.gameObject.activeInHierarchy)
+            Quaternion sourceNeutral;
+            if (slot.source != null && slot.bone.gameObject.activeInHierarchy && TryNeutralRotation(slot, out sourceNeutral))
             {
                 slot.bone.position = slot.source.position;
-                slot.bone.rotation = slot.source.rotation;
+                Quaternion delta = slot.source.rotation * Quaternion.Inverse(sourceNeutral);
+                Quaternion authored = (slot.bone.parent == null ? Quaternion.identity : slot.bone.parent.rotation) * slot.restRotation;
+                // Transfer only actual TVC motion in world space. Engine roll
+                // clocking from sixfold symmetry is installation, not motion.
+                slot.bone.rotation = delta * authored;
             }
             else
             {
