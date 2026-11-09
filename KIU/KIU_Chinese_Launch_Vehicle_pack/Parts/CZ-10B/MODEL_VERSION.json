@@ -556,5 +556,29 @@
     },
     "offline_scope": "13 MU files including base and B9 models; separate procedural fairing DDS. No in-game procedural fairing check.",
     "evidence": "local_workspace/CZ-10B/working/refinement_1.0.2/review/kiu_white_20261108"
+  },
+  "cz7_matte_20261109": {
+    "reference": "CZ-7 Stage 1 white paint with its SurfaceGloss / Matte subtype",
+    "default_paint": {
+      "_SpecColor": [
+        0.02,
+        0.02,
+        0.02,
+        1
+      ],
+      "_Shininess": 0.01
+    },
+    "stage1_external_pipes": "CZ-7 neutral tones; tube darker than body white, clamps and feet progressively darker.",
+    "native_runs": [
+      "cz10b-cz7matte-1109-a",
+      "cz10b-cz7matte-1109-b"
+    ],
+    "native_comparison": "VAB material rings and S1 pipe detail. Reference colour measurements use repeat B with confirmed textures and CZ-7 part switched to Matte.",
+    "mean_absolute_rgb_error_8bit": {
+      "before": 4.183,
+      "after": 0.591
+    },
+    "procedural_fairing": "Exterior gloss cleared in all texture mips. Upstream mesh with B9 matte binding checked in VAB; generated procedural shape not exercised.",
+    "evidence": "local_workspace/CZ-10B/working/refinement_1.0.2/review/cz7_matte_20261109"
   }
 }
