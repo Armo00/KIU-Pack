@@ -540,5 +540,21 @@
     ],
     "flight": "neutral before ignition, active3degree pitch/yaw/roll, save/reload, default clocking",
     "source_archive_updated": false
+  },
+  "family_white_20261108": {
+    "reference": "CZ-10 Stage 1 default white paint; CZ-7 Stage 1 base tint cross-checked",
+    "native_run": "cz10b-white-1108-a",
+    "native_geometry_views": [
+      "S1Tank",
+      "S2Tank",
+      "Fairing",
+      "Interstage"
+    ],
+    "vab_sample_mean_abs_rgb_8bit": {
+      "before": 28.53,
+      "after": 1.84
+    },
+    "offline_scope": "13 MU files including base and B9 models; separate procedural fairing DDS. No in-game procedural fairing check.",
+    "evidence": "local_workspace/CZ-10B/working/refinement_1.0.2/review/kiu_white_20261108"
   }
 }
