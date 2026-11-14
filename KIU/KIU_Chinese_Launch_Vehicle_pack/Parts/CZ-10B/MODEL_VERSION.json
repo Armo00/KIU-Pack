@@ -580,5 +580,26 @@
     },
     "procedural_fairing": "Exterior gloss cleared in all texture mips. Upstream mesh with B9 matte binding checked in VAB; generated procedural shape not exercised.",
     "evidence": "local_workspace/CZ-10B/working/refinement_1.0.2/review/cz7_matte_20261109"
+  },
+  "nine_rf_interstage_20261114": {
+    "working_source": "local_workspace/CZ-10B/working/refinement_1.0.2/review/nine_rf_1114/CZ10B_nine_interstage_1114_WORKING.blend",
+    "report": "local_workspace/CZ-10B/working/refinement_1.0.2/review/nine_rf_1114/REPORT.html",
+    "rf_multipliers": [
+      1.04,
+      1.068
+    ],
+    "tested": [
+      "cz10b-nine-rf-20261114-a",
+      "cz10b-nine-rf-20261114-b",
+      "cz10b-nine-rf-20261114-c"
+    ],
+    "files": {
+      "Assets/CZ10B_IS_Short_NoHook.dds": "2a6d5b8b692a59db5a22c24dfa711aa70e8a86d0841cd8402efa5befe926bf27",
+      "Assets/EngineSkirtSwitch.mu": "418c70a8d894f303797651a2aedbc9d754e6efbee21d9c324f575515778e5ecf",
+      "Assets/InterstageSwitch.mu": "c70e90a3cd9635d686a24796d3130e5b3789dfbdb2b241bcaf12e05d4c29096f",
+      "Compatibility/RealFuels/CZ-10B.cfg": "c5efa8bdff5e2daff79924fdf362cec4ea7090c8a8010602aa22fb47009c3107",
+      "S1Tank/part.cfg": "ff972a6f8b41edd20a7d3cb69dde211f8d5db052cb14d634a92d8f0e6a0f5109",
+      "S2Tank/part.cfg": "816a0b813efcffdc0586723e07a099940ebc03e463e633b7dde466acf177fbb6"
+    }
   }
 }
