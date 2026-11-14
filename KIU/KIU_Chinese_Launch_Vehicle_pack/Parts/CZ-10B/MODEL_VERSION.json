@@ -601,5 +601,31 @@
       "S1Tank/part.cfg": "ff972a6f8b41edd20a7d3cb69dde211f8d5db052cb14d634a92d8f0e6a0f5109",
       "S2Tank/part.cfg": "816a0b813efcffdc0586723e07a099940ebc03e463e633b7dde466acf177fbb6"
     }
+  },
+  "nine_bay_outer_profile_20261114": {
+    "reference_before_widening": "aaec460",
+    "widening_introduced": "6d9a824",
+    "previous_runtime": "d2f684a",
+    "sha256": "f19f0f1b9823b30c540d765a40ea16519bc5045938312f7261ce81e7c5a37117",
+    "changed_meshes": [
+      "/EngineSkirtSwitch/NineEngineBay/Nine_Drop00/Mesh_CZ10B_engine_bay_thermal_shield",
+      "/EngineSkirtSwitch/NineEngineBay/Nine_Drop30/Mesh_CZ10B_engine_bay_thermal_shield",
+      "/EngineSkirtSwitch/NineEngineBay/Mesh_CZ10B101_grey",
+      "/EngineSkirtSwitch/NineEngineBay/Mesh_CZ10B101_grey/Surface102_S1_Raceways_RW"
+    ],
+    "working_source": "local_workspace/CZ-10B/working/refinement_1.0.2/review/nine_outline/CZ10B_Nine_Outer_Profile_1.0.2_WORKING.blend",
+    "offline_verification": "local_workspace/CZ-10B/working/refinement_1.0.2/review/nine_outline/verified.json",
+    "scope": "Original Nine liner and surface strip restored; Drop00/Drop30 plate perimeters fit to reference; original bores retained. Offline verification, no native run for this correction."
+  },
+  "nine_bay_center_bore_20261114": {
+    "selected": "Left plate in center-hole.png: larger circular center opening, eight separate round peripheral openings.",
+    "scope": "Six Nine height variants. Ignore TVC clipping per user decision.",
+    "source_before": "f19f0f1b9823b30c540d765a40ea16519bc5045938312f7261ce81e7c5a37117",
+    "sha256": "f75cd6439acc23b16dd12e6052f38710c7bab9f4015c23a29f43e3acae3c5f06",
+    "working_source": "local_workspace/CZ-10B/working/refinement_1.0.2/review/nine_plate_fit/left_selected/CZ10B_Nine_CenterBore_1.0.2_WORKING.blend",
+    "offline_verification": "local_workspace/CZ-10B/working/refinement_1.0.2/review/nine_plate_fit/left_selected/verified.json",
+    "sea_level_neutral": "Drop00/Drop30 clear of plate. Outer eight engines intersect plate in Drop50/70/80/100 at neutral.",
+    "YF100_at_075": "Neutral: no plate intersection in all six height variants.",
+    "native_check": "not run"
   }
 }
