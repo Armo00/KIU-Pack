@@ -1,7 +1,7 @@
 {
   "project": "CZ-10B",
-  "version": "1.0.2",
-  "status": "1.0.2 surface restoration with continuous interstage UV and darker metallic grid fins; scoped offline checks passed, latest revision not re-tested in KSP",
+  "version": "1.0.3",
+  "status": "九发引擎舱四个夹具凹槽已加内衬，通过离线网格检查。",
   "baseline_runtime_commit": "6753a833df180f216cf64cdb6db97cb8a29845b4",
   "baseline_archive": "CZ-10B/v1.0.0-final",
   "changes": [
@@ -627,5 +627,12 @@
     "sea_level_neutral": "Drop00/Drop30 clear of plate. Outer eight engines intersect plate in Drop50/70/80/100 at neutral.",
     "YF100_at_075": "Neutral: no plate intersection in all six height variants.",
     "native_check": "not run"
+  },
+  "pocket_liners": {
+    "model_sha256": "3785e203865722e083068f222f6578ccf7230d62bc76a702d192d0acff1ef9df",
+    "clamp_pose_checks": 84,
+    "occlusion_rays": 2436,
+    "triangles_added": 516,
+    "native_test": false
   }
 }
